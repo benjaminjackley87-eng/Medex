@@ -14,7 +14,7 @@ export class DownloadManagerService {
   constructor() {
     const saved = localStorage.getItem('medex_download_queue');
     if (saved) {
-      this.tasks = JSON.parse(saved).map((t: any) => ({
+      this.tasks = (JSON.parse(saved) as DownloadTask[]).map((t) => ({
         ...t,
         status: t.status === 'downloading' || t.status === 'pending' ? 'pending' : t.status
       }));
@@ -274,15 +274,16 @@ export class DownloadManagerService {
       task.status = 'completed';
       task.progress = 100;
       task.error = undefined;
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Download pipeline failure', err);
       task.status = 'failed';
-      const isQuotaError = err?.message?.includes('429') || err?.status === 429;
+      const errorMessage = err instanceof Error ? err.message : String(err);
+      const isQuotaError = errorMessage.includes('429') || (typeof err === 'object' && err !== null && 'status' in err && (err as { status?: number }).status === 429);
       if (isQuotaError) {
         this.isPaused = true;
         task.error = 'Quota Exceeded - Sync Paused';
       } else {
-        task.error = err?.message || 'Download Failed';
+        task.error = errorMessage || 'Download Failed';
       }
     } finally {
       this.notify();

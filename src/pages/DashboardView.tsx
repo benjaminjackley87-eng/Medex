@@ -93,7 +93,7 @@ const DashboardView: React.FC<DashboardViewProps> = (props) => {
           percentage: Math.round((learnedCount / exams.length) * 100)
         };
       })
-      .filter(Boolean);
+      .filter((item): item is { system: ExamSystem; total: number; learned: number; percentage: number } => item !== null);
 
     return { total, learned, inProgress, toReview, systemProgress };
   }, [downloadedExams]);
@@ -487,7 +487,7 @@ const DashboardView: React.FC<DashboardViewProps> = (props) => {
             </div>
             <div className="space-y-4">
               {stats.systemProgress.length > 0 ? (
-                stats.systemProgress.map((item: any) => (
+                stats.systemProgress.map((item) => (
                   <div
                     key={item.system}
                     className="flex flex-col gap-2 p-4 bg-slate-950/50 rounded-2xl border border-white/5"

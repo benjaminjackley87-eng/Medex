@@ -24,9 +24,15 @@ interface GraphLink {
   relationship: string;
 }
 
+interface ForceGraphMethods {
+  zoomToFit: (duration?: number, padding?: number) => void;
+  centerAt: (x: number, y: number, duration?: number) => void;
+  zoom: (scale: number, duration?: number) => void;
+}
+
 export function KnowledgeGraphExplorer() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const fgRef = useRef<any>(null);
+  const fgRef = useRef<ForceGraphMethods | null>(null);
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
 
@@ -34,7 +40,8 @@ export function KnowledgeGraphExplorer() {
   const graphData = useMemo(() => {
     // 1. Map valid nodes
     const validNodesMap: Record<string, boolean> = {};
-    const nodes: GraphNode[] = Object.values(graphDataRaw.nodes).map((n: any) => {
+    const nodes: GraphNode[] = (Object.values(graphDataRaw.nodes) as unknown[]).map((val) => {
+      const n = val as GraphNode;
       validNodesMap[n.id] = true;
       return {
         ...n,
@@ -44,9 +51,9 @@ export function KnowledgeGraphExplorer() {
 
     // 2. Map valid links
     const links: GraphLink[] = [];
-    Object.entries(graphDataRaw.adjacencyList).forEach(([source, targets]: [string, any]) => {
+    Object.entries(graphDataRaw.adjacencyList).forEach(([source, targets]) => {
       if (!validNodesMap[source]) return;
-      targets.forEach((t: any) => {
+      (targets as { target: string; relationship: string }[]).forEach((t) => {
         if (!validNodesMap[t.target]) return; // CRITICAL: ForceGraph will crash if target doesn't exist
         links.push({
           source,
@@ -92,14 +99,14 @@ export function KnowledgeGraphExplorer() {
 
     // Camera zoom and center
     if (fgRef.current) {
-      fgRef.current.centerAt(node.x, node.y, 800);
+      fgRef.current.centerAt(node.x || 0, node.y || 0, 800);
       fgRef.current.zoom(5, 800);
     }
   }, []);
 
   // Custom Node Painting logic for LOD
   const paintNode = useCallback(
-    (node: any, ctx: CanvasRenderingContext2D, globalScale: number) => {
+    (node: GraphNode, ctx: CanvasRenderingContext2D, globalScale: number) => {
       // LOD Visibility Culling
       // Scale 0.1 is very zoomed out. Scale > 5 is very zoomed in.
       if (globalScale < 0.8 && node.type !== 'MODULE') return;
@@ -123,7 +130,7 @@ export function KnowledgeGraphExplorer() {
 
       // Draw Circle
       ctx.beginPath();
-      ctx.arc(node.x, node.y, size, 0, 2 * Math.PI, false);
+      ctx.arc(node.x || 0, node.y || 0, size, 0, 2 * Math.PI, false);
       ctx.fillStyle = node.id === selectedNode?.id ? '#ffffff' : color;
       ctx.fill();
 
@@ -154,14 +161,14 @@ export function KnowledgeGraphExplorer() {
 
         ctx.fillStyle = 'rgba(2, 6, 23, 0.7)';
         ctx.fillRect(
-          node.x - bckgDimensions[0] / 2,
-          node.y + size + 2 / globalScale - bckgDimensions[1] / 2,
+          (node.x || 0) - bckgDimensions[0] / 2,
+          (node.y || 0) + size + 2 / globalScale - bckgDimensions[1] / 2,
           bckgDimensions[0],
           bckgDimensions[1]
         );
 
         ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-        ctx.fillText(label, node.x, node.y + size + 2 / globalScale);
+        ctx.fillText(label, node.x || 0, (node.y || 0) + size + 2 / globalScale);
       }
     },
     [selectedNode]
@@ -182,18 +189,18 @@ export function KnowledgeGraphExplorer() {
 
       <div className="graph-container flex-grow absolute inset-0 mix-blend-screen">
         <ForceGraph2D
-          ref={fgRef}
+          ref={fgRef as unknown as never}
           width={dimensions.width}
           height={dimensions.height}
           graphData={graphData}
           nodeCanvasObject={paintNode}
           nodeRelSize={6}
-          linkColor={(link: any) =>
-            link.relationship === 'CONTAINS_STRUCTURE'
+          linkColor={(link) =>
+            (link as GraphLink).relationship === 'CONTAINS_STRUCTURE'
               ? 'rgba(99, 102, 241, 0.2)'
               : 'rgba(255,255,255,0.05)'
           }
-          linkWidth={(link: any) => (link.relationship === 'CONTAINS_STRUCTURE' ? 1.5 : 0.5)}
+          linkWidth={(link) => ((link as GraphLink).relationship === 'CONTAINS_STRUCTURE' ? 1.5 : 0.5)}
           linkDirectionalParticles={0} // Disable for performance with large graphs
           onNodeClick={handleNodeClick}
           backgroundColor="transparent"

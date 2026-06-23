@@ -152,7 +152,7 @@ export const ECGView: React.FC = () => {
 
       setActivePattern(pattern.id);
       setSearchQuery('');
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('AI Fetch Error:', err);
       setFetchError(
         'Failed to fetch pattern details from AI. Please try a more specific clinical term.'

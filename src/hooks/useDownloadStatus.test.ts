@@ -4,6 +4,7 @@ import { useDownloadStatus } from './useDownloadStatus';
 import { storage } from '../services/storageService';
 import { downloadManager } from '../services/downloadManagerService';
 import { useAppStore } from '../store/useAppStore';
+import { DownloadTask, Examination } from '../types';
 
 vi.mock('../services/storageService', () => ({
   storage: {
@@ -28,7 +29,7 @@ describe('useDownloadStatus', () => {
   });
 
   it('initializes and fetches downloaded exams on mount', async () => {
-    vi.mocked(storage.getAllDownloaded).mockResolvedValue([{ id: 'exam-1' } as any]);
+    vi.mocked(storage.getAllDownloaded).mockResolvedValue([{ id: 'exam-1' } as unknown as Examination]);
     vi.mocked(downloadManager.subscribe).mockReturnValue(vi.fn());
 
     const { result } = renderHook(() => useDownloadStatus());
@@ -45,7 +46,7 @@ describe('useDownloadStatus', () => {
     vi.mocked(storage.getAllDownloaded).mockResolvedValue([]);
     
     // Capture the subscriber callback
-    let subscriberCallback: any;
+    let subscriberCallback: (tasks: DownloadTask[]) => void;
     vi.mocked(downloadManager.subscribe).mockImplementation((cb) => {
       subscriberCallback = cb;
       return vi.fn();
@@ -62,7 +63,7 @@ describe('useDownloadStatus', () => {
         { examId: 'exam-1', status: 'downloading' },
         { examId: 'exam-2', status: 'pending' },
         { examId: 'exam-3', status: 'completed' }
-      ]);
+      ] as unknown as DownloadTask[]);
     });
 
     expect(result.current.syncingIds.has('exam-1')).toBe(true);

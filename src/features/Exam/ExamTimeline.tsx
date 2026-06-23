@@ -1,16 +1,17 @@
 import React from 'react';
 import { Plus, Layers } from 'lucide-react';
 import { ExamStep, ManeuverType } from '../../types';
+import { SystemStyle } from '../../theme';
 import ExamStepCard from './ExamStepCard';
 
 interface ExamTimelineProps {
   categorizedSteps: Record<string, { steps: ExamStep[]; indices: number[] }>;
-  style: any;
+  style: SystemStyle;
   isEditMode: boolean;
   isChecklistMode: boolean;
   checkedSteps: Set<string>;
   onToggleCheck: (stepId: string) => void;
-  updateStepField: (stepId: string, field: keyof ExamStep, value: any) => void;
+  updateStepField: (stepId: string, field: keyof ExamStep, value: ExamStep[keyof ExamStep]) => void;
   addStep: (category: string) => void;
   removeStep: (stepId: string) => void;
   moveStep: (index: number, direction: 'up' | 'down') => void;

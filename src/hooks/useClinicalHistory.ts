@@ -5,7 +5,7 @@ export interface HistoryItem {
   type: 'system' | 'exam' | 'finding' | 'physiology' | 'procedure';
   label: string;
   timestamp: number;
-  metadata?: any;
+  metadata?: Record<string, unknown>;
 }
 
 export function useClinicalHistory() {
@@ -36,7 +36,7 @@ export function useClinicalHistory() {
   }, []);
 
   const addToHistory = useCallback(
-    (type: HistoryItem['type'], label: string, id: string = label, metadata?: any) => {
+    (type: HistoryItem['type'], label: string, id: string = label, metadata?: Record<string, unknown>) => {
       const newItem: HistoryItem = {
         id: `${type}-${id}-${Date.now()}`,
         type,

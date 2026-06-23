@@ -56,8 +56,8 @@ interface WorkspaceLayoutProps {
   onSelectSystem?: (system: ExamSystem) => void;
   activeExamName?: string;
   activeTab?: string;
-  onSelectTab?: (tab: any) => void;
-  tabs?: { id: string; label: string; icon: any }[];
+  onSelectTab?: (tab: string) => void;
+  tabs?: { id: string; label: string; icon: React.ComponentType<{ className?: string }> }[];
   history?: HistoryItem[];
   onClearHistory?: () => void;
   onSelectHistoryItem?: (item: HistoryItem) => void;

@@ -3,7 +3,7 @@ import { renderHook, act } from '@testing-library/react';
 import { useExaminations } from './useExaminations';
 import { useAppStore } from '../store/useAppStore';
 import { storage } from '../services/storageService';
-import { ExamSystem } from '../types';
+import { ExamSystem, Examination } from '../types';
 
 vi.mock('../services/storageService', () => ({
   storage: {
@@ -66,12 +66,12 @@ describe('useExaminations', () => {
 
   it('fetches offline exam from storage when selected', async () => {
     const mockExam = { id: 'exam-cv', name: 'Cardiovascular' };
-    vi.mocked(storage.getExamination).mockResolvedValueOnce({ ...mockExam, isDownloaded: true } as any);
+    vi.mocked(storage.getExamination).mockResolvedValueOnce({ ...mockExam, isDownloaded: true } as unknown as Examination);
     
     const { result } = renderHook(() => useExaminations());
     
     await act(async () => {
-      await result.current.handleSelectExam(mockExam as any);
+      await result.current.handleSelectExam(mockExam as unknown as Examination);
     });
 
     expect(storage.getExamination).toHaveBeenCalledWith('exam-cv');

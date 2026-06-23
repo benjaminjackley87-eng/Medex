@@ -30,6 +30,11 @@ export interface ImageConfig {
   position: ImagePosition;
 }
 
+export interface PathophysiologyInfo {
+  finding: string;
+  mechanism: string;
+}
+
 export interface ExamStep {
   id: string;
   title: string;
@@ -41,9 +46,9 @@ export interface ExamStep {
   negativeFindings?: string[];
   imagePrompt?: string;
   imageConfig?: ImageConfig;
-  pathophysiology?: string;
+  pathophysiology?: PathophysiologyInfo[];
   clinicalPearls?: string[];
-    maneuverType?: ManeuverType;
+  maneuverType?: ManeuverType;
 }
 
 export interface DifferentialDiagnosis {

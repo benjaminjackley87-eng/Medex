@@ -18,7 +18,7 @@ import { Procedure, ProcedureStep } from '../../data/collections/proceduresData'
 interface ProcedureCardProps {
   selectedProc: Procedure;
   isEditMode?: boolean;
-  updateProc: (id: string, field: keyof Procedure, value: any) => void;
+  updateProc: (id: string, field: keyof Procedure, value: Procedure[keyof Procedure]) => void;
   updateProcImage: (id: string, file: File) => void;
   addListItem: (
     id: string,
@@ -37,7 +37,7 @@ interface ProcedureCardProps {
   ) => void;
   addStep: (id: string) => void;
   removeStep: (id: string, index: number) => void;
-  updateStep: (id: string, index: number, field: keyof ProcedureStep, value: any) => void;
+  updateStep: (id: string, index: number, field: keyof ProcedureStep, value: ProcedureStep[keyof ProcedureStep]) => void;
   updateStepImage: (id: string, index: number, file: File) => void;
   setEnlargedImage: (img: { src: string; alt: string } | null) => void;
 }
@@ -128,8 +128,8 @@ export const ProcedureCard: React.FC<ProcedureCardProps> = ({
                 const input = document.createElement('input');
                 input.type = 'file';
                 input.accept = 'image/*';
-                input.onchange = (e: any) => {
-                  const file = e.target.files?.[0];
+                input.onchange = (e: Event) => {
+                  const file = (e.target as HTMLInputElement).files?.[0];
                   if (file) updateProcImage(selectedProc.id, file);
                 };
                 input.click();
@@ -340,8 +340,8 @@ export const ProcedureCard: React.FC<ProcedureCardProps> = ({
                       const input = document.createElement('input');
                       input.type = 'file';
                       input.accept = 'image/*';
-                      input.onchange = (e: any) => {
-                        const file = e.target.files?.[0];
+                      input.onchange = (e: Event) => {
+                        const file = (e.target as HTMLInputElement).files?.[0];
                         if (file) updateStepImage(selectedProc.id, i, file);
                       };
                       input.click();

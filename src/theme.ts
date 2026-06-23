@@ -1,8 +1,39 @@
 import React from 'react';
+import type { LucideIcon } from 'lucide-react';
 import { Activity, Wind, Stethoscope, Waves, Microscope, Bone, Droplets, Brain, Baby, Thermometer, Glasses, Clipboard, ShieldAlert, Layers } from 'lucide-react';
 import { ExamSystem } from './types';
 
-export const SYSTEM_THEMES: Record<ExamSystem, any> = {
+/** Shape of each system-theme entry in SYSTEM_THEMES */
+export interface SystemStyle {
+  /** Rendered icon element (e.g. <Activity className="w-4 h-4" />) */
+  icon: React.ReactElement;
+  /** Raw Lucide icon component for programmatic use */
+  iconRaw: LucideIcon;
+  /** Tailwind glow shadow class */
+  glow: string;
+  /** Tailwind border class */
+  border: string;
+  /** Tailwind background class */
+  bg: string;
+  /** Tailwind active-state background class */
+  activeBg: string;
+  /** Tailwind text colour class */
+  text: string;
+  /** Tailwind hover-shadow class */
+  shadow: string;
+  /** Tailwind card background classes */
+  cardBg: string;
+  /** Tailwind card border classes */
+  cardBorder: string;
+  /** Tailwind card accent classes */
+  cardAccent: string;
+  /** Tailwind secondary background class (solid colour) */
+  secondary: string;
+  /** Tailwind gradient accent classes */
+  accent: string;
+}
+
+export const SYSTEM_THEMES: Record<ExamSystem, SystemStyle> = {
   [ExamSystem.GENERAL]: { 
     icon: React.createElement(Layers, { className: "w-4 h-4" }), 
     iconRaw: Layers,

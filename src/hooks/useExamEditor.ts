@@ -12,12 +12,12 @@ export function useExamEditor(initialExam: Examination, onUpdate?: (updated: Exa
     setIsDirty(false);
   }, [initialExam]);
 
-  const updateGeneralField = (field: keyof Examination, value: any) => {
+  const updateGeneralField = <K extends keyof Examination>(field: K, value: Examination[K]) => {
     setExam((prev) => ({ ...prev, [field]: value }));
     setIsDirty(true);
   };
 
-  const updateStepField = (stepId: string, field: keyof ExamStep, value: any) => {
+  const updateStepField = <K extends keyof ExamStep>(stepId: string, field: K, value: ExamStep[K]) => {
     setExam((prev) => {
       const newSteps = prev.steps.map((s) => (s.id === stepId ? { ...s, [field]: value } : s));
       return { ...prev, steps: newSteps };

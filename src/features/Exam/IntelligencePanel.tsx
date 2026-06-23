@@ -5,7 +5,7 @@ import { Examination } from '../../types';
 interface IntelligencePanelProps {
   exam: Examination;
   isEditMode: boolean;
-  updateGeneralField: (field: keyof Examination, value: any) => void;
+  updateGeneralField: (field: keyof Examination, value: Examination[keyof Examination]) => void;
 }
 
 const IntelligencePanel: React.FC<IntelligencePanelProps> = ({

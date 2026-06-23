@@ -60,9 +60,8 @@ export function loadAllAppliedAnatomyModules(): AppliedAnatomyModule[] {
   // Vite-specific compile-time glob import
   const modules = import.meta.glob<AppliedAnatomyModule>('../applied_anatomy/*.json', { eager: true });
   
-  return Object.values(modules).map((mod: any) => {
-    // If the JSON is imported directly, the default export is the JSON object itself,
-    // or sometimes it's wrapped in a default property depending on Vite config.
-    return mod.default ? mod.default : mod;
+  return (Object.values(modules) as unknown[]).map((mod) => {
+    const m = mod as { default?: AppliedAnatomyModule } & AppliedAnatomyModule;
+    return m.default ? m.default : m;
   });
 }

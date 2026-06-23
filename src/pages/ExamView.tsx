@@ -206,8 +206,8 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = 'image/*';
-    input.onchange = async (e: any) => {
-      const file = e.target.files?.[0];
+    input.onchange = async (e: Event) => {
+      const file = (e.target as HTMLInputElement).files?.[0];
       if (!file) return;
 
       const assetId = `custom_${Math.random().toString(36).substr(2, 9)}`;
@@ -529,7 +529,7 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
       onSelectSystem={onSelectSystem || (() => {})}
       activeExamName={exam.name}
       activeTab={activeTab}
-      onSelectTab={(tab) => setActiveTab(tab)}
+      onSelectTab={(tab) => setActiveTab(tab as 'clinical' | 'physiology' | 'steps' | 'onepager' | 'visuals')}
       tabs={workspaceTabs}
       history={history}
       onClearHistory={clearHistory}

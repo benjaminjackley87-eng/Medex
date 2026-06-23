@@ -26,6 +26,11 @@ interface CommandPaletteProps {
 
 const PAGE_SIZE = 5;
 
+type ResultItem =
+  | { id: string; label: string; icon: React.ReactNode; view: AppView }
+  | (Examination & { isExam: true })
+  | (SearchDocument & { isFoundational: true });
+
 const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavigate, exams }) => {
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -123,13 +128,13 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
   );
 
   const standardResults = useMemo(() =>
-    [...filteredViews, ...filteredExams.map((e) => ({ ...e, isExam: true }))],
+    [...filteredViews, ...filteredExams.map((e) => ({ ...e, isExam: true as const }))],
     [filteredViews, filteredExams]
   );
 
-  const results = useMemo(() => [
+  const results = useMemo<ResultItem[]>(() => [
     ...standardResults,
-    ...foundationalResults.map((r) => ({ ...r.document, isFoundational: true }))
+    ...foundationalResults.map((r) => ({ ...r.document, isFoundational: true as const }))
   ], [standardResults, foundationalResults]);
 
   const handleQueryChange = (newQuery: string) => {
@@ -184,8 +189,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
             onClose();
           } else if ('isFoundational' in selected) {
             setSelectedDoc(selected as unknown as SearchDocument);
-          } else {
-            onNavigate((selected as any).view);
+          } else if ('view' in selected) {
+            onNavigate(selected.view);
             onClose();
           }
         }

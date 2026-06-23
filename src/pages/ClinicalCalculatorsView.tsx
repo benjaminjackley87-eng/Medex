@@ -32,7 +32,7 @@ interface CalculatorItem {
   name: string;
   category: string;
   description: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
   component: React.FC;
 }
 

@@ -13,6 +13,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { ExamStep } from '../../types';
+import { SystemStyle } from '../../theme';
 import MedImage from '../../components/common/MedImage';
 import GlossaryLink from '../../components/common/GlossaryLink';
 import ExamStepVisual from './ExamStepVisual';
@@ -22,8 +23,8 @@ interface ExamStepCardProps {
   globalIndex: number;
   isChecked: boolean;
   isEditMode?: boolean;
-  theme: any;
-  updateStepField: (id: string, field: keyof ExamStep, value: any) => void;
+  theme: SystemStyle;
+  updateStepField: (id: string, field: keyof ExamStep, value: ExamStep[keyof ExamStep]) => void;
   setCheckedSteps: React.Dispatch<React.SetStateAction<Set<string>>>;
   moveStep: (index: number, direction: 'up' | 'down') => void;
   removeStep: (id: string) => void;

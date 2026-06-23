@@ -1,7 +1,7 @@
 import React from 'react';
 import { X, BookOpen, Layers, Activity, Zap, ShieldAlert } from 'lucide-react';
 import { SearchDocument } from '../../services/localSearchService';
-import { loadAllAppliedAnatomyModules } from '../../data/collections/appliedAnatomyLoader';
+import { loadAllAppliedAnatomyModules, AppliedAnatomyModule, SpecialTest, Formula } from '../../data/collections/appliedAnatomyLoader';
 import { renderFullContent, renderBlockMath, parseContentText } from '../../utils/latexTextParser';
 
 interface FoundationalDetailModalProps {
@@ -11,10 +11,10 @@ interface FoundationalDetailModalProps {
 
 // Specialized renderer for RoteData values to extract formulas and handle objects
 // Specialized renderer for RoteData values to extract formulas and handle objects
-const renderRoteOrRelationValue = (value: any, keyName: string) => {
+const renderRoteOrRelationValue = (value: unknown, keyName: string): React.ReactNode => {
   if (typeof value === 'object' && value !== null) {
     if ('formulaName' in value && 'equation' in value) {
-      const f = value as any;
+      const f = value as unknown as Formula;
       return (
         <div className="space-y-4 w-full">
           <div className="py-2.5 bg-slate-950/80 rounded-xl border border-slate-800/20 flex justify-center overflow-x-auto px-4">
@@ -71,7 +71,7 @@ const renderRoteOrRelationValue = (value: any, keyName: string) => {
 
     return (
       <div className="space-y-3 mt-2 pl-3 border-l-2 border-slate-800">
-        {Object.entries(value).map(([subKey, subVal]) => (
+        {Object.entries(value as Record<string, unknown>).map(([subKey, subVal]) => (
           <div key={subKey} className="text-xs text-slate-300 font-medium">
             <span className="text-[10px] font-black text-blue-400 uppercase tracking-widest mr-2">
               {subKey.replace(/_/g, ' ')}:
@@ -117,9 +117,9 @@ const FoundationalDetailModal: React.FC<FoundationalDetailModalProps> = ({ docum
   const allModules = loadAllAppliedAnatomyModules();
   const currentModule = allModules.find((m) => m.moduleId === document.moduleId);
 
-  let conceptData: any = null;
-  let structureData: any = null;
-  let correlations: any[] = [];
+  let conceptData: NonNullable<AppliedAnatomyModule['concepts']>[number] | null = null;
+  let structureData: NonNullable<AppliedAnatomyModule['structures']>[number] | null = null;
+  let correlations: { scenario: string; anatomicalBasis: string }[] = [];
 
   if (currentModule) {
     if (document.type === 'concept' || document.id.startsWith('corr_concept_')) {
@@ -214,7 +214,7 @@ const FoundationalDetailModal: React.FC<FoundationalDetailModalProps> = ({ docum
                           }`}
                         >
                           <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest block">
-                            {isFormula ? (value as any).formulaName : key.replace(/_/g, ' ')}
+                            {isFormula ? (value as unknown as Formula).formulaName : key.replace(/_/g, ' ')}
                           </span>
                           <div className="mt-1">{renderRoteOrRelationValue(value, key)}</div>
                         </div>
@@ -231,7 +231,7 @@ const FoundationalDetailModal: React.FC<FoundationalDetailModalProps> = ({ docum
                     <Activity className="w-4 h-4 text-emerald-400" /> Special Provocative Tests
                   </h3>
                   <div className="space-y-6">
-                    {conceptData.specialTests.map((test: any, idx: number) => (
+                    {conceptData.specialTests.map((test: SpecialTest, idx: number) => (
                       <div
                         key={idx}
                         className="bg-slate-900/50 border border-slate-850 p-5 rounded-xl space-y-4"

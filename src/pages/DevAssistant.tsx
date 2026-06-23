@@ -28,11 +28,18 @@ interface DevAssistantProps {
   onUpdateTheme?: (theme: AppTheme) => void;
 }
 
+interface MessageData {
+  name?: string;
+  description?: string;
+  imageUrl?: string;
+  [key: string]: unknown;
+}
+
 interface Message {
   role: 'user' | 'assistant';
   content: string;
   type?: 'ecg' | 'radiology' | 'design' | 'general';
-  data?: any;
+  data?: MessageData | null;
   error?: boolean;
 }
 
@@ -91,7 +98,7 @@ export const DevAssistant: React.FC<DevAssistantProps> = (props) => {
             role: 'assistant',
             content: result.advice,
             type: 'design',
-            data: result.theme
+            data: result.theme as unknown as MessageData
           }
         ]);
       }
@@ -105,7 +112,7 @@ export const DevAssistant: React.FC<DevAssistantProps> = (props) => {
             role: 'assistant',
             content: `I've generated a profile for ${data.name}. Would you like to save it to the library?`,
             type: 'ecg',
-            data
+            data: data as unknown as MessageData
           }
         ]);
       }
@@ -127,7 +134,7 @@ export const DevAssistant: React.FC<DevAssistantProps> = (props) => {
             role: 'assistant',
             content: `I've generated a radiology profile for ${data.name}. Would you like to save it to the library?`,
             type: 'radiology',
-            data
+            data: data as unknown as MessageData
           }
         ]);
       }
@@ -161,7 +168,7 @@ export const DevAssistant: React.FC<DevAssistantProps> = (props) => {
     const msg = messages[msgIndex];
     if (!msg.data) return;
 
-    const newTheme = { ...currentTheme, ...msg.data };
+    const newTheme = { ...currentTheme, ...(msg.data as Partial<AppTheme>) };
     onUpdateTheme(newTheme);
 
     setMessages((prev) => {
@@ -183,13 +190,13 @@ export const DevAssistant: React.FC<DevAssistantProps> = (props) => {
       if (msg.type === 'ecg') {
         const pattern: ECGPattern = {
           id: `ecg_${getTimestamp()}`,
-          ...msg.data
+          ...(msg.data as unknown as ECGPattern)
         };
         await storage.saveECGPattern(pattern);
       } else if (msg.type === 'radiology') {
         const finding: RadiologyFinding = {
           id: `rad_${getTimestamp()}`,
-          ...msg.data
+          ...(msg.data as unknown as RadiologyFinding)
         };
         await storage.saveRadiologyFinding(finding);
       }
