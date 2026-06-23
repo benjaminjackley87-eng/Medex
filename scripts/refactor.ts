@@ -3,19 +3,13 @@ import fs from 'fs';
 import path from 'path';
 
 const project = new Project({
-  tsConfigFilePath: 'tsconfig.json',
+  tsConfigFilePath: 'tsconfig.json'
 });
 
 console.log('Starting refactoring process...');
 
 // 1. Move root TypeScript files into src/
-const rootFilesToMove = [
-  'App.tsx',
-  'index.tsx',
-  'constants.ts',
-  'types.ts',
-  'theme.ts'
-];
+const rootFilesToMove = ['App.tsx', 'index.tsx', 'constants.ts', 'types.ts', 'theme.ts'];
 
 for (const fileName of rootFilesToMove) {
   const sourceFile = project.getSourceFile(fileName);
@@ -62,29 +56,31 @@ console.log('Intermediate save complete.');
 
 // Now reload project to find files in their new locations for Phase 2 (Views separation)
 const project2 = new Project({
-  tsConfigFilePath: 'tsconfig.json',
+  tsConfigFilePath: 'tsconfig.json'
 });
 
 // Create views directory
 const srcDir = project2.getDirectory('src');
 if (srcDir) {
   const viewsDir = srcDir.getDirectory('views') || srcDir.createDirectory('views');
-  
+
   const componentsDir = project2.getDirectory('src/components');
   if (componentsDir) {
     console.log('Separating Views from Components...');
     // Identify View components
-    const viewFiles = componentsDir.getSourceFiles().filter(f => {
+    const viewFiles = componentsDir.getSourceFiles().filter((f) => {
       const name = f.getBaseName();
-      return name.endsWith('View.tsx') || 
-             name.includes('Explorer') || 
-             name === 'TherapeuticNavigator.tsx' ||
-             name === 'TherapeuticNavigator.test.tsx' ||
-             name === 'SymptomChecker.tsx' ||
-             name === 'ClinicalFinder.tsx' ||
-             name === 'DevAssistant.tsx';
+      return (
+        name.endsWith('View.tsx') ||
+        name.includes('Explorer') ||
+        name === 'TherapeuticNavigator.tsx' ||
+        name === 'TherapeuticNavigator.test.tsx' ||
+        name === 'SymptomChecker.tsx' ||
+        name === 'ClinicalFinder.tsx' ||
+        name === 'DevAssistant.tsx'
+      );
     });
-    
+
     for (const file of viewFiles) {
       console.log(`Moving ${file.getBaseName()} to src/views/`);
       file.moveToDirectory(viewsDir);
@@ -92,7 +88,14 @@ if (srcDir) {
   }
 
   // Same for any subdirectories in components that are purely view-related
-  const viewSubDirs = ['ClinicalCorrelationView', 'ClinicalWorkspace', 'Exam', 'ExamView', 'ProceduresView', 'sciencesExplorer'];
+  const viewSubDirs = [
+    'ClinicalCorrelationView',
+    'ClinicalWorkspace',
+    'Exam',
+    'ExamView',
+    'ProceduresView',
+    'sciencesExplorer'
+  ];
   for (const subDirName of viewSubDirs) {
     const subDir = project2.getDirectory(`src/components/${subDirName}`);
     if (subDir) {

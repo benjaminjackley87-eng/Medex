@@ -85,7 +85,7 @@ const InvestigationHub: React.FC<InvestigationHubProps> = ({
     if (initialSearchQuery) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setSearchQuery(initialSearchQuery);
-      // eslint-disable-next-line react-hooks/set-state-in-effect
+
       setActiveTab('search');
       const performSearch = async () => {
         setIsSearching(true);

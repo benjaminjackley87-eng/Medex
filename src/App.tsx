@@ -33,7 +33,6 @@ import FoundationsSuite from './features/Suites/FoundationsSuite';
 import StudyHubView from './pages/StudyHubView';
 import DownloadManager from './components/common/DownloadManager';
 
-
 function AppLayout() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
 

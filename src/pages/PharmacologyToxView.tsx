@@ -10,7 +10,11 @@ import {
   Skull,
   Activity
 } from 'lucide-react';
-import { ATODS_DATA, AGITATION_MANAGEMENT, TOXIDROMES_DATA } from '../data/collections/pharmacologyTox';
+import {
+  ATODS_DATA,
+  AGITATION_MANAGEMENT,
+  TOXIDROMES_DATA
+} from '../data/collections/pharmacologyTox';
 import { ClinicalCard } from '../components/ui/ClinicalCard';
 import { useClinicalSearch } from '../hooks/useClinicalSearch';
 

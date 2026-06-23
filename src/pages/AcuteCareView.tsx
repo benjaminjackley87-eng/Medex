@@ -11,7 +11,10 @@ import {
   Trash2,
   Save
 } from 'lucide-react';
-import { ACUTE_MANAGEMENT as INITIAL_ACUTE, AcuteManagementItem } from '../data/collections/acuteCare';
+import {
+  ACUTE_MANAGEMENT as INITIAL_ACUTE,
+  AcuteManagementItem
+} from '../data/collections/acuteCare';
 import { ClinicalCard } from '../components/ui/ClinicalCard';
 import ImageModal from '../components/common/ImageModal';
 import { useClinicalSearch } from '../hooks/useClinicalSearch';

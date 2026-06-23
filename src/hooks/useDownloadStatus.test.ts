@@ -33,18 +33,18 @@ describe('useDownloadStatus', () => {
     vi.mocked(downloadManager.subscribe).mockReturnValue(vi.fn());
 
     const { result } = renderHook(() => useDownloadStatus());
-    
+
     // We must wait for state updates from the async getAllDownloaded
     await vi.waitFor(() => {
       expect(result.current.downloadedIds.has('exam-1')).toBe(true);
     });
-    
+
     expect(downloadManager.subscribe).toHaveBeenCalled();
   });
 
   it('updates syncingIds when download manager emits events', async () => {
     vi.mocked(storage.getAllDownloaded).mockResolvedValue([]);
-    
+
     // Capture the subscriber callback
     let subscriberCallback: (tasks: DownloadTask[]) => void;
     vi.mocked(downloadManager.subscribe).mockImplementation((cb) => {

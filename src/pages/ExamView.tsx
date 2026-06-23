@@ -61,32 +61,44 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
   const store = useAppStore();
 
   // Resolve exam: from props > selectedExam in store > downloadedExams > EXAMINATIONS
-  const resolvedExam = props.exam
-    ?? (store.selectedExam?.id === id ? store.selectedExam : null)
-    ?? store.downloadedExams.find((e) => e.id === id)
-    ?? EXAMINATIONS.find((e) => e.id === id)
-    ?? null;
+  const resolvedExam =
+    props.exam ??
+    (store.selectedExam?.id === id ? store.selectedExam : null) ??
+    store.downloadedExams.find((e) => e.id === id) ??
+    EXAMINATIONS.find((e) => e.id === id) ??
+    null;
 
   const propsOnBack = props.onBack;
-  const onBack = useMemo(() => propsOnBack ?? (() => navigate('/library')), [propsOnBack, navigate]);
+  const onBack = useMemo(
+    () => propsOnBack ?? (() => navigate('/library')),
+    [propsOnBack, navigate]
+  );
   const isEditMode = props.isEditMode ?? store.isEditMode;
   const propsOnNavigateToGlossary = props.onNavigateToGlossary;
-  const onNavigateToGlossary = useMemo(() => propsOnNavigateToGlossary ?? ((term: string) => { store.setGlossaryTerm(term); navigate('/glossary'); }), [propsOnNavigateToGlossary, navigate, store]);
+  const onNavigateToGlossary = useMemo(
+    () =>
+      propsOnNavigateToGlossary ??
+      ((term: string) => {
+        store.setGlossaryTerm(term);
+        navigate('/glossary');
+      }),
+    [propsOnNavigateToGlossary, navigate, store]
+  );
   const propsOnSelectSystem = props.onSelectSystem;
-  const onSelectSystem = useMemo(() => propsOnSelectSystem ?? ((sys: ExamSystem) => { store.setSelectedSystem(sys); }), [propsOnSelectSystem, store]);
+  const onSelectSystem = useMemo(
+    () =>
+      propsOnSelectSystem ??
+      ((sys: ExamSystem) => {
+        store.setSelectedSystem(sys);
+      }),
+    [propsOnSelectSystem, store]
+  );
   const onUpdate = props.onUpdate;
 
   const initialExam = resolvedExam || dummyExam;
 
-  const {
-    exam,
-    setExam,
-    updateGeneralField,
-    updateStepField,
-    addStep,
-    removeStep,
-    moveStep
-  } = useExamEditor(initialExam, onUpdate);
+  const { exam, setExam, updateGeneralField, updateStepField, addStep, removeStep, moveStep } =
+    useExamEditor(initialExam, onUpdate);
 
   const [activeTab, setActiveTab] = useState<
     'steps' | 'physiology' | 'clinical' | 'onepager' | 'visuals'
@@ -124,7 +136,6 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     }
   }, [checkedSteps, exam.id]);
 
-
   const [newFindingText, setNewFindingText] = useState<Record<string, string>>({});
   const [newNormalText, setNewNormalText] = useState<Record<string, string>>({});
   const [newPathoFinding, setNewPathoFinding] = useState<Record<string, string>>({});
@@ -149,8 +160,6 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     });
     return groups;
   }, [exam.steps]);
-
-
 
   // Escape key navigation handler
   useEffect(() => {
@@ -293,8 +302,6 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     }
   }, [lastExamState, setExam]);
 
-
-
   // Build the context tab elements
   const workspaceTabs = [
     { id: 'steps', label: 'Protocol', icon: ListCheck },
@@ -374,8 +381,13 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
   if (!resolvedExam) {
     return (
       <div className="h-full flex flex-col items-center justify-center gap-4 text-center p-8">
-        <p className="text-slate-400 font-black uppercase tracking-widest text-sm">Exam Not Found</p>
-        <button onClick={() => navigate('/library')} className="px-6 py-3 bg-blue-600 text-white rounded-xl text-xs font-black uppercase tracking-wider">
+        <p className="text-slate-400 font-black uppercase tracking-widest text-sm">
+          Exam Not Found
+        </p>
+        <button
+          onClick={() => navigate('/library')}
+          className="px-6 py-3 bg-blue-600 text-white rounded-xl text-xs font-black uppercase tracking-wider"
+        >
           Back to Library
         </button>
       </div>

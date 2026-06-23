@@ -18,7 +18,12 @@ describe('useExamEditor', () => {
     shortDescription: 'CV Exam',
     keywords: [],
     steps: [
-      { id: 'step-1', title: 'Inspection', description: 'Look at the patient', category: 'General' },
+      {
+        id: 'step-1',
+        title: 'Inspection',
+        description: 'Look at the patient',
+        category: 'General'
+      },
       { id: 'step-2', title: 'Palpation', description: 'Palpate chest', category: 'Chest' }
     ]
   };
@@ -35,7 +40,7 @@ describe('useExamEditor', () => {
 
   it('updates a general field and sets isDirty to true', () => {
     const { result } = renderHook(() => useExamEditor(initialExam));
-    
+
     act(() => {
       result.current.updateGeneralField('name', 'Updated CV Exam');
     });
@@ -46,7 +51,7 @@ describe('useExamEditor', () => {
 
   it('updates a step field', () => {
     const { result } = renderHook(() => useExamEditor(initialExam));
-    
+
     act(() => {
       result.current.updateStepField('step-1', 'title', 'New Inspection Title');
     });
@@ -57,7 +62,7 @@ describe('useExamEditor', () => {
 
   it('adds a new step', () => {
     const { result } = renderHook(() => useExamEditor(initialExam));
-    
+
     act(() => {
       result.current.addStep('Auscultation');
     });
@@ -69,7 +74,7 @@ describe('useExamEditor', () => {
 
   it('removes a step', () => {
     const { result } = renderHook(() => useExamEditor(initialExam));
-    
+
     act(() => {
       result.current.removeStep('step-1');
     });
@@ -80,7 +85,7 @@ describe('useExamEditor', () => {
 
   it('moves a step up or down', () => {
     const { result } = renderHook(() => useExamEditor(initialExam));
-    
+
     act(() => {
       // move step-2 up
       result.current.moveStep(1, 'up');
@@ -88,7 +93,7 @@ describe('useExamEditor', () => {
 
     expect(result.current.exam.steps[0].id).toBe('step-2');
     expect(result.current.exam.steps[1].id).toBe('step-1');
-    
+
     act(() => {
       // move step-2 down
       result.current.moveStep(0, 'down');
@@ -99,7 +104,7 @@ describe('useExamEditor', () => {
 
   it('adds and removes a finding to a step', () => {
     const { result } = renderHook(() => useExamEditor(initialExam));
-    
+
     act(() => {
       result.current.addFinding('step-1', 'Murmur detected');
     });
@@ -131,10 +136,12 @@ describe('useExamEditor', () => {
 
     expect(saveResult).toBe(true);
     expect(storage.saveExamination).toHaveBeenCalledTimes(1);
-    expect(storage.saveExamination).toHaveBeenCalledWith(expect.objectContaining({
-      name: 'Changed Name',
-      isDownloaded: true
-    }));
+    expect(storage.saveExamination).toHaveBeenCalledWith(
+      expect.objectContaining({
+        name: 'Changed Name',
+        isDownloaded: true
+      })
+    );
     expect(mockOnUpdate).toHaveBeenCalled();
     expect(result.current.isDirty).toBe(false);
   });
