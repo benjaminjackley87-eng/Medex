@@ -1,14 +1,7 @@
 import { create } from 'zustand';
 import { AppTheme, StudyProgress, ExamSystem, Examination } from '../types';
 
-export const DEFAULT_THEME: AppTheme = {
-  primaryColor: '#3b82f6', // blue-500
-  secondaryColor: '#6366f1', // indigo-500
-  accentColor: '#f43f5e', // rose-500
-  borderRadius: '2xl',
-  fontSans: 'Inter',
-  glassEffect: 'medium'
-};
+import { DEFAULT_THEME } from '../constants';
 
 interface AppState {
   // Theme & Globals

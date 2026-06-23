@@ -58,7 +58,7 @@ export interface AppliedAnatomyModule {
 
 export function loadAllAppliedAnatomyModules(): AppliedAnatomyModule[] {
   // Vite-specific compile-time glob import
-  const modules = import.meta.glob<AppliedAnatomyModule>('./applied_anatomy/*.json', { eager: true });
+  const modules = import.meta.glob<AppliedAnatomyModule>('../applied_anatomy/*.json', { eager: true });
   
   return Object.values(modules).map((mod: any) => {
     // If the JSON is imported directly, the default export is the JSON object itself,

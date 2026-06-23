@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export const MAPCalculator: React.FC = () => {
   const [sbp, setSbp] = useState<string>('');
   const [dbp, setDbp] = useState<string>('');
-  const [result, setResult] = useState<number | null>(null);
 
-  useEffect(() => {
+  const result = (() => {
     const s = parseFloat(sbp);
     const d = parseFloat(dbp);
     if (!isNaN(s) && !isNaN(d)) {
-      setResult((s + 2 * d) / 3);
-    } else {
-      setResult(null);
+      return (s + 2 * d) / 3;
     }
-  }, [sbp, dbp]);
+    return null;
+  })();
 
   return (
     <div className="space-y-6">

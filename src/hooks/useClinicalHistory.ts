@@ -75,7 +75,7 @@ export function useClinicalHistory() {
 
   const clearHistory = useCallback(() => {
     setHistory(() => {
-      try { sessionStorage.setItem('medex_clinical_history', JSON.stringify([])); } catch {}
+      try { sessionStorage.setItem('medex_clinical_history', JSON.stringify([])); } catch { /* ignore */ }
       return [];
     });
   }, []);

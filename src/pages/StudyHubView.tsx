@@ -88,6 +88,9 @@ const RGA_TOPICS = [
   }
 ];
 
+const generateSessionId = () => Math.random().toString(36).substr(2, 9);
+const getCurrentTimestamp = () => Date.now();
+
 const StudyHubView: React.FC = () => {
   const [view, setView] = useState<'dashboard' | 'session' | 'results'>('dashboard');
   const [progress, setProgress] = useState<StudyProgress[]>([]);
@@ -100,10 +103,6 @@ const StudyHubView: React.FC = () => {
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
   const [sessionType, setSessionType] = useState<'practice' | 'mock'>('practice');
 
-  useEffect(() => {
-    loadStudyData();
-  }, []);
-
   const loadStudyData = async () => {
     const [savedProgress, savedSessions] = await Promise.all([
       storage.getAllStudyProgress(),
@@ -113,6 +112,13 @@ const StudyHubView: React.FC = () => {
     setSessions(savedSessions);
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      loadStudyData();
+    }, 0);
+    return () => clearTimeout(timer);
+  }, []);
+
   const startSession = async (topic: string, type: 'practice' | 'mock' = 'practice') => {
     setLoading(true);
     setSelectedTopic(topic);
@@ -121,8 +127,8 @@ const StudyHubView: React.FC = () => {
       const count = type === 'mock' ? 10 : 5;
       const questions = await geminiService.generateMCQs(topic, count);
       const newSession: ExamSession = {
-        id: Math.random().toString(36).substr(2, 9),
-        startTime: Date.now(),
+        id: generateSessionId(),
+        startTime: getCurrentTimestamp(),
         questions,
         userAnswers: [],
         score: 0,
@@ -189,7 +195,7 @@ const StudyHubView: React.FC = () => {
 
     const completedSession = {
       ...currentSession,
-      endTime: Date.now(),
+      endTime: getCurrentTimestamp(),
       isCompleted: true
     };
 
@@ -207,7 +213,7 @@ const StudyHubView: React.FC = () => {
       ...existingProgress,
       questionsAttempted: existingProgress.questionsAttempted + completedSession.questions.length,
       correctAnswers: existingProgress.correctAnswers + completedSession.score,
-      lastStudiedAt: Date.now(),
+      lastStudiedAt: getCurrentTimestamp(),
       masteryLevel: Math.round(
         ((existingProgress.correctAnswers + completedSession.score) /
           (existingProgress.questionsAttempted + completedSession.questions.length)) *

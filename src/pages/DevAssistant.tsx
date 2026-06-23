@@ -35,6 +35,8 @@ interface Message {
   data?: any;
 }
 
+const getTimestamp = () => Date.now();
+
 export const DevAssistant: React.FC<DevAssistantProps> = (props) => {
   const navigate = useNavigate();
   const store = useAppStore();
@@ -176,13 +178,13 @@ export const DevAssistant: React.FC<DevAssistantProps> = (props) => {
     try {
       if (msg.type === 'ecg') {
         const pattern: ECGPattern = {
-          id: `ecg_${Date.now()}`,
+          id: `ecg_${getTimestamp()}`,
           ...msg.data
         };
         await storage.saveECGPattern(pattern);
       } else if (msg.type === 'radiology') {
         const finding: RadiologyFinding = {
-          id: `rad_${Date.now()}`,
+          id: `rad_${getTimestamp()}`,
           ...msg.data
         };
         await storage.saveRadiologyFinding(finding);

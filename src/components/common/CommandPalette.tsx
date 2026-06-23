@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   Search,
   BookOpen,
@@ -10,7 +10,6 @@ import {
   Activity,
   Pill,
   Layers,
-  X,
   Command,
   ChevronRight
 } from 'lucide-react';
@@ -100,24 +99,44 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
     }
   ];
 
-  const filteredViews = views.filter((v) => v.label.toLowerCase().includes(query.toLowerCase()));
-  const filteredExams = exams
-    .filter((e) => e.name.toLowerCase().includes(query.toLowerCase()))
-    .slice(0, 5);
+  const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
+  if (isOpen !== prevIsOpen) {
+    setPrevIsOpen(isOpen);
+    if (isOpen) {
+      setQuery('');
+      setSelectedIndex(0);
+      setFoundationalResults([]);
+      setSelectedDoc(null);
+    }
+  }
 
-  // Combine standard navigation items
-  const standardResults = [...filteredViews, ...filteredExams.map((e) => ({ ...e, isExam: true }))];
+  const filteredViews = useMemo(() =>
+    views.filter((v) => v.label.toLowerCase().includes(query.toLowerCase())),
+    [query]
+  );
 
-  // We keep keyboard navigation focused on standard results + loaded foundational results
-  const results = [
+  const filteredExams = useMemo(() =>
+    exams
+      .filter((e) => e.name.toLowerCase().includes(query.toLowerCase()))
+      .slice(0, 5),
+    [exams, query]
+  );
+
+  const standardResults = useMemo(() =>
+    [...filteredViews, ...filteredExams.map((e) => ({ ...e, isExam: true }))],
+    [filteredViews, filteredExams]
+  );
+
+  const results = useMemo(() => [
     ...standardResults,
     ...foundationalResults.map((r) => ({ ...r.document, isFoundational: true }))
-  ];
+  ], [standardResults, foundationalResults]);
 
-  // Run search query
-  useEffect(() => {
-    if (query.trim().length > 1) {
-      const res = localSearchService.search(query, 1, PAGE_SIZE);
+  const handleQueryChange = (newQuery: string) => {
+    setQuery(newQuery);
+    setSelectedIndex(0);
+    if (newQuery.trim().length > 1) {
+      const res = localSearchService.search(newQuery, 1, PAGE_SIZE);
       setFoundationalResults(res.results);
       setCurrentPage(1);
       setTotalResults(res.totalResults);
@@ -127,7 +146,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
       setTotalResults(0);
       setHasMore(false);
     }
-  }, [query]);
+  };
 
   // Load next page
   const loadNextPage = () => {
@@ -141,11 +160,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
 
   useEffect(() => {
     if (isOpen) {
-      setQuery('');
-      setSelectedIndex(0);
-      setFoundationalResults([]);
-      setSelectedDoc(null);
-      setTimeout(() => inputRef.current?.focus(), 100);
+      const timer = setTimeout(() => inputRef.current?.focus(), 100);
+      return () => clearTimeout(timer);
     }
   }, [isOpen]);
 
@@ -200,10 +216,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
               ref={inputRef}
               type="text"
               value={query}
-              onChange={(e) => {
-                setQuery(e.target.value);
-                setSelectedIndex(0);
-              }}
+              onChange={(e) => handleQueryChange(e.target.value)}
               placeholder="Search pages, protocols, or foundational sciences (e.g. AcetylCoa)..."
               className="flex-1 bg-transparent border-none outline-none text-lg font-medium text-slate-100 placeholder:text-slate-400"
             />

@@ -34,6 +34,7 @@ const DifferentialPanel: React.FC<DifferentialPanelProps> = ({
   };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     generate();
   }, [(findings || []).length]); // Re-run if finding count changes substantially
 

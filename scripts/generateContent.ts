@@ -239,7 +239,6 @@ async function runPipeline() {
     process.exit(1);
   }
 
-  let draftObj: any;
   let iterationsCount = 0;
 
   // Internal function to clean and validate
@@ -284,7 +283,7 @@ async function runPipeline() {
     process.exit(1);
   }
 
-  draftObj = validationResult.data;
+  const draftObj = validationResult.data;
 
   // --- STEP 2: CRITIC REVIEW & REFLECTION LOOP ---
   let finalDraftObj = draftObj;

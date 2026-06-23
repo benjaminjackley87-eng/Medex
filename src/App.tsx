@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom
 import Sidebar from './components/common/Sidebar';
 import DashboardView from './pages/DashboardView';
 import LibraryView from './pages/LibraryView';
-import AcuteCareView from './pages/AcuteCareView';
+
 import ExamView from './pages/ExamView';
 import ClinicalFinder from './pages/ClinicalFinder';
 import TutorialView from './pages/TutorialView';

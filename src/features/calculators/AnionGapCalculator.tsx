@@ -1,21 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export const AnionGapCalculator: React.FC = () => {
   const [na, setNa] = useState<string>('');
   const [cl, setCl] = useState<string>('');
   const [hco3, setHco3] = useState<string>('');
-  const [result, setResult] = useState<number | null>(null);
 
-  useEffect(() => {
+  const result = (() => {
     const n = parseFloat(na);
     const c = parseFloat(cl);
     const h = parseFloat(hco3);
     if (!isNaN(n) && !isNaN(c) && !isNaN(h)) {
-      setResult(n - (c + h));
-    } else {
-      setResult(null);
+      return n - (c + h);
     }
-  }, [na, cl, hco3]);
+    return null;
+  })();
 
   return (
     <div className="space-y-6">

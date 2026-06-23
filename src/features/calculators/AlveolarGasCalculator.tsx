@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export const AlveolarGasCalculator: React.FC = () => {
   const [fio2, setFio2] = useState<string>('21');
@@ -8,10 +8,7 @@ export const AlveolarGasCalculator: React.FC = () => {
   const [rq, setRq] = useState<string>('0.8');
   const [pao2, setPao2] = useState<string>('');
 
-  const [pao2Result, setPao2Result] = useState<number | null>(null);
-  const [gradient, setGradient] = useState<number | null>(null);
-
-  useEffect(() => {
+  const { pao2Result, gradient } = (() => {
     const f = parseFloat(fio2) / 100;
     const pat = parseFloat(patm);
     const ph = parseFloat(ph2o);
@@ -20,19 +17,12 @@ export const AlveolarGasCalculator: React.FC = () => {
 
     if (!isNaN(f) && !isNaN(pat) && !isNaN(ph) && !isNaN(pac) && !isNaN(r) && r > 0) {
       const pAO2Val = f * (pat - ph) - pac / r;
-      setPao2Result(pAO2Val);
-
       const pa = parseFloat(pao2);
-      if (!isNaN(pa)) {
-        setGradient(pAO2Val - pa);
-      } else {
-        setGradient(null);
-      }
-    } else {
-      setPao2Result(null);
-      setGradient(null);
+      const grad = !isNaN(pa) ? pAO2Val - pa : null;
+      return { pao2Result: pAO2Val, gradient: grad };
     }
-  }, [fio2, patm, ph2o, paco2, rq, pao2]);
+    return { pao2Result: null, gradient: null };
+  })();
 
   return (
     <div className="space-y-6">

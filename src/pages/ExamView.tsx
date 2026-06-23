@@ -1,24 +1,16 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Examination, ClinicalCorrelation, ExamStep, LearningStatus, ExamSystem } from '../types';
+import { Examination, ClinicalCorrelation, ExamStep, ExamSystem } from '../types';
 import { GeminiService } from '../services/geminiService';
 import { SYSTEM_THEMES, DEFAULT_STYLE } from '../theme';
 import { useExamEditor } from '../hooks/useExamEditor';
 import { storage } from '../services/storageService';
 import { useAppStore } from '../store/useAppStore';
 import { EXAMINATIONS } from '../constants';
-import MedImage from '../components/common/MedImage';
 import ImageModal from '../components/common/ImageModal';
 import {
-  ArrowLeft,
-  Save,
-  ChevronUp,
-  ChevronDown,
-  Plus,
-  BookOpen,
   Clock,
   Activity,
-  Layout,
   FileText,
   ImageIcon,
   Microscope,
@@ -28,22 +20,15 @@ import {
   RotateCcw,
   RefreshCw,
   X,
-  ShieldCheck,
   AlertCircle,
-  Lightbulb,
-  UserCheck,
-  Info,
-  ChevronRight
+  Info
 } from 'lucide-react';
 
 import { WorkspaceLayout } from '../features/ClinicalWorkspace/WorkspaceLayout';
 import { useClinicalHistory, HistoryItem } from '../hooks/useClinicalHistory';
 import { ExamStepsTab } from '../features/ExamView/ExamStepsTab';
-import { ExamPhysiologyTab } from '../features/ExamView/ExamPhysiologyTab';
-import { ExamClinicalTab } from '../features/ExamView/ExamClinicalTab';
 import { ExamVisualsTab } from '../features/ExamView/ExamVisualsTab';
 import { ExamOnePagerTab } from '../features/ExamView/ExamOnePagerTab';
-import { ExamStepCard } from '../features/ExamView/ExamStepCard';
 
 interface ExamViewProps {
   exam?: Examination;
@@ -53,6 +38,15 @@ interface ExamViewProps {
   onNavigateToGlossary?: (term: string) => void;
   onSelectSystem?: (system: ExamSystem) => void;
 }
+
+const dummyExam: Examination = {
+  id: '',
+  system: '',
+  name: '',
+  shortDescription: '',
+  steps: [],
+  keywords: []
+};
 
 const ExamView: React.FC<ExamViewProps> = (props) => {
   const { id } = useParams<{ id: string }>();
@@ -66,45 +60,34 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     ?? EXAMINATIONS.find((e) => e.id === id)
     ?? null;
 
-  const onBack = props.onBack ?? (() => navigate('/library'));
+  const propsOnBack = props.onBack;
+  const onBack = useMemo(() => propsOnBack ?? (() => navigate('/library')), [propsOnBack, navigate]);
   const isEditMode = props.isEditMode ?? store.isEditMode;
-  const onNavigateToGlossary = props.onNavigateToGlossary ?? ((term: string) => { store.setGlossaryTerm(term); navigate('/glossary'); });
-  const onSelectSystem = props.onSelectSystem ?? ((sys: ExamSystem) => { store.setSelectedSystem(sys); });
+  const propsOnNavigateToGlossary = props.onNavigateToGlossary;
+  const onNavigateToGlossary = useMemo(() => propsOnNavigateToGlossary ?? ((term: string) => { store.setGlossaryTerm(term); navigate('/glossary'); }), [propsOnNavigateToGlossary, navigate, store]);
+  const propsOnSelectSystem = props.onSelectSystem;
+  const onSelectSystem = useMemo(() => propsOnSelectSystem ?? ((sys: ExamSystem) => { store.setSelectedSystem(sys); }), [propsOnSelectSystem, store]);
   const onUpdate = props.onUpdate;
 
-  if (!resolvedExam) {
-    return (
-      <div className="h-full flex flex-col items-center justify-center gap-4 text-center p-8">
-        <p className="text-slate-400 font-black uppercase tracking-widest text-sm">Exam Not Found</p>
-        <button onClick={() => navigate('/library')} className="px-6 py-3 bg-blue-600 text-white rounded-xl text-xs font-black uppercase tracking-wider">
-          Back to Library
-        </button>
-      </div>
-    );
-  }
-
-  const initialExam = resolvedExam;
+  const initialExam = resolvedExam || dummyExam;
 
   const {
     exam,
     setExam,
-    isDirty,
     updateGeneralField,
     updateStepField,
     addStep,
     removeStep,
-    moveStep,
-    handleSave
+    moveStep
   } = useExamEditor(initialExam, onUpdate);
 
   const [activeTab, setActiveTab] = useState<
     'steps' | 'physiology' | 'clinical' | 'onepager' | 'visuals'
   >('steps');
   const [isResearching, setIsResearching] = useState(false);
-  const [selectedStepId, setSelectedStepId] = useState<string | null>(null);
 
   // Clinical History hook integration
-  const { history, addToHistory, clearHistory, removeFromHistory } = useClinicalHistory();
+  const { history, addToHistory, clearHistory } = useClinicalHistory();
 
   // Dynamic detail side-panel states
   const [selectedPathoSign, setSelectedPathoSign] = useState<string | null>(null);
@@ -134,7 +117,6 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     }
   }, [checkedSteps, exam.id]);
 
-  const [focusMode, setFocusMode] = useState(false);
 
   const [newFindingText, setNewFindingText] = useState<Record<string, string>>({});
   const [newNormalText, setNewNormalText] = useState<Record<string, string>>({});
@@ -161,12 +143,7 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     return groups;
   }, [exam.steps]);
 
-  // Set default selected step when steps load
-  useEffect(() => {
-    if (exam.steps && exam.steps.length > 0 && !selectedStepId) {
-      setSelectedStepId(exam.steps[0].id);
-    }
-  }, [exam.steps, selectedStepId]);
+
 
   // Escape key navigation handler
   useEffect(() => {
@@ -200,6 +177,7 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
       }
     };
     research();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [exam.id, exam.isDownloaded, gemini, setExam]);
 
   const fetchClinicalCorrelation = async (sign: string) => {
@@ -272,7 +250,7 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
           if (localUrl) updateStepField(stepId, 'localImageUrl', localUrl);
         }
       }
-    } catch (e) {
+    } catch {
       alert('Generation failed. Check connectivity.');
     }
   };
@@ -282,7 +260,7 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
       ? Math.round((checkedSteps.size / (exam.steps || []).length) * 100)
       : 0;
 
-  const handleRefine = async () => {
+  const handleRefine = useCallback(async () => {
     if (!refinementPrompt.trim() || !navigator.onLine) return;
     setIsRefining(true);
     try {
@@ -298,21 +276,17 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     } finally {
       setIsRefining(false);
     }
-  };
+  }, [exam, refinementPrompt, gemini, setExam]);
 
-  const handleUndoRefine = () => {
+  const handleUndoRefine = useCallback(() => {
     if (lastExamState) {
       setExam(lastExamState);
       setLastExamState(null);
       setShowUndo(false);
     }
-  };
+  }, [lastExamState, setExam]);
 
-  const handleSelectStep = (stepId: string, stepTitle: string) => {
-    setSelectedStepId(stepId);
-    setSelectedPathoSign(null); // Clear sign details when switching steps
-    addToHistory('exam', stepTitle);
-  };
+
 
   // Build the context tab elements
   const workspaceTabs = [
@@ -447,7 +421,7 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
             </div>
             <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-indigo-500 to-emerald-500 transition-all duration-1000"
+                className="h-full bg-linear-to-r from-indigo-500 to-emerald-500 transition-all duration-1000"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -502,15 +476,8 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     }
 
     if (activeTab === 'physiology') {
-      if (
-        selectedPhysiologyBucket === null &&
-        exam.physiologyBuckets &&
-        exam.physiologyBuckets.length > 0
-      ) {
-        setSelectedPhysiologyBucket(0);
-      }
-
-      const bucket = exam.physiologyBuckets?.[selectedPhysiologyBucket || 0];
+      const bucketIndex = selectedPhysiologyBucket ?? 0;
+      const bucket = exam.physiologyBuckets?.[bucketIndex];
       if (!bucket) return null;
 
       return (
@@ -544,15 +511,8 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     }
 
     if (activeTab === 'clinical') {
-      if (
-        selectedDifferentialIndex === null &&
-        exam.differentialDiagnoses &&
-        exam.differentialDiagnoses.length > 0
-      ) {
-        setSelectedDifferentialIndex(0);
-      }
-
-      const diff = exam.differentialDiagnoses?.[selectedDifferentialIndex || 0];
+      const diffIndex = selectedDifferentialIndex ?? 0;
+      const diff = exam.differentialDiagnoses?.[diffIndex];
       if (!diff) return null;
 
       return (
@@ -586,7 +546,6 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     );
   }, [
     activeTab,
-    selectedStepId,
     selectedPathoSign,
     loadingPathoData,
     pathoSignData,
@@ -594,11 +553,24 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     selectedDifferentialIndex,
     exam,
     checkedSteps,
-    isEditMode,
     refinementPrompt,
     isRefining,
-    showUndo
+    showUndo,
+    handleRefine,
+    handleUndoRefine,
+    progress
   ]);
+
+  if (!resolvedExam) {
+    return (
+      <div className="h-full flex flex-col items-center justify-center gap-4 text-center p-8">
+        <p className="text-slate-400 font-black uppercase tracking-widest text-sm">Exam Not Found</p>
+        <button onClick={() => navigate('/library')} className="px-6 py-3 bg-blue-600 text-white rounded-xl text-xs font-black uppercase tracking-wider">
+          Back to Library
+        </button>
+      </div>
+    );
+  }
 
   if (isResearching)
     return (

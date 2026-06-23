@@ -55,24 +55,24 @@ const AnaestheticsCCView: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    let active = true;
+    const loadCustomDrugs = async () => {
+      try {
+        const drugs = await storage.getAnaesthesiaDrugs();
+        if (active) {
+          setCustomDrugs(drugs);
+        }
+      } catch (e) {
+        console.error('Failed to load custom drugs:', e);
+      }
+    };
     loadCustomDrugs();
+    return () => {
+      active = false;
+    };
   }, []);
 
-  const loadCustomDrugs = async () => {
-    try {
-      const drugs = await storage.getAnaesthesiaDrugs();
-      setCustomDrugs(drugs);
-    } catch (e) {
-      console.error('Failed to load custom drugs:', e);
-    }
-  };
 
-  const deduplicate = (base: AnaesthesiaDrug[], custom: AnaesthesiaDrug[]) => {
-    const map = new Map<string, AnaesthesiaDrug>();
-    base.forEach((d) => map.set(d.name, d));
-    custom.forEach((d) => map.set(d.name, d));
-    return Array.from(map.values());
-  };
 
   const allDrugs = [
     ...INDUCTION_AGENTS.map((d) => ({ ...d, category: 'induction' })),

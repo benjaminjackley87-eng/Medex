@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { useAppStore, DEFAULT_THEME } from './useAppStore';
+import { useAppStore } from './useAppStore';
 import { AppTheme, StudyProgress } from '../types';
+import { DEFAULT_THEME } from '../constants';
 
 describe('useAppStore', () => {
   beforeEach(() => {

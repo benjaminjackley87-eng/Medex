@@ -1,19 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export const CorrectedCalciumCalculator: React.FC = () => {
   const [calcium, setCalcium] = useState<string>('');
   const [albumin, setAlbumin] = useState<string>('');
-  const [result, setResult] = useState<number | null>(null);
 
-  useEffect(() => {
+  const result = (() => {
     const ca = parseFloat(calcium);
     const alb = parseFloat(albumin);
     if (!isNaN(ca) && !isNaN(alb)) {
-      setResult(ca + 0.02 * (40 - alb));
-    } else {
-      setResult(null);
+      return ca + 0.02 * (40 - alb);
     }
-  }, [calcium, albumin]);
+    return null;
+  })();
 
   return (
     <div className="space-y-6">
