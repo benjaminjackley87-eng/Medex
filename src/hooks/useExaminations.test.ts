@@ -3,7 +3,7 @@ import { renderHook, act } from '@testing-library/react';
 import { useExaminations } from './useExaminations';
 import { useAppStore } from '../store/useAppStore';
 import { storage } from '../services/storageService';
-import { ExamSystem } from '../types';
+import { ExamSystem, Examination } from '../types';
 
 vi.mock('../services/storageService', () => ({
   storage: {
@@ -34,11 +34,11 @@ describe('useExaminations', () => {
   it('filters examinations based on searchQuery', () => {
     useAppStore.setState({ searchQuery: 'cardiovascular' });
     const { result } = renderHook(() => useExaminations());
-    
+
     // It should contain the Cardiovascular exam
     expect(Object.keys(result.current.displayGroups).length).toBeGreaterThan(0);
-    const hasCV = Object.values(result.current.displayGroups).some(group => 
-      group.some(exam => exam.system.toLowerCase().includes('cardiovascular'))
+    const hasCV = Object.values(result.current.displayGroups).some((group) =>
+      group.some((exam) => exam.system.toLowerCase().includes('cardiovascular'))
     );
     expect(hasCV).toBe(true);
   });
@@ -46,18 +46,18 @@ describe('useExaminations', () => {
   it('provides a didYouMean suggestion for bad searches', () => {
     useAppStore.setState({ searchQuery: 'cardiovasclar' }); // typo
     const { result } = renderHook(() => useExaminations());
-    
+
     expect(result.current.didYouMean).toBeTruthy(); // Should match 'Cardiovascular'
   });
 
   it('toggles expanded systems', () => {
     const { result } = renderHook(() => useExaminations());
-    
+
     act(() => {
       result.current.toggleSystemExpansion('Cardiovascular');
     });
     expect(result.current.expandedSystems.has('Cardiovascular')).toBe(true);
-    
+
     act(() => {
       result.current.toggleSystemExpansion('Cardiovascular');
     });
@@ -66,12 +66,12 @@ describe('useExaminations', () => {
 
   it('fetches offline exam from storage when selected', async () => {
     const mockExam = { id: 'exam-cv', name: 'Cardiovascular' };
-    vi.mocked(storage.getExamination).mockResolvedValueOnce({ ...mockExam, isDownloaded: true } as any);
+    vi.mocked(storage.getExamination).mockResolvedValueOnce({ ...mockExam, isDownloaded: true } as unknown as Examination);
     
     const { result } = renderHook(() => useExaminations());
-    
+
     await act(async () => {
-      await result.current.handleSelectExam(mockExam as any);
+      await result.current.handleSelectExam(mockExam as unknown as Examination);
     });
 
     expect(storage.getExamination).toHaveBeenCalledWith('exam-cv');
@@ -81,7 +81,7 @@ describe('useExaminations', () => {
   it('filters displayGroups by selectedSystem if one is set', () => {
     useAppStore.setState({ selectedSystem: ExamSystem.RESPIRATORY });
     const { result } = renderHook(() => useExaminations());
-    
+
     expect(Object.keys(result.current.displayGroups)).toEqual([ExamSystem.RESPIRATORY]);
   });
 });

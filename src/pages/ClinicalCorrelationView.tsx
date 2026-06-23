@@ -43,6 +43,11 @@ import ImageModal from '../components/common/ImageModal';
 import { CorrelationTab } from '../features/ClinicalCorrelationView/CorrelationTab';
 import { SynthesisTab } from '../features/ClinicalCorrelationView/SynthesisTab';
 
+interface CorrelationSettings {
+  update_interval_hours: string;
+  sync_mode: string;
+}
+
 interface ClinicalCorrelationViewProps {
   onNavigateToInvestigations?: (query: string) => void;
   onNavigateToGlossary?: (term: string) => void;
@@ -98,7 +103,7 @@ const ClinicalCorrelationView: React.FC<ClinicalCorrelationViewProps> = ({
     fetchSettings();
   }, []);
 
-  const handleUpdateSettings = async (newSettings: any) => {
+  const handleUpdateSettings = async (newSettings: Partial<CorrelationSettings>) => {
     try {
       const res = await fetch('/api/settings', {
         method: 'POST',
@@ -159,7 +164,7 @@ const ClinicalCorrelationView: React.FC<ClinicalCorrelationViewProps> = ({
           forceRefresh
         );
         setCorrelation(result);
-      } catch (err: any) {
+      } catch (err: unknown) {
         setError('Analysis failed. Please try a common medical sign.');
       } finally {
         setLoading(false);
@@ -189,7 +194,7 @@ const ClinicalCorrelationView: React.FC<ClinicalCorrelationViewProps> = ({
           setClarifyingQuestions([]);
           setClarifyingResponses([]);
         }
-      } catch (err: any) {
+      } catch (err: unknown) {
         setError('Synthesis failed. Please try again.');
       } finally {
         setLoading(false);
@@ -211,7 +216,7 @@ const ClinicalCorrelationView: React.FC<ClinicalCorrelationViewProps> = ({
       );
       setClarifyingQuestions(questions);
       setClarifyingResponses(questions.map((q) => ({ questionId: q.id, response: '' })));
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError('Failed to generate clarifying questions.');
     } finally {
       setIsGeneratingQuestions(false);

@@ -1,11 +1,12 @@
 import React from 'react';
 import { Plus, Sparkles, Send, RotateCcw, RefreshCw } from 'lucide-react';
 import { Examination, ExamStep } from '../../types';
+import { SystemStyle } from '../../theme';
 import { ExamStepCard } from './ExamStepCard';
 
 interface ExamStepsTabProps {
   exam: Examination;
-  theme: any;
+  theme: SystemStyle;
   isEditMode?: boolean;
   progress: number;
   checkedSteps: Set<string>;
@@ -20,8 +21,8 @@ interface ExamStepsTabProps {
   addStep: (cat: string) => void;
   removeStep: (id: string) => void;
   moveStep: (index: number, direction: 'up' | 'down') => void;
-  updateStepField: (id: string, field: keyof ExamStep, value: any) => void;
-  updateGeneralField: (field: keyof Examination, value: any) => void;
+  updateStepField: (id: string, field: keyof ExamStep, value: ExamStep[keyof ExamStep]) => void;
+  updateGeneralField: (field: keyof Examination, value: Examination[keyof Examination]) => void;
   handleImageUpload: (stepId: string | 'header') => Promise<void>;
   handleImageGenerate: (stepId: string | 'header') => Promise<void>;
   setEnlargedImage: (img: { src: string; alt: string } | null) => void;

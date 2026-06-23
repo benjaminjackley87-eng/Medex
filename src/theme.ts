@@ -1,8 +1,39 @@
 import React from 'react';
+import type { LucideIcon } from 'lucide-react';
 import { Activity, Wind, Stethoscope, Waves, Microscope, Bone, Droplets, Brain, Baby, Thermometer, Glasses, Clipboard, ShieldAlert, Layers } from 'lucide-react';
 import { ExamSystem } from './types';
 
-export const SYSTEM_THEMES: Record<ExamSystem, any> = {
+/** Shape of each system-theme entry in SYSTEM_THEMES */
+export interface SystemStyle {
+  /** Rendered icon element (e.g. <Activity className="w-4 h-4" />) */
+  icon: React.ReactElement;
+  /** Raw Lucide icon component for programmatic use */
+  iconRaw: LucideIcon;
+  /** Tailwind glow shadow class */
+  glow: string;
+  /** Tailwind border class */
+  border: string;
+  /** Tailwind background class */
+  bg: string;
+  /** Tailwind active-state background class */
+  activeBg: string;
+  /** Tailwind text colour class */
+  text: string;
+  /** Tailwind hover-shadow class */
+  shadow: string;
+  /** Tailwind card background classes */
+  cardBg: string;
+  /** Tailwind card border classes */
+  cardBorder: string;
+  /** Tailwind card accent classes */
+  cardAccent: string;
+  /** Tailwind secondary background class (solid colour) */
+  secondary: string;
+  /** Tailwind gradient accent classes */
+  accent: string;
+}
+
+export const SYSTEM_THEMES: Record<ExamSystem, SystemStyle> = {
   [ExamSystem.GENERAL]: { 
     icon: React.createElement(Layers, { className: "w-4 h-4" }), 
     iconRaw: Layers,
@@ -18,8 +49,8 @@ export const SYSTEM_THEMES: Record<ExamSystem, any> = {
     secondary: 'bg-slate-500',
     accent: 'from-slate-500 to-slate-800'
   },
-  [ExamSystem.CARDIOVASCULAR]: { 
-    icon: React.createElement(Activity, { className: "w-4 h-4" }), 
+  [ExamSystem.CARDIOVASCULAR]: {
+    icon: React.createElement(Activity, { className: 'w-4 h-4' }),
     iconRaw: Activity,
     glow: 'shadow-[0_0_20px_-5px_rgba(244,63,94,0.5)]',
     border: 'border-rose-400/40',
@@ -33,8 +64,8 @@ export const SYSTEM_THEMES: Record<ExamSystem, any> = {
     secondary: 'bg-rose-500',
     accent: 'from-rose-500 to-pink-600'
   },
-  [ExamSystem.RESPIRATORY]: { 
-    icon: React.createElement(Wind, { className: "w-4 h-4" }), 
+  [ExamSystem.RESPIRATORY]: {
+    icon: React.createElement(Wind, { className: 'w-4 h-4' }),
     iconRaw: Wind,
     glow: 'shadow-[0_0_20px_-5px_rgba(14,165,233,0.5)]',
     border: 'border-sky-400/40',
@@ -48,8 +79,8 @@ export const SYSTEM_THEMES: Record<ExamSystem, any> = {
     secondary: 'bg-sky-500',
     accent: 'from-sky-500 to-indigo-600'
   },
-  [ExamSystem.GASTROINTESTINAL]: { 
-    icon: React.createElement(Stethoscope, { className: "w-4 h-4" }), 
+  [ExamSystem.GASTROINTESTINAL]: {
+    icon: React.createElement(Stethoscope, { className: 'w-4 h-4' }),
     iconRaw: Stethoscope,
     glow: 'shadow-[0_0_20px_-5px_rgba(16,185,129,0.5)]',
     border: 'border-emerald-400/40',
@@ -63,8 +94,8 @@ export const SYSTEM_THEMES: Record<ExamSystem, any> = {
     secondary: 'bg-emerald-500',
     accent: 'from-emerald-500 to-teal-600'
   },
-  [ExamSystem.GENITOURINARY]: { 
-    icon: React.createElement(Waves, { className: "w-4 h-4" }), 
+  [ExamSystem.GENITOURINARY]: {
+    icon: React.createElement(Waves, { className: 'w-4 h-4' }),
     iconRaw: Waves,
     glow: 'shadow-[0_0_20px_-5px_rgba(6,182,212,0.5)]',
     border: 'border-cyan-400/40',
@@ -78,8 +109,8 @@ export const SYSTEM_THEMES: Record<ExamSystem, any> = {
     secondary: 'bg-cyan-500',
     accent: 'from-cyan-500 to-blue-600'
   },
-  [ExamSystem.HAEMATOLOGICAL]: { 
-    icon: React.createElement(Microscope, { className: "w-4 h-4" }), 
+  [ExamSystem.HAEMATOLOGICAL]: {
+    icon: React.createElement(Microscope, { className: 'w-4 h-4' }),
     iconRaw: Microscope,
     glow: 'shadow-[0_0_20px_-5px_rgba(236,72,153,0.5)]',
     border: 'border-pink-400/40',
@@ -93,8 +124,8 @@ export const SYSTEM_THEMES: Record<ExamSystem, any> = {
     secondary: 'bg-pink-500',
     accent: 'from-pink-500 to-rose-700'
   },
-  [ExamSystem.RHEUMATOLOGICAL]: { 
-    icon: React.createElement(Bone, { className: "w-4 h-4" }), 
+  [ExamSystem.RHEUMATOLOGICAL]: {
+    icon: React.createElement(Bone, { className: 'w-4 h-4' }),
     iconRaw: Bone,
     glow: 'shadow-[0_0_20px_-5px_rgba(245,158,11,0.5)]',
     border: 'border-amber-400/40',
@@ -108,8 +139,8 @@ export const SYSTEM_THEMES: Record<ExamSystem, any> = {
     secondary: 'bg-amber-500',
     accent: 'from-amber-500 to-orange-600'
   },
-  [ExamSystem.ENDOCRINE]: { 
-    icon: React.createElement(Droplets, { className: "w-4 h-4" }), 
+  [ExamSystem.ENDOCRINE]: {
+    icon: React.createElement(Droplets, { className: 'w-4 h-4' }),
     iconRaw: Droplets,
     glow: 'shadow-[0_0_20px_-5px_rgba(99,102,241,0.5)]',
     border: 'border-indigo-400/40',
@@ -123,8 +154,8 @@ export const SYSTEM_THEMES: Record<ExamSystem, any> = {
     secondary: 'bg-indigo-500',
     accent: 'from-indigo-500 to-blue-700'
   },
-  [ExamSystem.NEUROLOGICAL]: { 
-    icon: React.createElement(Brain, { className: "w-4 h-4" }), 
+  [ExamSystem.NEUROLOGICAL]: {
+    icon: React.createElement(Brain, { className: 'w-4 h-4' }),
     iconRaw: Brain,
     glow: 'shadow-[0_0_20px_-5px_rgba(139,92,246,0.5)]',
     border: 'border-violet-400/40',
@@ -138,8 +169,8 @@ export const SYSTEM_THEMES: Record<ExamSystem, any> = {
     secondary: 'bg-violet-500',
     accent: 'from-violet-500 to-fuchsia-600'
   },
-  [ExamSystem.PAEDIATRIC]: { 
-    icon: React.createElement(Baby, { className: "w-4 h-4" }), 
+  [ExamSystem.PAEDIATRIC]: {
+    icon: React.createElement(Baby, { className: 'w-4 h-4' }),
     iconRaw: Baby,
     glow: 'shadow-[0_0_20px_-5px_rgba(34,197,94,0.5)]',
     border: 'border-green-400/40',
@@ -153,8 +184,8 @@ export const SYSTEM_THEMES: Record<ExamSystem, any> = {
     secondary: 'bg-green-500',
     accent: 'from-green-500 to-teal-700'
   },
-  [ExamSystem.WOMENS_HEALTH]: { 
-    icon: React.createElement(Thermometer, { className: "w-4 h-4" }), 
+  [ExamSystem.WOMENS_HEALTH]: {
+    icon: React.createElement(Thermometer, { className: 'w-4 h-4' }),
     iconRaw: Thermometer,
     glow: 'shadow-[0_0_20px_-5px_rgba(244,63,94,0.5)]',
     border: 'border-rose-400/40',
@@ -168,8 +199,8 @@ export const SYSTEM_THEMES: Record<ExamSystem, any> = {
     secondary: 'bg-rose-500',
     accent: 'from-rose-500 to-purple-600'
   },
-  [ExamSystem.SPECIALTY]: { 
-    icon: React.createElement(Glasses, { className: "w-4 h-4" }), 
+  [ExamSystem.SPECIALTY]: {
+    icon: React.createElement(Glasses, { className: 'w-4 h-4' }),
     iconRaw: Glasses,
     glow: 'shadow-[0_0_20px_-5px_rgba(14,165,233,0.5)]',
     border: 'border-sky-400/40',
@@ -183,8 +214,8 @@ export const SYSTEM_THEMES: Record<ExamSystem, any> = {
     secondary: 'bg-sky-500',
     accent: 'from-sky-500 to-slate-700'
   },
-  [ExamSystem.MENTAL_HEALTH]: { 
-    icon: React.createElement(Clipboard, { className: "w-4 h-4" }), 
+  [ExamSystem.MENTAL_HEALTH]: {
+    icon: React.createElement(Clipboard, { className: 'w-4 h-4' }),
     iconRaw: Clipboard,
     glow: 'shadow-[0_0_20px_-5px_rgba(168,85,247,0.5)]',
     border: 'border-purple-400/40',
@@ -198,8 +229,8 @@ export const SYSTEM_THEMES: Record<ExamSystem, any> = {
     secondary: 'bg-purple-500',
     accent: 'from-purple-500 to-indigo-800'
   },
-  [ExamSystem.ACUTE_CARE]: { 
-    icon: React.createElement(ShieldAlert, { className: "w-4 h-4" }), 
+  [ExamSystem.ACUTE_CARE]: {
+    icon: React.createElement(ShieldAlert, { className: 'w-4 h-4' }),
     iconRaw: ShieldAlert,
     glow: 'shadow-[0_0_20px_-5px_rgba(239,68,68,0.5)]',
     border: 'border-red-400/40',
@@ -212,7 +243,7 @@ export const SYSTEM_THEMES: Record<ExamSystem, any> = {
     cardAccent: 'bg-red-100 text-red-600',
     secondary: 'bg-red-500',
     accent: 'from-red-600 to-red-900'
-  },
+  }
 };
 
 export const DEFAULT_STYLE = SYSTEM_THEMES[ExamSystem.GENERAL];

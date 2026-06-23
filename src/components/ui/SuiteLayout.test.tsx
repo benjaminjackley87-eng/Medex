@@ -44,9 +44,9 @@ describe('SuiteLayout', () => {
     const { getByTestId, getByText } = render(<SuiteLayout {...defaultProps} />);
     expect(getByTestId('sidebar-content')).toBeInTheDocument();
     expect(getByText('My Sidebar')).toBeInTheDocument();
-    
+
     expect(getByTestId('main-content')).toBeInTheDocument();
-    
+
     expect(getByTestId('detail-content')).toBeInTheDocument();
     expect(getByText('My Detail')).toBeInTheDocument();
   });
@@ -54,7 +54,7 @@ describe('SuiteLayout', () => {
   it('fires onBack when back button is clicked', () => {
     const onBackMock = vi.fn();
     const { getByText } = render(<SuiteLayout {...defaultProps} onBack={onBackMock} />);
-    
+
     fireEvent.click(getByText('Back').closest('button')!);
     expect(onBackMock).toHaveBeenCalled();
   });
@@ -62,30 +62,30 @@ describe('SuiteLayout', () => {
   it('fires onSelectTab when a tab is clicked', () => {
     const onSelectTabMock = vi.fn();
     const { getByText } = render(<SuiteLayout {...defaultProps} onSelectTab={onSelectTabMock} />);
-    
+
     fireEvent.click(getByText('Tab 2').closest('button')!);
     expect(onSelectTabMock).toHaveBeenCalledWith('tab2');
   });
 
   it('collapses and expands the sidebar', () => {
     const { container, queryByTestId, getByTitle } = render(<SuiteLayout {...defaultProps} />);
-    
+
     // Sidebar should be present
     expect(queryByTestId('sidebar-content')).toBeInTheDocument();
-    
+
     // Find the collapse button for sidebar (it's absolute positioned left)
     const collapseBtn = container.querySelector('aside button');
     expect(collapseBtn).toBeInTheDocument();
-    
+
     fireEvent.click(collapseBtn!);
-    
+
     // Now sidebar content should be hidden
     expect(queryByTestId('sidebar-content')).not.toBeInTheDocument();
-    
+
     // Expand it again
     const expandBtn = getByTitle('Expand Navigation');
     fireEvent.click(expandBtn);
-    
+
     expect(queryByTestId('sidebar-content')).toBeInTheDocument();
   });
 });

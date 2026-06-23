@@ -8,7 +8,10 @@ import {
   PathogenInfo,
   AntibioticInfo,
   DifferentialSynthesis,
-  AnaesthesiaDrug
+  AnaesthesiaDrug,
+  LearningStatus,
+  StudyProgress,
+  ExamSession
 } from '../types';
 
 const DB_NAME = 'MedExLibraryDB';
@@ -47,8 +50,8 @@ export class StorageService {
         this.initPromise = null;
         resolve();
       };
-      request.onupgradeneeded = (event: any) => {
-        const db = event.target.result;
+      request.onupgradeneeded = (event: IDBVersionChangeEvent) => {
+        const db = (event.target as IDBOpenDBRequest).result;
         if (!db.objectStoreNames.contains(EXAM_STORE)) {
           db.createObjectStore(EXAM_STORE, { keyPath: 'id' });
         }
@@ -155,7 +158,7 @@ export class StorageService {
     });
   }
 
-  async updateLearningStatus(id: string, status: any): Promise<void> {
+  async updateLearningStatus(id: string, status: LearningStatus): Promise<void> {
     await this.init();
     const exam = await this.getExamination(id);
     if (!exam) return;
@@ -357,7 +360,7 @@ export class StorageService {
     });
   }
 
-  async saveStudyProgress(progress: any): Promise<void> {
+  async saveStudyProgress(progress: StudyProgress): Promise<void> {
     await this.init();
     return new Promise((resolve, reject) => {
       const transaction = this.db!.transaction([STUDY_PROGRESS_STORE], 'readwrite');
@@ -368,7 +371,7 @@ export class StorageService {
     });
   }
 
-  async getAllStudyProgress(): Promise<any[]> {
+  async getAllStudyProgress(): Promise<StudyProgress[]> {
     await this.init();
     return new Promise((resolve, reject) => {
       const transaction = this.db!.transaction([STUDY_PROGRESS_STORE], 'readonly');
@@ -379,7 +382,7 @@ export class StorageService {
     });
   }
 
-  async saveExamSession(session: any): Promise<void> {
+  async saveExamSession(session: ExamSession): Promise<void> {
     await this.init();
     return new Promise((resolve, reject) => {
       const transaction = this.db!.transaction([EXAM_SESSION_STORE], 'readwrite');
@@ -390,7 +393,7 @@ export class StorageService {
     });
   }
 
-  async getAllExamSessions(): Promise<any[]> {
+  async getAllExamSessions(): Promise<ExamSession[]> {
     await this.init();
     return new Promise((resolve, reject) => {
       const transaction = this.db!.transaction([EXAM_SESSION_STORE], 'readonly');

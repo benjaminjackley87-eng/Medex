@@ -35,31 +35,33 @@ export const WellsPECalculator: React.FC = () => {
     setCriteria((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
+  const items = [
+    { key: 'clinicalSigns', label: 'Clinical signs/symptoms of DVT', points: 3.0 },
+    {
+      key: 'alternativeLessLikely',
+      label: 'PE is #1 diagnosis or equally likely',
+      points: 3.0
+    },
+    { key: 'heartRate', label: 'Heart rate > 100 bpm', points: 1.5 },
+    {
+      key: 'immobilization',
+      label: 'Immobilization (≥3 days) or surgery (last 4 weeks)',
+      points: 1.5
+    },
+    { key: 'previousPE', label: 'Previous PE or DVT', points: 1.5 },
+    { key: 'hemoptysis', label: 'Hemoptysis', points: 1.0 },
+    { key: 'malignancy', label: 'Malignancy (treatment within last 6 months)', points: 1.0 }
+  ] as const;
+
   return (
     <div className="space-y-8">
       <div className="grid grid-cols-1 gap-3">
-        {[
-          { key: 'clinicalSigns', label: 'Clinical signs/symptoms of DVT', points: 3.0 },
-          {
-            key: 'alternativeLessLikely',
-            label: 'PE is #1 diagnosis or equally likely',
-            points: 3.0
-          },
-          { key: 'heartRate', label: 'Heart rate > 100 bpm', points: 1.5 },
-          {
-            key: 'immobilization',
-            label: 'Immobilization (≥3 days) or surgery (last 4 weeks)',
-            points: 1.5
-          },
-          { key: 'previousPE', label: 'Previous PE or DVT', points: 1.5 },
-          { key: 'hemoptysis', label: 'Hemoptysis', points: 1.0 },
-          { key: 'malignancy', label: 'Malignancy (treatment within last 6 months)', points: 1.0 }
-        ].map((item) => (
+        {items.map((item) => (
           <button
             key={item.key}
-            onClick={() => toggle(item.key as any)}
+            onClick={() => toggle(item.key)}
             className={`flex items-center justify-between p-4 rounded-2xl border-2 transition-all ${
-              criteria[item.key as keyof typeof criteria]
+              criteria[item.key]
                 ? 'bg-indigo-950/20 border-indigo-200 text-indigo-900 shadow-sm'
                 : 'bg-slate-950/40 border-white/5 text-slate-400 hover:border-white/5'
             }`}
@@ -67,7 +69,7 @@ export const WellsPECalculator: React.FC = () => {
             <span className="font-bold text-sm">{item.label}</span>
             <span
               className={`text-xs font-black px-2 py-1 rounded-lg ${
-                criteria[item.key as keyof typeof criteria] ? 'bg-indigo-200' : 'bg-slate-900'
+                criteria[item.key] ? 'bg-indigo-200' : 'bg-slate-900'
               }`}
             >
               +{item.points}

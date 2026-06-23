@@ -1,4 +1,4 @@
-import { GoogleGenAI, Type, GenerateContentResponse } from '@google/genai';
+import { GoogleGenAI, Type, GenerateContentResponse, HarmCategory, HarmBlockThreshold } from '@google/genai';
 import {
   ClinicalCorrelation,
   Examination,
@@ -20,9 +20,47 @@ import {
   MCQQuestion,
   AnaesthesiaDrug,
   DrugInfo,
-  DrugMapping
+  DrugMapping,
+  InteractionResult,
+  PathophysiologyInfo
 } from '../types';
 import { storage } from './storageService';
+
+interface GenerateContentParams {
+  model: string;
+  contents: unknown;
+  config?: {
+    responseMimeType?: string;
+    responseSchema?: unknown;
+    temperature?: number;
+    safetySettings?: Array<{
+      category: HarmCategory;
+      threshold: HarmBlockThreshold;
+    }>;
+    [key: string]: unknown;
+  };
+}
+
+interface RawModule {
+  step_title?: string;
+  explanation?: string;
+  findings?: {
+    positive?: string[];
+    negative?: string[];
+  };
+  pathophysiology?: PathophysiologyInfo[];
+  clinical_pearls?: string[];
+  media_placeholders?: string[];
+}
+import {
+  searchExaminationAsCondition,
+  searchECGPattern,
+  searchRadiologyFinding,
+  searchTherapeuticGuidance,
+  searchClinicalCorrelation,
+  searchAntibiotic,
+  searchPathogen
+} from './bm25SearchService';
 
 export class GeminiService {
   private getAI(): GoogleGenAI {
@@ -79,7 +117,7 @@ export class GeminiService {
   }
 
   private async generateContentWithRetry(
-    params: any,
+    params: GenerateContentParams,
     retries = 3,
     delayMs = 1000
   ): Promise<GenerateContentResponse> {
@@ -90,20 +128,20 @@ export class GeminiService {
       if (!params.config.safetySettings) {
         params.config.safetySettings = [
           {
-            category: 'HARM_CATEGORY_HATE_SPEECH',
-            threshold: 'BLOCK_LOW_AND_ABOVE'
+            category: 'HARM_CATEGORY_HATE_SPEECH' as HarmCategory,
+            threshold: 'BLOCK_LOW_AND_ABOVE' as HarmBlockThreshold
           },
           {
-            category: 'HARM_CATEGORY_HARASSMENT',
-            threshold: 'BLOCK_LOW_AND_ABOVE'
+            category: 'HARM_CATEGORY_HARASSMENT' as HarmCategory,
+            threshold: 'BLOCK_LOW_AND_ABOVE' as HarmBlockThreshold
           },
           {
-            category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT',
-            threshold: 'BLOCK_LOW_AND_ABOVE'
+            category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT' as HarmCategory,
+            threshold: 'BLOCK_LOW_AND_ABOVE' as HarmBlockThreshold
           },
           {
-            category: 'HARM_CATEGORY_DANGEROUS_CONTENT',
-            threshold: 'BLOCK_LOW_AND_ABOVE'
+            category: 'HARM_CATEGORY_DANGEROUS_CONTENT' as HarmCategory,
+            threshold: 'BLOCK_LOW_AND_ABOVE' as HarmBlockThreshold
           }
         ];
       }
@@ -112,11 +150,12 @@ export class GeminiService {
       try {
         const ai = this.getAI();
         return await ai.models.generateContent(params);
-      } catch (error: any) {
+      } catch (error: unknown) {
         if (i === retries - 1) throw error;
+        const errorMessage = error instanceof Error ? error.message : String(error);
         console.warn(
           `Gemini API call failed (attempt ${i + 1}/${retries}). Retrying in ${delayMs}ms...`,
-          error
+          errorMessage
         );
         await new Promise((resolve) => setTimeout(resolve, delayMs));
         delayMs *= 2; // Exponential backoff
@@ -177,13 +216,26 @@ export class GeminiService {
     isPro: boolean = false,
     forceRefresh: boolean = false
   ): Promise<ClinicalCorrelation> {
-    // Check cache
+    // 1. Check IndexedDB exact-match cache
     if (!forceRefresh) {
       try {
         const cached = await storage.getCorrelation(sign);
         if (cached) return cached;
       } catch (e) {
         console.warn('Correlation cache check failed:', e);
+      }
+    }
+
+    // 2. BM25 offline search over cached correlations
+    if (!forceRefresh) {
+      try {
+        const localHit = await searchClinicalCorrelation(sign);
+        if (localHit) {
+          console.log(`[offline-first] BM25 correlation hit for: ${sign}`);
+          return localHit;
+        }
+      } catch (e) {
+        console.warn('BM25 correlation search failed:', e);
       }
     }
 
@@ -328,7 +380,7 @@ export class GeminiService {
         .filter((s): s is { title: string; uri: string } => !!s.uri) || [];
 
     // Map the new "modules" structure to ExamStep
-    const mappedSteps: ExamStep[] = (data.modules || []).map((mod: any, index: number) => ({
+    const mappedSteps: ExamStep[] = (data.modules as RawModule[] || []).map((mod, index) => ({
       id: `step_${index}`,
       title: mod.step_title || '',
       description: mod.explanation || '',
@@ -425,7 +477,7 @@ export class GeminiService {
         }))
         .filter((s): s is { title: string; uri: string } => !!s.uri) || [];
 
-    const mappedSteps: ExamStep[] = (data.modules || []).map((mod: any, index: number) => ({
+    const mappedSteps: ExamStep[] = (data.modules as RawModule[] || []).map((mod, index) => ({
       id: `step_${index}`,
       title: mod.step_title || '',
       description: mod.explanation || '',
@@ -463,6 +515,18 @@ export class GeminiService {
   }
 
   async generateECGPattern(patternName: string): Promise<ECGPattern> {
+    // 1. BM25 offline search over cached ECG patterns
+    try {
+      const localHit = await searchECGPattern(patternName);
+      if (localHit) {
+        console.log(`[offline-first] BM25 ECG pattern hit for: ${patternName}`);
+        return localHit;
+      }
+    } catch (e) {
+      console.warn('BM25 ECG search failed:', e);
+    }
+
+    // 2. Gemini API fallback
     const prompt = `Generate a detailed clinical ECG pattern profile for '${patternName}'.
       Include diagnostic criteria, clinical significance, and management steps.
       Search for a high-quality 12-lead ECG trace image URL (e.g. from Life in the Fast Lane or similar reputable sources).
@@ -512,10 +576,29 @@ export class GeminiService {
       imageUrl: raw.imageUrl
     };
 
+    // 3. Cache result for future offline use
+    try {
+      await storage.saveECGPattern(pattern);
+    } catch (e) {
+      console.warn('Failed to cache ECG pattern:', e);
+    }
+
     return pattern;
   }
 
   async generateRadiologyFinding(findingName: string): Promise<Partial<RadiologyFinding>> {
+    // 1. BM25 offline search over cached radiology findings
+    try {
+      const localHit = await searchRadiologyFinding(findingName);
+      if (localHit) {
+        console.log(`[offline-first] BM25 radiology hit for: ${findingName}`);
+        return localHit;
+      }
+    } catch (e) {
+      console.warn('BM25 radiology search failed:', e);
+    }
+
+    // 2. Gemini API fallback
     const prompt = `Generate a detailed clinical radiology finding profile for '${findingName}'.
       Include modality (CXR, AXR, CT, MRI, US), key signs, clinical significance, and management.
       Search for a real-world clinical image URL from Radiopaedia or similar reputable medical imaging repositories.
@@ -553,6 +636,15 @@ export class GeminiService {
           c.web?.uri?.toLowerCase().includes('.png')
       );
       if (imageSource) data.imageUrl = imageSource.web?.uri;
+    }
+
+    // 3. Cache result for future offline use
+    if (data.id && data.name && data.keySigns) {
+      try {
+        await storage.saveRadiologyFinding(data as RadiologyFinding);
+      } catch (e) {
+        console.warn('Failed to cache radiology finding:', e);
+      }
     }
 
     return data;
@@ -636,6 +728,18 @@ export class GeminiService {
   }
 
   async getFindingsForCondition(conditionName: string): Promise<ClinicalCondition> {
+    // 1. BM25 offline search over ALL_EXAMINATIONS
+    try {
+      const localHit = searchExaminationAsCondition(conditionName);
+      if (localHit) {
+        console.log(`[offline-first] BM25 examination hit for: ${conditionName}`);
+        return localHit;
+      }
+    } catch (e) {
+      console.warn('BM25 examination search failed:', e);
+    }
+
+    // 2. Gemini API fallback
     const prompt = `Physical exam findings for '${conditionName}'. 
       If this is a dermatological condition, prioritize terminology and descriptions consistent with DermNet NZ (dermnetnz.org).
       Return as JSON with fields: name, description, findings[{category, sign, significance, link}].`;
@@ -852,15 +956,29 @@ export class GeminiService {
     forceRefresh: boolean = false,
     referenceUrl?: string
   ): Promise<TherapeuticGuidance> {
-    // Check local storage first
+    // 1. Check IndexedDB exact-match cache
     if (!forceRefresh) {
       try {
         const cached = await storage.getProtocol(condition);
         if (cached) {
+          console.log(`[offline-first] Exact protocol cache hit for: ${condition}`);
           return cached;
         }
       } catch (e) {
         console.warn('Failed to check protocol cache:', e);
+      }
+    }
+
+    // 2. BM25 offline search over cached protocols + graph nodes
+    if (!forceRefresh) {
+      try {
+        const localHit = await searchTherapeuticGuidance(condition);
+        if (localHit) {
+          console.log(`[offline-first] BM25 therapeutic guidance hit for: ${condition}`);
+          return localHit;
+        }
+      } catch (e) {
+        console.warn('BM25 therapeutic guidance search failed:', e);
       }
     }
 
@@ -951,12 +1069,23 @@ export class GeminiService {
   }
 
   async getAntibioticInfo(name: string): Promise<AntibioticInfo> {
-    // Check cache
+    // 1. Check exact-match IndexedDB cache
     try {
       const cached = await storage.getAntibiotic(name);
       if (cached) return cached;
     } catch (e) {
       console.warn('Antibiotic cache check failed:', e);
+    }
+
+    // 2. BM25 offline search (alias resolution + fuzzy name match)
+    try {
+      const localHit = await searchAntibiotic(name);
+      if (localHit) {
+        console.log(`[offline-first] BM25 antibiotic hit for: ${name}`);
+        return localHit;
+      }
+    } catch (e) {
+      console.warn('BM25 antibiotic search failed:', e);
     }
 
     const prompt = `Provide detailed educational information for the antibiotic: '${name}'. 
@@ -1014,12 +1143,23 @@ export class GeminiService {
   }
 
   async getPathogenInfo(name: string): Promise<PathogenInfo> {
-    // Check cache
+    // 1. Check exact-match IndexedDB cache
     try {
       const cached = await storage.getPathogen(name);
       if (cached) return cached;
     } catch (e) {
       console.warn('Pathogen cache check failed:', e);
+    }
+
+    // 2. BM25 offline search
+    try {
+      const localHit = await searchPathogen(name);
+      if (localHit) {
+        console.log(`[offline-first] BM25 pathogen hit for: ${name}`);
+        return localHit;
+      }
+    } catch (e) {
+      console.warn('BM25 pathogen search failed:', e);
     }
 
     const prompt = `Provide educational information for the pathogen or pathogen group: '${name}'. 
@@ -1092,7 +1232,7 @@ export class GeminiService {
     return info;
   }
 
-  async checkMedicationInteractions(medications: string[]): Promise<any> {
+  async checkMedicationInteractions(medications: string[]): Promise<InteractionResult | null> {
     if (!medications || medications.length === 0) return null;
 
     const prompt = `Analyze the following list of medications for interactions, synergisms, and contraindications:

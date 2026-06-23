@@ -56,8 +56,8 @@ interface WorkspaceLayoutProps {
   onSelectSystem?: (system: ExamSystem) => void;
   activeExamName?: string;
   activeTab?: string;
-  onSelectTab?: (tab: any) => void;
-  tabs?: { id: string; label: string; icon: any }[];
+  onSelectTab?: (tab: string) => void;
+  tabs?: { id: string; label: string; icon: React.ComponentType<{ className?: string }> }[];
   history?: HistoryItem[];
   onClearHistory?: () => void;
   onSelectHistoryItem?: (item: HistoryItem) => void;
@@ -76,7 +76,8 @@ export const WorkspaceLayout: React.FC<WorkspaceLayoutProps> = (props) => {
   const store = useAppStore();
 
   const activeSystem = props.activeSystem ?? store.selectedSystem ?? ExamSystem.CARDIOVASCULAR;
-  const onSelectSystem = props.onSelectSystem ?? ((sys: ExamSystem) => store.setSelectedSystem(sys));
+  const onSelectSystem =
+    props.onSelectSystem ?? ((sys: ExamSystem) => store.setSelectedSystem(sys));
   const activeExamName = props.activeExamName ?? store.selectedExam?.name ?? '';
   const activeTab = props.activeTab ?? '';
   const onSelectTab = props.onSelectTab ?? (() => {});

@@ -14,7 +14,11 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { AppView, Examination, ExamSystem } from '../../types';
-import { localSearchService, SearchDocument, SearchResult } from '../../services/localSearchService';
+import {
+  localSearchService,
+  SearchDocument,
+  SearchResult
+} from '../../services/localSearchService';
 import FoundationalDetailModal from './FoundationalDetailModal';
 import ViewResult from './CommandPalette/ViewResult';
 import ProtocolResult from './CommandPalette/ProtocolResult';
@@ -28,6 +32,11 @@ interface CommandPaletteProps {
 }
 
 const PAGE_SIZE = 5;
+
+type ResultItem =
+  | { id: string; label: string; icon: React.ReactNode; view: AppView }
+  | (Examination & { isExam: true })
+  | (SearchDocument & { isFoundational: true });
 
 const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavigate, exams }) => {
   const [query, setQuery] = useState('');
@@ -113,26 +122,24 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
     }
   }
 
-  const filteredViews = useMemo(() =>
-    views.filter((v) => v.label.toLowerCase().includes(query.toLowerCase())),
+  const filteredViews = useMemo(
+    () => views.filter((v) => v.label.toLowerCase().includes(query.toLowerCase())),
     [query]
   );
 
-  const filteredExams = useMemo(() =>
-    exams
-      .filter((e) => e.name.toLowerCase().includes(query.toLowerCase()))
-      .slice(0, 5),
+  const filteredExams = useMemo(
+    () => exams.filter((e) => e.name.toLowerCase().includes(query.toLowerCase())).slice(0, 5),
     [exams, query]
   );
 
   const standardResults = useMemo(() =>
-    [...filteredViews, ...filteredExams.map((e) => ({ ...e, isExam: true }))],
+    [...filteredViews, ...filteredExams.map((e) => ({ ...e, isExam: true as const }))],
     [filteredViews, filteredExams]
   );
 
-  const results = useMemo(() => [
+  const results = useMemo<ResultItem[]>(() => [
     ...standardResults,
-    ...foundationalResults.map((r) => ({ ...r.document, isFoundational: true }))
+    ...foundationalResults.map((r) => ({ ...r.document, isFoundational: true as const }))
   ], [standardResults, foundationalResults]);
 
   const handleQueryChange = (newQuery: string) => {
@@ -187,8 +194,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
             onClose();
           } else if ('isFoundational' in selected) {
             setSelectedDoc(selected as unknown as SearchDocument);
-          } else {
-            onNavigate((selected as any).view);
+          } else if ('view' in selected) {
+            onNavigate(selected.view);
             onClose();
           }
         }

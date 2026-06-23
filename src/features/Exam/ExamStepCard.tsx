@@ -11,6 +11,7 @@ import {
   Layers
 } from 'lucide-react';
 import { ExamStep } from '../../types';
+import { SystemStyle } from '../../theme';
 import MedImage from '../../components/common/MedImage';
 import GlossaryLink from '../../components/common/GlossaryLink';
 
@@ -20,12 +21,12 @@ interface ExamStepCardProps {
   isChecked: boolean;
   isEditMode: boolean;
   isChecklistMode: boolean;
-  style: any;
+  style: SystemStyle;
   newFindingText: string;
   onToggleCheck: () => void;
   onMoveUp: () => void;
   onMoveDown: () => void;
-  onUpdateField: (field: keyof ExamStep, value: any) => void;
+  onUpdateField: <K extends keyof ExamStep>(field: K, value: ExamStep[K]) => void;
   onRemove: () => void;
   onAddFinding: (finding: string) => void;
   onRemoveFinding: (index: number) => void;

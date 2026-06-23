@@ -11,7 +11,10 @@ import {
   Trash2,
   Save
 } from 'lucide-react';
-import { ACUTE_MANAGEMENT as INITIAL_ACUTE, AcuteManagementItem } from '../data/collections/acuteCare';
+import {
+  ACUTE_MANAGEMENT as INITIAL_ACUTE,
+  AcuteManagementItem
+} from '../data/collections/acuteCare';
 import { ClinicalCard } from '../components/ui/ClinicalCard';
 import ImageModal from '../components/common/ImageModal';
 import { useClinicalSearch } from '../hooks/useClinicalSearch';
@@ -219,8 +222,8 @@ export const AcuteCareView: React.FC<AcuteCareViewProps> = ({ isEditMode }) => {
                       const input = document.createElement('input');
                       input.type = 'file';
                       input.accept = 'image/*';
-                      input.onchange = async (e: any) => {
-                        const file = e.target.files?.[0];
+                      input.onchange = async (e: Event) => {
+                        const file = (e.target as HTMLInputElement).files?.[0];
                         if (!file) return;
                         const assetId = `acute_${Math.random().toString(36).substr(2, 9)}`;
                         const url = await storage.saveAsset(assetId, file);

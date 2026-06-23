@@ -29,7 +29,8 @@ export const DiagnosticReasoningSuite: React.FC<DiagnosticReasoningSuiteProps> =
 }) => {
   const navigate = useNavigate();
   const handleSelectExam = onSelectExam || ((exam: Examination) => navigate(`/exam/${exam.id}`));
-  const handleNavigateToInvestigations = onNavigateToInvestigations || (() => navigate('/investigations-hub'));
+  const handleNavigateToInvestigations =
+    onNavigateToInvestigations || (() => navigate('/investigations-hub'));
   const handleNavigateToGlossary = onNavigateToGlossary || (() => navigate('/foundations'));
   const handleBack = onBack || (() => navigate('/'));
   const [activeTab, setActiveTab] = useState<string>('symptomChecker');

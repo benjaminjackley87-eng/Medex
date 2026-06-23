@@ -5,7 +5,7 @@ export interface HistoryItem {
   type: 'system' | 'exam' | 'finding' | 'physiology' | 'procedure';
   label: string;
   timestamp: number;
-  metadata?: any;
+  metadata?: Record<string, unknown>;
 }
 
 export function useClinicalHistory() {
@@ -36,7 +36,7 @@ export function useClinicalHistory() {
   }, []);
 
   const addToHistory = useCallback(
-    (type: HistoryItem['type'], label: string, id: string = label, metadata?: any) => {
+    (type: HistoryItem['type'], label: string, id: string = label, metadata?: Record<string, unknown>) => {
       const newItem: HistoryItem = {
         id: `${type}-${id}-${Date.now()}`,
         type,
@@ -56,7 +56,9 @@ export function useClinicalHistory() {
         const updated = [...prev, newItem].slice(-15); // keep last 15 steps
         try {
           sessionStorage.setItem('medex_clinical_history', JSON.stringify(updated));
-        } catch { /* ignore */ }
+        } catch {
+          /* ignore */
+        }
         return updated;
       });
     },
@@ -68,14 +70,20 @@ export function useClinicalHistory() {
       const updated = prev.filter((item) => item.id !== id);
       try {
         sessionStorage.setItem('medex_clinical_history', JSON.stringify(updated));
-      } catch { /* ignore */ }
+      } catch {
+        /* ignore */
+      }
       return updated;
     });
   }, []);
 
   const clearHistory = useCallback(() => {
     setHistory(() => {
-      try { sessionStorage.setItem('medex_clinical_history', JSON.stringify([])); } catch { /* ignore */ }
+      try {
+        sessionStorage.setItem('medex_clinical_history', JSON.stringify([]));
+      } catch {
+        /* ignore */
+      }
       return [];
     });
   }, []);

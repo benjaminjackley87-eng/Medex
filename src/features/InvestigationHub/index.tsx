@@ -32,6 +32,18 @@ import {
   PharmacologyGuide
 } from './categoryViews';
 
+type CategoryId =
+  | 'imaging'
+  | 'ecg'
+  | 'abg'
+  | 'labs'
+  | 'spirometry'
+  | 'fluids'
+  | 'urinalysis'
+  | 'ctg'
+  | 'preventive'
+  | 'pharmacology';
+
 interface InvestigationHubProps {
   initialSearchQuery?: string;
   onSearchHandled?: () => void;
@@ -42,18 +54,7 @@ const InvestigationHub: React.FC<InvestigationHubProps> = ({
   onSearchHandled
 }) => {
   const [activeTab, setActiveTab] = useState<'guides' | 'search' | 'patterns'>('guides');
-  const [activeCategory, setActiveCategory] = useState<
-    | 'imaging'
-    | 'ecg'
-    | 'abg'
-    | 'labs'
-    | 'spirometry'
-    | 'fluids'
-    | 'urinalysis'
-    | 'ctg'
-    | 'preventive'
-    | 'pharmacology'
-  >('imaging');
+  const [activeCategory, setActiveCategory] = useState<CategoryId>('imaging');
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearching, setIsSearching] = useState(false);
   const [enlargedImage, setEnlargedImage] = useState<{ src: string; alt: string } | null>(null);
@@ -84,13 +85,13 @@ const InvestigationHub: React.FC<InvestigationHubProps> = ({
     if (initialSearchQuery) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setSearchQuery(initialSearchQuery);
-      // eslint-disable-next-line react-hooks/set-state-in-effect
+
       setActiveTab('search');
       const performSearch = async () => {
         setIsSearching(true);
         setSearchResult(null);
         try {
-          const result = await (gemini as any).getInvestigationsForCondition(initialSearchQuery);
+          const result = await gemini.getInvestigationsForCondition(initialSearchQuery);
           setSearchResult(result);
         } catch (e) {
           console.error(e);
@@ -110,7 +111,7 @@ const InvestigationHub: React.FC<InvestigationHubProps> = ({
     setIsSearching(true);
     setSearchResult(null);
     try {
-      const result = await (gemini as any).getInvestigationsForCondition(searchQuery);
+      const result = await gemini.getInvestigationsForCondition(searchQuery);
       setSearchResult(result);
     } catch (e) {
       console.error(e);
@@ -119,7 +120,7 @@ const InvestigationHub: React.FC<InvestigationHubProps> = ({
     }
   };
 
-  const categories = [
+  const categories: { id: CategoryId; label: string; icon: React.ReactNode }[] = [
     { id: 'imaging', label: 'Imaging', icon: <ImageIcon className="w-4 h-4" /> },
     { id: 'ecg', label: 'ECG', icon: <Activity className="w-4 h-4" /> },
     { id: 'abg', label: 'ABG', icon: <Zap className="w-4 h-4" /> },
@@ -176,7 +177,7 @@ const InvestigationHub: React.FC<InvestigationHubProps> = ({
             {categories.map((cat) => (
               <button
                 key={cat.id}
-                onClick={() => setActiveCategory(cat.id as any)}
+                onClick={() => setActiveCategory(cat.id)}
                 className={`w-full flex items-center gap-3 px-5 py-4 rounded-2xl text-[11px] font-bold transition-all cursor-pointer ${activeCategory === cat.id ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-950/40' : 'bg-slate-900/50 border border-white/5 text-slate-400 hover:bg-slate-900 hover:text-slate-200'}`}
               >
                 {cat.icon}

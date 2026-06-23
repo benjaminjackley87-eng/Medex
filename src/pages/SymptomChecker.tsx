@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 const SymptomChecker: React.FC<Partial<SymptomCheckerProps>> = (props) => {
   const store = useAppStore();
   const reactNavigate = useNavigate();
-  const onSelectExam = props.onSelectExam ?? ((exam: any) => { store.setSelectedExam(exam); reactNavigate('/exam/' + exam.id); });
+  const onSelectExam = props.onSelectExam ?? ((exam: Examination) => { store.setSelectedExam(exam); reactNavigate('/exam/' + exam.id); });
 
   const [symptoms, setSymptoms] = useState('');
   const [loading, setLoading] = useState(false);

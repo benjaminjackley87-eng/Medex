@@ -1,4 +1,7 @@
-import { loadAllAppliedAnatomyModules, AppliedAnatomyModule } from '../data/collections/appliedAnatomyLoader';
+import {
+  loadAllAppliedAnatomyModules,
+  AppliedAnatomyModule
+} from '../data/collections/appliedAnatomyLoader';
 
 export interface SearchDocument {
   id: string;

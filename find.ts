@@ -10,7 +10,12 @@ function walk(dir: string) {
     if (stat.isDirectory()) {
       walk(filePath);
     } else {
-      if (file === 'App.tsx' || file === 'constants.ts' || file === 'theme.ts' || file === 'types.ts') {
+      if (
+        file === 'App.tsx' ||
+        file === 'constants.ts' ||
+        file === 'theme.ts' ||
+        file === 'types.ts'
+      ) {
         console.log('FOUND:', filePath);
       }
     }

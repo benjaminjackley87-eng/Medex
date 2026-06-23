@@ -24,20 +24,24 @@ const DashboardView: React.FC<DashboardViewProps> = (props) => {
 
   const downloadedExams = props.downloadedExams ?? store.downloadedExams;
   const studyProgress = props.studyProgress ?? store.studyProgress;
-  const onNavigate = props.onNavigate ?? ((view: string) => {
-    const routeMap: Record<string, string> = {
-      diagnosticReasoning: 'search',
-      investigationsHub: 'calculators',
-      studyHub: 'search',
-      acuteInterventions: 'procedures',
-      therapeuticsTox: 'therapeutics'
-    };
-    reactNavigate(`/${routeMap[view] || view}`);
-  });
-  const onSelectExam = props.onSelectExam ?? ((exam: Examination) => {
-    store.setSelectedExam(exam);
-    reactNavigate(`/exam/${exam.id}`);
-  });
+  const onNavigate =
+    props.onNavigate ??
+    ((view: string) => {
+      const routeMap: Record<string, string> = {
+        diagnosticReasoning: 'search',
+        investigationsHub: 'calculators',
+        studyHub: 'search',
+        acuteInterventions: 'procedures',
+        therapeuticsTox: 'therapeutics'
+      };
+      reactNavigate(`/${routeMap[view] || view}`);
+    });
+  const onSelectExam =
+    props.onSelectExam ??
+    ((exam: Examination) => {
+      store.setSelectedExam(exam);
+      reactNavigate(`/exam/${exam.id}`);
+    });
   const onOpenCommandPalette = props.onOpenCommandPalette;
 
   const stats = useMemo(() => {
@@ -66,7 +70,7 @@ const DashboardView: React.FC<DashboardViewProps> = (props) => {
           percentage: Math.round((learnedCount / exams.length) * 100)
         };
       })
-      .filter(Boolean) as { system: string; total: number; learned: number; percentage: number }[];
+      .filter((item): item is { system: ExamSystem; total: number; learned: number; percentage: number } => item !== null);
 
     return { total, learned, inProgress, toReview, systemProgress };
   }, [downloadedExams]);

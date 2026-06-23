@@ -30,6 +30,12 @@ import { ExamVisualsTab } from '../features/ExamView/ExamVisualsTab';
 import { ExamOnePagerTab } from '../features/ExamView/ExamOnePagerTab';
 import { ExamPhysiologyTab } from '../features/ExamView/ExamPhysiologyTab';
 import { ExamClinicalTab } from '../features/ExamView/ExamClinicalTab';
+import { PathoSignDetail } from '../features/ExamView/PathoSignDetail';
+import { StepsDetail } from '../features/ExamView/StepsDetail';
+import { PhysiologyDetail } from '../features/ExamView/PhysiologyDetail';
+import { ClinicalDetail } from '../features/ExamView/ClinicalDetail';
+import { MainPhysiologyTabContent } from '../features/ExamView/MainPhysiologyTabContent';
+import { MainClinicalTabContent } from '../features/ExamView/MainClinicalTabContent';
 
 interface ExamViewProps {
   exam?: Examination;
@@ -55,32 +61,44 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
   const store = useAppStore();
 
   // Resolve exam: from props > selectedExam in store > downloadedExams > EXAMINATIONS
-  const resolvedExam = props.exam
-    ?? (store.selectedExam?.id === id ? store.selectedExam : null)
-    ?? store.downloadedExams.find((e) => e.id === id)
-    ?? EXAMINATIONS.find((e) => e.id === id)
-    ?? null;
+  const resolvedExam =
+    props.exam ??
+    (store.selectedExam?.id === id ? store.selectedExam : null) ??
+    store.downloadedExams.find((e) => e.id === id) ??
+    EXAMINATIONS.find((e) => e.id === id) ??
+    null;
 
   const propsOnBack = props.onBack;
-  const onBack = useMemo(() => propsOnBack ?? (() => navigate('/library')), [propsOnBack, navigate]);
+  const onBack = useMemo(
+    () => propsOnBack ?? (() => navigate('/library')),
+    [propsOnBack, navigate]
+  );
   const isEditMode = props.isEditMode ?? store.isEditMode;
   const propsOnNavigateToGlossary = props.onNavigateToGlossary;
-  const onNavigateToGlossary = useMemo(() => propsOnNavigateToGlossary ?? ((term: string) => { store.setGlossaryTerm(term); navigate('/glossary'); }), [propsOnNavigateToGlossary, navigate, store]);
+  const onNavigateToGlossary = useMemo(
+    () =>
+      propsOnNavigateToGlossary ??
+      ((term: string) => {
+        store.setGlossaryTerm(term);
+        navigate('/glossary');
+      }),
+    [propsOnNavigateToGlossary, navigate, store]
+  );
   const propsOnSelectSystem = props.onSelectSystem;
-  const onSelectSystem = useMemo(() => propsOnSelectSystem ?? ((sys: ExamSystem) => { store.setSelectedSystem(sys); }), [propsOnSelectSystem, store]);
+  const onSelectSystem = useMemo(
+    () =>
+      propsOnSelectSystem ??
+      ((sys: ExamSystem) => {
+        store.setSelectedSystem(sys);
+      }),
+    [propsOnSelectSystem, store]
+  );
   const onUpdate = props.onUpdate;
 
   const initialExam = resolvedExam || dummyExam;
 
-  const {
-    exam,
-    setExam,
-    updateGeneralField,
-    updateStepField,
-    addStep,
-    removeStep,
-    moveStep
-  } = useExamEditor(initialExam, onUpdate);
+  const { exam, setExam, updateGeneralField, updateStepField, addStep, removeStep, moveStep } =
+    useExamEditor(initialExam, onUpdate);
 
   const [activeTab, setActiveTab] = useState<
     'steps' | 'physiology' | 'clinical' | 'onepager' | 'visuals'
@@ -96,6 +114,8 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
   const [loadingPathoData, setLoadingPathoData] = useState(false);
 
   // Selected details for Column 3
+  const [selectedPhysiologyBucket, setSelectedPhysiologyBucket] = useState<number | null>(null);
+  const [selectedDifferentialIndex, setSelectedDifferentialIndex] = useState<number | null>(null);
 
   const [enlargedImage, setEnlargedImage] = useState<{ src: string; alt: string } | null>(null);
   const [checkedSteps, setCheckedSteps] = useState<Set<string>>(() => {
@@ -115,7 +135,6 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
       console.error('Failed to save checked steps:', e);
     }
   }, [checkedSteps, exam.id]);
-
 
   const [newFindingText, setNewFindingText] = useState<Record<string, string>>({});
   const [newNormalText, setNewNormalText] = useState<Record<string, string>>({});
@@ -141,8 +160,6 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     });
     return groups;
   }, [exam.steps]);
-
-
 
   // Escape key navigation handler
   useEffect(() => {
@@ -206,8 +223,8 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = 'image/*';
-    input.onchange = async (e: any) => {
-      const file = e.target.files?.[0];
+    input.onchange = async (e: Event) => {
+      const file = (e.target as HTMLInputElement).files?.[0];
       if (!file) return;
 
       const assetId = `custom_${Math.random().toString(36).substr(2, 9)}`;
@@ -285,8 +302,6 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     }
   }, [lastExamState, setExam]);
 
-
-
   // Build the context tab elements
   const workspaceTabs = [
     { id: 'steps', label: 'Protocol', icon: ListCheck },
@@ -301,177 +316,41 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     // If clinical correlation sign is selected
     if (selectedPathoSign) {
       return (
-        <div className="space-y-6">
-          <div className="flex items-center justify-between border-b border-white/5 pb-4">
-            <h3 className="text-sm font-black text-rose-400 uppercase tracking-widest">
-              {selectedPathoSign}
-            </h3>
-            <button
-              onClick={() => setSelectedPathoSign(null)}
-              className="p-1 hover:bg-slate-950/40/5 rounded-lg text-slate-400 hover:text-white"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
-
-          {loadingPathoData ? (
-            <div className="py-20 flex flex-col items-center justify-center gap-3">
-              <div className="w-6 h-6 border-2 border-rose-500/20 border-t-rose-500 rounded-full animate-spin" />
-              <span className="text-[9px] font-black uppercase text-slate-400">
-                Querying Diagnostics...
-              </span>
-            </div>
-          ) : pathoSignData ? (
-            <div className="space-y-6 text-slate-300">
-              <div className="bg-rose-950/20 border border-rose-500/20 rounded-2xl p-5">
-                <span className="text-[9px] font-black uppercase tracking-wider text-rose-400 block mb-2">
-                  Pathophysiology
-                </span>
-                <p className="text-xs font-bold leading-relaxed">{pathoSignData.pathophysiology}</p>
-              </div>
-
-              <div className="space-y-3">
-                <span className="text-[9px] font-black uppercase tracking-wider text-slate-400 block">
-                  Common Causes
-                </span>
-                <ul className="space-y-2">
-                  {pathoSignData.causes.map((cause, i) => (
-                    <li
-                      key={i}
-                      className="bg-slate-950/40/5 border border-white/5 rounded-xl px-4 py-3 text-xs font-bold flex items-center gap-2"
-                    >
-                      <div className="w-1.5 h-1.5 rounded-full bg-rose-950/200" />
-                      {cause}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="bg-slate-950/40/5 border border-white/5 rounded-2xl p-5">
-                <span className="text-[9px] font-black uppercase tracking-wider text-slate-400 block mb-2">
-                  Clinical Significance
-                </span>
-                <p className="text-xs font-semibold leading-relaxed">
-                  {pathoSignData.clinicalSignificance}
-                </p>
-              </div>
-
-              {pathoSignData.affectedAnatomy && (
-                <div className="bg-indigo-950/20 border border-indigo-500/10 rounded-2xl p-5">
-                  <span className="text-[9px] font-black uppercase tracking-wider text-indigo-400 block mb-2">
-                    Anatomical Focus
-                  </span>
-                  <p className="text-xs font-bold leading-relaxed">
-                    {pathoSignData.affectedAnatomy}
-                  </p>
-                </div>
-              )}
-            </div>
-          ) : (
-            <p className="text-xs text-slate-400 italic">
-              Failed to retrieve clinical correlation.
-            </p>
-          )}
-        </div>
+        <PathoSignDetail
+          selectedPathoSign={selectedPathoSign}
+          setSelectedPathoSign={setSelectedPathoSign}
+          loadingPathoData={loadingPathoData}
+          pathoSignData={pathoSignData}
+        />
       );
     }
 
     if (activeTab === 'steps') {
       return (
-        <div className="space-y-6">
-          <div className="border-b border-white/5 pb-4">
-            <span className="text-[9px] font-black text-indigo-400 uppercase tracking-widest block mb-1">
-              Dossier Highlights
-            </span>
-            <h3 className="text-sm font-black text-white uppercase tracking-wider">{exam.name}</h3>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3">
-            <div className="bg-slate-950/40 border border-white/5 rounded-2xl p-4 flex flex-col justify-center">
-              <span className="text-[8px] font-black text-slate-400 uppercase tracking-wider mb-1">
-                Estimated Time
-              </span>
-              <div className="flex items-center gap-1.5 text-xs font-black text-slate-200">
-                <Clock className="w-3.5 h-3.5 text-slate-450" />
-                <span>12-15 Min</span>
-              </div>
-            </div>
-            {exam.referenceStandard && (
-              <div className="bg-slate-950/40 border border-white/5 rounded-2xl p-4 flex flex-col justify-center">
-                <span className="text-[8px] font-black text-slate-400 uppercase tracking-wider mb-1">
-                  Reference Level
-                </span>
-                <span
-                  className="text-xs font-black text-indigo-400 truncate"
-                  title={exam.referenceStandard}
-                >
-                  {exam.referenceStandard}
-                </span>
-              </div>
-            )}
-          </div>
-
-          <div className="bg-slate-950/40 border border-white/5 rounded-2xl p-5 space-y-4">
-            <div className="flex items-center justify-between">
-              <span className="text-[9px] font-black text-slate-400 uppercase tracking-wider">
-                OSCE Progress
-              </span>
-              <span className="text-xs font-black text-emerald-450">{progress}%</span>
-            </div>
-            <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-linear-to-r from-indigo-500 to-emerald-500 transition-all duration-1000"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-            <div className="flex justify-between text-[8px] font-black text-slate-550 uppercase tracking-widest">
-              <span>{checkedSteps.size} Checked</span>
-              <span>{exam.steps.length - checkedSteps.size} Left</span>
-            </div>
-          </div>
-
-          <div className="bg-slate-950/50 rounded-2xl p-5 border border-white/5 space-y-4">
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-indigo-400 animate-pulse" />
-              <span className="text-[10px] font-black uppercase tracking-wider text-slate-300">
-                AI Protocol Refinement
-              </span>
-            </div>
-            <p className="text-[9px] font-medium text-slate-400 leading-relaxed">
-              Ask AI to add details, pathophysiology, or specific stigmata findings to this
-              protocol.
-            </p>
-            <textarea
-              value={refinementPrompt}
-              onChange={(e) => setRefinementPrompt(e.target.value)}
-              placeholder="e.g. Add details for auscultatory zones..."
-              className="w-full bg-slate-900 border border-white/5 rounded-xl p-3 text-xs outline-none focus:border-indigo-500 min-h-[90px] resize-none text-slate-350 placeholder:text-slate-400"
-              disabled={isRefining}
-            />
-            <button
-              onClick={handleRefine}
-              disabled={isRefining || !refinementPrompt.trim()}
-              className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg shadow-indigo-900/40 transition-all"
-            >
-              {isRefining ? (
-                <RefreshCw className="w-3.5 h-3.5 animate-spin" />
-              ) : (
-                <Send className="w-3.5 h-3.5" />
-              )}
-              Refine Protocol
-            </button>
-            {showUndo && (
-              <button
-                onClick={handleUndoRefine}
-                className="w-full py-2 bg-amber-950/40 border border-amber-500/20 text-amber-400 hover:text-white rounded-xl text-[9px] font-black uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-amber-900/40 transition-all"
-              >
-                <RotateCcw className="w-3 h-3" />
-                Undo Refinement
-              </button>
-            )}
-          </div>
-        </div>
+        <StepsDetail
+          exam={exam}
+          progress={progress}
+          checkedSteps={checkedSteps}
+          refinementPrompt={refinementPrompt}
+          setRefinementPrompt={setRefinementPrompt}
+          isRefining={isRefining}
+          handleRefine={handleRefine}
+          showUndo={showUndo}
+          handleUndoRefine={handleUndoRefine}
+        />
       );
+    }
+
+    if (activeTab === 'physiology') {
+      const bucketIndex = selectedPhysiologyBucket ?? 0;
+      const bucket = exam.physiologyBuckets?.[bucketIndex];
+      return <PhysiologyDetail bucket={bucket} />;
+    }
+
+    if (activeTab === 'clinical') {
+      const diffIndex = selectedDifferentialIndex ?? 0;
+      const diff = exam.differentialDiagnoses?.[diffIndex];
+      return <ClinicalDetail diff={diff} />;
     }
 
     return (
@@ -487,6 +366,8 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     selectedPathoSign,
     loadingPathoData,
     pathoSignData,
+    selectedPhysiologyBucket,
+    selectedDifferentialIndex,
     exam,
     checkedSteps,
     refinementPrompt,
@@ -500,8 +381,13 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
   if (!resolvedExam) {
     return (
       <div className="h-full flex flex-col items-center justify-center gap-4 text-center p-8">
-        <p className="text-slate-400 font-black uppercase tracking-widest text-sm">Exam Not Found</p>
-        <button onClick={() => navigate('/library')} className="px-6 py-3 bg-blue-600 text-white rounded-xl text-xs font-black uppercase tracking-wider">
+        <p className="text-slate-400 font-black uppercase tracking-widest text-sm">
+          Exam Not Found
+        </p>
+        <button
+          onClick={() => navigate('/library')}
+          className="px-6 py-3 bg-blue-600 text-white rounded-xl text-xs font-black uppercase tracking-wider"
+        >
           Back to Library
         </button>
       </div>
@@ -529,7 +415,7 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
       onSelectSystem={onSelectSystem || (() => {})}
       activeExamName={exam.name}
       activeTab={activeTab}
-      onSelectTab={(tab) => setActiveTab(tab)}
+      onSelectTab={(tab) => setActiveTab(tab as 'clinical' | 'physiology' | 'steps' | 'onepager' | 'visuals')}
       tabs={workspaceTabs}
       history={history}
       onClearHistory={clearHistory}
@@ -607,19 +493,36 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
         )}
 
         {activeTab === 'physiology' && (
-          <ExamPhysiologyTab
-            exam={exam}
-            isEditMode={isEditMode}
-            updateGeneralField={updateGeneralField}
-          />
+          isEditMode ? (
+            <ExamPhysiologyTab
+              exam={exam}
+              isEditMode={isEditMode}
+              updateGeneralField={updateGeneralField}
+            />
+          ) : (
+            <MainPhysiologyTabContent
+              exam={exam}
+              selectedPhysiologyBucket={selectedPhysiologyBucket}
+              setSelectedPhysiologyBucket={setSelectedPhysiologyBucket}
+              addToHistory={addToHistory}
+            />
+          )
         )}
 
         {activeTab === 'clinical' && (
-          <ExamClinicalTab
-            exam={exam}
-            isEditMode={isEditMode}
-            updateGeneralField={updateGeneralField}
-          />
+          isEditMode ? (
+            <ExamClinicalTab
+              exam={exam}
+              isEditMode={isEditMode}
+              updateGeneralField={updateGeneralField}
+            />
+          ) : (
+            <MainClinicalTabContent
+              exam={exam}
+              selectedDifferentialIndex={selectedDifferentialIndex}
+              setSelectedDifferentialIndex={setSelectedDifferentialIndex}
+            />
+          )
         )}
 
         {activeTab === 'visuals' && (
