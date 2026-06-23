@@ -20,7 +20,6 @@ import {
   RotateCcw,
   RefreshCw,
   X,
-  AlertCircle,
   Info
 } from 'lucide-react';
 
@@ -97,8 +96,6 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
   const [loadingPathoData, setLoadingPathoData] = useState(false);
 
   // Selected details for Column 3
-  const [selectedPhysiologyBucket, setSelectedPhysiologyBucket] = useState<number | null>(null);
-  const [selectedDifferentialIndex, setSelectedDifferentialIndex] = useState<number | null>(null);
 
   const [enlargedImage, setEnlargedImage] = useState<{ src: string; alt: string } | null>(null);
   const [checkedSteps, setCheckedSteps] = useState<Set<string>>(() => {
@@ -477,67 +474,6 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
       );
     }
 
-    if (activeTab === 'physiology') {
-      const bucketIndex = selectedPhysiologyBucket ?? 0;
-      const bucket = exam.physiologyBuckets?.[bucketIndex];
-      if (!bucket) return null;
-
-      return (
-        <div className="space-y-6">
-          <div className="border-b border-white/5 pb-4">
-            <span className="text-[9px] font-black text-emerald-400 uppercase tracking-widest block mb-1">
-              Physiological Sub-Matrix
-            </span>
-            <h3 className="text-sm font-black text-white uppercase tracking-wider">
-              {bucket.title}
-            </h3>
-          </div>
-
-          <div className="space-y-4">
-            {bucket.content.map((item, i) => (
-              <div
-                key={i}
-                className="bg-slate-950/40/5 border border-white/5 rounded-2xl p-5 hover:border-emerald-500/20 transition-all"
-              >
-                <span className="text-[10px] font-black text-emerald-400 block mb-2 uppercase tracking-wide">
-                  {item.label}
-                </span>
-                <p className="text-xs font-medium text-slate-300 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      );
-    }
-
-    if (activeTab === 'clinical') {
-      const diffIndex = selectedDifferentialIndex ?? 0;
-      const diff = exam.differentialDiagnoses?.[diffIndex];
-      if (!diff) return null;
-
-      return (
-        <div className="space-y-6">
-          <div className="border-b border-white/5 pb-4">
-            <span className="text-[9px] font-black text-rose-400 uppercase tracking-widest block mb-1">
-              Diagnostic Detail
-            </span>
-            <h3 className="text-sm font-black text-white uppercase tracking-wider">
-              {diff.condition}
-            </h3>
-          </div>
-
-          <div className="bg-slate-950/40/5 border border-white/5 rounded-2xl p-5 leading-relaxed">
-            <span className="text-[9px] font-black text-rose-400 uppercase tracking-wider block mb-2">
-              Clinical Explanation
-            </span>
-            <p className="text-xs font-semibold text-slate-300">{diff.explanation}</p>
-          </div>
-        </div>
-      );
-    }
-
     return (
       <div className="h-full flex flex-col items-center justify-center p-6 text-center text-slate-400">
         <Info className="w-8 h-8 opacity-20 mb-2" />
@@ -551,8 +487,6 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     selectedPathoSign,
     loadingPathoData,
     pathoSignData,
-    selectedPhysiologyBucket,
-    selectedDifferentialIndex,
     exam,
     checkedSteps,
     refinementPrompt,
