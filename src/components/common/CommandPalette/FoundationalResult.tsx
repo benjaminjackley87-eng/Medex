@@ -13,7 +13,7 @@ const FoundationalResult: React.FC<FoundationalResultProps> = ({
   doc,
   isSelected,
   onClick,
-  onMouseEnter,
+  onMouseEnter
 }) => {
   return (
     <button
@@ -44,9 +44,7 @@ const FoundationalResult: React.FC<FoundationalResultProps> = ({
           )}
         </div>
         <div className="overflow-hidden">
-          <span className="font-bold text-sm tracking-tight block truncate">
-            {doc.title}
-          </span>
+          <span className="font-bold text-sm tracking-tight block truncate">{doc.title}</span>
           <span
             className={`text-[10px] font-medium block truncate ${
               isSelected ? 'text-white/60' : 'text-slate-400'

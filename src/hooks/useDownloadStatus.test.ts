@@ -29,7 +29,9 @@ describe('useDownloadStatus', () => {
   });
 
   it('initializes and fetches downloaded exams on mount', async () => {
-    vi.mocked(storage.getAllDownloaded).mockResolvedValue([{ id: 'exam-1' } as unknown as Examination]);
+    vi.mocked(storage.getAllDownloaded).mockResolvedValue([
+      { id: 'exam-1' } as unknown as Examination
+    ]);
     vi.mocked(downloadManager.subscribe).mockReturnValue(vi.fn());
 
     const { result } = renderHook(() => useDownloadStatus());

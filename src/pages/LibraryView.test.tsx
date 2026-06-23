@@ -37,7 +37,15 @@ vi.mock('../hooks/useDownloadStatus', () => ({
 }));
 
 vi.mock('../components/common/SystemSection', () => ({
-  default: ({ system, isExpanded, onToggle }: { system: ExamSystem; isExpanded: boolean; onToggle: (sys: ExamSystem) => void }) => (
+  default: ({
+    system,
+    isExpanded,
+    onToggle
+  }: {
+    system: ExamSystem;
+    isExpanded: boolean;
+    onToggle: (sys: ExamSystem) => void;
+  }) => (
     <div data-testid="system-section" onClick={() => onToggle(system)}>
       System: {system} {isExpanded ? 'Expanded' : 'Collapsed'}
     </div>

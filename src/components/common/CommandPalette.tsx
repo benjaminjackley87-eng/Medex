@@ -132,15 +132,18 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
     [exams, query]
   );
 
-  const standardResults = useMemo(() =>
-    [...filteredViews, ...filteredExams.map((e) => ({ ...e, isExam: true as const }))],
+  const standardResults = useMemo(
+    () => [...filteredViews, ...filteredExams.map((e) => ({ ...e, isExam: true as const }))],
     [filteredViews, filteredExams]
   );
 
-  const results = useMemo<ResultItem[]>(() => [
-    ...standardResults,
-    ...foundationalResults.map((r) => ({ ...r.document, isFoundational: true as const }))
-  ], [standardResults, foundationalResults]);
+  const results = useMemo<ResultItem[]>(
+    () => [
+      ...standardResults,
+      ...foundationalResults.map((r) => ({ ...r.document, isFoundational: true as const }))
+    ],
+    [standardResults, foundationalResults]
+  );
 
   const handleQueryChange = (newQuery: string) => {
     setQuery(newQuery);

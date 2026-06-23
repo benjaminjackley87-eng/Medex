@@ -40,7 +40,8 @@ export const DashboardActivityFeed: React.FC<DashboardActivityFeedProps> = ({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {recentActivity.length > 0 ? (
           recentActivity.map((activity) => {
-            const theme = SYSTEM_THEMES[activity.system as keyof typeof SYSTEM_THEMES] || DEFAULT_STYLE;
+            const theme =
+              SYSTEM_THEMES[activity.system as keyof typeof SYSTEM_THEMES] || DEFAULT_STYLE;
             return (
               <div
                 key={activity.id}

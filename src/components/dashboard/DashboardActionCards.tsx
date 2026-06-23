@@ -12,7 +12,11 @@ interface DashboardActionCardsProps {
   quotes: string[];
 }
 
-export const DashboardActionCards: React.FC<DashboardActionCardsProps> = ({ stats, onNavigate, quotes }) => {
+export const DashboardActionCards: React.FC<DashboardActionCardsProps> = ({
+  stats,
+  onNavigate,
+  quotes
+}) => {
   return (
     <div className="lg:col-span-1 flex flex-col gap-6">
       <div

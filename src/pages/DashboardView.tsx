@@ -70,7 +70,12 @@ const DashboardView: React.FC<DashboardViewProps> = (props) => {
           percentage: Math.round((learnedCount / exams.length) * 100)
         };
       })
-      .filter((item): item is { system: ExamSystem; total: number; learned: number; percentage: number } => item !== null);
+      .filter(
+        (
+          item
+        ): item is { system: ExamSystem; total: number; learned: number; percentage: number } =>
+          item !== null
+      );
 
     return { total, learned, inProgress, toReview, systemProgress };
   }, [downloadedExams]);
@@ -94,21 +99,14 @@ const DashboardView: React.FC<DashboardViewProps> = (props) => {
 
   return (
     <div className="p-8 max-w-7xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 pb-20 text-slate-100">
-      <DashboardHeader
-        onNavigate={onNavigate}
-        onOpenCommandPalette={onOpenCommandPalette}
-      />
+      <DashboardHeader onNavigate={onNavigate} onOpenCommandPalette={onOpenCommandPalette} />
 
       <DashboardStats stats={stats} />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <DashboardQuickLinks onNavigate={onNavigate} />
 
-        <DashboardActionCards
-          stats={stats}
-          onNavigate={onNavigate}
-          quotes={quotes}
-        />
+        <DashboardActionCards stats={stats} onNavigate={onNavigate} quotes={quotes} />
 
         <DashboardActivityFeed
           recentActivity={recentActivity}

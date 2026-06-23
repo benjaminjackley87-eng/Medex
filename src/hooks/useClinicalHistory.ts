@@ -36,7 +36,12 @@ export function useClinicalHistory() {
   }, []);
 
   const addToHistory = useCallback(
-    (type: HistoryItem['type'], label: string, id: string = label, metadata?: Record<string, unknown>) => {
+    (
+      type: HistoryItem['type'],
+      label: string,
+      id: string = label,
+      metadata?: Record<string, unknown>
+    ) => {
       const newItem: HistoryItem = {
         id: `${type}-${id}-${Date.now()}`,
         type,

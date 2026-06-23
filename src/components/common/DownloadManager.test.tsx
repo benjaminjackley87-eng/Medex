@@ -31,11 +31,11 @@ vi.mock('../../services/downloadManagerService', () => {
       // Test helpers
       __setMockTasks: (tasks: DownloadTask[]) => {
         mockTasks = tasks;
-        listeners.forEach(l => l(mockTasks));
+        listeners.forEach((l) => l(mockTasks));
       },
       __setMockPaused: (paused: boolean) => {
         isPaused = paused;
-        listeners.forEach(l => l(mockTasks));
+        listeners.forEach((l) => l(mockTasks));
       }
     }
   };
@@ -60,11 +60,57 @@ describe('DownloadManager', () => {
 
   it('calculates stats correctly with mixed task statuses', () => {
     const mockTasks: DownloadTask[] = [
-      { id: '1', examId: 'e1', examName: 'Exam 1', type: 'deep_sync', status: 'completed', progress: 100, retryCount: 0, createdAt: 0 },
-      { id: '2', examId: 'e2', examName: 'Exam 2', type: 'deep_sync', status: 'downloading', progress: 50, retryCount: 0, createdAt: 0 },
-      { id: '3', examId: 'e3', examName: 'Exam 3', type: 'deep_sync', status: 'pending', progress: 0, retryCount: 0, createdAt: 0 },
-      { id: '4', examId: 'e4', examName: 'Exam 4', type: 'deep_sync', status: 'failed', progress: 0, retryCount: 0, createdAt: 0, error: 'Failed' },
-      { id: '5', examId: 'e5', examName: 'Exam 5', type: 'deep_sync', status: 'completed', progress: 100, retryCount: 0, createdAt: 0 },
+      {
+        id: '1',
+        examId: 'e1',
+        examName: 'Exam 1',
+        type: 'deep_sync',
+        status: 'completed',
+        progress: 100,
+        retryCount: 0,
+        createdAt: 0
+      },
+      {
+        id: '2',
+        examId: 'e2',
+        examName: 'Exam 2',
+        type: 'deep_sync',
+        status: 'downloading',
+        progress: 50,
+        retryCount: 0,
+        createdAt: 0
+      },
+      {
+        id: '3',
+        examId: 'e3',
+        examName: 'Exam 3',
+        type: 'deep_sync',
+        status: 'pending',
+        progress: 0,
+        retryCount: 0,
+        createdAt: 0
+      },
+      {
+        id: '4',
+        examId: 'e4',
+        examName: 'Exam 4',
+        type: 'deep_sync',
+        status: 'failed',
+        progress: 0,
+        retryCount: 0,
+        createdAt: 0,
+        error: 'Failed'
+      },
+      {
+        id: '5',
+        examId: 'e5',
+        examName: 'Exam 5',
+        type: 'deep_sync',
+        status: 'completed',
+        progress: 100,
+        retryCount: 0,
+        createdAt: 0
+      }
     ];
 
     (downloadManager as any).__setMockTasks(mockTasks);
@@ -122,7 +168,7 @@ describe('DownloadManager', () => {
     // Trash icon is inside a button with certain classes for the header clear
     // We can just find the button that calls clearArchive.
     const buttons = container.querySelectorAll('button');
-    const clearButton = Array.from(buttons).find(b => b.innerHTML.includes('lucide-trash2'));
+    const clearButton = Array.from(buttons).find((b) => b.innerHTML.includes('lucide-trash2'));
 
     expect(clearButton).toBeDefined();
     clearButton?.click();

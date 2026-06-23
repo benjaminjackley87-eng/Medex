@@ -1,6 +1,21 @@
 import React from 'react';
 import type { LucideIcon } from 'lucide-react';
-import { Activity, Wind, Stethoscope, Waves, Microscope, Bone, Droplets, Brain, Baby, Thermometer, Glasses, Clipboard, ShieldAlert, Layers } from 'lucide-react';
+import {
+  Activity,
+  Wind,
+  Stethoscope,
+  Waves,
+  Microscope,
+  Bone,
+  Droplets,
+  Brain,
+  Baby,
+  Thermometer,
+  Glasses,
+  Clipboard,
+  ShieldAlert,
+  Layers
+} from 'lucide-react';
 import { ExamSystem } from './types';
 
 /** Shape of each system-theme entry in SYSTEM_THEMES */
@@ -34,8 +49,8 @@ export interface SystemStyle {
 }
 
 export const SYSTEM_THEMES: Record<ExamSystem, SystemStyle> = {
-  [ExamSystem.GENERAL]: { 
-    icon: React.createElement(Layers, { className: "w-4 h-4" }), 
+  [ExamSystem.GENERAL]: {
+    icon: React.createElement(Layers, { className: 'w-4 h-4' }),
     iconRaw: Layers,
     glow: 'shadow-[0_0_20px_-5px_rgba(148,163,184,0.5)]',
     border: 'border-slate-400/40',

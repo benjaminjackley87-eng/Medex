@@ -52,9 +52,7 @@ const SubTaskPip: React.FC<{
       <div className="shrink-0">
         {status === 'completed' ? <CheckCircle2 className="w-3.5 h-3.5" /> : icon}
       </div>
-      <span className="text-[7px] font-black uppercase tracking-tighter text-center">
-        {label}
-      </span>
+      <span className="text-[7px] font-black uppercase tracking-tighter text-center">{label}</span>
     </div>
   );
 };
@@ -89,9 +87,7 @@ const DownloadTaskCard: React.FC<DownloadTaskCardProps> = ({ task, idx }) => {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h4 className="text-sm font-black text-white leading-none">
-                {task.examName}
-              </h4>
+              <h4 className="text-sm font-black text-white leading-none">{task.examName}</h4>
               {isFailed && (
                 <button
                   onClick={() => downloadManager.retryTask(task.id)}

@@ -2,36 +2,40 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import Sidebar from './components/common/Sidebar';
 import DashboardView from './pages/DashboardView';
-import LibraryView from './pages/LibraryView';
-
-import ExamView from './pages/ExamView';
-import ClinicalFinder from './pages/ClinicalFinder';
-import TutorialView from './pages/TutorialView';
-import SettingsView from './pages/SettingsView';
-import GlossaryView from './pages/GlossaryView';
-import ClinicalCalculatorsView from './pages/ClinicalCalculatorsView';
-import ProceduresView from './pages/ProceduresView';
-import PharmacologyView from './pages/PharmacologyView';
-import GenericPharmacologyView from './pages/GenericPharmacologyView';
-import PharmacologyToxView from './pages/PharmacologyToxView';
-import ImmunisationView from './pages/ImmunisationView';
-import ECGView from './pages/ECGView';
-import RadiologyView from './pages/RadiologyView';
-import SymptomChecker from './pages/SymptomChecker';
-import NeuropraxiaView from './pages/NeuropraxiaView';
-import SciencesExplorer from './pages/SciencesExplorer';
-import TherapeuticNavigator from './pages/TherapeuticNavigator';
-import KnowledgeGraphExplorer from './pages/KnowledgeGraphExplorer';
-import AnaestheticsCCView from './pages/AnaestheticsCCView';
 import WorkspaceLayout from './features/ClinicalWorkspace/WorkspaceLayout';
-import DevAssistant from './pages/DevAssistant';
-import DiagnosticReasoningSuite from './features/Suites/DiagnosticReasoningSuite';
-import InvestigationsSuite from './features/Suites/InvestigationsSuite';
-import TherapeuticsSuite from './features/Suites/TherapeuticsSuite';
-import AcuteInterventionsSuite from './features/Suites/AcuteInterventionsSuite';
-import FoundationsSuite from './features/Suites/FoundationsSuite';
-import StudyHubView from './pages/StudyHubView';
 import DownloadManager from './components/common/DownloadManager';
+
+const LibraryView = React.lazy(() => import('./pages/LibraryView'));
+const ExamView = React.lazy(() => import('./pages/ExamView'));
+const ClinicalFinder = React.lazy(() => import('./pages/ClinicalFinder'));
+const TutorialView = React.lazy(() => import('./pages/TutorialView'));
+const SettingsView = React.lazy(() => import('./pages/SettingsView'));
+const GlossaryView = React.lazy(() => import('./pages/GlossaryView'));
+const ClinicalCalculatorsView = React.lazy(() => import('./pages/ClinicalCalculatorsView'));
+const ProceduresView = React.lazy(() => import('./pages/ProceduresView'));
+const PharmacologyView = React.lazy(() => import('./pages/PharmacologyView'));
+const GenericPharmacologyView = React.lazy(() => import('./pages/GenericPharmacologyView'));
+const PharmacologyToxView = React.lazy(() => import('./pages/PharmacologyToxView'));
+const ImmunisationView = React.lazy(() => import('./pages/ImmunisationView'));
+const ECGView = React.lazy(() => import('./pages/ECGView'));
+const RadiologyView = React.lazy(() => import('./pages/RadiologyView'));
+const SymptomChecker = React.lazy(() => import('./pages/SymptomChecker'));
+const NeuropraxiaView = React.lazy(() => import('./pages/NeuropraxiaView'));
+const SciencesExplorer = React.lazy(() => import('./pages/SciencesExplorer'));
+const TherapeuticNavigator = React.lazy(() => import('./pages/TherapeuticNavigator'));
+const KnowledgeGraphExplorer = React.lazy(() => import('./pages/KnowledgeGraphExplorer'));
+const AnaestheticsCCView = React.lazy(() => import('./pages/AnaestheticsCCView'));
+const DevAssistant = React.lazy(() => import('./pages/DevAssistant'));
+const DiagnosticReasoningSuite = React.lazy(
+  () => import('./features/Suites/DiagnosticReasoningSuite')
+);
+const InvestigationsSuite = React.lazy(() => import('./features/Suites/InvestigationsSuite'));
+const TherapeuticsSuite = React.lazy(() => import('./features/Suites/TherapeuticsSuite'));
+const AcuteInterventionsSuite = React.lazy(
+  () => import('./features/Suites/AcuteInterventionsSuite')
+);
+const FoundationsSuite = React.lazy(() => import('./features/Suites/FoundationsSuite'));
+const StudyHubView = React.lazy(() => import('./pages/StudyHubView'));
 
 function AppLayout() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -51,7 +55,18 @@ function AppLayout() {
     <div className="flex h-screen bg-[#0A0C10] text-slate-200 overflow-hidden font-sans">
       <Sidebar isOnline={isOnline} />
       <main className="flex-1 overflow-y-auto relative custom-scrollbar">
-        <Outlet />
+        <React.Suspense
+          fallback={
+            <div className="flex h-full items-center justify-center text-slate-400 py-24 flex-col gap-3">
+              <div className="w-8 h-8 border-4 border-cyan-500/30 border-t-cyan-500 rounded-full animate-spin" />
+              <span className="text-[10px] font-black uppercase tracking-widest">
+                Loading Module...
+              </span>
+            </div>
+          }
+        >
+          <Outlet />
+        </React.Suspense>
       </main>
     </div>
   );

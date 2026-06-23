@@ -37,7 +37,12 @@ interface ProcedureCardProps {
   ) => void;
   addStep: (id: string) => void;
   removeStep: (id: string, index: number) => void;
-  updateStep: (id: string, index: number, field: keyof ProcedureStep, value: ProcedureStep[keyof ProcedureStep]) => void;
+  updateStep: (
+    id: string,
+    index: number,
+    field: keyof ProcedureStep,
+    value: ProcedureStep[keyof ProcedureStep]
+  ) => void;
   updateStepImage: (id: string, index: number, file: File) => void;
   setEnlargedImage: (img: { src: string; alt: string } | null) => void;
 }

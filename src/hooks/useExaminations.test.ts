@@ -66,8 +66,11 @@ describe('useExaminations', () => {
 
   it('fetches offline exam from storage when selected', async () => {
     const mockExam = { id: 'exam-cv', name: 'Cardiovascular' };
-    vi.mocked(storage.getExamination).mockResolvedValueOnce({ ...mockExam, isDownloaded: true } as unknown as Examination);
-    
+    vi.mocked(storage.getExamination).mockResolvedValueOnce({
+      ...mockExam,
+      isDownloaded: true
+    } as unknown as Examination);
+
     const { result } = renderHook(() => useExaminations());
 
     await act(async () => {

@@ -16,7 +16,7 @@ const ProtocolResult: React.FC<ProtocolResultProps> = ({
   exam,
   isSelected,
   onClick,
-  onMouseEnter,
+  onMouseEnter
 }) => {
   return (
     <button
@@ -39,9 +39,7 @@ const ProtocolResult: React.FC<ProtocolResultProps> = ({
           <BookOpen className="w-4 h-4" />
         </div>
         <div className="text-left">
-          <span className="font-bold text-sm tracking-tight block">
-            {exam.name}
-          </span>
+          <span className="font-bold text-sm tracking-tight block">{exam.name}</span>
           <span
             className={`text-[10px] font-medium block ${
               isSelected ? 'text-white/60' : 'text-slate-400'

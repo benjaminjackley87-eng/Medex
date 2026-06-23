@@ -146,7 +146,12 @@ export const ProceduresView: React.FC<ProceduresViewProps> = ({ isEditMode }) =>
     setIsDirty(true);
   };
 
-  const updateStep = (id: string, index: number, field: keyof ProcedureStep, value: ProcedureStep[keyof ProcedureStep]) => {
+  const updateStep = (
+    id: string,
+    index: number,
+    field: keyof ProcedureStep,
+    value: ProcedureStep[keyof ProcedureStep]
+  ) => {
     setProcedures((prev) =>
       prev.map((p) => {
         if (p.id === id) {

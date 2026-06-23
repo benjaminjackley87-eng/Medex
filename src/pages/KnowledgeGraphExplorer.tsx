@@ -200,7 +200,9 @@ export function KnowledgeGraphExplorer() {
               ? 'rgba(99, 102, 241, 0.2)'
               : 'rgba(255,255,255,0.05)'
           }
-          linkWidth={(link) => ((link as GraphLink).relationship === 'CONTAINS_STRUCTURE' ? 1.5 : 0.5)}
+          linkWidth={(link) =>
+            (link as GraphLink).relationship === 'CONTAINS_STRUCTURE' ? 1.5 : 0.5
+          }
           linkDirectionalParticles={0} // Disable for performance with large graphs
           onNodeClick={handleNodeClick}
           backgroundColor="transparent"

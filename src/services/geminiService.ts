@@ -1,4 +1,10 @@
-import { GoogleGenAI, Type, GenerateContentResponse, HarmCategory, HarmBlockThreshold } from '@google/genai';
+import {
+  GoogleGenAI,
+  Type,
+  GenerateContentResponse,
+  HarmCategory,
+  HarmBlockThreshold
+} from '@google/genai';
 import {
   ClinicalCorrelation,
   Examination,
@@ -380,7 +386,7 @@ export class GeminiService {
         .filter((s): s is { title: string; uri: string } => !!s.uri) || [];
 
     // Map the new "modules" structure to ExamStep
-    const mappedSteps: ExamStep[] = (data.modules as RawModule[] || []).map((mod, index) => ({
+    const mappedSteps: ExamStep[] = ((data.modules as RawModule[]) || []).map((mod, index) => ({
       id: `step_${index}`,
       title: mod.step_title || '',
       description: mod.explanation || '',
@@ -477,7 +483,7 @@ export class GeminiService {
         }))
         .filter((s): s is { title: string; uri: string } => !!s.uri) || [];
 
-    const mappedSteps: ExamStep[] = (data.modules as RawModule[] || []).map((mod, index) => ({
+    const mappedSteps: ExamStep[] = ((data.modules as RawModule[]) || []).map((mod, index) => ({
       id: `step_${index}`,
       title: mod.step_title || '',
       description: mod.explanation || '',

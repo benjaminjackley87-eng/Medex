@@ -46,9 +46,7 @@ export const AntibioticDetail: React.FC<AntibioticDetailProps> = ({ abxInfo, res
             {abxInfo.mechanism}
           </div>
         </div>
-        <p className="text-slate-300 text-lg leading-relaxed italic mb-6">
-          {abxInfo.spectrum}
-        </p>
+        <p className="text-slate-300 text-lg leading-relaxed italic mb-6">{abxInfo.spectrum}</p>
 
         {abxInfo.stewardshipNote && (
           <div className="bg-rose-950/20 border border-rose-500/10 rounded-2xl p-6 flex items-start gap-4">
@@ -87,17 +85,13 @@ export const AntibioticDetail: React.FC<AntibioticDetailProps> = ({ abxInfo, res
           <h3 className="text-[11px] font-black uppercase text-indigo-400 mb-6 tracking-widest flex items-center gap-2">
             <Info className="w-4 h-4" /> Atypical Coverage
           </h3>
-          <p className="text-slate-300 font-medium leading-relaxed">
-            {abxInfo.atypicalCoverage}
-          </p>
+          <p className="text-slate-300 font-medium leading-relaxed">{abxInfo.atypicalCoverage}</p>
         </div>
         <div className="bg-amber-950/20 p-8 rounded-[40px] border border-amber-500/15">
           <h3 className="text-[11px] font-black uppercase text-amber-400 mb-6 tracking-widest flex items-center gap-2">
             <Info className="w-4 h-4" /> Anaerobic Coverage
           </h3>
-          <p className="text-slate-300 font-medium leading-relaxed">
-            {abxInfo.anaerobicCoverage}
-          </p>
+          <p className="text-slate-300 font-medium leading-relaxed">{abxInfo.anaerobicCoverage}</p>
         </div>
       </div>
 

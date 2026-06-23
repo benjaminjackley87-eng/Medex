@@ -14,9 +14,7 @@ export const ClinicalDetail: React.FC<ClinicalDetailProps> = ({ diff }) => {
         <span className="text-[9px] font-black text-rose-400 uppercase tracking-widest block mb-1">
           Diagnostic Detail
         </span>
-        <h3 className="text-sm font-black text-white uppercase tracking-wider">
-          {diff.condition}
-        </h3>
+        <h3 className="text-sm font-black text-white uppercase tracking-wider">{diff.condition}</h3>
       </div>
 
       <div className="bg-slate-950/40/5 border border-white/5 rounded-2xl p-5 leading-relaxed">

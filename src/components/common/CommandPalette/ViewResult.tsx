@@ -12,12 +12,7 @@ interface ViewResultProps {
   onMouseEnter: () => void;
 }
 
-const ViewResult: React.FC<ViewResultProps> = ({
-  view,
-  isSelected,
-  onClick,
-  onMouseEnter,
-}) => {
+const ViewResult: React.FC<ViewResultProps> = ({ view, isSelected, onClick, onMouseEnter }) => {
   return (
     <button
       onClick={onClick}
