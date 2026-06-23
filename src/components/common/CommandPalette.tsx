@@ -20,6 +20,9 @@ import {
   SearchResult
 } from '../../services/localSearchService';
 import FoundationalDetailModal from './FoundationalDetailModal';
+import ViewResult from './CommandPalette/ViewResult';
+import ProtocolResult from './CommandPalette/ProtocolResult';
+import FoundationalResult from './CommandPalette/FoundationalResult';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -246,29 +249,16 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
                       {filteredViews.map((view, idx) => {
                         const isSelected = idx === selectedIndex;
                         return (
-                          <button
+                          <ViewResult
                             key={view.id}
+                            view={view}
+                            isSelected={isSelected}
                             onClick={() => {
                               onNavigate(view.view);
                               onClose();
                             }}
                             onMouseEnter={() => setSelectedIndex(idx)}
-                            className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${
-                              isSelected
-                                ? 'bg-blue-600 text-white shadow-lg'
-                                : 'text-slate-400 hover:bg-slate-800/40 hover:text-white'
-                            }`}
-                          >
-                            <div className="flex items-center gap-4">
-                              <div
-                                className={`w-8 h-8 rounded-xl flex items-center justify-center ${isSelected ? 'bg-slate-950/40/20' : 'bg-slate-800 border border-slate-700/50 text-slate-400'}`}
-                              >
-                                {view.icon}
-                              </div>
-                              <span className="font-bold text-sm tracking-tight">{view.label}</span>
-                            </div>
-                            {isSelected && <Command className="w-3.5 h-3.5 opacity-60" />}
-                          </button>
+                          />
                         );
                       })}
                     </div>
@@ -286,38 +276,16 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
                         const actualIdx = filteredViews.length + idx;
                         const isSelected = actualIdx === selectedIndex;
                         return (
-                          <button
+                          <ProtocolResult
                             key={exam.id}
+                            exam={exam}
+                            isSelected={isSelected}
                             onClick={() => {
                               onNavigate('library', null, exam);
                               onClose();
                             }}
                             onMouseEnter={() => setSelectedIndex(actualIdx)}
-                            className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all ${
-                              isSelected
-                                ? 'bg-blue-600 text-white shadow-lg'
-                                : 'text-slate-400 hover:bg-slate-800/40 hover:text-white'
-                            }`}
-                          >
-                            <div className="flex items-center gap-4">
-                              <div
-                                className={`w-8 h-8 rounded-xl flex items-center justify-center ${isSelected ? 'bg-slate-950/40/20' : 'bg-slate-800 border border-slate-700/50 text-slate-400'}`}
-                              >
-                                <BookOpen className="w-4 h-4" />
-                              </div>
-                              <div className="text-left">
-                                <span className="font-bold text-sm tracking-tight block">
-                                  {exam.name}
-                                </span>
-                                <span
-                                  className={`text-[10px] font-medium block ${isSelected ? 'text-white/60' : 'text-slate-400'}`}
-                                >
-                                  {exam.system}
-                                </span>
-                              </div>
-                            </div>
-                            {isSelected && <Command className="w-3.5 h-3.5 opacity-60" />}
-                          </button>
+                          />
                         );
                       })}
                     </div>
@@ -341,47 +309,13 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
                         const isSelected = actualIdx === selectedIndex;
                         const doc = res.document;
                         return (
-                          <button
+                          <FoundationalResult
                             key={doc.id}
+                            doc={doc}
+                            isSelected={isSelected}
                             onClick={() => setSelectedDoc(doc)}
                             onMouseEnter={() => setSelectedIndex(actualIdx)}
-                            className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all text-left ${
-                              isSelected
-                                ? 'bg-blue-600 text-white shadow-lg'
-                                : 'text-slate-400 hover:bg-slate-800/40 hover:text-white'
-                            }`}
-                          >
-                            <div className="flex items-center gap-4 overflow-hidden">
-                              <div
-                                className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 ${
-                                  isSelected
-                                    ? 'bg-slate-950/40/20'
-                                    : 'bg-slate-800 border border-slate-700/50 text-slate-400'
-                                }`}
-                              >
-                                {doc.type === 'concept' ? (
-                                  <Activity className="w-4 h-4 text-indigo-400" />
-                                ) : doc.type === 'structure' ? (
-                                  <Layers className="w-4 h-4 text-emerald-400" />
-                                ) : doc.type === 'correlation' ? (
-                                  <Zap className="w-4 h-4 text-rose-400" />
-                                ) : (
-                                  <BookOpen className="w-4 h-4 text-blue-400" />
-                                )}
-                              </div>
-                              <div className="overflow-hidden">
-                                <span className="font-bold text-sm tracking-tight block truncate">
-                                  {doc.title}
-                                </span>
-                                <span
-                                  className={`text-[10px] font-medium block truncate ${isSelected ? 'text-white/60' : 'text-slate-400'}`}
-                                >
-                                  {doc.subtitle}
-                                </span>
-                              </div>
-                            </div>
-                            <ChevronRight className="w-4 h-4 shrink-0 opacity-60" />
-                          </button>
+                          />
                         );
                       })}
                     </div>
