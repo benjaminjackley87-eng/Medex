@@ -857,7 +857,6 @@ export class GeminiService {
       try {
         const cached = await storage.getProtocol(condition);
         if (cached) {
-          console.log(`Retrieved cached protocol for: ${condition}`);
           return cached;
         }
       } catch (e) {
