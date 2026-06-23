@@ -1,0 +1,144 @@
+{
+  "moduleId": "anat_haem_01",
+  "moduleTitle": "Haematological System & Lymphatic Applied Clinical Anatomy & Histology",
+  "tags": [
+    "haematology",
+    "lymphatics",
+    "bone marrow",
+    "spleen",
+    "thymus",
+    "lymph nodes",
+    "splenectomy",
+    "hematopoiesis",
+    "myasthenia gravis"
+  ],
+  "structures": [
+    {
+      "structureId": "struc_bone_marrow_01",
+      "anatomicalName": "Bone Marrow",
+      "surfaceLandmarksAndRelations": {
+        "anterior": "Bounded anteriorly by cortical bone and endosteum within the medullary cavities of long and flat bones.",
+        "posterior": "Bounded posteriorly by cortical bone and endosteum within the medullary cavities.",
+        "lateral": "Bounded laterally by cortical bone and endosteum within the medullary cavities.",
+        "superior": "Bounded superiorly by epiphyseal cartilage, subchondral bone, or cortical bone.",
+        "inferior": "Bounded inferiorly by epiphyseal cartilage, subchondral bone, or cortical bone.",
+        "vertebralLevels": "Housed within the vertebral bodies of the entire spine ($C_1$ to $Co_1$), serving as a primary site of red marrow throughout life."
+      },
+      "macroAnatomy": {
+        "description": "Housed within the medullary cavities of long bones and the trabecular (spongy) spaces of flat and irregular bones. Total mass is approximately $2.6\\text{ kg}$ in adults, representing $3.5-5.9\\%$ of total body weight. Divided into Red Marrow (hematopoietically active) and Yellow Marrow (hematopoietically inactive, high adipose content). At birth, all bone marrow is red. With aging, progressive centripetal regression occurs, converting red marrow to yellow marrow in the shafts of long bones, leaving active red marrow restricted primarily to the axial skeleton (vertebrae, sternum, ribs, clavicles, scapulae, pelvis, skull) and the proximal metaphyses of the femur and humerus."
+      },
+      "microAnatomyAndHistology": {
+        "epithelialDistribution": "No true epithelial lining exists within the hematopoietic compartments. The vascular system consists of specialized venous sinusoids lined by a continuous monolayer of non-fenestrated or minimally fenestrated endothelial cells (resting on a discontinuous basement membrane) that act as a selective barrier regulating the egress of mature blood cells.",
+        "specializedCells": "1. Hematopoietic Stem Cells (HSCs): Pluripotent cells capable of self-renewal and differentiation into myeloid and lymphoid progenitors. 2. Osteoblasts: Line the endosteal surface; key component of the osteoblastic/endosteal niche, secreting Jagged1 (Notch ligand) and angiopoietin-1 to maintain HSC quiescence. 3. Endothelial Cells: Line the sinusoids; form the vascular niche, secreting CXCL12 (SDF-1) and Stem Cell Factor (SCF) to stimulate cell proliferation, differentiation, and egress. 4. Megakaryocytes: Large polyploid cells ($50-100\\ \\mu\\text{m}$) located adjacent to sinusoids; project proplatelet processes through endothelial apertures into the sinusoid lumen. 5. Macrophages: Form the center of erythroblastic islands (nurse cells), phagocytosing extruded erythrocyte nuclei and providing iron directly to developing erythroblasts."
+      },
+      "bloodSupply": {
+        "arterialOrigin": "Nutrient arteries (pierce the diaphysis via nutrient foramina and branch longitudinally into ascending and descending medullary arteries), periosteal arteries, and epiphyseal/metaphyseal arteries.",
+        "venousDrainage": "Sinusoidal plexus -> central venous sinus -> nutrient veins (egress via nutrient foramina) -> systemic veins."
+      },
+      "lymphaticDrainage": {
+        "primaryNodes": "Bone marrow lacks lymphatic vessels. Lymphatic drainage is non-existent within the medullary cavity; cellular clearance is managed directly by venous sinusoids."
+      },
+      "innervation": {
+        "sensory": "Richly supplied by sensory fibers (primarily myelinated $A\\delta$ and unmyelinated $C$ fibers) arising from regional spinal nerves, mediating severe pain during marrow distension (e.g., leukemia, marrow hyperplasia, or intraosseous infusion).",
+        "motor": "No direct skeletal motor innervation.",
+        "autonomic": "Sympathetic postganglionic fibers (releasing norepinephrine acting on $\\beta_2$ and $\\beta_3$ adrenergic receptors on stromal cells) descend alongside nutrient arteries. This regulates vasomotor tone (controlling sinusoidal blood flow) and stimulates the circadian release/mobilization of hematopoietic stem cells into the circulation via downregulation of CXCL12 expression."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Intraosseous (IO) Access and Infusion",
+          "anatomicalBasis": "The medullary cavity of long and flat bones contains a non-collapsible vascular network of venous sinusoids draining into a central venous canal, which empties directly into the systemic venous circulation. Applying pressure to infuse fluids/drugs into the marrow mimics an intravenous route. In pediatric resuscitations or adult cardiac arrest with failed IV access, the proximal tibia (just inferior/medial to the tibial tuberosity) or humeral head provides a rigid, reliable entry point that remains patent even during severe circulatory collapse and shock."
+        },
+        {
+          "scenario": "Bone Marrow Embolism during Joint Arthroplasty",
+          "anatomicalBasis": "During orthopedic procedures involving intramedullary reaming, broaching, or cementation (e.g., total hip or knee arthroplasty), intramedullary pressure can exceed venous and atmospheric pressures, reaching $>500\\text{ mmHg}$. This high pressure forces bone marrow contents, fat droplets, and air into the disrupted venous sinusoids of the medullary cavity. These emboli travel via the systemic veins to the right side of the heart and into the pulmonary vasculature, causing mechanical occlusion and triggering a severe inflammatory response (Fat Embolism Syndrome), presenting as acute hypoxia, pulmonary hypertension, right ventricular strain, and hemodynamic instability."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_spleen_01",
+      "anatomicalName": "Spleen",
+      "surfaceLandmarksAndRelations": {
+        "anterior": "Stomach (anterior-medial relation; separated by the lesser sac), gastrosplenic ligament.",
+        "posterior": "Diaphragm, left pleura, left lung base, ribs 9, 10, and 11.",
+        "lateral": "Phrenicocolic ligament, abdominal wall.",
+        "superior": "Diaphragm, recess of the pleural cavity.",
+        "inferior": "Splenic flexure of the colon, phrenicocolic ligament.",
+        "vertebralLevels": "Located in the left upper quadrant (hypochondrium) lying obliquely along the long axis of the 10th rib, extending from the level of $T_{10}$ to $L_1$."
+      },
+      "macroAnatomy": {
+        "description": "The largest lymphoid organ in the body, typically measuring $12\\text{ cm} \\times 7\\text{ cm} \\times 3\\text{ cm}$ and weighing $150\\text{ g}$ (the '1x3x5x7x9x11' rule: 1 inch thick, 3 inches wide, 5 inches long, weighing 7 ounces, located between ribs 9 and 11). Covered by a thin, fibroelastic capsule that extends inward as trabeculae, dividing the splenic parenchyma into lobules."
+      },
+      "microAnatomyAndHistology": {
+        "epithelialDistribution": "Surrounded by a layer of simple squamous mesothelium (visceral peritoneum). The internal parenchyma lacks epithelial structures and is composed of lymphoid tissue and vascular spaces.",
+        "specializedCells": "1. White Pulp: Consists of the Periarteriolar Lymphoid Sheath (PALS; rich in CD4+ T-cells) and lymphoid follicles (rich in B-cells, which secrete IgM). 2. Red Pulp Cords (of Billroth): Contain macrophages, plasma cells, reticular cells, and red blood cells. 3. Red Pulp Sinusoids: Lined by long, parallel endothelial stave cells. 4. Splenic Macrophages: Express Fc receptors and scavenger receptors to recognize and phagocytose opsonized, aged, or structurally damaged (rigid) erythrocytes."
+      },
+      "bloodSupply": {
+        "arterialOrigin": "Splenic Artery (a highly tortuous branch of the coeliac trunk, arising at the $T_{12}-L_1$ level). It runs along the superior border of the pancreas within the splenorenal ligament before dividing into 5-6 branches at the splenic hilum.",
+        "venousDrainage": "Splenic Vein (runs posterior to the neck and body of the pancreas; joins the superior mesenteric vein [SMV] behind the pancreatic neck to form the hepatic portal vein at the $L_1-L_2$ level)."
+      },
+      "lymphaticDrainage": {
+        "primaryNodes": "Lymphatic vessels are present only in the splenic capsule and larger trabeculae. They drain to the pancreaticosplenic lymph nodes, which subsequently drain to the coeliac nodes."
+      },
+      "innervation": {
+        "sensory": "Visceral afferent fibers traveling retrograde with sympathetic nerves to the $T_6-T_9$ spinal cord segments, conveying dull, poorly localized left upper quadrant pain. Somatic pain from capsular irritation (e.g., subcapsular hematoma) is mediated by the left phrenic nerve ($C_3-C_5$), presenting as referred shoulder pain (Kehr's sign).",
+        "motor": "No skeletal motor innervation.",
+        "autonomic": "Postganglionic sympathetic fibers from the coeliac plexus travel along the splenic artery. Sympathetic stimulation causes contraction of the smooth muscle fibers in the splenic capsule and trabeculae, mobilizing up to $200-250\\text{ mL}$ of concentrated red blood cells into the systemic circulation during acute hemorrhagic shock."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Overwhelming Post-Splenectomy Sepsis (OPSI)",
+          "anatomicalBasis": "The spleen is the primary immunological filter for the bloodstream. Marginal zone B-lymphocytes in the splenic follicles secrete IgM antibodies, which are essential for opsonizing encapsulated bacteria (*Streptococcus pneumoniae*, *Haemophilus influenzae*, *Neisseria meningitidis*). Following splenectomy, opsonization is severely impaired, and the liver cannot efficiently clear these opsonized pathogens from the blood. This results in a 50-fold increased risk of rapid, overwhelming bacteremia and septic shock, with a mortality rate exceeding $50\\%$. Pre-operative or early post-operative immunization against these organisms is mandatory."
+        },
+        {
+          "scenario": "Kehr's Sign in Splenic Rupture",
+          "anatomicalBasis": "Laceration of the splenic parenchyma or capsule (e.g., from rib fractures of ribs 9-11 or blunt abdominal trauma) leads to accumulation of blood in the subdiaphragmatic space. This blood irritates the sensory afferent fibers of the left phrenic nerve ($C_3, C_4, C_5$) supplying the diaphragmatic peritoneum. Pain signals are transmitted to the spinal cord, where they synapse in the dorsal horn alongside somatic sensory fibers from the dermatomes of the shoulder tip, leading to referred pain in the left shoulder (Kehr's sign)."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_thymus_lymph_nodes_01",
+      "anatomicalName": "Thymus & Lymph Nodes",
+      "surfaceLandmarksAndRelations": {
+        "anterior": "Thymus: Sternum, sternohyoid and sternothyroid muscles. Lymph nodes: Vary by location (e.g., cervical nodes lie deep to platysma and sternocleidomastoid).",
+        "posterior": "Thymus: Pericardium, arch of aorta, brachiocephalic veins, trachea. Lymph nodes: Postero-medial structures corresponding to anatomical station (e.g., tracheobronchial nodes lie anterior to trachea/bronchi).",
+        "lateral": "Thymus: Pleural cavities, lungs, phrenic nerves. Lymph nodes: Bounded by adjacent fascial compartments.",
+        "superior": "Thymus: Lower poles of the thyroid gland, trachea. Lymph nodes: Upper limits of lymphatic chains.",
+        "inferior": "Thymus: Anterior mediastinum, diaphragm. Lymph nodes: Lower limits of lymphatic chains.",
+        "vertebralLevels": "Thymus: Extends from the lower border of the thyroid gland ($C_6$) down to the 4th costal cartilage ($T_4/T_5$). Lymph nodes: Distributed across cervical, thoracic, abdominal, axillary, and inguinal levels."
+      },
+      "macroAnatomy": {
+        "description": "The Thymus is a bilobed, encapsulated lymphoid organ situated in the superior and anterior mediastinum. It undergoes progressive fat involution after puberty (thymic parenchyma is replaced by adipose tissue, decreasing active T-cell production). Lymph Nodes are small, kidney-shaped encapsulated organs ($1-20\\text{ mm}$) distributed in chains along lymphatic pathways, containing an outer cortex, inner paracortex, and central medulla."
+      },
+      "microAnatomyAndHistology": {
+        "epithelialDistribution": "The thymus contains unique Epithelial Reticular Cells (ERCs) that form a cytoreticulum supporting developing thymocytes, rather than a true secretory or barrier epithelium. Capillaries in the thymic cortex are surrounded by a blood-thymus barrier consisting of: non-fenestrated capillary endothelial cells with tight junctions, a thick endothelial basement membrane, a perivascular space containing macrophages, and a layer of type I ERCs. Lymph nodes are covered by a dense connective tissue capsule.",
+        "specializedCells": "1. Thymocytes: Immature T-cells undergoing differentiation. 2. Hassall's Corpuscles: Concentric, whorled aggregations of eosinophilic epithelial cells in the thymic medulla. 3. Follicular Dendritic Cells (FDCs): Reside in lymph node cortical follicles, presenting intact antigens to B-cells. 4. High Endothelial Venule (HEV) Cells: Cuboidal cells expressing addressins (PNAd) that bind L-selectin on naive lymphocytes, facilitating extravasation. 5. Plasma Cells: Reside in lymph node medullary cords, secreting immunoglobulins."
+      },
+      "bloodSupply": {
+        "arterialOrigin": "Thymus: Internal thoracic arteries, inferior thyroid arteries. Lymph nodes: Small branches from adjacent regional arteries entering via the hilum.",
+        "venousDrainage": "Thymus: Left brachiocephalic vein, internal thoracic veins. Lymph nodes: Drained by veins exiting the hilum into regional venous networks."
+      },
+      "lymphaticDrainage": {
+        "primaryNodes": "Thymus: No afferent lymphatics; efferent vessels drain to parasternal, tracheobronchial, and internal jugular lymph nodes. Lymph nodes: Afferent lymphatic vessels enter through the convex surface, and efferent vessels exit via the hilum."
+      },
+      "innervation": {
+        "sensory": "No significant sensory innervation to thymus parenchyma; capsule receives branches from the phrenic and intercostal nerves. Lymph nodes receive sparse sensory vasomotor innervation.",
+        "motor": "No motor innervation.",
+        "autonomic": "Sympathetic fibers from the cervicothoracic (stellate) ganglia travel along blood vessels, modulating vasomotor tone and immune cell release."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Myasthenia Gravis and Thymoma",
+          "anatomicalBasis": "The thymus is the site of T-cell maturation and self-tolerance education. In $75\\%$ of patients with Myasthenia Gravis (MG), thymic hyperplasia or a thymoma (epithelial tumor of the thymus) is present. Abnormal thymic microenvironments promote the production of helper T-cells that stimulate B-cells to produce pathogenic autoantibodies against the nicotinic acetylcholine receptor ($AChR$) at the neuromuscular junction. Surgical excision (thymectomy) via a transsternal or video-assisted thoracoscopic (VATS) approach is performed to halt this autoimmune cascade, requiring careful anesthetic management regarding neuromuscular blockade sensitivity."
+        },
+        {
+          "scenario": "High Endothelial Venules (HEVs) and Lymphocyte Recirculation",
+          "anatomicalBasis": "Naive lymphocytes continuously recirculate between blood and lymph to maximize antigen encounter. Extravasation occurs specifically within the paracortex of lymph nodes via High Endothelial Venules (HEVs). HEV endothelial cells are uniquely cuboidal (rather than squamous) and express specific carbohydrate ligands called vascular addressins. Naive lymphocytes expressing $L$-selectin ($CD62L$) bind to these addressins, initiating rolling, adhesion, and transendothelial migration. Disruption of this micro-architectural pathway (e.g., by nodal fibrosis, radiation, or tumor infiltration) impairs systemic immune surveillance."
+        }
+      ]
+    }
+  ],
+  "crossReferenceKeys": [
+    "cell_haem_erythropoiesis",
+    "phys_haem_immune_surveillance"
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "moduleId": "cell_neuro_01",
+  "moduleTitle": "Cellular Neurophysiology Biophysical & Cellular Mechanics",
+  "tags": [
+    "resting membrane potential",
+    "nernst equation",
+    "goldman hodgkin katz",
+    "action potential",
+    "cable properties",
+    "myelin"
+  ],
+  "concepts": [
+    {
+      "conceptId": "concept_resting_membrane_potential_01",
+      "conceptName": "Resting Membrane Potential (RMP) Generation",
+      "roteData": {
+        "normalValue_neuronal": "-70 mV (range: -60 to -90 mV)",
+        "equilibriumPotentials": {
+          "K_equilibrium_potential": "-90 to -96 mV",
+          "Na_equilibrium_potential": "+60 to +65 mV",
+          "Cl_equilibrium_potential": "-70 to -80 mV",
+          "Ca_equilibrium_potential": "+120 to +130 mV"
+        },
+        "restingPermeabilityRatio": "P_K : P_Na : P_Cl = 1 : 0.04 : 0.45",
+        "primaryActiveTransport": "Na+/K+ ATPase pump consumes ~30-40\\% of brain ATP; pumps 3 Na+ ions OUT for every 2 K+ ions IN."
+      },
+      "firstPrinciplesMechanics": {
+        "equilibriumForces": "The resting membrane potential is an electrical potential difference across the cell membrane at rest. It is established by two competing physical forces: 1. **Chemical Driving Force (Concentration Gradient):** Diffusion of ions down their chemical concentration gradients; 2. **Electrical Driving Force (Electrostatic Gradient):** Movement of ions attracted by opposite charges or repelled by like charges across the membrane. When these two opposing forces balance for a given ion, the net flux is zero, establishing its equilibrium potential.",
+        "selectivePermeability": "The cell membrane is a lipid bilayer that acts as a capacitor, storing electrical charge. At rest, the membrane is highly permeable to Potassium ($K^+$) due to the presence of continuously open, non-gated 'leak' channels (primarily $K_{2P}$ two-pore domain potassium channels), while being virtually impermeable to Sodium ($Na^+$). Consequently, $K^+$ diffuses out of the cell down its steep concentration gradient, carrying positive charge with it. This leaves behind non-diffusible, negatively charged intracellular proteins and organic anions, creating an excess of negative charge along the inner surface of the membrane.",
+        "electrogenicPumpContribution": "The $Na^+/K^+$ ATPase pump is an electrogenic active transporter. Because it exchanges $3\\text{ Na}^+$ ions out for only $2\\text{ K}^+$ ions in, it generates a net outward current of positive charge, directly contributing approximately $-2$ to $-10\\text{ mV}$ to the resting membrane potential. However, its primary role is indirect: it continuously maintains the steep concentration gradients (high intracellular $K^+$, high extracellular $Na^+$) required to drive the passive diffusion of ions through leak channels."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Hyperkalaemia and Excitability",
+          "anatomicalBasis": "Acute elevations in extracellular potassium ($[K^+]_o$) decrease the concentration gradient driving $K^+$ efflux through leak channels. According to first principles, this reduces the outward chemical driving force, causing the resting membrane potential to become less negative (partial depolarization toward threshold). Clinically, this initial depolarization brings the membrane closer to its threshold potential, making cells hyper-excitable. However, sustained depolarization permanently inactivates the $h$-gates of voltage-gated sodium channels ($Nav1.5$ in myocytes; $Nav1.6$ in neurons), preventing action potential initiation and causing flaccid paralysis or cardiac arrest in diastole."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_nernst_ghk_equilibriums_01",
+      "conceptName": "Thermodynamics of Nernst & GHK Equations",
+      "roteData": {
+        "ionConcentrations": {
+          "K_intracellular": "140 mmol/L",
+          "K_extracellular": "4.5 mmol/L",
+          "Na_intracellular": "14 mmol/L",
+          "Na_extracellular": "140 mmol/L",
+          "Cl_intracellular": "4-10 mmol/L",
+          "Cl_extracellular": "100-105 mmol/L",
+          "Ca_intracellular": "10^-4 mmol/L (100 nM)",
+          "Ca_extracellular": "1.2 mmol/L (ionized)"
+        },
+        "nernstEquationSimplification_37C": "E_ion = (61.5 / z) * log10([Ion]_out / [Ion]_in)",
+        "constants": {
+          "GasConstant_R": "8.314 J / (K * mol)",
+          "FaradaysConstant_F": "96485 C / mol",
+          "Temperature_T_at_37C": "310.15 K"
+        }
+      },
+      "firstPrinciplesMechanics": {
+        "nernstDerivation": {
+          "step_1_osmotic_work": "The thermodynamic work ($W_{osmotic}$) required to move one mole of a solute against a chemical concentration gradient is: $W_{osmotic} = R \\cdot T \\cdot \\ln\\left(\\frac{[C]_{out}}{[C]_{in}}\\right)$",
+          "step_2_electrical_work": "The electrical work ($W_{electrical}$) required to move one mole of a charged solute across an electrical potential difference ($E$) is: $W_{electrical} = z \\cdot F \\cdot E$ (where $z$ is the valence of the ion).",
+          "step_3_equilibrium_equating": "At electrochemical equilibrium, the chemical work and electrical work are equal and opposite, meaning the net energy change is zero: $z \\cdot F \\cdot E = R \\cdot T \\cdot \\ln\\left(\\frac{[C]_{out}}{[C]_{in}}\\right)$",
+          "step_4_solving_for_potential": "Solving for the equilibrium membrane potential ($E_m$ or $E_{ion}$): $E_{ion} = \\frac{R \\cdot T}{z \\cdot F} \\cdot \\ln\\left(\\frac{[C]_{out}}{[C]_{in}}\\right)$",
+          "step_5_base10_conversion": "Converting the natural logarithm ($\\ln$) to common logarithm ($\\log_{10}$) by multiplying by $2.303$: $E_{ion} = \\frac{2.303 \\cdot R \\cdot T}{z \\cdot F} \\cdot \\log_{10}\\left(\\frac{[C]_{out}}{[C]_{in}}\\right)$",
+          "step_6_solving_constants": "Substituting $R = 8.314\\text{ J}/(\\text{K}\\cdot\\text{mol})$, $F = 96485\\text{ C}/\\text{mol}$, and $T = 310.15\\text{ K}$ ($37^\\circ\\text{C}$): $E_{ion} = \\frac{61.5}{z} \\cdot \\log_{10}\\left(\\frac{[C]_{out}}{[C]_{in}}\\right) \\text{ mV}$"
+        },
+        "goldmanHodgkinKatz": {
+          "formula": "V_m = \\frac{R \\cdot T}{F} \\cdot \\ln\\left(\\frac{P_K[K^+]_{out} + P_{Na}[Na^+]_{out} + P_{Cl}[Cl^-]_{in}}{P_K[K^+]_{in} + P_{Na}[Na^+]_{in} + P_{Cl}[Cl^-]_{out}}\\right)",
+          "mechanics": "While the Nernst equation calculates the equilibrium potential for a *single* ion, the cell membrane is simultaneously permeable to multiple ions. The GHK equation calculates the steady-state membrane potential ($V_m$) by weighting the concentration gradients of all major permeant ions by their relative membrane permeabilities ($P$). Because chloride ($Cl^-$) is a monovalent anion ($z = -1$), its concentration terms are mathematically inverted within the logarithm ($[Cl^-]_{in}$ on top, $[Cl^-]_{out}$ on bottom) to maintain electrical neutrality. Because resting potassium permeability ($P_K$) is up to 25 times greater than sodium permeability ($P_{Na}$), the resting membrane potential of $-70\\text{ mV}$ sits close to $E_K$ ($-90\\text{ mV}$)."
+        }
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Hypothermal Membrane Depolarization",
+          "anatomicalBasis": "According to the Nernst and GHK equations, the membrane potential ($V_m$) is directly proportional to absolute temperature ($T$, in Kelvin). During profound therapeutic hypothermia or cold cardioplegia induction, the reduction in $T$ directly decreases the thermal kinetic energy driving ion diffusion, while simultaneously depressing the activity of the $Na^+/K^+$ ATPase pump. This causes a progressive, biophysical depolarization of the membrane potential, reducing conduction velocity and contributing to the protective suppression of neural and myocardial electrical activity."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_action_potential_kinetics_01",
+      "conceptName": "Action Potential State-Transition Kinetics",
+      "roteData": {
+        "thresholdPotential": "-55 mV (the potential at which inward Na+ current exceeds outward K+ leak current).",
+        "peakAmplitude": "+30 to +40 mV",
+        "absoluteRefractoryPeriod_ARP": "Typically 1 to 2 milliseconds; prevents retrograde propagation of the action potential.",
+        "relativeRefractoryPeriod_RRP": "Typically 2 to 4 milliseconds; requires a stronger suprathreshold stimulus."
+      },
+      "firstPrinciplesMechanics": {
+        "hodgkinHuxleyKinetics": "The action potential is a rapid, transient reversal of the membrane potential. It operates as a non-linear, positive-feedback loop (the Hodgkin Cycle) driven by voltage-gated ion channels:",
+        "phaseKinetics": [
+          {
+            "phase": "Phase 4 (Resting State)",
+            "mechanics": "The membrane is dominated by $K^+$ leak currents ($I_{K1}$ in cardiac; $K_{2P}$ in neurons). Voltage-gated sodium ($Nav$) and potassium ($Kv$) channels are in their closed, resting conformations."
+          },
+          {
+            "phase": "Phase 0 (Depolarization / Threshold)",
+            "mechanics": "A stimulus depolarizes the membrane. Once the threshold of $-55\\text{ mV}$ is reached, the electrostatic field across the membrane alters, causing the voltage-sensing S4 segments of the $Nav$ channels to move outward. This opens the activation gates ($m$-gates), driving a massive, inward $Na^+$ current ($I_{Na}$). This positive feedback loop ($V_m$ depolarizes $\\rightarrow$ more $Nav$ channels open $\\rightarrow$ more $Na^+$ enters $\\rightarrow$ further depolarization) drives the membrane potential rapidly toward the sodium equilibrium potential ($E_{Na} = +60\\text{ mV}$)."
+          },
+          {
+            "phase": "Phase 3 (Repolarization)",
+            "mechanics": "At peak depolarization ($+35\\text{ mV}$), two independent molecular events occur: 1. **Nav Inactivation:** The slow inactivation gates ($h$-gates) of the $Nav$ channels close, blocking further $Na^+$ influx. The channel enters the closed-inactive conformation; 2. **Kv Activation:** Voltage-gated delayed-rectifier potassium channels ($Kv$) open their activation gates ($n$-gates) in response to the positive potential. This drives a massive outward $K^+$ current, repolarizing the cell."
+          },
+          {
+            "phase": "Phase 4 Undershoot (Hyperpolarization)",
+            "mechanics": "Because the activation of $Kv$ channels is slow to turn off, $K^+$ conductance remains elevated even after the membrane returns to $-70\\text{ mV}$. This pulls the membrane potential temporarily down toward $E_K$ ($-90\\text{ mV}$), creating the hyperpolarizing afterpotential. As $Kv$ channels slowly close, the membrane returns to its resting state."
+          }
+        ],
+        "refractoryMechanics": {
+          "absoluteRefractoryPeriod": "The period during which it is physically impossible to initiate another action potential. This is governed by the state of the $Nav$ channels. During repolarization, the inactivation $h$-gates are closed and locked by the inactivation peptide loop (the 'ball and chain' model). The channel cannot be reopened until the membrane repolarizes to near resting levels, allowing the channel to reset to the closed-ready conformation.",
+          "relativeRefractoryPeriod": "The period immediately following the ARP where a second action potential can be initiated, but requires a significantly larger, suprathreshold stimulus. This is due to: 1. Ongoing outward $K^+$ conductance through still-open $Kv$ channels (which opposes depolarization); 2. Only a fraction of the $Nav$ channels having transitioned back to their closed-ready state, reducing the pool of channels available to generate an inward current."
+        }
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Local Anaesthetic Use-Dependent Block",
+          "anatomicalBasis": "Local anaesthetics (e.g., lidocaine, bupivacaine) are weak bases that diffuse across the lipid bilayer in their un-ionized form, become ionized intracellularly, and enter the inner vestibule of the $Nav$ channel. They bind to specific receptor sites on the S6 segments of Domain IV. Crucially, local anaesthetics have a much higher affinity for the **open** and **inactive** conformations of the $Nav$ channel than the closed-resting state. Therefore, rapidly firing nociceptive C-fibers (which spend more time in the open/inactive states during active transmission) are blocked far more rapidly and densely than resting motor fibers. This is the biophysical basis of 'use-dependent' or 'state-dependent' blockade."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_passive_cable_properties_01",
+      "conceptName": "Passive Cable Properties & Myelin Biophysics",
+      "roteData": {
+        "lengthConstantFormula": "lambda = sqrt(r_m / (r_i + r_o))",
+        "timeConstantFormula": "tau = r_m * c_m",
+        "myelinSheathLayers": "Composed of up to 100 concentric layers of Schwann cell (PNS) or Oligodendrocyte (CNS) membranes.",
+        "nodesOfRanvier": "Highly concentrated zones of Nav channels (~12,000 per square micron vs. <25 in myelinated internodes) spaced approximately 1 to 2 mm apart."
+      },
+      "firstPrinciplesMechanics": {
+        "lengthConstant_lambda": "The length constant ($\\lambda$) is a mathematical measure of how far a passive electrical signal can propagate along an axon before decaying. It represents the distance at which the initial change in membrane potential ($V_0$) has decayed to $37\\%$ of its value ($V_0 / e$): $V_x = V_0 \\cdot e^{-x/\\lambda}$. It is determined by the ratio of membrane resistance ($r_m$) to the sum of internal axial resistance ($r_i$) and external resistance ($r_o$). To maximize $\\lambda$ (allowing passive current to travel further with minimal loss), we must: 1. **Increase $r_m$:** Insulate the membrane to prevent current from leaking out; 2. **Decrease $r_i$:** Increase the cross-sectional diameter of the axon to reduce internal resistance to longitudinal current flow.",
+        "timeConstant_tau": "The time constant ($\\tau$) dictates how rapidly a cell membrane can depolarize or hyperpolarize in response to a current. It represents the time taken for the membrane potential to reach $63.2\\%$ of its final asymptotic value during a step current: $\\text{V_t} = V_{max} \\cdot (1 - e^{-t/\\tau})$. It is governed by the product of membrane resistance ($r_m$) and membrane capacitance ($c_m$). A smaller $\\tau$ means the membrane charges faster, reaching threshold more rapidly to trigger an action potential.",
+        "myelinMechanics_and_SaltatoryConduction": "Myelin wraps act as an exceptional electrical insulator, modifying passive cable properties in two profound ways: 1. **Dramatically increases $r_m$:** Prevents current from leaking across the internodal membrane; 2. **Dramatically decreases $c_m$:** Because capacitance is inversely proportional to membrane thickness, stacking 100 layers of myelin increases the distance between the intracellular and extracellular conducting fluids, slashing the capacitance ($c_m$). While the increase in $r_m$ would normally increase $\\tau$ (slowing conduction), the massive, proportional drop in $c_m$ counteracts this, maintaining a fast charging rate. Meanwhile, the high $r_m$ increases the length constant ($\\lambda$) exponentially. As a result, when an action potential occurs at a Node of Ranvier, the positive charge enters the cell and propagates passively and instantly along the insulated internodal segment over a distance of $1\\text{-}2\\text{ mm}$, retaining enough potential to easily depolarize the next Node of Ranvier to threshold. This passive 'leap' of current from node to node is saltatory conduction, increasing conduction velocity up to 100-fold."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Demyelinating Diseases (Multiple Sclerosis)",
+          "anatomicalBasis": "In demyelinating diseases like Multiple Sclerosis, the myelin sheath is progressively destroyed. Biophysically, this results in a precipitous drop in membrane resistance ($r_m$) and a massive increase in membrane capacitance ($c_m$) in the demyelinated internodal segments. Because $r_m$ is low, the length constant ($\\lambda$) shrinks dramatically—the passive current leaks out of the uninsulated membrane before it can reach the next Node of Ranvier. Concurrently, the high $c_m$ increases the time constant ($\\tau$), slowing the membrane's charging rate. The current decays below threshold before reaching the next node, resulting in conduction block, visual deficits, or motor paralysis."
+        }
+      ]
+    }
+  ],
+  "crossReferenceKeys": [
+    "anat_neuraxis_01",
+    "anat_pain_01",
+    "anat_cns_01",
+    "anat_pns_01"
+  ]
+}

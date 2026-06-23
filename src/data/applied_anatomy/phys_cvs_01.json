@@ -1,0 +1,155 @@
+{
+  "moduleId": "phys_cvs_01",
+  "moduleTitle": "Integrative Cardiovascular Physiology",
+  "tags": [
+    "cardiac cycle",
+    "pv loops",
+    "wiggers diagram",
+    "hemodynamics",
+    "reflexes",
+    "raas",
+    "microcirculation",
+    "glycocalyx",
+    "inotropy",
+    "lusitropy",
+    "chronotropy",
+    "dromotropy",
+    "bathmotropy"
+  ],
+  "concepts": [
+    {
+      "conceptId": "concept_cardiac_cycle_wiggers_01",
+      "conceptName": "Biophysics of the Cardiac Cycle, PV Loops & Coronary Perfusion",
+      "roteData": {
+        "phasesOfWiggers": {
+          "Phase_1_Atrial_Systole": "Atrial contraction tops up ventricular volume (~10-20\\% of EDV). Corresponds to the P wave on ECG, a-wave on atrial pressure trace. Left ventricular (LV) pressure rises to ~10 mmHg; Left atrial (LA) pressure reaches ~8 mmHg. S4 may be heard if ventricular compliance is poor.",
+          "Phase_2_Isovolumetric_Contraction": "Mitral valve closes (S1). Ventricles contract with all valves shut. LV pressure rises steeply from ~10 to ~80 mmHg; volume remains constant at EDV (~120 mL). Corresponds to the QRS complex and the c-wave on atrial pressure trace (bulging of AV valve into atrium).",
+          "Phase_3_Rapid_Ejection": "Aortic valve opens. Ventricular pressure exceeds aortic pressure (rising to a peak of ~120 mmHg), driving rapid blood ejection (~70\\% of stroke volume) into the systemic circulation. LV volume falls sharply from ~120 mL to ~70 mL.",
+          "Phase_4_Reduced_Ejection": "Ejection slows as ventricular contraction wanes. Ventricular and aortic pressures begin to fall from ~120 to ~100 mmHg. LV volume falls to its minimum (ESV ~50 mL). Corresponds to the T wave on ECG.",
+          "Phase_5_Isovolumetric_Relaxation": "Aortic valve closes (S2, causing the dicrotic notch on the aortic pressure trace). Ventricles relax with all valves shut. LV pressure drops steeply from ~100 to ~10 mmHg; volume remains constant at ESV (~50 mL). Corresponds to the v-wave on atrial pressure trace (atrial filling against closed AV valve).",
+          "Phase_6_Rapid_Filling": "Mitral valve opens as ventricular pressure drops below atrial pressure. Blood rushes into the ventricles from the atria. Ventricular volume rises rapidly from ~50 mL to ~100 mL. S3 may be heard in healthy young individuals or in volume overload states.",
+          "Phase_7_Reduced_Filling_Diastasis": "Slow filling phase as ventricular pressure approaches atrial pressure (~5-10 mmHg). Ventricular volume rises slowly from ~100 mL to ~110 mL. Filling is highly dependent on cycle length (shortened in tachycardia)."
+        },
+        "pvLoopParameters": {
+          "strokeVolumeEquation": "$\\text{SV} = EDV - ESV$ with $EDV$ is end-diastolic volume (~120 mL) and $ESV$ is end-systolic volume (~50 mL). Normal $\\text{SV}$ is ~70 mL.",
+          "ejectionFractionEquation": "$EF = \\frac{SV}{EDV} \\cdot 100\\%$ with (Normal: 55\\% to 70\\%)",
+          "cardiacWork": "Represented by the loop's surface area. Reflects pressure-volume work (stroke work: $SW = \\int P \\, dV \\approx \\text{SV} \\cdot \\text{MAP}$) and kinetic work ($KE = \\frac{1}{2} m v^2$). $SW$ constitutes ~99\\% of total cardiac work.",
+          "pvLoopCoordinatePoints": "Key landmarks on the PV loop: 1. **Point A (Mitral Valve Opens / ESV):** $(V \\approx 50\\text{ mL}, P \\approx 5\\text{ mmHg})$. Marks the end of isovolumetric relaxation and the beginning of ventricular filling; 2. **Point B (Mitral Valve Closes / EDV):** $(V \\approx 120\\text{ mL}, P \\approx 10\\text{ mmHg})$. Preload landmark, end-diastolic state, marks the start of isovolumetric contraction; 3. **Point C (Aortic Valve Opens):** $(V \\approx 120\\text{ mL}, P \\approx 80\\text{ mmHg})$. Marks the end of isovolumetric contraction and start of ejection; 4. **Point D (Aortic Valve Closes / ESP):** $(V \\approx 50\\text{ mL}, P \\approx 120\\text{ mmHg})$. End-systolic point, intersection with the ESPVR line, marks the start of isovolumetric relaxation.",
+          "vascularComplianceAndElastance": "Vascular Compliance ($C$) defines the ability of a vessel to distend under pressure: $C = \\frac{\\Delta V}{\\Delta P}$. Elastance ($E$) is the reciprocal of compliance, representing the pressure change per unit change in volume: $E = \\frac{\\Delta P}{\\Delta V}$. Active Ventricular Elastance ($E(t)$) varies during the cycle, peaking at end-systole ($E_{es}$), which is a key load-independent measure of contractility: $E_{es} = \\frac{P_{es}}{ESV - V_0}$ with $V_0$ representing the volume at zero pressure. Systemic afterload is modeled by Arterial Elastance ($E_a$): $E_a = \\frac{ESP}{SV}$."
+        },
+        "coronaryPerfusionPressure": "$\\text{CPP} = DBP - LVEDP$ with $DBP$ is diastolic blood pressure (~80 mmHg) and $LVEDP$ is left ventricular end-diastolic pressure (~10 mmHg)."
+      },
+      "firstPrinciplesMechanics": {
+        "pvLoopShiftMechanics": "Pressure-Volume loops are bounded by the End-Diastolic Pressure-Volume Relationship (EDPVR, reflecting compliance) and the End-Systolic Pressure-Volume Relationship (ESPVR, reflecting contractility/inotropy). 1. **Preload Increase:** Driven by venous return (Starling's Law). Increases $EDV$, shifting the right border outward. Sarcomere stretch increases cross-bridge sensitivity, resulting in an increased stroke volume ($\\text{SV} \\uparrow$) with no change in $ESV$; 2. **Afterload Increase:** Driven by systemic vascular resistance ($\\text{SVR}$). The ventricle must generate higher pressure to open the aortic valve. Ejection begins later and ends earlier, shifting the top-left corner to the right, raising $ESV$ and reducing stroke volume ($\\text{SV} \\downarrow$); 3. **Inotropy Increase:** Driven by sympathetic stimulation. Increases the slope of the $ESPVR$ line, shifting the left border to the left. The ventricle empties more completely, decreasing $ESV$ and increasing stroke volume ($\\text{SV} \\uparrow$); 4. **Compliance Decrease:** Shifting the $EDPVR$ curve upward, raising $LVEDP$ for any given volume, restricting filling and dropping $EDV$.",
+        "coronaryWaveformBiophysics": "Myocardial blood flow is determined by the pressure gradient between the aorta and the tissue layer ($\\text{CPP}$). 1. **Left Ventricle:** Flow is biphasic. During systole, high intramyocardial tissue pressure (exceeding systemic systolic pressure) compresses subendocardial capillaries, dropping coronary blood flow to near-zero or reversing it. Consequently, ~80\\% of LV coronary perfusion occurs during **diastole** when the muscle relaxes; 2. **Right Ventricle:** Flow is continuous. Because the right ventricle is thin-walled and operates under low pressure ($<25\\text{ mmHg}$), systolic intramyocardial compression is less than perfusion pressure. Flow continues throughout both systole and diastole; 3. **Diastolic Time Dependency:** Tachycardia selectively shortens diastole, disproportionately slashing Left Ventricular perfusion time."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Valvular Disease PV Loop Transformations",
+          "anatomicalBasis": "1. **Aortic Stenosis:** The loop becomes abnormally tall and narrow. The ventricle must generate massive pressures ($>200\\text{ mmHg}$) to overcome the stenotic valve, shifting afterload upward and decreasing \\text{SV}; 2. **Mitral Regurgitation:** The isovolumetric phases are lost. Ejection into the left atrium starts as soon as ventricular pressure exceeds atrial pressure. The loop loses its vertical sides, showing a rounded shape with a massive increase in EDV and decreased ESV (total forward + backward stroke volume is high, but forward flow to the aorta is reduced); 3. **Aortic Regurgitation:** Isovolumetric relaxation is lost. During diastole, blood flows back into the LV from the aorta, causing continuous filling. The loop displays a massive width (huge EDV and \\text{SV}) with a sloping diastolic filling line."
+        },
+        {
+          "scenario": "Myocardial Ischemia in Tachycardic Patients",
+          "anatomicalBasis": "A patient with coronary artery disease develops intraoperative tachycardia ($\\text{HR} > 120\\text{ bpm}$). Tachycardia shortens the cardiac cycle, and this shortening occurs almost entirely at the expense of diastole. Because left ventricular perfusion is strictly diastole-dependent due to systolic coronary capillary compression, diastolic shortening slashes $\\text{CPP}$ duration. Concurrently, tachycardia raises myocardial oxygen consumption ($MVO_2$). This supply-demand mismatch precipitates acute subendocardial ischemia, visible as ST-segment depression on the ECG."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_hemodynamic_reflexes_01",
+      "conceptName": "Hemodynamic Regulatory Loops & The Valsalva Biophysics",
+      "roteData": {
+        "reflexDefinitions": {
+          "Baroreceptor_Reflex": "High-pressure stretch receptors. Carotid sinus (CN IX, Hering's nerve) monitors brain perfusion; aortic arch (CN X, Cyon's nerve) monitors systemic output.",
+          "Bainbridge_Reflex": "Low-pressure stretch receptors in the right and left atria. Responds to increased venous return.",
+          "Bezold_Jarisch_Reflex": "Cardiopulmonary chemoreceptors and mechanoreceptors in the LV wall. Responds to noxious chemicals, ischemia, or severe hypovolemia.",
+          "Cushing_Reflex": "Physiological response to increased intracranial pressure (\\text{ICP}) resulting in the triad of hypertension, bradycardia, and irregular respirations."
+        },
+        "valsalvaPhases": {
+          "Phase_1": "Strain onset. Intrathoracic pressure rises, compressing the aorta. Arterial pressure rises, causing transient reflex bradycardia.",
+          "Phase_2": "Strain maintenance. Decreased venous return drops \\text{SV} and \\text{MAP}. Baroreceptors detect the drop, triggering reflex tachycardia and vasoconstriction, partially restoring BP.",
+          "Phase_3": "Release onset. Intrathoracic pressure falls. Aorta expands, pulmonary vessels pool blood, and \\text{MAP} drops transiently. \\text{HR} rises.",
+          "Phase_4": "Overshoot. Venous return surges into a constricted vascular bed, causing a surge in \\text{MAP} above baseline, triggering a profound vagal reflex bradycardia."
+        }
+      },
+      "firstPrinciplesMechanics": {
+        "medullaryReflexIntegration": "Arterial stretch depolarizes baroreceptor nerve endings, sending afferent signals to the **Nucleus Tractus Solitarius (NTS)** in the medulla. 1. **High \\text{MAP} (Stretch):** NTS excites the Caudal Ventrolateral Medulla (CVLM), which secretes GABA to inhibit the Rostral Ventrolateral Medulla (RVLM). The RVLM is the primary driver of sympathetic outflow. Inhibiting RVLM halts sympathetic output. Simultaneously, NTS directly excites parasympathetic motor neurons in the Nucleus Ambiguus (NA) and Dorsal Motor Nucleus of Vagus, releasing ACh onto cardiac $M_2$ receptors, dropping \\text{HR} and \\text{SVR}; 2. **Low \\text{MAP} (De-stretch):** Afferent firing drops. NTS excitation of CVLM drops, releasing RVLM from inhibition. Sympathetic output surges, releasing Noradrenaline onto myocardial $\\beta_1$ and vascular $\\alpha_1$ receptors to restore \\text{MAP}.",
+        "bainbridgeVsBaroreceptorDuality": "The Bainbridge and Baroreceptor reflexes act in opposition during changes in blood volume. 1. **Hypervolemia:** Increased venous return stretches atrial receptors, triggering the Bainbridge reflex to selectively increase \\text{HR} ($\\text{HR} \\uparrow$) to clear the central venous pool. This overrides the baroreceptor reflex (which would try to slow the heart due to the volume-induced pressure rise); 2. **Hypovolemia:** Atrial stretch is lost, silencing the Bainbridge reflex. The baroreceptor reflex dominates, detecting the drop in \\text{MAP} and driving a compensatory tachycardia.",
+        "valsalvaPressureHemodynamics": "During the Valsalva maneuver (forced expiration against a closed glottis to an intrathoracic pressure of ~40 mmHg), venous return is physically blocked. 1. **Venous Obstruction:** The high intrathoracic pressure exceeds the pressure in the vena cava, preventing blood from entering the right atrium. This slashes preload, causing stroke volume to collapse; 2. **Reflex Vasoconstriction:** The drop in \\text{SV} drops \\text{MAP}, causing baroreceptor de-activation and a massive sympathetic surge (Phase 2); 3. **The overshoot:** Upon release (Phase 4), the pooled venous blood rushes back into the heart. Because the sympathetic vasoconstriction from Phase 2 is still active, this surge in cardiac output enters a highly constricted systemic arterial bed, generating an overshoot in blood pressure that triggers the vagus to slow the heart."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Valsalva Maneuver in Diabetic Autonomic Neuropathy",
+          "anatomicalBasis": "A patient with long-standing diabetes mellitus undergoing autonomic function testing performs a Valsalva maneuver. Due to demyelination of small unmyelinated fibers (autonomic neuropathy), the baroreceptor reflex arc is broken. During Phase 2, the patient experiences profound, uncompensated hypotension because sympathetic vasoconstriction fails. During Phase 4, there is no blood pressure overshoot and no reflex bradycardia; the blood pressure slowly drifts back to baseline. This flat heart-rate response confirms cardiovascular autonomic neuropathy."
+        },
+        {
+          "scenario": "The Spinal Shock Bradycardia Paradox",
+          "anatomicalBasis": "High spinal anesthesia (above T4) blocks the sympathetic preganglionic fibers (cardiac accelerators T1-T4) leaving parasympathetic vagal tone unopposed. This causes severe venodilation, dropping venous return to the heart. In a normal patient, hypovolemia triggers baroreceptor tachycardia. However, because cardiac accelerators are blocked and the Bainbridge reflex is lost (due to collapsed atrial stretch), the patient exhibits the Bezold-Jarisch reflex (triad of bradycardia, vasodilation, and hypotension) in response to the empty, hypercontractile ventricles, resulting in sudden, severe bradycardia."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_autonomic_catecholamines_01",
+      "conceptName": "Catecholamine Signaling & Myocardial Performance Parameters",
+      "roteData": {
+        "receptorCoupling": {
+          "Beta_1": "Gs-coupled. Located primarily in SA node, AV node, bundle branches, and myocardium.",
+          "Beta_2": "Gs-coupled. Located in vascular smooth muscle of skeletal muscle and coronary beds.",
+          "Alpha_1": "Gq-coupled. Located in systemic arteriolar and venous vascular smooth muscle.",
+          "Alpha_2": "Gi-coupled. Located pre-synaptically on sympathetic nerve terminals."
+        },
+        "performanceDefinitions": {
+          "Chronotropy": "Rate of pacemaker discharge (heart rate).",
+          "Inotropy": "Force of myocardial contraction (contractility).",
+          "Lusitropy": "Rate of myocardial relaxation.",
+          "Dromotropy": "AV nodal conduction velocity.",
+          "Bathmotropy": "Myocardial excitability (threshold potential)."
+        }
+      },
+      "firstPrinciplesMechanics": {
+        "beta1GsSignalingCascade": "Binding of noradrenaline or adrenaline to $\\beta_1$ Gs-coupled receptors activates adenylyl cyclase, converting ATP to cyclic AMP (cAMP). Rising cAMP binds the regulatory subunits of **Protein Kinase A (PKA)**, releasing its active catalytic subunits. 1. **Chronotropy ($I_f$ and $I_{Ca-L}$):** PKA phosphorylates hyperpolarization-activated cyclic nucleotide-gated ($H$) channels, increasing funny current ($I_f$) conductance, and L-type $Ca^{2+}$ channels. This accelerates the slope of diastolic spontaneous depolarization (Phase 4) in the SA node, reaching threshold faster; 2. **Inotropy (DHPR & RyR2):** PKA phosphorylates L-type $Ca^{2+}$ channels (DHPR), increasing calcium entry during Phase 2. This trigger calcium activates RyR2, causing a massive release of calcium from the SR. The higher peak cytosolic $[Ca^{2+}]$ drives more cross-bridge cycles, increasing contractility; 3. **Lusitropy (PLB & Troponin I):** PKA phosphorylates **Phospholamban (PLB)**, removing its inhibition of **SERCA2**. This speeds the pumping of calcium back into the SR, clearing calcium from the cytosol. Simultaneously, PKA phosphorylates **Troponin I**, reducing the affinity of Troponin C for calcium, which accelerates troponin-calcium dissociation and speeds myofibril relaxation; 4. **Dromotropy & Bathmotropy:** PKA accelerates $Ca^{2+}$ entry in AV nodal cells, increasing Phase 0 upstroke velocity and speeding conduction. Excitability is enhanced by shifting the activation threshold of voltage-gated channels.",
+        "alpha1GqVasoconstriction": "Binding of catecholamines to $\\alpha_1$ Gq-coupled receptors activates Phospholipase C-beta (PLC-beta). PLC cleaves PIP2 into Inositol Trisphosphate ($IP_3$) and Diacylglycerol (DAG). 1. **Calcium Release:** $IP_3$ diffuses to the sarcoplasmic reticulum of vascular smooth muscle, opening $IP_3$-gated calcium channels. Cytosolic calcium rises; 2. **MLCK Activation:** Calcium binds calmodulin. The complex activates Myosin Light Chain Kinase (MLCK), which phosphorylates the regulatory light chain of myosin. This drives actin-myosin interaction and vasoconstriction; 3. **Venoconstriction:** Venous constriction shifts blood from the highly compliant venous system into the central circulation, increasing venous return, right atrial pressure, and ventricular preload (Frank-Starling effect)."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Noradrenaline vs. Adrenaline Hemodynamics",
+          "anatomicalBasis": "1. **Noradrenaline ($\\alpha_1 > \\beta_1$):** Causes potent vasoconstriction (via $\\alpha_1$), raising \\text{SVR} and diastolic blood pressure. While it possesses direct $\\beta_1$ chronotropic actions, the rapid rise in \\text{MAP} triggers a strong baroreceptor reflex that overrides the direct SA node stimulation, resulting in a **reflex bradycardia** with increased stroke volume; 2. **Adrenaline (low-dose $\\beta_1 + \\beta_2$):** Stimulates myocardial $\\beta_1$, increasing \\text{HR} (chronotropy), contractility (inotropy), and relaxation (lusitropy). Concurrently, $\\beta_2$ stimulation dilates skeletal muscle arterioles, dropping \\text{SVR}. \\text{MAP} remains stable or rises slightly, and cardiac output surges."
+        },
+        {
+          "scenario": "Phosphodiesterase-3 Inhibition with Milrinone",
+          "anatomicalBasis": "Milrinone is a selective inhibitor of Phosphodiesterase-3 (PDE3), the enzyme responsible for breaking down cAMP in cardiac and vascular smooth muscle cells. By preventing cAMP breakdown, milrinone raises intracellular cAMP levels. 1. **In Myocytes:** Elevates cAMP, mimicking $\\beta_1$ stimulation. This drives positive inotropy (greater force) and positive lusitropy (faster relaxation), improving diastolic filling; 2. **In Vascular Smooth Muscle:** Elevated cAMP inactivates Myosin Light Chain Kinase (MLCK) via phosphorylation, causing systemic vasodilation (reducing \\text{SVR} and afterload). This combined effect makes milrinone an 'inodilator', unloading the failing heart while maintaining contractility."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_starling_glycocalyx_01",
+      "conceptName": "Microcirculation & The Starling-Endothelial Glycocalyx Barrier Model",
+      "roteData": {
+        "starlingEquation": "J_v = K_f \\cdot \\left[ (P_c - P_i) - \\sigma \\cdot (\\pi_p - \\pi_i) \\right] where Jv is filtration rate, Kf is filtration coefficient, Pc/Pi are capillary/interstitial hydrostatic pressures, sigma is the reflection coefficient, and pip/pii are plasma/interstitial oncotic pressures.",
+        "glycocalyxComponents": "Composed of membrane-bound proteoglycans (syndecan-1), glycoproteins, and glycosaminoglycans (heparan sulfate, hyaluronan), which adsorb plasma proteins (albumin) to form a gel-like layer (~0.5 to 1.0 micrometers thick).",
+        "reflectionCoefficient": "$\\sigma$ ranges from 0 (completely permeable to protein) to 1 (completely impermeable, acting as a perfect semi-permeable membrane)."
+      },
+      "firstPrinciplesMechanics": {
+        "revisedStarlingGlycocalyxModel": "Classic Starling theory assumes the semi-permeable membrane is the endothelial cell wall and the oncotic pressure gradient is determined by interstitial oncotic pressure ($\\pi_i$). The **Revised Starling Principle** demonstrates that the true semi-permeable barrier is the **endothelial glycocalyx layer (EGL)**. 1. **Sub-Glycocalyx Space:** The oncotic pressure gradient exists across the EGL itself, between the plasma ($\\pi_p$) and the sub-glycocalyx space ($\\pi_{sg}$). Because the EGL sieve excludes proteins, the sub-glycocalyx space is nearly protein-free ($\\pi_{sg} \\approx 0$); 2. **Slow Constant Filtration:** Fluid is constantly filtered outward from the capillary into the interstitium. This wash-out prevents interstitial proteins from diffusing backward through the EGL into the sub-glycocalyx space. Thus, interstitial oncotic pressure ($\\pi_i$) does not oppose filtration; 3. **No Reabsorption:** Under physiological pressures, filtration occurs along the entire length of the capillary (excluding renal glomeruli). Capillaries do not reabsorb interstitial fluid in steady state; clearance of fluid and leaked proteins is mediated strictly by the **lymphatic system**.",
+        "hydraulicConductivityAndPermeability": "The filtration coefficient ($K_f$) is determined by the surface area of the capillary bed and its hydraulic conductivity. 1. **Tight Endothelia:** Nerves and muscles have low $K_f$ and high $\\sigma \\approx 0.95$, maintaining strict barrier function; 2. **Fenestrated Endothelia:** Intestines and glomeruli have high $K_f$, allowing rapid water flux; 3. **Discontinuous Endothelia:** Liver sinusoids have a reflection coefficient approaching zero ($\\sigma \\approx 0.05$), meaning albumin moves freely, collapsing the oncotic pressure gradient."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Capillary Leak Syndrome in Severe Sepsis",
+          "anatomicalBasis": "In severe sepsis, inflammatory cytokines (TNF-alpha, IL-1beta) activate endothelial cells and stimulate shedding of the glycocalyx (measurable as syndecan-1 in blood). This slashes the reflection coefficient ($\\sigma \\rightarrow 0$) and increases the hydraulic conductivity ($K_f \\uparrow$). Albumin passes freely into the sub-glycocalyx space, destroying the oncotic gradient. Hydrostatic pressure ($P_c$) drives massive fluid and protein filtration into the interstitium, causing profound tissue edema and refractory hypovolemic distributive shock."
+        },
+        {
+          "scenario": "Hypervolemia-Induced Glycocalyx Shedding",
+          "anatomicalBasis": "Aggressive, rapid administration of IV crystalloids (hypervolemia) stretches the atria, triggering massive release of Atrial Natriuretic Peptide (ANP). ANP binds endothelial receptors and initiates enzymatic shedding of the endothelial glycocalyx. This degrades the paracellular barrier, turning a healthy capillary bed into a leaky one. Consequently, much of the administered fluid leaks into the lung and peripheral tissue spaces, causing pulmonary edema and worsening oxygenation rather than restoring intravascular volume."
+        }
+      ]
+    }
+  ],
+  "crossReferenceKeys": [
+    "anat_cvs_01",
+    "cell_cardiac_01",
+    "cell_neuro_01",
+    "cell_endocrine_01",
+    "phys_renal_01",
+    "phys_endocrine_01"
+  ]
+}

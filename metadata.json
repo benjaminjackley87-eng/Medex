@@ -1,0 +1,5 @@
+{
+  "name": "MedEx Library",
+  "description": "A comprehensive physical examination library for medical students and professionals, inspired by Talley & O'Connor, Geeky Medics, and DermNet NZ, featuring AI-powered clinical correlation and reasoning.",
+  "requestFramePermissions": ["camera"]
+}

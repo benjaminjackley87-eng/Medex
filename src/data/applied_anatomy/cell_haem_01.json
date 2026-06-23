@@ -1,0 +1,89 @@
+{
+  "moduleId": "cell_haem_01",
+  "moduleTitle": "Cellular Haematology & Immunology Biophysical Mechanics",
+  "tags": [
+    "erythropoiesis",
+    "erythropoietin receptor",
+    "hemoglobin allostery",
+    "cooperativity",
+    "2,3-bpg",
+    "platelet activation",
+    "glycoproteins",
+    "gp iib/iiia",
+    "complement cascade",
+    "membrane attack complex",
+    "osmotic lysis"
+  ],
+  "concepts": [
+    {
+      "conceptId": "concept_haem_erythropoiesis_cell_01",
+      "conceptName": "Erythroid Differentiation, EPO Receptor Transduction & Hemoglobin Allosteric Kinetics",
+      "roteData": {
+        "epoReceptorCoupling": "Homodimeric cytokine receptor activating the JAK2/STAT5 intracellular kinase cascade.",
+        "hemoglobinStructure": "Heterotetramer composed of two alpha-globin and two beta-globin chains, each housing an iron-protoporphyrin IX heme group.",
+        "hillCoefficient_Hb": "$n_H \\approx 2.8$ (demonstrating strong positive allosteric cooperativity)."
+      },
+      "firstPrinciplesMechanics": {
+        "epoSignalingCascade": "Erythropoietin (EPO) binds to the extracellular domain of the homodimeric EPO receptor (EPOR) on erythroid progenitors (CFU-E, proerythroblasts). Binding induces a conformational rotation that brings receptor-associated **Janus Kinase 2 (JAK2)** molecules into close proximity, triggering trans-phosphorylation and activation. Active JAK2 phosphorylates specific tyrosine residues on the cytoplasmic tail of the EPOR, creating docking sites for **STAT5** (Signal Transducer and Activator of Transcription 5). STAT5 is phosphorylated, homodimerizes, and translocates to the nucleus to activate transcription of anti-apoptotic proteins (Bcl-xL) and erythroid-specific genes, promoting precursor survival and proliferation.",
+        "allostericTtoRTransition": "Oxygen binding is regulated by allosteric cooperativity. In the deoxygenated **Tense (T) state**, the iron atom in each heme is displaced slightly out of the porphyrin ring plane due to steric constraints, and the globin subunits are locked by eight electrostatic salt bridges, maintaining low oxygen affinity. Binding of the first oxygen molecule pulls the iron atom into the plane of the porphyrin ring. This drags the proximal histidine residue, tilting the F-helix and physically breaking the salt bridges stabilizing the T-state. This conformational shift propagates across the subunit interfaces, causing the remaining subunits to transition to the **Relaxed (R) state**, which increases their oxygen affinity by 150-fold, generating the sigmoidal oxygen-haemoglobin dissociation curve.",
+        "bpgAllostericInhibition": "The negative allosteric effector **2,3-BPG** is synthesized via the Luebering-Rapoport shunt in erythrocytes. It is highly negatively charged. In the T-state, the beta-globin subunits form a pocket lined with positively charged amino acids (Lys-82, His-143, His-2) that perfectly fits 2,3-BPG. Binding of 2,3-BPG forms electrostatic cross-links that lock the Hb tetramer in the low-affinity T-state, promoting oxygen release to tissues. Upon oxygenation, transition to the R-state collapses this central cavity, squeezing 2,3-BPG out of the pocket."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Storage Lesion of Transfused Blood",
+          "anatomicalBasis": "During storage of packed red blood cells (PRBCs) in citrate-phosphate-dextrose (CPD) solution, erythrocytes undergo metabolic shifts, including a rapid drop in pH and depletion of ATP. This halts the synthesis of 2,3-BPG, causing its concentration to collapse to near-zero within 1-2 weeks of storage. Transfusing old, 2,3-BPG-depleted blood results in a left-shift of the oxygen-haemoglobin dissociation curve ($P_{50}$ drops to $<15\\text{ mmHg}$). The transfused cells hold onto oxygen tightly, failing to deliver it to tissue capillary beds until they regenerate 2,3-BPG (taking 12-24 hours post-transfusion)."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_platelet_activation_cell_01",
+      "conceptName": "Cellular Biophysics of Platelet Adhesion, Activation & Aggregation",
+      "roteData": {
+        "adhesionReceptors": {
+          "GP_Ib_IX_V": "Binds to subendothelial von Willebrand factor (vWF); essential for initial platelet tethering under high shear stress.",
+          "GP_Ia_IIa": "Binds directly to subendothelial collagen, securing adhesion."
+        },
+        "activationReceptors": {
+          "P2Y12": "Gi-coupled ADP receptor; inhibits adenylyl cyclase, downregulating cAMP, driving activation.",
+          "PAR1_PAR4": "Gq/G12/13-coupled protease-activated receptors; stimulated by thrombin, triggering a massive calcium surge."
+        },
+        "aggregationReceptor": "GP IIb/IIIa (integrin $\\alpha_{IIb}\\beta_3$). Undergoes conformational activation to bind fibrinogen and vWF."
+      },
+      "firstPrinciplesMechanics": {
+        "plateletAdhesionAndTethering": "Upon vascular injury, subendothelial collagen is exposed. Under high shear rates (arteries), soluble von Willebrand factor (vWF) binds to collagen and unfolds, exposing A1 domains. The platelet **GP Ib-IX-V** complex binds to these domains. This interaction has a high dissociation rate, causing the platelet to roll or 'tether' along the damaged surface, slowing it down. This allows the slower, high-affinity **GP Ia/IIa** and GP VI receptors to bind directly to collagen, anchoring the platelet firmly to the vessel wall.",
+        "calciumSignalingAndGranuleExocytosis": "Adhesion triggers intracellular signaling. Thrombin binds to **PAR1** (Gq-coupled), and ADP binds to **P2Y1** (Gq-coupled). PLC-beta is activated, cleaving PIP2 into IP3 and DAG. IP3 opens calcium channels on the dense tubular system (the platelet's calcium store), driving a massive calcium surge ($[Ca^{2+}]_i$ rises from $100\\text{ nM}$ to $>1\\ \\mu\\text{M}$). High calcium triggers: 1. Cytoskeletal rearrangement (shape change from disc to spiny sphere); 2. Exocytosis of **dense granules** (releasing ADP, serotonin, and calcium) and **alpha granules** (releasing vWF, fibrinogen, factor V, and platelet factor 4); 3. Activation of phospholipase A2, synthesizing Thromboxane A2 (TxA2) from membrane arachidonic acid.",
+        "integrinActivationAndAggregation": "Platelet activation triggers 'inside-out' signaling. Intracellular proteins (talin and kindlin) bind to the cytoplasmic tail of **GP IIb/IIIa** (integrin $\\alpha_{IIb}\\beta_3$). This induces a conformational rotation in the extracellular domains, shifting GP IIb/IIIa from a bent, low-affinity state to an extended, high-affinity state. Active GP IIb/IIIa can now bind dimeric **fibrinogen** molecules. Because fibrinogen is dimeric, it acts as a molecular bridge, linking GP IIb/IIIa receptors on adjacent platelets together to drive rapid platelet aggregation and primary hemostatic plug formation."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Clopidogrel Resistance and CYP2C19 Genotypes",
+          "anatomicalBasis": "Clopidogrel is a prodrug that must be converted by hepatic Cytochrome P450 enzymes (primarily CYP2C19) into an active metabolite. This active metabolite covalently binds to and irreversibly inhibits the G-protein-coupled **P2Y12** ADP receptor on the platelet membrane, preventing the Gi-mediated downregulation of cAMP and halting platelet activation. Patients with loss-of-function CYP2C19 alleles ('poor metabolizers') cannot synthesize the active metabolite. In these patients, clopidogrel fails to block P2Y12 signaling, leading to therapeutic failure and a high risk of stent thrombosis or recurrent myocardial infarction."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_complement_mac_cell_01",
+      "conceptName": "Molecular Assembly & Biophysics of the Membrane Attack Complex (MAC)",
+      "roteData": {
+        "macStoichiometry": "Complex consisting of one C5b, one C6, one C7, one C8, and 10-18 polymerized C9 molecules ($C5b\\text{-}8[C9]_{10-18}$).",
+        "poreDimensions": "Inner diameter of approximately $10\\text{ nm}$, creating a highly conductive, non-selective transmembrane channel."
+      },
+      "firstPrinciplesMechanics": {
+        "macInitiationAndInsertion": "The complement cascade pathways converge to form a C5 convertase, which cleaves C5 into soluble C5a and active C5b. C5b binds to C6 in solution, forming a stable **C5b-6** complex. This complex binds to C7. The binding of C7 triggers a hydrophobic conformational transition, exposing a region of C7 that allows the **C5b-7** complex to insert directly into the hydrophobic lipid bilayer of the target cell membrane.",
+        "c8BindingAndC9Polymerization": "The membrane-bound C5b-7 complex binds to the heterotrimeric C8 protein. C8 inserts its alpha and beta subunits deep into the core of the lipid bilayer, creating a small, unstable transmembrane pore. This membrane-inserted **C5b-8** complex then acts as a high-affinity receptor for a monomer of **C9**. Upon binding, the C9 monomer undergoes a massive conformational shift, converting from a globular, hydrophilic protein to an amphipathic alpha-helical hair-pin structure. This structure inserts into the membrane and serves as a template that recruits and polymerizes 10 to 18 additional C9 monomers, forming a rigid ring.",
+        "osmoticLysisBiophysics": "The fully assembled MAC ($C5b\\text{-}9$) is a hollow, rigid cylinder that spans the cell membrane, forming a large pore. This pore completely destroys the cell's selective permeability. Ions (like $Na^+$ and $Cl^-$) and water move freely through the channel down their electrochemical gradients. Because the cell interior has a high concentration of non-diffusible proteins and macromolecules, water rushes into the cell (driven by colloid osmotic pressure). The cell swells rapidly and undergoes **osmotic lysis**."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Eculizumab Therapy in Paroxysmal Nocturnal Haemoglobinuria (PNH)",
+          "anatomicalBasis": "PNH is caused by an acquired mutation in the PIGA gene, leading to a deficiency of GPI-anchored membrane proteins, specifically the complement regulatory proteins **CD55** (decay-accelerating factor) and **CD59** (MAC inhibitor). CD59 normally binds to C8 and C9, blocking C9 polymerization and preventing MAC assembly. Lacking CD59, erythrocytes are highly vulnerable to spontaneous complement activation, leading to massive, intravascular MAC-mediated haemolysis. **Eculizumab** is a monoclonal antibody that binds to C5, blocking its cleavage into C5b and C5a, completely halting MAC assembly and preventing intravascular haemolysis."
+        }
+      ]
+    }
+  ],
+  "crossReferenceKeys": [
+    "anat_haem_01",
+    "phys_haem_01",
+    "cell_synapse_01"
+  ]
+}

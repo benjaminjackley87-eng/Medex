@@ -1,0 +1,124 @@
+{
+  "moduleId": "phys_neuro_01",
+  "moduleTitle": "Integrative Neurophysiology & Pain",
+  "tags": [
+    "neurophysiology",
+    "cerebral blood flow",
+    "autoregulation",
+    "monro-kellie",
+    "intracranial pressure",
+    "csf dynamics",
+    "pain pathways",
+    "gate control theory",
+    "opioid receptors",
+    "descending modulation"
+  ],
+  "concepts": [
+    {
+      "conceptId": "concept_cbf_autoregulation_01",
+      "conceptName": "Biophysics of Cerebral Perfusion & Autoregulation",
+      "roteData": {
+        "equations": {
+          "cerebralPerfusionPressure": {
+            "formulaName": "Cerebral Perfusion Pressure (\\text{CPP})",
+            "equation": "\\text{CPP} = \\text{MAP} - \\text{ICP}",
+            "useCaseExample": "Managing blood pressure and intracranial pressure in traumatic brain injury (TBI) to prevent secondary ischemic brain injury.",
+            "variablesExplanation": {
+              "CPP": "Cerebral Perfusion Pressure (normal: 60--80 mmHg)",
+              "MAP": "Mean Arterial Pressure (average arterial pressure over the cardiac cycle)",
+              "ICP": "Intracranial Pressure (normal: 5--15 mmHg; note: substitute \\text{CVP} if \\text{CVP} > \\text{ICP})"
+            },
+            "resultInterpretation": "\\text{CPP} must be kept >60 mmHg to maintain adequate cerebral blood flow and prevent ischemia. In TBI patients, standard target is 60--70 mmHg."
+          },
+          "cerebralBloodFlow": "Normal CBF $\\approx 50\\text{ mL/100g/min}$ (approx. $15\\%$ of total cardiac output; brain consumes $20\\%$ of body oxygen)."
+        },
+        "autoregulationLimits": "Cerebral blood flow remains constant between a Mean Arterial Pressure (\\text{MAP}) of $50\\text{--}150\\text{ mmHg}$ in normotensive patients.",
+        "chemicalSensitivities": {
+          "pCO2Sensitivity": "CBF changes by $\\approx 3\\text{--}4\\%$ for every $1\\text{ mmHg}$ change in $PaCO_2$ between $20\\text{--}80\\text{ mmHg}$.",
+          "pO2Threshold": "CBF remains stable with oxygen changes until $PaO_2$ drops below $50\\text{ mmHg}$, triggering rapid dilation."
+        }
+      },
+      "firstPrinciplesMechanics": "1. **Myogenic Autoregulation (Bayliss Effect):** Vascular smooth muscle cells in cerebral arterioles possess stretch-activated non-selective cation channels. When \\text{MAP} rises, the increased transmural pressure stretches the arteriolar wall, depolarizing the smooth muscle membrane. This opens voltage-gated L-type calcium channels, causing calcium influx, contraction, and vasoconstriction to maintain constant flow. When \\text{MAP} falls, channels close, causing vasodilation; 2. **Metabolic Autoregulation:** Active brain tissue releases vasodilatory metabolites: adenosine, nitric oxide (NO), potassium ($K^+$), and hydrogen ($H^+$) ions. These metabolites act locally on vascular smooth muscle to relax it, matching blood flow to regional neuronal activity; 3. **Chemical Autoregulation via Carbon Dioxide:** Carbon dioxide ($CO_2$) diffuses freely across the blood-brain barrier into the perivascular extracellular fluid, where it reacts with water to produce protons ($H^+$). These protons directly block calcium influx in vascular smooth muscle, causing vasodilation. A drop in $PaCO_2$ (alkalosis) has the opposite effect, causing cerebral vasoconstriction; 4. **Hypoxic Autoregulation:** Severe hypoxia ($PaO_2 < 50\\text{ mmHg}$) impairs mitochondrial oxidative phosphorylation, releasing adenosine and activating ATP-sensitive potassium ($K_{ATP}$) channels. This hyperpolarizes the vascular smooth muscle, shutting off calcium channels and causing potent cerebral vasodilation.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Hypocapnia-Induced Cerebral Ischaemia",
+          "anatomicalBasis": "A patient hyperventilates to a $PaCO_2$ of $20\\text{ mmHg}$. The resulting respiratory alkalosis reduces perivascular hydrogen ion concentration, causing potent vasoconstriction of cerebral resistance arterioles. This slashes cerebral blood flow by $\\approx 60\\%$, which can trigger acute cerebral ischemia and syncope, a risk when hyperventilating patients during intracranial surgery."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_csf_monro_kellie_01",
+      "conceptName": "CSF Dynamics & The Monro-Kellie Doctrine",
+      "roteData": {
+        "monroKellieDoctrine": {
+          "formulaName": "Monro-Kellie Doctrine",
+          "equation": "V_{\\text{intracranial}} = V_{\\text{brain}} + V_{\\text{blood}} + V_{\\text{CSF}} = \\text{Constant}",
+          "useCaseExample": "Predicting the onset of intracranial hypertension in expanding intracranial masses (e.g., epidural hematoma).",
+          "variablesExplanation": {
+            "V_intracranial": "Total intracranial volume (fixed by the rigid cranium)",
+            "V_brain": "Volume of brain tissue (~1400 mL, ~80\\% of total)",
+            "V_blood": "Volume of cerebral blood (~150 mL, ~10\\% of total)",
+            "V_CSF": "Volume of Cerebrospinal Fluid (~150 mL, ~10\\% of total)"
+          },
+          "resultInterpretation": "Because the total volume is constant, an increase in the volume of any one component (or an added mass) must be compensated by a displacement of CSF or venous blood. Once compensation is exhausted, \\text{ICP} rises exponentially (the intracranial compliance curve reaches its inflection point)."
+        },
+        "csfParameters": {
+          "totalVolume": "Approximately $150\\text{ mL}$ (with $\\approx 25\\text{ mL}$ in the ventricles).",
+          "productionRate": "Approximately $0.35\\text{ mL/min}$ ($500\\text{ mL/day}$), independent of \\text{ICP} until very high pressures.",
+          "absorptionThreshold": "Absorption begins at a CSF pressure of $\\approx 68\\text{ mmH2O}$ ($5\\text{ mmHg}$) and rises linearly with pressure."
+        }
+      },
+      "firstPrinciplesMechanics": "1. **Active Secretion of CSF:** Produced by choroid plexus epithelial cells. Carbonic anhydrase II inside these cells generates $H^+$ and $HCO_3^-$ from water and carbon dioxide. Basolateral Na-H exchangers (NHE) and Na-K-ATPase pumps move $Na^+$ into the cell. Apical Na-K-ATPase pumps then actively pump $Na^+$ into the ventricular lumen. This creates an electrogenic and osmotic gradient that draws $Cl^-$ and $HCO_3^-$ transcellularly. Water follows down this osmotic gradient into the ventricles through aquaporin-1 channels; 2. **Passive CSF Reabsorption:** Absorbed back into the venous system through arachnoid granulations projecting into the superior sagittal sinus. This is a passive, pressure-dependent process driven by the hydrostatic pressure gradient between the CSF and the venous sinus. If CSF pressure is higher than venous pressure, the arachnoid villi act as one-way valves, opening to drain CSF; 3. **Intracranial Compliance Curve:** When a mass (e.g. hematoma) expands inside the skull, initial pressure rises are buffered by displacement of CSF into the spinal subarachnoid space and compression of low-pressure cerebral veins. Once these buffering mechanisms are exhausted, the compliance curve hits an elastance inflection point, where any minor volume increase causes an exponential rise in \\text{ICP}.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Acetazolamide for Idiopathic Intracranial Hypertension",
+          "anatomicalBasis": "Acetazolamide is a carbonic anhydrase inhibitor. By blocking carbonic anhydrase II in the choroid plexus epithelium, it decreases the production of $HCO_3^-$ and shuts down the active secretion of $Na^+$ into the ventricles. This reduces the osmotic gradient driving water transport, lowering CSF production by up to $50\\%$ and reducing intracranial pressure."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_pain_transmission_gate_01",
+      "conceptName": "Pain Transduction, Spinal Synapses & Gate Control Theory",
+      "roteData": {
+        "synapticTransmitters": {
+          "Glutamate": "Primary fast transmitter acting on post-synaptic AMPA and NMDA receptors.",
+          "Substance_P": "Neuropeptide released by C-fibers, acting on NK-1 receptors to cause slow, prolonged depolarization.",
+          "CGRP": "Calcitonin Gene-Related Peptide, enhancing NMDA receptor activation."
+        },
+        "gateControlComponents": "Inhibitory interneurons located in Lamina II (substantia gelatinosa) of the dorsal horn."
+      },
+      "firstPrinciplesMechanics": "1. **Synaptic Transmission in the Dorsal Horn:** Action potentials from peripheral nociceptors ($A\\delta$ and $C$ fibers) arrive at the presynaptic terminals in Lamina I and II. Depolarization opens voltage-gated calcium channels, triggering the release of glutamate and neuropeptides (Substance P, CGRP). Glutamate binds to postsynaptic AMPA receptors on second-order spinothalamic neurons, causing fast sodium influx and depolarization. Under high-frequency stimulation, the sustained depolarization displaces the magnesium ($Mg^{2+}$) block from NMDA receptors, allowing calcium influx, which triggers wind-up and central sensitization; 2. **Gate Control Theory Biophysics:** Myelinated $A\\beta$ fibers (carrying touch, vibration) branch as they enter the dorsal horn. They send collateral branches to excite GABAergic and glycinergic inhibitory interneurons in the substantia gelatinosa. When stimulated, these interneurons release GABA and glycine onto the presynaptic terminals of $A\\delta$ and $C$ fibers, as well as the postsynaptic membranes of spinothalamic projection neurons. This closes the gate to pain transmission; 3. **Presynaptic Inhibition:** GABA binds to presynaptic $GABA_A$ receptors, causing chloride efflux (since intracellular chloride is high in primary afferents), depolarizing the terminal slightly (primary afferent depolarization). This depolarizing shunt inactivates voltage-gated sodium channels, reducing the amplitude of arriving action potentials and lowering calcium-dependent neurotransmitter release.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "TENS (Transcutaneous Electrical Nerve Stimulation) for Chronic Pain",
+          "anatomicalBasis": "TENS units apply high-frequency, low-intensity electrical stimulation to the skin. This selectively depolarizes large-diameter, low-threshold $A\\beta$ fibers. According to Gate Control Theory, this stimulates inhibitory interneurons in the substantia gelatinosa, closing the spinal pain gate and reducing the transmission of nociceptive signals to the brain."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_opioid_descending_modulation_01",
+      "conceptName": "Descending Pain Modulation & Opioid Receptor Biophysics",
+      "roteData": {
+        "receptorTypes": {
+          "Mu_OP3": "Gs/Gi-coupled (primarily Gi/Go). Endogenous ligand: Endorphins. Located presynaptically and postsynaptically.",
+          "Kappa_OP2": "Gi/Go-coupled. Endogenous ligand: Dynorphins. Mediates spinal analgesia and dysphoria.",
+          "Delta_OP1": "Gi/Go-coupled. Endogenous ligand: Enkephalins. Synergizes with Mu receptors."
+        }
+      },
+      "firstPrinciplesMechanics": "1. **Descending Modulation Pathways:** The Periaqueductal Gray (PAG) in the midbrain receives inputs from the cortex and limbic system. PAG neurons project to the Rostral Ventromedial Medulla (RVM, including the Nucleus Raphe Magnus) and the Locus Coeruleus. These project descending pathways to the dorsal horn of the spinal cord, releasing enkephalin, noradrenaline, and serotonin to inhibit pain transmission; 2. **Presynaptic Opioid Mechanism:** Opioid receptors are GPCRs coupled to $G_i/G_o$ proteins. When an agonist (e.g. morphine, fentanyl) binds to a presynaptic opioid receptor on $A\\delta$ or $C$ fiber terminals, the activated $G_i\\beta\\gamma$ subunit directly interacts with voltage-gated calcium channels, closing them. This prevents calcium influx and blocks the exocytosis of glutamate, Substance P, and CGRP; 3. **Postsynaptic Opioid Mechanism:** On the postsynaptic membrane of the second-order spinothalamic neuron, activation of the $G_i\\beta\\gamma$ subunit opens G-protein-coupled inwardly rectifying potassium (GIRK) channels. Potassium rushes out of the cell down its concentration gradient, hyperpolarizing the postsynaptic membrane. This shifts the membrane potential further away from the threshold, making the neuron highly resistant to depolarizing inputs from primary nociceptors.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Intrathecal Morphine Analgesia",
+          "anatomicalBasis": "Morphine injected into the subarachnoid space diffuses into the substantia gelatinosa (Lamina II) of the dorsal horn. It binds to Mu opioid receptors, shutting down presynaptic calcium channels on nociceptive terminals and opening postsynaptic GIRK channels on spinothalamic projection neurons. This produces profound spinal analgesia without affecting motor function, as motor neurons do not express Mu receptors."
+        }
+      ]
+    }
+  ],
+  "crossReferenceKeys": [
+    "anat_neuraxis_01",
+    "anat_pain_01",
+    "anat_cns_01",
+    "cell_neuro_01",
+    "cell_synapse_01"
+  ]
+}

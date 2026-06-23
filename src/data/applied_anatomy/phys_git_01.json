@@ -1,0 +1,72 @@
+{
+  "moduleId": "phys_git_01",
+  "moduleTitle": "Integrative Gastrointestinal & Hepatosplanchnic Physiology",
+  "tags": [
+    "gastrointestinal physiology",
+    "gastric secretion",
+    "enteric nervous system",
+    "motility",
+    "bilirubin",
+    "splanchnic circulation",
+    "habr"
+  ],
+  "concepts": [
+    {
+      "conceptId": "concept_gastric_secretion_regulation_01",
+      "conceptName": "Regulation of Gastric Acid Secretion: Phase & Hormonal Control",
+      "roteData": {
+        "secretionPhases": {
+          "Cephalic_Phase": "30\\% of total acid secretion. Triggered by sight, smell, taste, or thought of food. Mediated by vagal parasympathetic pathways.",
+          "Gastric_Phase": "60\\% of total acid secretion. Triggered by gastric distension and chemical composition (peptides/amino acids). Mediated by vagal reflexes and local gastrin release.",
+          "Intestinal_Phase": "10\\% of total acid secretion. Triggered by chyme entry into the duodenum. Dominated by inhibitory feedback (secretin, CCK, somatostatin)."
+        },
+        "inhibitoryHormones": "Somatostatin (paracrine inhibitor of parietal/G cells), Secretin (inhibits G cells and stimulates pancreatic HCO3- release)."
+      },
+      "firstPrinciplesMechanics": "1. **Vagal Stimulation**: Ingestion of food triggers vagal efferent fibers to release acetylcholine (ACh), which acts on parietal cells via **$M_3$ receptors** ($G_q$ pathway, raising intracellular calcium). Vagal pathways also stimulate G cells to release **Gastrin** via Gastrin-Releasing Peptide (GRP), and inhibit D cells from releasing somatostatin. \\n2. **Histamine and Gastrin Synergy**: Gastrin travels via the bloodstream to bind to **$CCK_2$ receptors** on Enterochromaffin-Like (ECL) cells, stimulating them to synthesize and release **histamine**. Histamine binds to parietal cell **$H_2$ receptors** (coupled to $G_s$, raising cAMP). The simultaneous elevation of cytosolic calcium ($G_q$ pathway via ACh/Gastrin) and cAMP ($G_s$ pathway via Histamine) exerts a synergistic effect, driving massive translocation of **$H^+/K^+$ ATPase pumps** from tubulovesicles to the apical canalicular membrane, initiating acid secretion. \\n3. **Negative Feedback Somatostatin Loop**: As gastric luminal $pH$ drops below $1.5-2.0$, antral **D cells** release **somatostatin**. Somatostatin binds to GPCR $G_i$-linked receptors on parietal cells, directly inhibiting adenylyl cyclase and lowering cAMP. It also acts paracrinely to inhibit gastrin release from G cells and histamine release from ECL cells, terminating acid production.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Histamine-2 Receptor Antagonists (H2RAs) and Acid Prophylaxis",
+          "anatomicalBasis": "H2RAs (e.g., ranitidine, famotidine) are competitive inhibitors of the **$H_2$ receptor** on parietal cells. Because histamine represents the primary Gs/cAMP pathway of acid secretion, blocking this receptor blunts the parietal cell's response to both vagal acetylcholine and gastrin, lowering gastric acid volume and raising gastric fluid $pH$. This is used to reduce the severity of chemical pneumonitis (Mendelson's syndrome) if aspiration occurs during induction."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_splanchnic_circulation_habr_01",
+      "conceptName": "Splanchnic Hemodynamics & The Hepatic Vascular Buffer Response (HABR)",
+      "roteData": {
+        "hepaticBloodFlow": {
+          "TotalFlow": "1500 mL/min (~25\\% of cardiac output).",
+          "Portal_Vein": "75\\% of flow, 50-60\\% of oxygen supply (low pressure, 7-10 mmHg, partially deoxygenated).",
+          "Hepatic_Artery": "25\\% of flow, 40-50\\% of oxygen supply (high pressure, systemic \\text{MAP}, fully oxygenated)."
+        }
+      },
+      "firstPrinciplesMechanics": "1. **Dual Circulation Biophysics**: The liver receives a dual blood supply. Splanchnic venous blood draining the stomach, spleen, and intestines converges into the portal vein, which perfuses the hepatic sinusoids. The hepatic artery supplies oxygenated blood. Because sinusoids lack a continuous basement membrane and are highly fenestrated, hepatic blood flow encounters extremely low resistance, facilitating metabolic exchange in the space of Disse. \\n2. **Hepatic Arterial Buffer Response (HABR)**: Portal vein blood flow is determined by GI metabolic activity and is not autoregulated by the liver. To protect the liver from ischemia, the hepatic artery exhibits a compensatory mechanism: the **Hepatic Arterial Buffer Response**. \\n3. **Adenosine Accumulation Hypothesis**: Adenosine is constantly synthesized and secreted into the small fluid space surrounding the hepatic arterioles and portal venules (the space of Mall). Portal blood flow washes adenosine away. If portal vein flow decreases, the washout rate drops, causing local accumulation of **adenosine**. Adenosine binds to $A_{2A}$ purinergic receptors on hepatic arterial smooth muscle, activating the GPCR $G_s$ pathway. This increases cAMP, opening calcium-activated potassium channels ($K_{Ca}$), hyperpolarizing the cell and causing vasodilation of the hepatic artery, restoring total hepatic oxygen delivery. Conversely, high portal flow washes adenosine away, causing passive constriction of the hepatic artery.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Anesthetic-Induced Splanchnic Hypoperfusion",
+          "anatomicalBasis": "Volatile anesthetics (e.g. isoflurane, sevoflurane) and propofol reduce systemic mean arterial pressure (\\text{MAP}) and systemic vascular resistance (\\text{SVR}). This causes a corresponding drop in splanchnic blood flow and portal venous delivery. In healthy livers, the **HABR** compensates by dilating the hepatic artery to preserve total hepatic flow. However, in patients with severe cirrhosis, hepatic arterial compliance is severely compromised, blunting the HABR and predisposing the patient to postoperative hepatic failure and ischemic injury."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_bilirubin_metabolism_01",
+      "conceptName": "Bilirubin Conjugation & Excretion Pathways",
+      "roteData": {
+        "conjugationEnzyme": "UDP-glucuronosyltransferase (UGT1A1).",
+        "excretionCarrier": "Multidrug resistance-associated protein 2 (MRP2) (active transporter)."
+      },
+      "firstPrinciplesMechanics": "1. **Production & Transport**: Senescent erythrocytes are phagocytosed by macrophages in the spleen and bone marrow. Heme is converted to biliverdin via heme oxygenase, and then to **unconjugated bilirubin** via biliverdin reductase. Unconjugated bilirubin is highly lipophilic and water-insoluble; it is transported in the blood tightly bound to albumin. \\n2. **Hepatocyte Uptake & Conjugation**: Upon reaching the liver sinusoids, unconjugated bilirubin dissociates from albumin and is transported across the basolateral membrane into the hepatocyte via organic anion transporting polypeptides (**OATP1B1/OATP1B3**). Inside the cell, it binds to ligandin. The enzyme **UDP-glucuronosyltransferase (UGT1A1)** transfers glucuronic acid to the bilirubin molecule, forming **conjugated bilirubin**, which is water-soluble. \\n3. **Canalicular Excretion & Enterohepatic Circulation**: Conjugated bilirubin is actively exported across the apical membrane into the bile canaliculus via **MRP2**. Bile carries it into the intestine. In the colon, bacterial beta-glucuronidases de-conjugate it, and bacteria reduce it to **urobilinogen**. Most urobilinogen is oxidized to stercobilin (giving feces its brown color); a small fraction is reabsorbed via the portal vein (enterohepatic circulation) and either excreted by the kidneys as urobilin or re-excreted by the liver.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Gilbert Syndrome and Postoperative Jaundice",
+          "anatomicalBasis": "Gilbert Syndrome is a benign, autosomal recessive genetic variant characterized by a $70\\%$ reduction in the transcriptional expression of **UGT1A1**. Under normal conditions, bilirubin levels remain normal or slightly elevated. However, during periods of surgical stress, prolonged fasting, or dehydration, bilirubin production increases. The compromised UGT1A1 enzyme becomes saturated, leading to an acute rise in unconjugated bilirubin and presenting as postoperative scleral icterus."
+        }
+      ]
+    }
+  ],
+  "crossReferenceKeys": [
+    "anat_git_01",
+    "cell_git_01",
+    "anat_hepatic_01"
+  ]
+}

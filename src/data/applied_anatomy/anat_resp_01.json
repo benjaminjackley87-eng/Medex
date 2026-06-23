@@ -1,0 +1,242 @@
+{
+  "moduleId": "anat_resp_01",
+  "moduleTitle": "Respiratory System Applied Clinical Anatomy & Histology",
+  "tags": [
+    "airway anatomy",
+    "laryngeal cartilages",
+    "vocal cords",
+    "tracheobronchial tree",
+    "diaphragm",
+    "relations",
+    "vertebral levels",
+    "histology"
+  ],
+  "structures": [
+    {
+      "structureId": "struc_nasal_cavity_01",
+      "anatomicalName": "Nasal Cavity",
+      "surfaceLandmarksAndRelations": {
+        "anterior": "Nares (nostrils), opening to the external environment.",
+        "posterior": "Choanae, transitioning directly into the nasopharynx.",
+        "superior": "Cribriform plate of the ethmoid bone (separates nasal cavity from anterior cranial fossa; highly vulnerable in basilar skull fractures).",
+        "inferior": "Hard palate (palatine process of maxilla and horizontal plate of palatine bone) separating it from the oral cavity.",
+        "lateral": "Nasal conchae (superior, middle, inferior turbinates) and openings of the paranasal sinuses and nasolacrimal duct.",
+        "medial": "Nasal septum (composed of septal cartilage, vomer, and perpendicular plate of the ethmoid bone).",
+        "vertebralLevels": "Corresponds cranially to the skull base down to the level of the hard palate (sub-axis reference)."
+      },
+      "macroAnatomy": {
+        "externalFramework": "Composed of bone (nasal bones, frontal processes of maxillae) and hyaline cartilage (lateral cartilages, major/minor alar cartilages, septal cartilage).",
+        "turbinates": "Three bony projections (conchae) that dramatically increase surface area, creating high-resistance, turbulent airflow to optimize convective warming and humidification."
+      },
+      "microAnatomyAndHistology": {
+        "vestibule": "Lined with keratinized stratified squamous epithelium containing coarse protective hairs (vibrissae) and sebaceous glands.",
+        "respiratoryRegion": "Lined with pseudostratified ciliated columnar epithelium (respiratory epithelium) containing mucus-secreting goblet cells and seromucous glands in the lamina propria.",
+        "olfactoryRegion": "Located in the superior-most aspect. Contains specialized olfactory neuroepithelium (bipolar sensory neurons, supporting cells, basal cells, and Bowman's glands secreting solvent fluid)."
+      },
+      "bloodSupply": {
+        "arterialOrigin": "Rich dual supply. 1. Ophthalmic Artery (via anterior and posterior ethmoidal arteries); 2. Maxillary Artery (via sphenopalatine and greater palatine arteries); 3. Facial Artery (via superior labial artery).",
+        "anastomoses": "Kiesselbach's Plexus (Little's Area) located on the anterior-inferior nasal septum. The primary site for epistaxis. Anastomosis of: Anterior Ethmoidal, Sphenopalatine, Greater Palatine, and Superior Labial arteries.",
+        "venousDrainage": "Rich submucosal venous plexus draining into the ophthalmic, facial, and sphenopalatine veins, communicating with the cavernous sinus (potential pathway for retrograde intracranial infection)."
+      },
+      "lymphaticDrainage": {
+        "primaryNodes": "Anterior regions drain to submandibular lymph nodes. Posterior regions drain to retropharyngeal and deep cervical lymph nodes."
+      },
+      "innervation": {
+        "sensory_general": "Trigeminal nerve (CN V). Anterior-superior region via the ophthalmic division (CN V1 - anterior ethmoidal nerve). Posterior-inferior region via the maxillary division (CN V2 - nasopalatine and greater palatine nerves).",
+        "sensory_special": "Olfactory nerve (CN I) mediating smell via the cribriform plate.",
+        "autonomic": "Parasympathetic fibers (secretomotor to mucosal glands) originate from CN VII via the pterygopalatine ganglion. Sympathetic fibers (vasoconstrictors) arise from the T1 spinal segment, synapsing in the superior cervical ganglion."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Nasal Intubation & Vasoconstriction",
+          "anatomicalBasis": "The extreme vascularity of the submucosal venous plexus makes the nasal cavity highly prone to severe hemorrhage during airway instrumentation. Topical vasoconstrictors (e.g., co-phenylcaine, adrenaline) must be applied to Kiesselbach's plexus and the turbinate pathways prior to nasal intubation or nasogastric tube insertion to constrict these vessels and reduce epistaxis risk."
+        },
+        {
+          "scenario": "Cribriform Plate Fractures",
+          "anatomicalBasis": "Fractures of the cribriform plate (superior relation) can tear the meninges, leading to CSF rhinorrhea. Blind insertion of nasal airways, nasogastric tubes, or nasotracheal tubes is strictly contraindicated in suspected basilar skull fractures because the instrument can pass directly through the fractured cribriform plate into the frontal lobe of the brain."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_larynx_01",
+      "anatomicalName": "Larynx",
+      "surfaceLandmarksAndRelations": {
+        "anterior": "Skin, superficial fascia, platysma, deep cervical fascia, infrahyoid (strap) muscles.",
+        "posterior": "Laryngopharynx (anterior wall), prevertebral muscles, and vertebral column.",
+        "lateral": "Lobes of the thyroid gland, carotid sheath (containing common carotid artery, internal jugular vein, vagus nerve).",
+        "superior": "Hyoid bone, base of tongue, epiglottis.",
+        "inferior": "Trachea (at the lower border of the cricoid cartilage).",
+        "vertebralLevels": "Adult: C3 to C6 level. Infant/Neonate: C3 to C4 level (highly cephalad and anterior, making visualization during direct laryngoscopy more challenging)."
+      },
+      "macroAnatomy": {
+        "unpairedCartilages": "1. Thyroid Cartilage (hyaline; anterior projection forms 'laryngeal prominence'); 2. Cricoid Cartilage (hyaline; complete ring, broad posterior lamina, narrow anterior arch); 3. Epiglottis (elastic cartilage; leaf-shaped, attached to internal thyroid angle).",
+        "pairedCartilages": "1. Arytenoid Cartilages (hyaline; pyramid-shaped, sit on superior-posterior cricoid lamina; contain vocal process anteriorly and muscular process laterally); 2. Corniculate Cartilages (elastic; sit on arytenoid apices); 3. Cuneiform Cartilages (elastic; suspended within the aryepiglottic folds).",
+        "membranesAndLigaments": "1. Thyrohyoid Membrane (pierced by internal laryngeal nerve and superior laryngeal vessels); 2. Cricothyroid Membrane (site for emergency surgical access); 3. Cricotracheal Ligament (connects cricoid to 1st tracheal ring); 4. Vestibular Ligament (false vocal cords); 5. Vocal Ligament (true vocal cords; thickened superior border of the conus elasticus).",
+        "vocalCords": "Bounded laterally by the vocal ligaments and vocalis muscles. The rima glottidis is the physical opening between the vocal cords."
+      },
+      "microAnatomyAndHistology": {
+        "epithelialDistribution": "The entire laryngeal cavity is lined with ciliated pseudostratified columnar (respiratory) epithelium, EXCEPT for the vocal cords (true cords) and the anterior surface of the epiglottis, which are lined with stratified squamous epithelium to withstand high-velocity friction and physical stress.",
+        "vocalCordLayers": "Exhibits a distinct 5-layer micro-architecture: 1. Epithelium (stratified squamous); 2. Lamina Propria - Superficial Layer (Reinke's space; loose fibrous matrix); 3. Lamina Propria - Intermediate Layer (primarily elastic fibers); 4. Lamina Propria - Deep Layer (primarily collagen fibers; intermediate + deep layers form the Vocal Ligament); 5. Vocalis Muscle (the skeletal muscle core)."
+      },
+      "bloodSupply": {
+        "arterialOrigin": "1. Superior Laryngeal Artery (branch of Superior Thyroid Artery, which arises from External Carotid Artery); 2. Inferior Laryngeal Artery (branch of Inferior Thyroid Artery, which arises from the thyrocervical trunk of the Subclavian Artery).",
+        "venousDrainage": "1. Superior laryngeal veins drain into superior thyroid veins, emptying into the internal jugular vein (IJV); 2. Inferior laryngeal veins drain into inferior thyroid veins, which empty into the brachiocephalic veins."
+      },
+      "lymphaticDrainage": {
+        "primaryNodes": "Lymphatic pathways are strictly divided by the vocal cords. Regions superior to vocal cords drain to deep cervical nodes along the superior thyroid artery. Regions inferior to vocal cords drain to pre-tracheal, para-tracheal, and deep cervical nodes along the inferior thyroid artery."
+      },
+      "innervation": {
+        "superiorLaryngealNerve": "Branch of CN X (Vagus). Divides into: 1. Internal Branch (purely sensory to laryngeal mucosa superior to the vocal cords; pierces the thyrohyoid membrane); 2. External Branch (purely motor to the cricothyroid muscle; travels closely with superior thyroid vessels).",
+        "recurrentLaryngealNerve": "Branch of CN X (Vagus). Sensory: Supplies laryngeal mucosa inferior to the vocal cords. Motor: Supplies all intrinsic laryngeal muscles EXCEPT the cricothyroid muscle.",
+        "recurrentLaryngealNerveCourse": {
+          "rightSide": "Loops around the Right Subclavian Artery at the T1-T2 level before ascending in the tracheoesophageal groove.",
+          "leftSide": "Much longer, mediastinal course. Loops under the Aortic Arch lateral to the ligamentum arteriosum (T4-T5 level) before ascending in the left tracheoesophageal groove. This extensive path makes it highly vulnerable to compression, traction, or surgical injury."
+        }
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Cricoid Pressure (Sellick's Manoeuvre)",
+          "anatomicalBasis": "Because the cricoid cartilage is the only complete, non-collapsible ring in the respiratory tract, applying backward pressure on it compresses the esophagus directly against the body of the C6 vertebra behind it. This mechanically occludes the esophagus, preventing passive regurgitation of gastric contents during rapid sequence induction."
+        },
+        {
+          "scenario": "Recurrent Laryngeal Nerve (RLN) Injury",
+          "anatomicalBasis": "The left RLN can be compressed in the mediastinum by a dilated left atrium (Mitral Stenosis / Ortner's Syndrome), aortic arch aneurysms, apical lung tumors (Pancoast tumors), or stretched during anterior cervical spine surgery. During endotracheal intubation, a double-lumen tube or over-inflated ETT cuff resting in the subglottis can compress the RLN as it enters the larynx behind the cricoarytenoid joint, resulting in neuropraxia and postoperative vocal cord palsy (manifesting as a hoarse voice or, if bilateral, life-threatening airway obstruction)."
+        },
+        {
+          "scenario": "Surgical Airway / Emergency Cricothyroidotomy",
+          "anatomicalBasis": "The cricothyroid membrane lies between the inferior border of the thyroid cartilage and the superior border of the cricoid cartilage (C6 level). It is superficial, subcutaneous, and easily palpable. It contains minimal major blood vessels (only the small, transverse cricothyroid arteries), making it the anatomical site of choice for emergency surgical airway access when a 'cannot intubate, cannot oxygenate' scenario occurs."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_trachea_01",
+      "anatomicalName": "Trachea",
+      "surfaceLandmarksAndRelations": {
+        "anterior": "Skin, fascia, infrahyoid muscles, thyroid isthmus (crosses 2nd to 4th tracheal rings), inferior thyroid veins, sternum, thymus (pediatrics).",
+        "posterior": "Esophagus (separates trachea from prevertebral fascia and thoracic vertebrae).",
+        "lateral": "Lobes of the thyroid gland, common carotid arteries, recurrent laryngeal nerves (ascending in the tracheoesophageal grooves).",
+        "superior": "Larynx (cricoid cartilage).",
+        "inferior": "Bifurcates into left and right main bronchi at the carina.",
+        "vertebralLevels": "Adult: Extends from C6 (lower border of cricoid) to T4/T5 (carina) in the upright position. On deep inspiration or when supine/extended under anaesthesia, the carina can descend to T6."
+      },
+      "macroAnatomy": {
+        "lengthAndDiameter": "Adult: Approximately 10-15 cm long, external diameter 2-2.5 cm. Neonate: Approximately 4 cm long, internal diameter ~4 mm.",
+        "cartilaginousSupport": "Reinforced by 16-20 U-shaped/C-shaped hyaline cartilage rings. These rings prevent collapse under negative intrapleural pressures during inspiration.",
+        "posteriorWall": "The posterior wall lacks cartilage. It is closed by a fibromuscular membrane containing the transverse smooth muscle fibers of the Trachealis muscle. This allows the adjacent esophagus to expand anteriorly during swallowing."
+      },
+      "microAnatomyAndHistology": {
+        "mucosa": "Lined with pseudostratified ciliated columnar respiratory epithelium.",
+        "laminaPropria": "Contains elastic fibers, abundant blood vessels, and immune cells.",
+        "submucosa": "Contains mixed seromucous glands that secrete watery fluid containing glycoproteins and IgA to facilitate mucociliary clearance.",
+        "adventitia": "Outer connective tissue layer anchoring the trachea to surrounding mediastinal structures."
+      },
+      "bloodSupply": {
+        "arterialOrigin": "Segmental supply. Upper 2/3 supplied primarily by the tracheal branches of the Inferior Thyroid Arteries (arising from Thyrocervical trunk of Subclavian Artery). Lower 1/3 (including carina) supplied by the Bronchial Arteries (arising directly from the descending thoracic aorta).",
+        "venousDrainage": "Tracheal venous plexus drains into the inferior thyroid veins, which empty into the brachiocephalic veins."
+      },
+      "lymphaticDrainage": {
+        "primaryNodes": "Drains to pre-tracheal, para-tracheal, and deep cervical lymph nodes."
+      },
+      "innervation": {
+        "sensory": "Sensation is mediated entirely by the sensory branches of the Recurrent Laryngeal Nerves (CN X).",
+        "autonomic": "Parasympathetic (cholinergic bronchoconstrictor and secretomotor) via recurrent laryngeal nerves. Sympathetic (bronchodilator and vasoconstrictor) via postganglionic fibers from the sympathetic chain (T1-T4)."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Tracheal Tube Sizing and Pediatric Stenosis",
+          "anatomicalBasis": "In children, the cricoid cartilage is highly vulnerable. Because the pediatric larynx is funnel-shaped and the subglottic airway is narrow and non-expandable due to the complete cricoid ring, a tightly fitting endotracheal tube can cause mucosal ischemic injury, edema, and subsequent subglottic stenosis. This is why uncuffed tubes were historically preferred, and modern cuffed tubes must be carefully managed to maintain cuff pressures < 20 cmH2O."
+        },
+        {
+          "scenario": "Tracheostomy Tube Placement",
+          "anatomicalBasis": "Surgical or percutaneous dilatational tracheostomy is typically performed between the 2nd and 3rd, or 3rd and 4th tracheal rings. This requires retraction of the thyroid isthmus (which crosses the 2nd-4th rings) and avoidance of the inferior thyroid veins and the thyroidea ima artery (an anatomical variant present in 10\\% of people arising from the brachiocephalic trunk)."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_bronchial_tree_01",
+      "anatomicalName": "Bronchial Tree & Airway Generations",
+      "surfaceLandmarksAndRelations": {
+        "carina": "The bifurcation point of the trachea. Located at the T4/T5 vertebral level (manubriosternal joint/Angle of Louis) in the supine adult. Overlying structures include the aortic arch, which loops over the left main bronchus.",
+        "rightMainBronchus": "Anatomically wider, shorter (2.5 cm long), and descends more vertically (at a ~25° angle from the tracheal axis).",
+        "leftMainBronchus": "Anatomically narrower, longer (5.0 cm long), and descends more horizontally (at a ~45° angle to clear the heart)."
+      },
+      "macroAnatomy": {
+        "conductingAirways": "Generations 0 (Trachea) to 16 (Terminal Bronchioles). Do not contain alveoli; form the anatomical dead space. Supported by cartilage plates (which progressively replace the complete/C-shaped rings of the trachea) down to generation 10.",
+        "respiratoryAirways": "Generations 17 (Respiratory Bronchioles) to 23 (Alveolar Sacs). Contain alveoli; the site of gas exchange. Lacks cartilaginous support; airways are kept open entirely by the radial traction of surrounding elastic lung parenchyma."
+      },
+      "microAnatomyAndHistology": {
+        "histologicalTransition": "As the bronchial tree branches, the histological profile changes systematically to optimize flow and minimize diffusion distance: 1. Epithelium transitions from pseudostratified ciliated columnar (bronchi) -> simple ciliated columnar (bronchioles) -> simple cuboidal (terminal/respiratory bronchioles) -> simple squamous (alveoli); 2. Cartilage disappears completely after the small bronchi (by generation 10); 3. Smooth muscle content increases proportionally down to the bronchioles, forming a complete helical wrap (targets for bronchospasm); 4. Goblet cells and seromucous glands decrease and disappear completely by the terminal bronchioles, preventing mucus from clogging the alveoli; 5. Clara Cells (club cells) appear in bronchioles, secreting a lipoprotein surfactant-like substance and serving as stem cells."
+      },
+      "bloodSupply": {
+        "arterialOrigin": "Bronchial Arteries. Typically 1-2 on the right and 2 on the left, arising directly from the descending thoracic aorta. They supply the bronchial wall tissue down to the respiratory bronchioles.",
+        "venousDrainage": "Bronchial veins. The deep bronchial veins anastomose directly with the pulmonary veins, contributing to the physiological anatomical shunt (~1.3\\%). The superficial bronchial veins drain into the azygos vein (on the right) and accessory hemiazygos vein (on the left)."
+      },
+      "lymphaticDrainage": {
+        "primaryNodes": "Drain along the bronchial tree to tracheobronchial and bronchopulmonary (hilar) lymph nodes, eventually entering the thoracic duct or right lymphatic duct."
+      },
+      "innervation": {
+        "sensory": "Vagus nerve (CN X) sensory afferents (including slowly adapting stretch receptors and rapidly adapting irritant receptors).",
+        "autonomic": "Parasympathetic (CN X) efferents cause bronchoconstriction and mucus secretion via M3 receptors. Sympathetic postganglionic fibers (from stellate and upper thoracic ganglia) act on Beta-2 receptors on bronchial smooth muscle to cause bronchodilation, although direct sympathetic nerve density is low (circulating adrenaline is the primary physiological driver)."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Endobronchial Intubation",
+          "anatomicalBasis": "Due to the wider caliber and more vertical, direct course of the Right Main Bronchus (~25° angle), any endobronchial intubation (unintentional advancement of the endotracheal tube) will almost always occur into the right main bronchus. This results in left-sided atelectasis, shunt, and subsequent hypoxia, along with a high risk of right-sided bar trauma."
+        },
+        {
+          "scenario": "Aspiration Pathway",
+          "anatomicalBasis": "Foreign bodies, gastric acid, or oral secretions are far more likely to be aspirated into the Right Main Bronchus. If the patient is supine, the aspirated material will preferentially drain into the superior segment of the right lower lobe or the posterior segment of the right upper lobe, as these are the most gravitationally dependent regions in the supine position."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_diaphragm_01",
+      "anatomicalName": "Diaphragm",
+      "surfaceLandmarksAndRelations": {
+        "domeStructure": "Double-domed musculofibrous partition separating the thoracic and abdominal cavities. The right dome is normally higher than the left (reaching the upper border of the 5th rib at rest) due to the presence of the liver below it.",
+        "superiorRelations": "Pleural cavities (lungs) and fibrous pericardium (heart, which is fused to the central tendon of the diaphragm).",
+        "inferiorRelations": "Liver, stomach, spleen, kidneys, and adrenal glands."
+      },
+      "macroAnatomy": {
+        "peripheralOrigins": "1. Sternal: Posterior surface of the xiphoid process; 2. Costal: Internal surfaces of the lower 6 ribs and costal cartilages; 3. Lumbar: Medial and lateral arcuate ligaments, and the left/right muscular crura.",
+        "crura": "The Right Crus is larger and longer, arising from the bodies of L1-L3 (frequently loops around the esophagus to form the physiological lower esophageal sphincter). The Left Crus is smaller, arising from L1-L2.",
+        "centralTendon": "A tough, cloverleaf-shaped aponeurosis where all the peripheral muscular fibers insert. It has no bony attachments."
+      },
+      "microAnatomyAndHistology": {
+        "muscleFiberComposition": "The diaphragm is a skeletal muscle but is highly specialized for continuous, fatigue-resistant aerobic respiration. It is composed of approximately 55\\% Type I (slow-twitch oxidative, fatigue-resistant) fibers, 25\\% Type IIa (fast-twitch oxidative-glycolytic) fibers, and 20\\% Type IIb (fast-twitch glycolytic, fatigable) fibers. Lined superiorly by parietal pleura and inferiorly by parietal peritoneum."
+      },
+      "bloodSupply": {
+        "arterialOrigin": "Complex, anastomosing network: 1. Superior Phrenic Arteries (arising from descending thoracic aorta); 2. Inferior Phrenic Arteries (arising directly from abdominal aorta; the dominant supply); 3. Musculophrenic and Pericardiacophrenic Arteries (branches of Internal Thoracic Arteries).",
+        "venousDrainage": "Venous drainage mirrors the arterial supply. The dominant inferior phrenic veins drain directly into the Inferior Vena Cava (IVC)."
+      },
+      "innervation": {
+        "phrenicNerves": "Left and Right Phrenic Nerves. Origin: Anterior rami of C3, C4, and C5 spinal nerves ('C3, 4, 5 keep the diaphragm alive'). They provide 100\\% of the motor supply to their respective hemidiaphragms, and the majority of the sensory supply to the central portion of the diaphragmatic pleura and peritoneum.",
+        "peripheralSensory": "The lower 6 intercostal nerves (T7-T11) and the subcostal nerve (T12) supply sensory fibers to the peripheral margin of the diaphragm."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Interscalene Block & Hemidiaphragmatic Paralysis",
+          "anatomicalBasis": "The phrenic nerve passes directly over the anterior scalene muscle, lying in extremely close proximity to the brachial plexus at the level of the interscalene groove (C5-C6). Performing an interscalene brachial plexus block for shoulder surgery results in an almost 100\\% incidence of ipsilateral phrenic nerve blockade, causing hemidiaphragmatic paralysis (manifesting as a ~25\\% reduction in vital capacity, which is poorly tolerated in patients with severe COPD)."
+        },
+        {
+          "scenario": "Diaphragmatic Rupture & Herniation",
+          "anatomicalBasis": "Traumatic diaphragmatic rupture (usually from blunt abdominal trauma) occurs on the left side in 75-85\\% of cases. The right side is protected by the large, non-compressible mass of the liver, which absorbs and distributes the kinetic energy of the impact."
+        },
+        {
+          "scenario": "Referred Shoulder Pain",
+          "anatomicalBasis": "Irritation of the diaphragmatic pleura or peritoneum (due to blood, subphrenic abscess, or residual laparoscopic insufflation carbon dioxide gas) stimulates sensory fibers of the phrenic nerve (C3-C5). This sensory input enters the spinal cord at the same levels as the supraclavicular nerves (C3-C4), causing the brain to perceive the pain as originating from the shoulder tip (referred pain/Kehr's sign)."
+        }
+      ]
+    }
+  ],
+  "crossReferenceKeys": [
+    "cell_resp_surfactant",
+    "phys_resp_npv",
+    "phys_resp_ppv",
+    "phys_resp_time_constants",
+    "phys_resp_gravity",
+    "phys_resp_cough_reflex",
+    "path_nerve_injury_rln",
+    "path_hemidiaphragmatic_paralysis"
+  ]
+}

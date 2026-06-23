@@ -1,0 +1,96 @@
+{
+  "moduleId": "phys_hepatic_01",
+  "moduleTitle": "Integrative Hepatic & Gastrointestinal Physiology",
+  "tags": [
+    "hepatic physiology",
+    "hepatic blood flow",
+    "habr",
+    "drug metabolism",
+    "clearance",
+    "bilirubin",
+    "gastric acid",
+    "parietal cell",
+    "intestinal motility",
+    "pacemakers"
+  ],
+  "concepts": [
+    {
+      "conceptId": "concept_hepatic_blood_flow_habr_01",
+      "conceptName": "Hepatic Blood Flow & Hepatic Arterial Buffer Response",
+      "roteData": {
+        "flowParameters": {
+          "totalHepaticFlow": "Approximately $1500\\text{ mL/min}$ ($25\text{--}30\\%$ of cardiac output).",
+          "portalVeinContribution": "75\\% of total flow, providing 50\\% of oxygen supply (low pressure, $\\approx 8\\text{ mmHg}$).",
+          "hepaticArteryContribution": "25\\% of total flow, providing 50\\% of oxygen supply (high pressure, arterial)."
+        }
+      },
+      "firstPrinciplesMechanics": "1. **Hepatic Arterial Buffer Response (HABR):** The liver maintains a constant total blood flow to protect metabolic clearance functions. This is achieved via the HABR, where any drop in portal vein flow triggers compensatory dilation of the hepatic artery. It is mediated by adenosine; 2. **Adenosine Accumulation Mechanism:** Adenosine is continuously produced and secreted by cells in the portal tracts into the fluid space of Mall surrounding hepatic arterioles. Under normal portal flow, adenosine is constantly washed away into the sinusoids. If portal vein flow drops, the washout rate decreases, causing adenosine to accumulate in the space of Mall. This accumulated adenosine binds to $A_2$ adenosine receptors on hepatic arterial smooth muscle, dilating the artery and restoring liver perfusion; 3. **Unidirectional Regulation:** The HABR is unidirectional. While a drop in portal flow dilates the hepatic artery, changes in hepatic artery flow have no reciprocal effect on portal vein flow, which is determined by venous drainage from the mesenteric beds.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Splanchnic Hypoperfusion during General Anaesthesia",
+          "anatomicalBasis": "Volatile anaesthetics and positive pressure ventilation reduce cardiac output and portal vein blood flow. In a healthy liver, the HABR compensates by dilating the hepatic artery, preserving total oxygen delivery. However, in patients with severe cirrhosis, the portal tract architecture is destroyed and the space of Mall is fibrosed, disrupting adenosine accumulation. These patients cannot mount a HABR, risking severe ischemic hepatic injury during intraoperative hypotensive episodes."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_hepatic_metabolism_clearance_01",
+      "conceptName": "Drug Metabolism & Clearance Kinetics",
+      "roteData": {
+        "clearanceEquation": "Cl_h = Q_h \\cdot ER where Qh is hepatic blood flow and ER is the extraction ratio.",
+        "extractionRatio": "ER = \\frac{C_{in} - C_{out}}{C_{in}} \\quad \\text{ranging from 0 to 1.}",
+        "phaseDefinitions": {
+          "Phase_I": "Modification via oxidation, reduction, or hydrolysis, primarily by Cytochrome P450 enzymes.",
+          "Phase_II": "Conjugation with polar groups (glucuronide, sulfate, glutathione) to increase water solubility."
+        }
+      },
+      "firstPrinciplesMechanics": "1. **Perfusion-Limited Clearance (High ER):** When a drug has an $ER > 0.7$, the liver's metabolic capacity is so high that nearly all drug entering the liver is cleared in a single pass. Clearance ($Cl_h$) is limited strictly by hepatic blood flow ($Q_h$). Changes in enzyme activity (induction/inhibition) have negligible effects, but drops in blood flow (e.g. shock, beta-blockers) directly reduce clearance. Examples: Lidocaine, Morphine, Propofol; 2. **Capacity-Limited Clearance (Low ER):** When a drug has an $ER < 0.3$, the liver's metabolic capacity is low, and blood concentration remains nearly equal across the liver. Clearance ($Cl_h$) is independent of blood flow and is limited strictly by enzyme activity and protein binding (intrinsic clearance). Examples: Phenytoin, Diazepam, Warfarin; 3. **Enzyme Saturation Kinetics:** Most drugs at therapeutic doses exhibit first-order kinetics (clearance rate is proportional to concentration). However, when metabolic pathways become saturated, kinetics shift to zero-order (constant amount cleared per unit time, independent of concentration), as described by Michaelis-Menten kinetics.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Propofol Clearance in Cardiogenic Shock",
+          "anatomicalBasis": "Propofol is a high-extraction-ratio drug ($ER \\approx 0.9$). Its clearance is perfusion-limited, meaning it is highly dependent on hepatic blood flow ($Q_h$). In cardiogenic shock, cardiac output and hepatic perfusion collapse. This drops propofol clearance, causing rapid drug accumulation and prolonged sedation unless doses are titrated downward."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_bilirubin_metabolism_01",
+      "conceptName": "Bilirubin Conjugation & Secretion",
+      "roteData": {
+        "bilirubinForms": {
+          "Unconjugated": "Lipophilic, water-insoluble, transported bound to albumin, cannot be excreted in urine.",
+          "Conjugated": "Hydrophilic, water-soluble, actively secreted into bile, excreted in urine under pathological states."
+        }
+      },
+      "firstPrinciplesMechanics": "1. **Heme Breakdown:** Senescent red blood cells are engulfed by macrophages in the spleen. Heme is converted to biliverdin by heme oxygenase, releasing iron and carbon monoxide. Biliverdin is then reduced to unconjugated bilirubin by biliverdin reductase; 2. **Hepatic Uptake and Conjugation:** Unconjugated bilirubin is carried in blood bound to albumin. In hepatic sinusoids, it dissociates from albumin and is taken up by hepatocytes via Organic Anion Transporting Polypeptides (OATPs). Inside the hepatocyte, it is bound to ligandins to prevent efflux. The enzyme **UDP-glucuronosyltransferase (UGT1A1)** in the smooth endoplasmic reticulum attaches glucuronic acid to the bilirubin, producing water-soluble conjugated bilirubin; 3. **Biliary Secretion:** Conjugated bilirubin is actively transported against a steep concentration gradient across the canalicular membrane into the bile ductules via the ATP-dependent multidrug resistance-associated protein 2 (MRP2) transporter. This is the rate-limiting step of bilirubin clearance.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Gilbert's Syndrome and Stress-Induced Jaundice",
+          "anatomicalBasis": "Gilbert's syndrome is a genetic promoter mutation that reduces the expression of UGT1A1 by $\\approx 70\\%$. Under normal conditions, bilirubin levels are near-normal. However, during periods of physical stress (fasting, surgery, infection), the reduction in conjugation capacity causes unconjugated bilirubin to accumulate in the blood, resulting in mild, transient scleral icterus."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_gastric_acid_parietal_01",
+      "conceptName": "Gastric Acid Secretion & Intestinal Motility Mechanics",
+      "roteData": {
+        "parietalCellReceptors": {
+          "Histamine_H2": "Gs-coupled. Stimulated by histamine from ECL cells, raising cAMP.",
+          "Acetylcholine_M3": "Gq-coupled. Stimulated by vagal acetylcholine, raising IP3/calcium.",
+          "Gastrin_CCK2": "Gq-coupled. Stimulated by gastrin from G-cells, raising calcium.",
+          "Somatostatin_SST2": "Gi-coupled. Inhibits acid secretion by lowering cAMP."
+        }
+      },
+      "firstPrinciplesMechanics": "1. **Proton Pump Activation:** Resting parietal cells contain tubulovesicles inside their cytoplasm that house $H^+/K^+$-ATPase (proton pumps). Stimulation by Histamine, ACh, and Gastrin triggers a signaling cascade that causes these vesicles to fuse with the apical membrane, inserting the pumps into the canalicular wall; 2. **Acid Secretion Biophysics:** The $H^+/K^+$-ATPase actively pumps hydrogen ions ($H^+$) into the gastric lumen in exchange for potassium ($K^+$) at a massive thermodynamic cost (1 ATP per exchange, generating a gradient of $1\\text{ million to }1$). Intracellular $H^+$ is generated by carbonic anhydrase II hydration of $CO_2$. The resulting $HCO_3^-$ is transported across the basolateral membrane into the blood in exchange for $Cl^-$ via AE2, producing the postprandial 'alkaline tide'. $Cl^-$ diffuses through apical channels into the lumen, combining with $H^+$ to form hydrochloric acid ($HCl$); 3. **Intestinal Slow Waves:** Gastrointestinal smooth muscle exhibits spontaneous, rhythmic oscillations in membrane potential (slow waves) that do not directly trigger contraction. These are generated by the **interstitial cells of Cajal (ICCs)**, which act as pacemakers. Slow waves propagate through gap junctions, depolarizing smooth muscle cells. If the depolarization exceeds the threshold, voltage-gated calcium channels open, triggering action potentials and peristaltic contraction.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Proton Pump Inhibitors (Omeprazole) Mechanism",
+          "anatomicalBasis": "Omeprazole is a lipophilic weak base. It diffuses into the highly acidic secretory canaliculi of active parietal cells. In this acidic environment, it becomes protonated and converted into an active, charged sulfenamide compound. This charged molecule cannot diffuse back out, locking it in the canaliculus where it covalently binds to cysteine residues on the extracellular domain of the $H^+/K^+$-ATPase, permanently inactivating the pump."
+        }
+      ]
+    }
+  ],
+  "crossReferenceKeys": [
+    "anat_hepatic_01",
+    "anat_git_01",
+    "cell_hepatic_01"
+  ]
+}

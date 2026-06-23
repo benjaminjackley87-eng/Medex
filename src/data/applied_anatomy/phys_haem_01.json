@@ -1,0 +1,82 @@
+{
+  "moduleId": "phys_haem_01",
+  "moduleTitle": "Integrative Haematological & Immunological Physiology",
+  "tags": [
+    "haematology",
+    "erythropoiesis",
+    "hif-2a",
+    "iron metabolism",
+    "hepcidin",
+    "coagulation cascade",
+    "fibrinolysis",
+    "innate immunity",
+    "adaptive immunity",
+    "complement system",
+    "membrane attack complex"
+  ],
+  "concepts": [
+    {
+      "conceptId": "concept_erythropoiesis_iron_01",
+      "conceptName": "Biophysics of Erythropoiesis & Hepcidin Iron Regulation",
+      "roteData": {
+        "epoSource": "Specialized interstitial fibroblasts in the renal cortex and outer medulla.",
+        "ironDistribution": "Total body iron $\\approx 3.5\\text{--}4.0\\text{ g}$, distributed as: Haemoglobin ($65\\%$), Ferritin/Hemosiderin storage ($25\\%$), Myoglobin ($4\\%$), and trace enzyme cofactors."
+      },
+      "firstPrinciplesMechanics": "1. **Oxygen Sensing & EPO Synthesis:** Renal peritubular fibroblasts express prolyl hydroxylase domain (PHD) enzymes. Under normoxia, PHD hydroxylates proline residues on Hypoxia-Inducible Factor 2-alpha (HIF-$2\\alpha$), targeting it for ubiquitination and proteasomal degradation. Under hypoxia (low oxygen delivery), PHD is inactive. HIF-$2\\alpha$ accumulates, translocates to the nucleus, and activates the transcription of the Erythropoietin (EPO) gene, which stimulates erythrocyte production in the bone marrow; 2. **Iron Absorption & Export:** Duodenal enterocytes absorb dietary inorganic iron via apical divalent metal transporter 1 (DMT1). The iron is exported across the basolateral membrane into the blood via **ferroportin**. In the blood, iron binds to transferrin for transport to the bone marrow; 3. **Hepcidin Regulation:** Hepcidin is a peptide hormone synthesized by hepatocytes in response to high iron levels or inflammatory cytokines (IL-6). Hepcidin binds directly to basolateral ferroportin on enterocytes and macrophages, inducing its internalization and lysosomal degradation. This blocks iron absorption and prevents iron release from macrophage storage, lowering serum iron levels.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Anaemia of Chronic Disease (ACD) in Surgical Patients",
+          "anatomicalBasis": "Chronic inflammatory states (e.g. rheumatoid arthritis, malignancy) drive continuous release of interleukin-6 (IL-6). IL-6 acts on hepatocytes to stimulate the overproduction of hepcidin. Hepcidin degrades ferroportin across the body, trapping iron inside macrophages and enterocytes. This prevents iron delivery to erythroid precursors, causing a normocytic, normochromic anaemia of chronic disease that does not respond to oral iron therapy."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_cell_based_coagulation_01",
+      "conceptName": "The Cell-Based Coagulation Cascade & Fibrinolysis Regulation",
+      "roteData": {
+        "coagulationPhases": {
+          "Initiation": "Tissue Factor (TF) exposed on damaged subendothelial cells binds factor VIIa, activating small amounts of X and IX, generating trace thrombin.",
+          "Amplification": "This trace thrombin activates platelets, causing degranulation, and cleaves factors V, VIII, and XI on the platelet surface.",
+          "Propagation": "The tenase (VIIIa:IXa) and prothrombinase (Va:Xa) complexes assemble on the activated platelet membrane, driving a massive burst of thrombin."
+        },
+        "fibrinolyticRegulators": "Tissue Plasminogen Activator (t-PA), Plasminogen, Plasmin, alpha-2 antiplasmin (inhibitor), and Plasminogen Activator Inhibitor-1 (PAI-1)."
+      },
+      "firstPrinciplesMechanics": "1. **The Thrombin Burst:** During propagation, factor IXa binds to VIIIa on the negatively charged phosphatidylserine membrane of activated platelets, forming the **tenase complex** to activate factor X. Activated Xa then binds Va on the platelet surface, forming the **prothrombinase complex**. This complex is $300,000\\text{ times}$ more efficient at cleaving prothrombin than free Xa, driving a massive burst of thrombin ($II \\rightarrow IIa$) that cleaves fibrinogen into soluble fibrin monomers, which polymerize and are cross-linked by factor XIIIa; 2. **Fibrinolysis Biophysics:** Endothelial cells release t-PA in response to shear stress or venous stasis. t-PA binds to lysine residues on the fibrin clot alongside plasminogen, converting it to active plasmin. Plasmin cleaves fibrin into soluble fibrin degradation products (FDPs). This process is regulated by PAI-1 (inhibiting t-PA) and $\\alpha_2$-antiplasmin (inactivating free plasmin in circulation); 3. **Lysine Analogue Inhibition:** Tranexamic acid (TXA) is a synthetic analogue of the amino acid lysine. It binds reversibly to the lysine-binding sites on plasminogen and plasmin, preventing their association with fibrin and blocking the activation of fibrinolysis.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Tranexamic Acid for Postpartum Haemorrhage",
+          "anatomicalBasis": "During placental delivery, the uterine venous sinuses are sheared open. The body initiates rapid coagulation, but is followed by local hyperfibrinolysis as t-PA is released. TXA blocks the lysine-binding sites on plasminogen, preventing plasmin from binding to and degrading the newly formed fibrin mesh in the uterine vessels, stabilizing the clots and reducing blood loss."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_immune_system_complement_01",
+      "conceptName": "Innate & Adaptive Immunity & The Membrane Attack Complex",
+      "roteData": {
+        "immuneCellTypes": {
+          "Neutrophils": "Innate responders. Phagocytose bacteria and release ROS (respiratory burst via NADPH oxidase) and NETs.",
+          "NK_Cells": "Innate lymphocytes. Detect cells lacking MHC Class I molecules, inducing apoptosis via perforin and granzymes.",
+          "B_Lymphocytes": "Adaptive cells. Differentiate into plasma cells to secrete immunoglobulins (IgG, IgM, IgA, IgE, IgD).",
+          "T_Lymphocytes": "Adaptive cells. CD4+ Helper T-cells secrete cytokines; CD8+ Cytotoxic T-cells kill antigen-presenting cells."
+        },
+        "complementPathways": {
+          "Classical": "Activated by C1q binding to antigen-antibody (IgG/IgM) complexes.",
+          "Lectin": "Activated by Mannose-Binding Lectin (MBL) binding to microbial cell wall mannose.",
+          "Alternative": "Activated by spontaneous hydrolysis of C3 ('tickover') on foreign surfaces."
+        }
+      },
+      "firstPrinciplesMechanics": "1. **Complement Cascade Convergence:** All three activation pathways converge to form a **$C_3$ convertase** ($C_4b2a$ or $C_3bBb$). This convertase cleaves $C_3 \\rightarrow C_3a$ (an anaphylatoxin that recruits mast cells) $+ C_3b$ (an opsonin that coats bacteria). $C_3b$ binds to the convertase to form a **$C_5$ convertase** ($C_4b2a3b$ or $C_3bBb3b$), which cleaves $C_5 \\rightarrow C_5a$ (a potent chemoattractant) $+ C_5b$; 2. **MAC Assembly Cascade:** \\n- **C5b Binding:** The newly generated, highly unstable $C_{5b}$ binds factor $C_6$ in solution to form a stable $C_{5b-6}$ complex. \\n- **Membrane Insertion:** $C_7$ binds to $C_{5b-6}$, inducing a conformational transition that exposes a hydrophobic region. This region inserts directly into the lipid bilayer of the target cell membrane. \\n- **C8 Recruitment:** $C_8$ (composed of alpha, beta, and gamma chains) binds to the $C_{5b-7}$ complex, inserting its hydrophobic domains deeper into the membrane, initiating membrane disruption. \\n- **C9 Polymerization:** The $C_{5b-8}$ complex binds and recruits a monomer of $C_9$. This acts as a template that triggers the rapid recruitment and polymerization of $10\\text{ to }16$ additional $C_9$ monomers; 3. **Lysis Biophysics:** The polymerized $C_9$ molecules self-assemble into a rigid, hollow cylinder, forming a transmembrane pore ($\\approx 10\\text{ nm}$ internal diameter). This pore destroys the cell membrane's selective permeability. Extracellular water rushes into the high-osmolarity cytoplasm, while intracellular ions escape, causing swelling and rapid osmotic lysis of the target pathogen.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Anaphylaxis to Neuromuscular Blockers (Suxamethonium)",
+          "anatomicalBasis": "Suxamethonium contains quaternary ammonium groups that can act as antigens. In a sensitized patient, IgE antibodies on the surface of mast cells cross-link upon binding suxamethonium. This triggers an immediate intracellular calcium surge, causing degranulation and release of histamine, tryptase, and leukotrienes. This drives systemic vasodilation (anaphylactic shock) and bronchospasm via $H_1$ and CysLT1 receptors."
+        }
+      ]
+    }
+  ],
+  "crossReferenceKeys": [
+    "anat_haem_01",
+    "phys_cvs_01",
+    "cell_synapse_01"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "enables the default permissions",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "sql:allow-execute",
+    "sql:allow-load",
+    "sql:allow-select",
+    "log:default",
+    "llm:default",
+    "dialog:default",
+    "http:default",
+    "fs:default"
+  ]
+}

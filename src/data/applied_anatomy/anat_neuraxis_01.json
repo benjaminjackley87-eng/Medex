@@ -1,0 +1,305 @@
+{
+  "moduleId": "anat_neuraxis_01",
+  "moduleTitle": "Spine & Neuraxial Applied Clinical Anatomy & Histology",
+  "tags": [
+    "neuraxial anatomy",
+    "vertebral column",
+    "epidural space",
+    "ligamentum flavum",
+    "meninges",
+    "artery of adamkiewicz",
+    "spinal cord",
+    "caudal space",
+    "spinal tracts",
+    "nerve roots",
+    "sympathetic chain",
+    "coeliac plexus",
+    "needle layers"
+  ],
+  "structures": [
+    {
+      "structureId": "struc_vertebral_column_01",
+      "anatomicalName": "Bony Vertebral Column & Regional Variations",
+      "surfaceLandmarksAndRelations": {
+        "anterior": "Prevertebral fascia, retropharyngeal space, longus colli muscles (cervical); thoracic viscera and posterior mediastinum (thoracic); retroperitoneal structures and great vessels (lumbar).",
+        "posterior": "Erector spinae muscles, multifidus, ligamentum nuchae, and posterior cutaneous nerves.",
+        "lateral": "Psoas major and quadratus lumborum muscles (lumbar); ribs and intercostal spaces (thoracic); vertebral arteries within transverse foramina (cervical C1-C6).",
+        "superior": "Occipital bone of the skull (atlanto-occipital joint).",
+        "inferior": "Coccyx.",
+        "vertebralLevels": "Adult: Composed of 33 vertebrae (7 cervical, 12 thoracic, 5 lumbar, 5 fused sacral, 4 fused coccygeal)."
+      },
+      "macroAnatomy": {
+        "typicalVertebra": "Composed of an anterior Vertebral Body (weight-bearing) and a posterior Vertebral Arch, which together enclose the Vertebral Foramen (spinal canal). The arch consists of two Pedicles (projecting posteriorly from the body) and two Laminae (meeting in the midline to form the Spinous Process). Contains two transverse processes and four articular processes (facets).",
+        "regionalVariations": {
+          "cervical": "Small bodies. Bifid spinous processes. Transverse processes contain transverse foramina (foramina transversaria) that transmit the vertebral artery (from C6 to C1). C7 is the 'vertebra prominens' (first highly palpable spinous process). Articular facets are oriented horizontally (45° to axial plane), permitting high rotational mobility.",
+          "thoracic": "Heart-shaped bodies containing demifacets for rib articulation. Spinous processes are long, slender, and angled sharply downwards, overlapping the vertebra below (severely limiting the direct midline needle trajectory for neuraxial blocks). Articular facets are oriented coronally, permitting lateral flexion but limiting rotation.",
+          "lumbar": "Massive, kidney-shaped bodies. Spinous processes are broad, thick, and project horizontally (allowing a direct, perpendicular midline needle approach). Articular facets are oriented sagittally (curved), permitting flexion and extension but limiting lateral rotation.",
+          "sacrum": "A large, triangular wedge of 5 fused vertebrae. Bounded laterally by the sacroiliac joints. Bounded superiorly by the L5-S1 intervertebral disc (sacral promontory). Contains 4 pairs of anterior and posterior sacral foramina for exit of S1-S4 nerve rami."
+        },
+        "sacralHiatus": "An inverted U-shaped or V-shaped opening at the posterior-inferior aspect of the sacrum (S4/S5 level). Created by the developmental failure of the S5 laminae to fuse in the midline. Guarded laterally by two sacral cornua (bony landmarks representing the S5 articular processes). Bounded posteriorly by the tough, fibrous sacrococcygeal ligament."
+      },
+      "microAnatomyAndHistology": {
+        "vertebralBody": "Composed of highly vascular, trabecular (cancellous) bone containing red hematopoietic marrow, surrounded by a thin protective layer of dense cortical bone.",
+        "intervertebralDisc": "Symphysis joint. Composed of: 1. Nucleus Pulposus (central, gelatinous, high water content, derived from embryonic notochord); 2. Annulus Fibrosus (concentric lamellae of dense fibrocartilage containing Type I and II collagen oriented at oblique angles to withstand high torsional and compressive forces)."
+      },
+      "bloodSupply": {
+        "arterialOrigin": "Segmental supply: Spinal branches arising from the vertebral and deep cervical arteries (cervical), posterior intercostal arteries (thoracic), lumbar arteries (lumbar), and lateral sacral arteries (sacral).",
+        "venousDrainage": "Internal and external vertebral venous plexuses (Batson's Plexus) draining segmentally into the vertebral, intercostal, lumbar, and azygos veins."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Neuraxial Needle Trajectory (Thoracic vs. Lumbar)",
+          "anatomicalBasis": "In the lumbar spine, the spinous processes are flat and project horizontally. Therefore, a lumbar spinal or epidural needle can be inserted using a direct, perpendicular midline approach. In contrast, mid-thoracic spinous processes (T5-T9) are sharply angled downward and overlap significantly. A midline approach here is structurally blocked; the needle must be directed cephalad, or more commonly, a paramedian approach must be utilized (inserting the needle 1.5 cm lateral to the spinous process, bypassing the supraspinous and interspinous ligaments, and entering directly through the ligamentum flavum)."
+        },
+        {
+          "scenario": "Caudal Anaesthesia in Pediatrics",
+          "anatomicalBasis": "The sacral hiatus provides direct anatomical access to the sacral epidural space. In pediatric patients, the sacrococcyogeaI ligament guarding the hiatus is thin and easily punctured with a needle inserted between the palpable sacral cornua. This allows for caudal block placement, providing dense sensory anaesthesia for pelvic and lower limb procedures."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_ligamentous_framework_01",
+      "anatomicalName": "Ligamentous Framework & Needle Entry Layers",
+      "surfaceLandmarksAndRelations": {
+        "spatialArrangement": "The spinal ligaments are arranged sequentially from posterior to anterior. This sequence dictates the tactile feedback (and 'loss of resistance') felt by an anaesthetist during neuraxial needle placement."
+      },
+      "macroAnatomy": {
+        "needlePathWay_PosteriorToAnterior": [
+          {
+            "layer": "1. Supraspinous Ligament",
+            "description": "A strong, fibrous cord that connects the tips of the spinous processes from C7 to the sacrum. Transitions superiorly into the ligamentum nuchae. Thin or absent in the lower lumbar regions (L4-L5/L5-S1) in some individuals."
+          },
+          {
+            "layer": "2. Interspinous Ligament",
+            "description": "Thin, membranous ribbons that connect adjacent spinous processes along their entire length, extending from the root to the apex. Frequently exhibit degeneration or cavitation in elderly patients, leading to a loss of tactile resistance."
+          },
+          {
+            "layer": "3. Ligamentum Flavum",
+            "description": "A thick, tough ligament connecting the laminae of adjacent vertebrae. It extends from the facet joints to the midline, where the left and right halves fuse (midline fusion is incomplete in 10-20\\% of people, particularly in the lower lumbar segments). Thickest in the lumbar region (typically 3-5 mm)."
+          },
+          {
+            "layer": "4. Posterior Longitudinal Ligament (PLL)",
+            "description": "Runs along the posterior surfaces of all vertebral bodies (anterior wall of the spinal canal). Highly innervated; rich in nociceptors."
+          },
+          {
+            "layer": "5. Anterior Longitudinal Ligament (ALL)",
+            "description": "A broad, strong fibrous band running along the anterior surfaces of all vertebral bodies and intervertebral discs."
+          }
+        ],
+        "exactSequentialLayers_Midline": [
+          "1. Skin (epidermis and dermis)",
+          "2. Subcutaneous tissue (superficial fascia and adipose tissue)",
+          "3. Deep investing fascia (supraspinous fascia / aponeurosis of back muscles)",
+          "4. Supraspinous ligament",
+          "5. Interspinous ligament",
+          "6. Ligamentum flavum",
+          "7. Epidural space (posterior compartment; needle stops here for epidural block)",
+          "8. Dura mater (if performing spinal/intrathecal block)",
+          "9. Arachnoid mater",
+          "10. Subarachnoid space (contains CSF; endpoint for spinal block)"
+        ],
+        "exactSequentialLayers_Paramedian": [
+          "1. Skin (epidermis and dermis)",
+          "2. Subcutaneous tissue (superficial fascia and adipose tissue)",
+          "3. Deep investing fascia / erector spinae aponeurosis",
+          "4. Paraspinous muscles (erector spinae / multifidus muscles; completely bypassing the supraspinous and interspinous ligaments)",
+          "5. Ligamentum flavum",
+          "6. Epidural space (posterior-lateral compartment)",
+          "7. Dura mater",
+          "8. Arachnoid mater",
+          "9. Subarachnoid space"
+        ]
+      },
+      "microAnatomyAndHistology": {
+        "ligamentumFlavumBiophysics": "Composed of approximately 80\\% yellow elastic fibers and 20\\% collagen fibers (the highest percentage of elastin in any tissue in the human body). Elastin fibers are arranged parallel to the long axis of the spine.",
+        "elasticProperties": "The high elastin-to-collagen ratio provides a high resting tension, preventing the ligament from buckling into the spinal canal during spinal extension. This elastic resistance drops abruptly when the needle passes through into the loose adipose tissue of the epidural space, providing the classic 'loss of resistance' tactile feedback."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Loss of Resistance Technique (Epidural Placement)",
+          "anatomicalBasis": "During epidural placement via the midline approach, the needle passes sequentially through: 1. Skin, 2. Subcutaneous tissue, 3. Supraspinous ligament (dense grip), 4. Interspinous ligament (moderate grip), and 5. Ligamentum Flavum (extreme, rubbery grip). When the needle tip exits the dense, elastic ligamentum flavum and enters the loose, fatty epidural space, the resistance to injection drops instantly, confirming entry into the epidural space."
+        },
+        {
+          "scenario": "False Loss of Resistance",
+          "anatomicalBasis": "If the needle is slightly off-center (paramedian), it can pass directly into the paraspinous muscles or into a degenerate interspinous ligament cavity (especially common in the elderly), mimicking a loss of resistance before reaching the epidural space. Alternatively, in the 10-20\\% of individuals with incomplete midline fusion of the ligamentum flavum, the needle can pass through without a distinct tactile 'pop', risking unintentional dural puncture ('wet tap') if advanced too deeply."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_meninges_and_spaces_01",
+      "anatomicalName": "Spinal Meninges & Neuraxial Spaces",
+      "surfaceLandmarksAndRelations": {
+        "spinalCordTermination_Conus": "Adult: Terminates at the lower border of L1 / upper border of L2. Infant/Neonate: Terminates at the L3 level (necessitating lower needle insertion, L4/L5 or L5/S1, to avoid direct neural trauma).",
+        "duralSacTermination": "Adult: Terminates at the S2 level (demarcated externally by the posterior superior iliac spines / Dimples of Venus). Infant: Terminates at S3/S4.",
+        "filumTerminale": "A thread-like extension of the pia mater extending from the tip of the conus medullaris. The internal portion (filum terminale internum) descends within the dural sac to S2. The external portion (filum terminale externum / coccygeal ligament) penetrates the dural sac at S2 and descends to insert into the dorsum of the coccyx."
+      },
+      "macroAnatomy": {
+        "meningealLayers": {
+          "duraMater": "The outermost, toughest layer. A thick, fibrous sheath composed of dense, collagenous connective tissue. It surrounds the spinal cord, terminating blindly as a cul-de-sac at S2. Continuous cranially with the internal layer of the cranial dura mater.",
+          "arachnoidMater": "A thin, transparent, avascular membrane lying closely apposed to the inner surface of the dura mater (separated only by a potential subdural space). Composed of overlapping squamous epithelial cells.",
+          "piaMater": "The innermost layer. A highly vascular, delicate connective tissue membrane that adheres intimately to the surface of the spinal cord and roots. Extends laterally as the paired denticulate ligaments (which anchor the spinal cord to the dura mater)."
+        },
+        "neuraxialSpaces": {
+          "epiduralSpace": "A real space located between the dural sac and the bony/ligamentous walls of the vertebral canal. Bounded anteriorly by the PLL/vertebral bodies, posteriorly by the ligamentum flavum and laminae, and laterally by the pedicles and intervertebral foramina (through which the epidural space communicates with the paravertebral space).",
+          "subduralSpace": "A potential space between the inner surface of the dura mater and the outer surface of the arachnoid mater. Contains a microscopic layer of serous fluid.",
+          "subarachnoidSpace": "A real space between the arachnoid mater and pia mater. It contains CSF, spinal nerves, blood vessels, and arachnoid trabeculae (delicate fibrous strands connecting the arachnoid to the pia)."
+        },
+        "epiduralSpaceContents": "1. Epidural Fat (adipose tissue acting as a cushion; varies in volume and distribution with age and weight); 2. Internal Vertebral Venous Plexus (Batson's plexus); 3. Lymphatic vessels; 4. Spinal nerve roots surrounded by dural sleeves."
+      },
+      "microAnatomyAndHistology": {
+        "duralAraphenoidalBarrier": "The dura and arachnoid mater together form a highly effective physical and cellular barrier. The arachnoid cells are joined by tight junctions (zonula occludens), creating a semi-permeable cellular barrier that restricts the movement of hydrophilic drugs from the epidural space into the cerebrospinal fluid."
+      },
+      "bloodSupply": {
+        "epiduralVenousPlexus": "Batson's Plexus. A rich network of valveless, thin-walled veins residing in the anterior and lateral epidural space. They communicate directly with pelvic, abdominal, intercostal, and intracranial veins. These veins act as a pathway for pressure transmission; rises in intra-abdominal pressure (e.g., pregnancy, cough) cause these veins to engorge, reducing the overall volume of the epidural space."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Safe Vertebral Levels for Lumbar Puncture / Spinal Insertion",
+          "anatomicalBasis": "Because the adult spinal cord terminates at the L1/L2 level, any needle inserted at or above this level poses a high risk of direct physical trauma to the spinal cord. To guarantee safety, spinal needles are strictly inserted below L3, typically at the L3/L4 or L4/L5 interspace. In infants and young children, whose cords terminate lower (L3), punctures must be performed at L4/L5 or L5/S1."
+        },
+        {
+          "scenario": "Accidental Subdural Block",
+          "anatomicalBasis": "If an epidural needle or catheter inadvertently breaches the dura but fails to penetrate the arachnoid, its tip can rest in the potential subdural space. Injecting local anaesthetic here results in a subdural block: because the space is highly compliant but contains minimal volume, the local anaesthetic spreads rapidly cephalad, producing an unexpectedly high, patchy, and slowly developing sensory block with relative motor sparing and delayed hypotension."
+        },
+        {
+          "scenario": "Total Spinal (High Spinal Anaesthesia)",
+          "anatomicalBasis": "If a large volume of local anaesthetic intended for the epidural space (e.g., 10-15 mL) is inadvertently injected into the subarachnoid space, the drug mixes directly with CSF and spreads rapidly to the cervical region and brainstem. This blocks cardiac accelerator fibers (T1-T4), the phrenic nerve (C3-C5), and medullary centers, causing profound hypotension, bradycardia, apnea, and loss of consciousness."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_spinal_blood_supply_01",
+      "anatomicalName": "Vascular Supply of the Spinal Cord",
+      "surfaceLandmarksAndRelations": {
+        "spatialDistribution": "The spinal cord is supplied by three longitudinal arterial pathways (one anterior, two posterior) supplemented by segmental medullary arteries that enter through the intervertebral foramina."
+      },
+      "macroAnatomy": {
+        "arterialPathways": {
+          "anteriorSpinalArtery_ASA": "A single longitudinal artery running in the anterior median fissure of the spinal cord. Formed by the union of branches from the bilateral vertebral arteries in the cranial vault. Supplies the anterior 2/3 of the spinal cord (including the motor corticospinal tracts and sensory spinothalamic tracts).",
+          "posteriorSpinalArteries_PSAs": "Paired longitudinal arteries running in the posterolateral sulci of the spinal cord. Arise from the vertebral arteries or posterior inferior cerebellar arteries (PICA). Supply the posterior 1/3 of the spinal cord (including the sensory dorsal columns).",
+          "segmentalMedullaryArteries": "Longitudinal supply is insufficient below the upper thoracic segments. Segmental radicular arteries enter via the intervertebral foramina, anastomosing with the ASA and PSAs to reinforce flow.",
+          "arteryOfAdamkiewicz": "Arteria Radicularis Magna. The largest and most critical segmental medullary artery. It enters the spinal canal through an intervertebral foramen, typically on the left side (65-80\\% of cases) between the T9 and L2 vertebral levels. It provides the dominant blood supply to the lower 2/3 of the spinal cord."
+        }
+      },
+      "microAnatomyAndHistology": {
+        "vulnerability": "The ASA is a small-caliber vessel with few significant collaterals in the mid-thoracic region (T4-T8), making this segment of the spinal cord a vascular watershed zone that is highly vulnerable to ischemic injury during periods of systemic hypotension."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Anterior Spinal Artery Syndrome",
+          "anatomicalBasis": "Occlusion or surgical ligation of the Artery of Adamkiewicz (e.g., during thoracic aortic aneurysm repair) or severe prolonged hypotension results in acute ischemia of the anterior 2/3 of the spinal cord (supplying ~67\\% of the cross-section and the lower ~65\\% of its longitudinal length). This manifests as Anterior Spinal Artery Syndrome: complete loss of motor function (corticospinal tract damage) and loss of pain and temperature sensation (spinothalamic tract damage) below the level of the lesion. Touch, vibration, and proprioception are completely spared because the posterior 1/3 of the cord (dorsal columns) is supplied by the separate, highly collateralized posterior spinal arteries."
+        },
+        {
+          "scenario": "Epidural Hematoma",
+          "anatomicalBasis": "The epidural space contains Batson's venous plexus, which consists of thin-walled, valveless veins. Direct trauma to these vessels during epidural needle or catheter placement can cause hemorrhage. In a patient with compromised coagulation, this blood can accumulate rapidly, forming an epidural hematoma. Because the bony spinal canal is non-expandable, the expanding hematoma compresses the spinal cord and its blood supply, leading to rapid, irreversible ischemic paraplegia unless surgically decompressed within 6-12 hours."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_spinal_tracts_01",
+      "anatomicalName": "Ascending & Descending Tracts of the Spinal Cord",
+      "surfaceLandmarksAndRelations": {
+        "somatotopicOrganization": "Within the major pathways, fibers are arranged with precise spatial mapping (somatotopy): 1. Dorsal Columns: Sacral fibers are most medial (Fasciculus Gracilis), while cervical fibers are most lateral (Fasciculus Cuneatus); 2. Lateral Spinothalamic Tract: Sacral fibers are lateral and superficial, while cervical fibers are medial and deep; 3. Corticospinal Tract: Sacral fibers are lateral, while cervical fibers are medial."
+      },
+      "macroAnatomy": {
+        "ascendingSensoryPathways": {
+          "dorsalColumnMedialLemniscal_DCML": "Conveys fine touch, vibration, and proprioception. Composed of: 1. Fasciculus Gracilis (medial; carries sensory fibers from T6 and below); 2. Fasciculus Cuneatus (lateral; carries sensory fibers from above T6). First-order neurons ascend ipsilaterally to synapse in the nucleus gracilis and cuneatus of the medulla. Second-order neurons decussate in the medulla (internal arcuate fibers) and ascend via the medial lemniscus to the VPL nucleus of the thalamus.",
+          "lateralSpinothalamicTract": "Conveys pain (nociception) and temperature. First-order fibers enter via the dorsal root, ascend 1-2 segments in Lissauer's tract, and synapse in the dorsal horn (Laminae I, II, and V). Second-order projection neurons decussate immediately in the anterior white commissure and ascend in the contralateral lateral funiculus of the cord to the VPL of the thalamus.",
+          "anteriorSpinothalamicTract": "Conveys crude touch and pressure. First-order fibers enter, synapse in the dorsal horn, decussate in the anterior white commissure, and ascend in the contralateral anterior funiculus.",
+          "spinocerebellarTracts": "Convey unconscious proprioception from muscles and joints to the cerebellum. Composed of: 1. Dorsal Spinocerebellar Tract (uncrossed; ascends via inferior cerebellar peduncle); 2. Ventral Spinocerebellar Tract (crossed twice, functionally ipsilateral; enters via superior cerebellar peduncle)."
+        },
+        "descendingMotorPathways": {
+          "lateralCorticospinalTract": "The primary pathway for voluntary fine motor control of the limbs. Composed of upper motor neuron (UMN) axons arising from the primary motor cortex. Approximately 85-90\\% of these fibers decussate in the medullary pyramids (pyramidal decussation) and descend in the contralateral lateral funiculus of the spinal cord to synapse on lower motor neurons (LMNs) in the anterior horn (Lamina IX).",
+          "anteriorCorticospinalTract": "Composed of the remaining 10-15\\% of uncrossed corticospinal fibers descending in the anterior funiculus. They decussate at their target segment in the anterior white commissure before synapsing on bilateral LMNs, primarily controlling axial/proximal girdle muscles.",
+          "extrapyramidalTracts": "1. Vestibulospinal Tract (uncrossed; maintains balance and extensor muscle tone); 2. Rubrospinal Tract (decussates in midbrain; facilitates flexor muscle tone); 3. Reticulospinal Tract (originates in brainstem; modulates autonomic functions and spinal reflex activity)."
+        }
+      },
+      "microAnatomyAndHistology": {
+        "rexedsLaminae": "The gray matter of the spinal cord is divided into 10 distinct histological zones (Laminae I to X):",
+        "laminaeDetails": [
+          {
+            "lamina": "Lamina I (Marginal Zone)",
+            "histology": "Thin layer covering the apex of the dorsal horn. Processes noxious stimuli; contains nociceptive-specific neurons projecting to the thalamus."
+          },
+          {
+            "lamina": "Lamina II (Substantia Gelatinosa)",
+            "histology": "Composed of tightly packed, small interneurons. Rich in substance P, opioid receptors, and GABA. Performs critical modulation of nociceptive input (the anatomical site of the 'Gate Control' theory)."
+          },
+          {
+            "lamina": "Lamina V",
+            "histology": "Contains Wide Dynamic Range (WDR) neurons. These neurons receive convergent inputs from somatic nociceptors (A-delta and C), non-nociceptive tactile fibers (A-beta), and visceral nociceptors, playing a central role in referred pain and wind-up."
+          },
+          {
+            "lamina": "Lamina IX",
+            "histology": "Located in the anterior horn. Contains large alpha-motor neurons (supply extrafusal skeletal muscle fibers) and smaller gamma-motor neurons (supply intrafusal spindle fibers)."
+          },
+          {
+            "lamina": "Lamina X",
+            "histology": "Grey matter surrounding the central canal. Contains decussating vegetative and visceral sensory pathways."
+          }
+        ]
+      },
+      "bloodSupply": {
+        "anteriorSpinalArtery": "Perfuses the anterior and lateral funiculi, including the lateral corticospinal tracts, spinothalamic tracts, anterior horns, and lateral grey columns (~67\\% of cross-sectional area).",
+        "posteriorSpinalArteries": "Perfuse the dorsal columns (Fasciculus Gracilis and Cuneatus) and the dorsal horns (~33\\% of cross-sectional area)."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Brown-Séquard Syndrome (Spinal Cord Hemisection)",
+          "anatomicalBasis": "A lateral hemisection of the spinal cord (e.g., from a penetrating stab wound or compression) produces a classic, dissociated pattern of deficits based on the cross-sectional anatomy of the tracts: 1. **Ipsilateral Motor Loss:** Disruption of the descended lateral corticospinal tract causes UMN spastic paralysis below the level of the lesion; 2. **Ipsilateral Proprioceptive/Tactile Loss:** Disruption of the uncrossed dorsal columns causes loss of fine touch, vibration, and proprioception below the level of the lesion; 3. **Contralateral Pain and Temperature Loss:** Disruption of the lateral spinothalamic tract causes loss of pain and temperature sensation on the opposite side of the body, beginning 1-2 segments below the lesion (because incoming spinothalamic fibers ascend 1-2 segments in Lissauer's tract before decussating across the anterior white commissure)."
+        },
+        {
+          "scenario": "Syringomyelia & The Capelike Distribution",
+          "anatomicalBasis": "Syringomyelia is characterized by the formation of a fluid-filled cavity (syrinx) within the central canal of the spinal cord (usually cervical). As the syrinx expands, it directly compresses and interrupts the decussating fibers of the spinothalamic tracts as they cross the anterior white commissure. This results in a bilateral loss of pain and temperature sensation in a 'capelike' distribution over the shoulders and arms. Crucially, tactile sensation, vibration, and proprioception are completely preserved (dissociated sensory loss) because the dorsal columns are located posteriorly and remain untouched."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_nerve_roots_ganglia_01",
+      "anatomicalName": "Nerve Roots, Sympathetic Chain & Major Autonomic Plexuses",
+      "surfaceLandmarksAndRelations": {
+        "intervertebralForamen": "Bounded superiorly and inferiorly by the pedicles, anteriorly by the vertebral body and intervertebral disc, and posteriorly by the facet joint (zygapophyseal joint). Bounded within this narrow space are the spinal nerve roots, the dorsal root ganglion, segmental arteries, and communicating veins.",
+        "sympatheticTrunkRelations": "The paired sympathetic trunks run along the entire length of the vertebral column. 1. **Cervical:** Sit directly anterior to the transverse processes, posterior to the carotid sheath; 2. **Thoracic:** Run anterior to the heads of the ribs; 3. **Lumbar:** Lie in the retroperitoneal space along the anterolateral borders of the lumbar vertebral bodies, medial to the psoas major muscle.",
+        "stellateGanglionRelations": "Formed by the fusion of the inferior cervical and first thoracic sympathetic ganglia (80\\% of patients). Located anterior to the transverse process of C6 and the neck of the 1st rib, posterior to the vertebral artery and the dome of the pleura.",
+        "coeliacPlexusRelations": "The largest prevertebral autonomic plexus. Located in the retroperitoneal space at the L1 vertebral level, anterior to the crura of the diaphragm and the abdominal aorta, surrounding the origins of the coeliac trunk and superior mesenteric artery. Bounded laterally by the adrenal glands and posteriorly by the renal arteries."
+      },
+      "macroAnatomy": {
+        "spinalNerveRoots": "Each spinal nerve is formed by the union of: 1. **Anterior (Ventral) Root:** Carries efferent motor (and preganglionic autonomic T1-L2) fibers arising from the anterior and lateral horns; 2. **Posterior (Dorsal) Root:** Carries afferent sensory fibers. The posterior root contains a prominent swelling, the **Dorsal Root Ganglion (DRG)**, which houses the cell bodies of sensory neurons. The mixed spinal nerve exits the intervertebral foramen and immediately divides into an Anterior Primary Ramus (supplies limbs and anterolateral trunk; forms plexuses) and a Posterior Primary Ramus (supplies deep back muscles and overlying skin).",
+        "sympatheticChain_and_Rami": "The sympathetic chain consists of segmentally arranged ganglia connected by interganglionic cords. 1. **White Rami Communicantes:** Myelinated preganglionic sympathetic fibers (arising from the intermediolateral cell column of T1-L2). They exit the spinal nerve to enter the sympathetic trunk. Present only from T1 to L2; 2. **Gray Rami Communicantes:** Unmyelinated postganglionic sympathetic fibers. They exit the sympathetic trunk to rejoin the spinal nerves for distribution to blood vessels, sweat glands, and arrector pili muscles. Present at all spinal levels (C1 to Coccygeal).",
+        "coeliacPlexusComponents": "Receives: 1. **Greater Splanchnic Nerve** (preganglionic sympathetic fibers from T5-T9); 2. **Lesser Splanchnic Nerve** (from T10-T11); 3. **Least Splanchnic Nerve** (from T12); 4. **Vagal parasympathetic fibers** from the posterior vagal trunk. These fibers synapse within the coeliac ganglia (and superior mesenteric ganglia) before postganglionic fibers are distributed along blood vessels to supply the stomach, liver, gallbladder, pancreas, spleen, kidneys, and proximal 2/3 of the colon."
+      },
+      "microAnatomyAndHistology": {
+        "dorsalRootGanglion_DRG": "Contains the cell bodies of pseudounipolar sensory neurons. These cell bodies are surrounded by a supportive layer of glial-like Satellite Glial Cells. The cells lack synapses (synaptic transmission occurs only in the CNS). The ganglion is surrounded by a dense connective tissue capsule continuous with the epineurium.",
+        "sympatheticGanglion": "Contains multipolar postganglionic sympathetic cell bodies. They receive cholinergic synapses (nicotinic receptors) from preganglionic fibers and project adrenergic (noradrenergic) axons to effector organs (except for sweat glands, which receive cholinergic postganglionic innervation)."
+      },
+      "bloodSupply": {
+        "spinalRoots_and_DRG": "Segmental radicular arteries arising from intercostal, lumbar, or vertebral arteries. Highly vascularized; the DRG has a highly permeable fenestrated capillary network (lacking a strict blood-nerve barrier), making it sensitive to circulating systemic inflammatory mediators.",
+        "coeliacPlexus": "Supplied by branches of the coeliac trunk, superior mesenteric artery, and abdominal aorta."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Radiculopathy & Foraminal Stenosis",
+          "anatomicalBasis": "Because the intervertebral foramen is rigid, any structural narrowing—such as osteophytic spurring of the facet joint, posterior-lateral disc herniation, or hypertrophy of the ligamentum flavum—will directly compress the exiting spinal nerve and its dorsal root ganglion. This causes ischemic radiculopathy, presenting as severe dermatomal pain (sciatica) and subsequent myotomal weakness."
+        },
+        {
+          "scenario": "Stellate Ganglion Block & Horner's Syndrome",
+          "anatomicalBasis": "A stellate ganglion block is performed to treat neuropathic pain (CRPS Type I/II) or vascular insufficiency of the upper limb. The needle is targeted to Chassaignac's Tubercle (the prominent anterior tubercle of the C6 transverse process) to avoid the vertebral artery and lung pleura (C7 has no anterior tubercle, and the pleura rises to C7). The local anaesthetic must diffuse inferiorly to C7/T1 to block the stellate ganglion. A successful block is confirmed by the development of **Horner's Syndrome** (ipsilateral miosis, ptosis, and anhydrosis) due to blockade of the sympathetic pathway to the head and neck."
+        },
+        {
+          "scenario": "Coeliac Plexus Block & Profound Hypotension",
+          "anatomicalBasis": "Coeliac plexus neurolytic blocks are performed to relieve intractable pain from pancreatic cancer. The block is typically performed using a bilateral, retrocrural or anterocrural needle approach under CT guidance at the L1 level. Injecting local anaesthetic or alcohol around the coeliac plexus destroys the sympathetic preganglionic and postganglionic pathways supplying the abdominal viscera. This ablation results in a complete loss of sympathetic vasomotor tone in the massive splanchnic vascular bed, causing profound venodilation, pooling of blood, a precipitous fall in venous return, and severe orthostatic hypotension (requiring aggressive intravenous fluid resuscitation)."
+        }
+      ]
+    }
+  ],
+  "crossReferenceKeys": [
+    "cell_neuro_membrane_potentials",
+    "phys_neuro_autonomic_outflow",
+    "phys_pain_nociception",
+    "path_neuropraxia_spinal_roots",
+    "path_spinal_shock",
+    "path_epidural_hematoma",
+    "path_brown_sequard",
+    "path_anterior_spinal_artery_ischemia"
+  ]
+}

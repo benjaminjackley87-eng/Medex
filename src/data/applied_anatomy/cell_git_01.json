@@ -1,0 +1,73 @@
+{
+  "moduleId": "cell_git_01",
+  "moduleTitle": "Gastrointestinal Biophysics & Cellular Mechanics",
+  "tags": [
+    "gastrointestinal biophysics",
+    "cajal cells",
+    "slow waves",
+    "parietal cell",
+    "acid secretion",
+    "proton pump",
+    "enterocyte absorption",
+    "sglt1",
+    "glut2"
+  ],
+  "concepts": [
+    {
+      "conceptId": "concept_cajal_pacemaking_01",
+      "conceptName": "Pacemaker Biophysics of Interstitial Cells of Cajal (ICC)",
+      "roteData": {
+        "pacemakerFrequencies": {
+          "Stomach": "3 cycles per minute (cpm)",
+          "Duodenum": "12 cycles per minute (cpm)",
+          "Ileum": "8-9 cycles per minute (cpm)",
+          "Colon": "6 cycles per minute (cpm)"
+        },
+        "restingMembranePotential": "-50 to -60 mV (characterized by spontaneous oscillation)."
+      },
+      "firstPrinciplesMechanics": "1. **Slow Wave Initiation**: Interstitial Cells of Cajal (ICC) function as the electrical pacemakers of the gastrointestinal tract. They exhibit spontaneous rhythmic oscillations in membrane potential (slow waves) that propagate to adjacent smooth muscle cells via gap junctions. \\n2. **Channel Activation Sequence**: Slow waves are initiated by the release of calcium from the endoplasmic reticulum (ER) into the cytosol, raising local $[Ca^{2+}]_i$. This activates calcium-activated chloride channels (**ANO1 / Anoctamin-1**), driving an inward chloride current ($I_{Cl}$) that depolarizes the cell membrane. Membrane depolarization opens voltage-gated **$T$-type calcium channels**, driving a rapid influx of extracellular calcium that creates the upstroke of the slow wave. \\n3. **Repolarization & Recovery**: Repolarization is mediated by the inactivation of calcium influx, the re-sequestration of calcium back into the ER via SERCA, and the activation of voltage-gated potassium channels ($K_v$), returning the potential to baseline.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Postoperative Ileus and Slow Wave Suppression",
+          "anatomicalBasis": "Surgical bowel handling and sympathetic stress reflexively release endogenous catecholamines (acting on inhibitory alpha-2 and beta-2 receptors) and inflammatory cytokines. These inflammatory cascades disrupt the calcium cycling machinery within the ICC network, suppressing pacemaker slow waves. This results in postoperative ileus, characterized by a lack of synchronized peristalsis, abdominal distension, and delayed enteral feeding tolerance."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_parietal_acid_secretion_01",
+      "conceptName": "Parietal Cell Acid Secretion & Proton Pump Biophysics",
+      "roteData": {
+        "intracellularpH": "7.2",
+        "luminalAcidpH": "0.8 (representing a 1,000,000-fold concentration gradient for protons).",
+        "primaryTransporters": "H+/K+ ATPase (Proton Pump), AE2 (Anion Exchanger 2), K+ and Cl- selective channels."
+      },
+      "firstPrinciplesMechanics": "1. **Proton Generation**: Carbon dioxide ($CO_2$) diffusing into the parietal cell from the blood is hydrated by intracellular water ($H_2O$) to form carbonic acid ($H_2CO_3$), catalyzed by **carbonic anhydrase (CA-II)**. $H_2CO_3$ spontaneously dissociates into protons ($H^+$) and bicarbonate ($HCO_3^-$). \\n2. **Apical Extrusion (The Proton Pump)**: Protons ($H^+$) are actively transported across the apical canalicular membrane into the gastric lumen against a massive concentration gradient. This is mediated by the electrogenic **$H^+/K^+$ ATPase pump**, which consumes one ATP molecule to export one $H^+$ in exchange for importing one $K^+$. \\n3. **Basolateral Bicarbonate Export (Alkaline Tide)**: The accumulation of intracellular $HCO_3^-$ creates a gradient for basolateral export. Bicarbonate is exported into the bloodstream in exchange for chloride ($Cl^-$) via the **AE2 Anion Exchanger**, raising local venous blood $pH$ (the alkaline tide). \\n4. **Apical Chloride and Potassium Flux**: Chloride ($Cl^-$) and potassium ($K^+$) ions diffuse passively across the apical membrane into the gastric lumen via selective conductance channels, maintaining electrical neutrality and supplying the substrates ($K^+$ and $Cl^-$) for acid secretion ($HCl$).",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Proton Pump Inhibitors (PPIs) and Acid Suppression",
+          "anatomicalBasis": "PPIs (e.g., omeprazole) are weak bases that diffuse into the acidic canalicular space of the active parietal cell. Upon exposure to acid, they become protonated and converted into active sulfenamide compounds. These compounds form covalent disulfide bonds with cysteine residues on the extracellular domains of the **$H^+/K^+$ ATPase pump**, irreversibly inactivating it. Acid suppression persists for 24-48 hours until new pump proteins are synthesized."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_enterocyte_absorption_01",
+      "conceptName": "Enterocyte Absorption Biophysics & Transport Kinetics",
+      "roteData": {
+        "apicalTransporters": "SGLT1 (electrogenic sodium-glucose symporter), GLUT5 (fructose transporter), PEPT1 (di/tripeptide symporter).",
+        "basolateralTransporters": "GLUT2 (glucose/galactose/fructose facilitated transporter), Na+/K+ ATPase pump."
+      },
+      "firstPrinciplesMechanics": "1. **Electrogenic Sodium-Glucose Symport (SGLT1)**: The apical absorption of glucose and galactose is driven by **SGLT1**, which coordinates the transport of two sodium ($Na^+$) ions alongside one hexose molecule. This symport is secondary active transport, powered by the basolateral **$Na^+/K^+$ ATPase pump** which maintains a low intracellular sodium concentration and a highly negative cell interior ($-70\\text{ mV}$). \\n2. **Facilitated Hexose Transport (GLUT2/GLUT5)**: Fructose is absorbed across the apical membrane independently of sodium via facilitated diffusion mediated by **GLUT5**. Once inside the cytosol, all three hexoses (glucose, galactose, fructose) exit the enterocyte across the basolateral membrane into the portal venous circulation via **GLUT2** facilitated diffusion. \\n3. **Peptide Symport (PEPT1)**: Proteins broken down into di- and tri-peptides are actively absorbed across the apical membrane via **PEPT1**, which couples peptide entry with the influx of protons ($H^+$) down a concentration gradient established by apical $Na^+/H^+$ exchangers.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Oral Rehydration Therapy (ORT) Biophysics",
+          "anatomicalBasis": "In severe secretory diarrhea (e.g. cholera), enterocyte cAMP levels are highly elevated, blocking standard $Na^+/Cl^-$ absorption channels. However, **SGLT1** remains functional. By administering an oral solution containing precise ratios of sodium and glucose, the SGLT1 transporter actively pulls $Na^+$ and glucose into the enterocytes. The resulting osmotic gradient draws water passively through aquaporins in the paracellular junctions, rapidly correcting dehydration."
+        }
+      ]
+    }
+  ],
+  "crossReferenceKeys": [
+    "anat_git_01",
+    "phys_git_01",
+    "cell_renal_01"
+  ]
+}

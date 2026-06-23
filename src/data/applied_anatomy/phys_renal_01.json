@@ -1,0 +1,112 @@
+{
+  "moduleId": "phys_renal_01",
+  "moduleTitle": "Integrative Renal & Acid-Base Physiology",
+  "tags": [
+    "renal physiology",
+    "gfr",
+    "autoregulation",
+    "tubuloglomerular feedback",
+    "sodium transport",
+    "potassium regulation",
+    "acid-base",
+    "bicarbonate recovery",
+    "intercalated cells",
+    "stewart approach",
+    "strong ion difference"
+  ],
+  "concepts": [
+    {
+      "conceptId": "concept_gfr_autoregulation_01",
+      "conceptName": "Glomerular Filtration Rate, Starling Forces & Autoregulation",
+      "roteData": {
+        "starlingGfrEquation": {
+          "formulaName": "Starling Glomerular Filtration Rate (\\text{GFR})",
+          "equation": "\\text{GFR} = K_f \\cdot \\left[ (P_{GC} - P_{BS}) - \\sigma \\cdot (\\pi_{GC} - \\pi_{BS}) \\right]",
+          "useCaseExample": "Assessment of changes in glomerular filtration during states of hypoperfusion (NSAID injury) or changes in Bowman's space pressures (obstructive uropathy).",
+          "variablesExplanation": {
+            "GFR": "Glomerular Filtration Rate",
+            "Kf": "Ultrafiltration coefficient (determined by surface area and membrane permeability)",
+            "PGC": "Glomerular capillary hydrostatic pressure (~50 mmHg)",
+            "PBS": "Bowman's space hydrostatic pressure (~15 mmHg)",
+            "sigma": "Reflection coefficient for proteins (typically 1.0, representing complete protein restriction)",
+            "pi_GC": "Glomerular capillary colloid oncotic pressure (rises from 25 to 35 mmHg)",
+            "pi_BS": "Bowman's space colloid oncotic pressure (effectively 0 mmHg)"
+          },
+          "resultInterpretation": "Under normal conditions, a net filtration pressure of ~10 mmHg drives glomerular filtration. A rise in PBS (e.g., from kidney stones) or a drop in PGC (e.g., from NSAID-induced afferent constriction or shock) will decrease \\text{GFR}. Reduction in Kf (loss of filtration surface area in glomerulonephritis) also directly reduces \\text{GFR}."
+        },
+        "gfrAutoregulationRange": "\\text{GFR} and Renal Blood Flow (RBF) remain constant between a \\text{MAP} of $80\\text{--}180\\text{ mmHg}$ due to myogenic and TGF systems.",
+        "glomerularBarrierSelectivity": "Governed by size-selectivity (permits passage of solutes with radius $< 1.8\\text{ nm}$, completely restricts those $> 4\\text{ nm}$) and charge-selectivity (negatively charged barriers repel anionic molecules like albumin despite their size of $3.6\\text{ nm}$)."
+      },
+      "firstPrinciplesMechanics": "1. **Glomerular Starling Dynamics:** Filtration is driven by the net hydrostatic pressure gradient ($P_{GC} - P_{BS} \\approx 35\\text{ mmHg}$) and opposed by the oncotic gradient. As fluid is filtered, the protein-free filtrate leaves behind plasma proteins, raising oncotic pressure ($\\pi_{GC}$) from $25\\text{ mmHg}$ at the afferent end to $35\\text{ mmHg}$ at the efferent end. The net filtration pressure drops along the capillary, but remains positive, meaning filtration occurs along the entire length; 2. **Glomerular Charge-Selectivity Biophysics:** The filtration barrier has three layers: fenestrated endothelia, glomerular basement membrane (GBM), and podocyte slit diaphragms. Negatively charged sialoproteins in the endothelial glycocalyx and heparan sulfate proteoglycans (perlecan, agrin) within the GBM create a dense net-negative charge. Podocyte slit diaphragms, composed of nephrin and podocin, add further negative charges. This electrostatic repulsion selectively blocks anionic macromolecules (e.g., albumin, $Z = -19$ at physiological pH), whereas neutral or cationic molecules of equivalent size pass freely; 3. **Myogenic Mechanism:** When renal perfusion pressure rises, stretch-activated calcium channels on afferent arteriolar smooth muscle open, causing calcium entry and constriction. This increases resistance, shielding the glomerular capillaries from high pressure and keeping \\text{GFR} stable; 4. **Tubuloglomerular Feedback (TGF) Loop:** If \\text{GFR} rises, the delivery of $Na^+$ and $Cl^-$ to the macula densa in the early distal tubule increases. Macula densa cells transport these ions intracellularly via the NKCC2 cotransporter. This sodium loading drives ATP consumption and conversion to adenosine. Adenosine is released basolaterally and binds to $A_1$ receptors on the afferent arteriole, raising intracellular calcium. This constricts the afferent arteriole, reducing $P_{GC}$ and restoring \\text{GFR} to normal.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "NSAID-Induced Acute Kidney Injury",
+          "anatomicalBasis": "Afferent arteriolar vasodilation is maintained by vasodilatory prostaglandins (PGE2, PGI2). In patients with low effective circulating volume (e.g. heart failure, sepsis), \\text{GFR} is highly dependent on this prostaglandin-mediated dilation to counteract sympathetic vasoconstriction. NSAIDs block cyclooxygenase (COX) enzymes, shutting down prostaglandin synthesis. This causes uninhibited afferent arteriolar constriction, dropping $P_{GC}$ and \\text{GFR}, precipitating acute pre-renal kidney injury."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_renal_electrolytes_01",
+      "conceptName": "Renal Handling of Sodium & Potassium",
+      "roteData": {
+        "sodiumReabsorptionProportions": {
+          "ProximalConvolutedTubule": "65\\% via NHE3 (sodium-hydrogen exchanger) and SGLT2 (sodium-glucose cotransporter).",
+          "ThickAscendingLoop": "25\\% via the electroneutral NKCC2 cotransporter.",
+          "DistalConvolutedTubule": "5\\% via the NCC sodium-chloride cotransporter.",
+          "CollectingDuct": "3\\% via Epithelial Sodium Channels (ENaC), regulated by aldosterone."
+        }
+      },
+      "firstPrinciplesMechanics": "1. **Stoichiometric Sodium Transport (PCT):** Sodium reabsorption in the PCT is coupled to glucose, amino acids, and bicarbonate. The basolateral Na-K-ATPase pump keeps intracellular $Na^+$ low ($\\approx 10\\text{--}15\\text{ mEq/L}$). This concentration gradient drives apical entry via NHE3 (exchanging $Na^+$ in for $H^+$ out) and SGLT (cotransporting glucose with $Na^+$). This active transport draws water transcellularly and paracellularly; 2. **Loop Concentration & Single Effect:** The thick ascending limb (TAL) is impermeable to water. It actively reabsorbs sodium via the apical NKCC2 cotransporter ($1Na^+ : 1K^+ : 2Cl^-$). Potassium recycles back to the lumen via ROMK channels, creating a lumen-positive charge ($+10\\text{ mV}$) that drives paracellular reabsorption of cations ($Ca^{2+}, Mg^{2+}$); 3. **Aldosterone-Mediated Potassium Secretion:** In the principal cells of the cortical collecting duct, aldosterone binds to mineralocorticoid receptors, promoting the transcription and insertion of apical ENaC channels and basolateral Na-K-ATPase pumps. As $Na^+$ enters the cell via ENaC down its electrical gradient, it leaves behind a net negative charge in the tubular lumen. This lumen-negative potential difference acts as an electrical force that pulls $K^+$ out of the cell into the urine through apical ROMK channels.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Loop Diuretics (Frusemide) and Hypokalaemia",
+          "anatomicalBasis": "Frusemide reversibly binds and blocks the chloride-binding site of the NKCC2 cotransporter in the TAL. This blocks sodium reabsorption and collapses the lumen-positive potential, causing loss of $Na^+, Cl^-, Ca^{2+},$ and $Mg^{2+}$. The high sodium load is delivered downstream to the collecting duct. The principal cells reabsorb this sodium via ENaC, generating a large lumen-negative charge that drives massive potassium excretion via ROMK, causing hypokalaemia."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_renal_acid_base_01",
+      "conceptName": "Renal Acid-Base Regulation & Stewart's Physical-Chemical Model",
+      "roteData": {
+        "hendersonHasselbalch": "pH = pK_a + \\log\\left(\\frac{[HCO_3^-]}{0.03 \\cdot PCO_2}\\right) where $pK_a$ is 6.1, and 0.03 is the solubility coefficient of $CO_2$.",
+        "stewartVariables": {
+          "Independent_Variables": "1. **Strong Ion Difference ($SID$):** Difference between fully dissociated cations and anions (normal $SID_a \\approx 40-44\\text{ mEq/L}$); 2. **Total non-volatile weak acids ($A_{tot}$):** Sum of dissociated and undissociated weak acids (mostly albumin and phosphate); 3. **Partial pressure of carbon dioxide ($PCO_2$).**",
+          "Dependent_Variables": "$[H^+]$, $[OH^-]$, $[HCO_3^-]$, $[CO_3^{2-}]$, $[A^-]$, and $[HA]$. These values adjust automatically to satisfy chemical equilibrium, water dissociation, and charge conservation.",
+          "stewartEquations": "Stewart's model relies on six fundamental physical-chemical equations: 1. **Water Dissociation Equilibrium:** $[H^+] \\cdot [OH^-] = K'_w$; 2. **Weak Acid Dissociation:** $[H^+] \\cdot [A^-] = K_a \\cdot [HA]$; 3. **Weak Acid Mass Conservation:** $[HA] + [A^-] = [A_{tot}]$; 4. **Carbon Dioxide Hydration:** $[H^+] \\cdot [HCO_3^-] = K_1 \\cdot S \\cdot PCO_2$ ($S$ representing solubility); 5. **Carbonate Equilibrium:** $[H^+] \\cdot [CO_3^{2-}] = K_2 \\cdot [HCO_3^-]$; 6. **Electroneutrality (Charge Conservation):** $SID + [H^+] - [HCO_3^-] - [A^-] - [CO_3^{2-}] - [OH^-] = 0$, which simplifies to: $SID - [HCO_3^-] - [A^-] \\approx 0$ under physiological conditions.",
+          "sidDefinitionsAndSIG": "1. **Apparent SID ($SID_a$):** Measured major strong ions: $$SID_a = [Na^+] + [K^+] + [Ca^{2+}] + [Mg^{2+}] - [Cl^-] - [\\text{Lactate}^-]$$. Normal value is $40-44\\text{ mEq/L}$; 2. **Effective SID ($SID_e$):** Balance of weak acids that buffer the strong charge: $$SID_e = 2.46 \\times 10^{-8} \\times PCO_2 / 10^{-pH} + [\\text{Albumin}] \\times (0.123 \\times pH - 0.631) + [\\text{Phosphate}] \\times (0.309 \\times pH - 0.469)$$. Normal is $40-44\\text{ mEq/L}$; 3. **Strong Ion Gap ($SIG$):** Unmeasured anions (e.g. ketoacids, sulfate, uremic toxins): $$SIG = SID_a - SID_e$$. Normal $SIG \\approx 0\\text{ mEq/L}$. A high SIG ($>2\\text{ mEq/L}$) indicates unmeasured anions (similar to a raised anion gap but accounts for albumin/phosphate changes)."
+        }
+      },
+      "firstPrinciplesMechanics": "1. **PCT Bicarbonate Reclamation:** Filtered $HCO_3^-$ cannot cross the apical membrane. It combines with secreted $H^+$ in the lumen, catalyzed by membrane-bound carbonic anhydrase IV (CA-IV), to form $H_2CO_3$, which dissociates into $CO_2$ and $H_2O$. These diffuse into the PCT cell, where CA-II reconstitutes them. The $H^+$ is pumped back to the lumen via NHE3, and the $HCO_3^-$ is transported across the basolateral membrane into the blood via the $Na^+/3HCO_3^-$ cotransporter (NBCe1); 2. **Intercalated Cell pH Compensation:** \\n- **Type A Cells (Acidosis):** Express apical $H^+$-ATPase and $H^+/K^+$-ATPase pumps to actively secrete protons into the urine. Inside the cell, CA-II generates $H^+$ and $HCO_3^-$. The new $HCO_3^-$ is exported basolaterally into the blood via AE1 anion exchangers. \\n- **Type B Cells (Alkalosis):** Mirror images. Apical pendrin pumps $HCO_3^-$ into the urine in exchange for $Cl^-$, while $H^+$-ATPase pumps protons across the basolateral membrane into the blood to lower pH; 3. **Stewart's Electroneutrality Principle:** Water is an infinite source of protons. The concentration of $[H^+]$ is determined dependently by the three independent variables. When $SID$ decreases (e.g. in hyperchloraemic metabolic acidosis, where the concentration of $[Cl^-]$ rises relative to $[Na^+]$), the positive ion gap shrinks. To maintain electroneutrality, water dissociation shifts to release more $[H^+]$ (water auto-protolysis shifts to the right: $H_2O \\rightleftharpoons H^+ + OH^-$), lowering the pH. Conversely, hypochloraemia raises $SID$, shifting water dissociation to reduce $[H^+]$, causing metabolic alkalosis.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Normal Saline (0.9\\% NaCl) Induced Metabolic Acidosis",
+          "anatomicalBasis": "Infusing large volumes of 0.9\\% NaCl ($[Na^+] = 154\\text{ mEq/L}$, $[Cl^-] = 154\\text{ mEq/L}$) dilutes the patient's plasma. While normal plasma has a $SID$ of $\\approx 40\\text{ mEq/L}$ ($[Na^+] \\approx 140$, $[Cl^-] \\approx 100$), the infused saline has a $SID = 0$. This lowers the patient's systemic $SID$. According to Stewart's model, the drop in $SID$ forces water to dissociate to release $[H^+]$ to maintain electroneutrality, causing a hyperchloraemic metabolic acidosis."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_fluid_compartments_donnan_01",
+      "conceptName": "Body Fluid Compartments & Gibbs-Donnan Biophysics",
+      "roteData": {
+        "fluidCompartmentVolumes": {
+          "TotalBodyWater": "60\\% of body weight in adult males, 50\\% in adult females, 75-80\\% in neonates.",
+          "IntracellularFluid": "2/3 of TBW (~40\\% of body weight). Primary cations: Potassium, Magnesium. Primary anions: Proteins, Organic phosphates.",
+          "ExtracellularFluid": "1/3 of TBW (~20\\% of body weight). Primary cation: Sodium. Primary anions: Chloride, Bicarbonate.",
+          "ECFSubdivisions": "Interstitial Fluid (3/4 of ECF, ~15\\% of body weight); Intravascular/Plasma Fluid (1/4 of ECF, ~5\\% of body weight); Transcellular Fluid (<1\\% of ECF, e.g. CSF, synovial fluid)."
+        }
+      },
+      "firstPrinciplesMechanics": "1. **Fluid Compartment Equilibrium**: Water moves freely between the intracellular and extracellular compartments via aquaporin channels to maintain osmotic equilibrium. The osmolarity of all fluid compartments is identical under steady-state conditions ($\\approx 290\\text{ mOsm/L}$). ICF volume is determined by ECF osmolarity; adding free water dilutes ECF, driving water into cells (cellular swelling), while adding hypertonic saline draws water out of cells (cellular dehydration). \\n2. **Gibbs-Donnan Equilibrium Biophysics**: At the capillary endothelial membrane, small permeable ions ($Na^+, Cl^-$) can cross, but large anionic proteins (e.g. albumin) are restricted to the plasma space. To satisfy both electroneutrality ($[cations] = [anions]$) and electrochemical equilibrium (the product of permeable ions must be equal on both sides: $[Na^+]_p \\cdot [Cl^-]_p = [Na^+]_{is} \\cdot [Cl^-]_{is}$), the presence of non-permeable negative proteins in the plasma forces a redistribution of permeable ions: \\n- **Cation Accumulation**: Plasma $[Na^+]$ is $\\approx 5-10\\%$ higher than interstitial $[Na^+]$ because sodium ions are electrostatically attracted to the negative charges on the trapped proteins. \\n- **Anion Exclusion**: Plasma $[Cl^-]$ is $\\approx 5-10\\%$ lower than interstitial $[Cl^-]$ as chloride ions are electrostaticially repelled by the negative proteins. \\n- **Oncotic Pressure**: This unequal distribution of ions generates an excess of total solute particles in the plasma, contributing to the colloid osmotic (oncotic) pressure that opposes hydrostatic filtration out of the capillaries.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Hypoalbuminaemia and Peripheral Oedema",
+          "anatomicalBasis": "In critical illness or liver failure, albumin synthesis drops. According to the Gibbs-Donnan biophysics, the loss of non-permeable intravascular anions collapses the unequal ion distribution, dropping plasma oncotic pressure ($\\pi_{GC}$). According to the Starling filtration equation, this allows net hydrostatic pressure to drive fluid unopposed from the intravascular space into the interstitial space, presenting clinically as peripheral and pulmonary oedema."
+        }
+      ]
+    }
+  ],
+  "crossReferenceKeys": [
+    "anat_renal_01",
+    "cell_renal_01",
+    "phys_cvs_01"
+  ]
+}

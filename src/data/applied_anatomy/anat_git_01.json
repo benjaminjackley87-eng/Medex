@@ -1,0 +1,293 @@
+{
+  "moduleId": "anat_git_01",
+  "moduleTitle": "Gastrointestinal Tract Applied Clinical Anatomy & Histology",
+  "tags": [
+    "git anatomy",
+    "esophagus",
+    "stomach",
+    "small intestine",
+    "large intestine",
+    "pancreas",
+    "enteric nervous system",
+    "gastric glands",
+    "parietal cells",
+    "mesenteric circulation",
+    "clinical correlations"
+  ],
+  "structures": [
+    {
+      "structureId": "struc_esophagus_stomach_01",
+      "anatomicalName": "Esophagus, Stomach & Gastric Secretory Glands",
+      "surfaceLandmarksAndRelations": {
+        "anterior": "Esophagus: Trachea, left recurrent laryngeal nerve, arch of aorta, left main bronchus, pericardium (covering left atrium), diaphragm. Stomach: Anterior abdominal wall, left costal margin, left lobe of liver, diaphragm.",
+        "posterior": "Esophagus: Vertebral column, thoracic duct, azygos vein, hemiazygos vein, descending thoracic aorta. Stomach: Lesser sac (omental bursa), pancreas, splenic artery, left kidney and suprarenal gland, spleen, transverse mesocolon (forming the 'stomach bed').",
+        "superior": "Esophagus transitions from pharynx at C6. Stomach begins at the gastroesophageal junction (T11 level, posterior to 7th left costal cartilage).",
+        "inferior": "Stomach ends at the gastroduodenal junction (pylorus; L1 level, just to the right of midline in supine position).",
+        "diaphragmaticCrossing": "The esophagus pierces the diaphragmatic muscular right crus at the **T10 level**, accompanied by the anterior and posterior vagal trunks."
+      },
+      "macroAnatomy": {
+        "esophagealConstrictionSites": "Three anatomical locations where foreign bodies or endoscopes are prone to impact/resist:",
+        "constrictionDetails": [
+          {
+            "site": "1. Pharyngoesophageal Junction",
+            "description": "At the level of the cricoid cartilage (C6 level). Bounded by the cricopharyngeus muscle forming the upper esophageal sphincter."
+          },
+          {
+            "site": "2. Aortobronchial Crossing",
+            "description": "At the T4/T5 level, where the arch of the aorta and the left main bronchus cross anterior to the esophagus."
+          },
+          {
+            "site": "3. Diaphragmatic Hiatus",
+            "description": "At the T10 level, where the esophagus passes through the muscular right crus of the diaphragm."
+          }
+        ],
+        "stomachRegions": "Divided into: 1. **Cardia** (surrounding gastroesophageal orifice); 2. **Fundus** (dome-shaped upper portion above cardia level); 3. **Body** (main central region); 4. **Pyloric Antrum** (lower funnel-shaped region); 5. **Pylorus** (tubular exit guarded by the thickened circular smooth muscle of the **pyloric sphincter**). Features rugae (longitudinal mucosal folds that flatten out during distension).",
+        "muscularisExterna": "Uniquely possesses **three smooth muscle layers** (inner oblique, middle circular, outer longitudinal) to facilitate complex mechanical churning."
+      },
+      "microAnatomyAndHistology": {
+        "esophagealStomachTransition": "The esophagus is lined with non-keratinized stratified squamous epithelium (to withstand bolus friction). The stomach is lined with simple columnar mucus-secreting epithelium (protects against acid). The transition is a sharp, jagged border known as the **Squamocolumnar Junction (Z-line)**.",
+        "gastricSecretoryGlands": "Deep mucosal invaginations containing specialized cells:",
+        "secretoryCells": [
+          {
+            "cellType": "Parietal (Oxyntic) Cells",
+            "histology": "Located in the fundus and body. Large, pyramidal, eosinophilic cells featuring intracellular canaliculi. Contain abundant mitochondria and express the apical **$H^+/K^+$ ATPase (proton pump)** to secrete hydrochloric acid ($HCl$) against a massive concentration gradient. Also secrete **Intrinsic Factor** (glycoprotein essential for vitamin B12 absorption in the terminal ileum)."
+          },
+          {
+            "cellType": "Chief (Peptic) Cells",
+            "histology": "Located in the fundus and body. Basophilic cells concentrated at the base of the glands. Synthesize and secrete **pepsinogen** (inactive zymogen activated to pepsin by gastric acid) and **gastric lipase** (initiates digestion of dietary fats by hydrolyzing triglycerides)."
+          },
+          {
+            "cellType": "Gr Cells",
+            "histology": "Located in the mucosal lining of the fundus. Synthesize and secrete **Ghrelin**, an orexigenic peptide hormone. Ghrelin acts centrally on the hypothalamus to stimulate appetite and growth hormone (GH) secretion, and locally to promote gastric emptying and acid secretion."
+          },
+          {
+            "cellType": "Mucus Neck Cells & Goblet Cells",
+            "histology": "Mucus neck cells reside in the gastric neck; Goblet cells are distributed throughout the intestinal epithelium. They synthesize and secrete highly glycosylated mucin proteins (primarily **MUC2**) along with bicarbonate, forming a thick, viscoelastic gel barrier. This barrier physically shields the delicate mucosal epithelium from mechanical shear, auto-digestion by luminal proteases (pepsin), and the highly acidic gastric microenvironment."
+          },
+          {
+            "cellType": "Enterochromaffin-like (ECL) Cells",
+            "histology": "Located in the lamina propria of the fundus and body. Secrete **histamine** (which binds to $H_2$ receptors on adjacent parietal cells, acting as the strongest stimulator of acid secretion)."
+          },
+          {
+            "cellType": "G Cells",
+            "histology": "Located in the pyloric antrum. Secrete the peptide hormone **gastrin** into the bloodstream (stimulates parietal cells directly and indirectly via ECL histamine release)."
+          },
+          {
+            "cellType": "D Cells",
+            "histology": "Distributed throughout the antrum and corpus. Secrete **somatostatin** (acts in a paracrine fashion to inhibit parietal acid secretion, G-cell gastrin release, and ECL histamine release; the primary off-switch)."
+          }
+        ]
+      },
+      "bloodSupply": {
+        "arterialOrigin": "Derived entirely from branches of the **Coeliac Trunk** (arising from aorta at T12): 1. Left Gastric Artery (branch of coeliac); 2. Right Gastric Artery (branch of common hepatic); 3. Left Gastro-omental and Short Gastric Arteries (branches of splenic); 4. Right Gastro-omental Artery (branch of gastroduodenal).",
+        "venousDrainage": "Veins mirror the arteries and drain directly or indirectly into the **Hepatic Portal Vein**: Left and right gastric veins drain directly into portal vein; short gastrics and left gastro-omental drain into splenic vein; right gastro-omental drains into superior mesenteric vein."
+      },
+      "innervation": {
+        "parasympathetic": "Anterior and posterior vagal trunks (CN X). Stimulate gastric motility, relax pyloric sphincter, and stimulate acid secretion (via direct ACh muscarinic $M_3$ pathway and indirect gastrin/histamine pathways).",
+        "sympathetic": "Postganglionic fibers from the coeliac ganglion (originating from T6-T9 spinal segments). Inhibit motility and promote vasoconstriction."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Rapid Sequence Induction (RSI) & Cricoid Pressure",
+          "anatomicalBasis": "During general anaesthesia, protective airway reflexes are lost. If the stomach contains highly acidic gastric juice ($pH < 2.5$) and is distended, passive regurgitation can occur. Applying backward cricoid pressure (Sellick's maneuver) compresses the esophagus at the level of the C6 cricoid cartilage directly against the C6 vertebral body behind it, mechanically sealing the lumen to prevent gastric contents from ascending into the pharynx and being aspirated into the lungs (which can cause severe chemical pneumonitis / Mendelson's syndrome)."
+        },
+        {
+          "scenario": "Aspirin & NSAID Gastropathy",
+          "anatomicalBasis": "Gastric mucosal barrier integrity is maintained by prostaglandins (specifically PGE2 and PGI2), which stimulate mucus and bicarbonate secretion by superficial epithelial cells and maintain mucosal blood flow. Non-Steroidal Anti-Inflammatory Drugs (NSAIDs) inhibit cyclooxygenase (COX-1), blocking prostaglandin synthesis. This leaves the gastric mucosa vulnerable to direct and indirect acid damage, leading to mucosal erosions, peptic ulcers, and severe upper GI hemorrhage."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_intestines_enteric_01",
+      "anatomicalName": "Small & Large Intestines & Enteric Nervous System",
+      "surfaceLandmarksAndRelations": {
+        "duodenumCourse": "C-shaped loop surrounding the head of the pancreas. Bounded anteriorly by transverse colon, superiorly by liver, and posteriorly by right kidney, IVC, and aorta.",
+        "ileumTerminalRelation": "Terminates in the right lower quadrant at the ileocecal valve, where it transitions into the caecum. The appendix arises from the posteromedial aspect of the caecum, approximately 2.5 cm inferior to the ileocecal valve."
+      },
+      "macroAnatomy": {
+        "smallIntestineSegments": "1. **Duodenum:** Short (~25 cm), mostly retroperitoneal. Divided into 4 parts: the **2nd (descending) part** contains the major duodenal papilla (receives common bile duct and pancreatic duct); 2. **Jejunum:** (~2.5 m), occupies upper left quadrant; features thick walls, high vascularity (long vasa recta, few arterial arcades), and tall plicae circulares; 3. **Ileum:** (~3.5 m), occupies lower right quadrant; features thin walls, low vascularity (short vasa recta, complex arterial arcades), and abundant fat in mesentery.",
+        "largeIntestineCharacteristics": "Extends from caecum to anal canal. Distinguished from small intestine by: 1. **Taeniae Coli:** Three longitudinal bands of smooth muscle; 2. **Haustra:** Sacculations of the colon wall; 3. **Omental Appendices:** Small pouches of peritoneum filled with fat. Bounded in the retroperitoneum (ascending/descending colon) and intraperitoneum (transverse/sigmoid colon)."
+      },
+      "microAnatomyAndHistology": {
+        "surfaceAmplification": "The small intestine exhibits three tiers of folding to maximize absorption area: 1. **Plicae Circulares (Valves of Kerckring):** Circular folds of mucosa and submucosa; 2. **Villi:** Finger-like mucosal projections; 3. **Microvilli:** Apical membrane projections of enterocytes (brush border).",
+        "histologicalFeatures": [
+          {
+            "feature": "Crypts of Lieberkühn",
+            "description": "Simple tubular glands extending down into the lamina propria. Contain stem cells (regenerate epithelium every 3-5 days) and **Paneth cells** (at the crypt base; secrete lysozyme, defensins, and alpha-defensins for innate immune defense)."
+          },
+          {
+            "feature": "Brunner's Glands",
+            "description": "Located exclusively in the **submucosa of the Duodenum**. Secrete an alkaline, bicarbonate-rich mucus ($pH \\approx 8.2\\text{ to }9.3$) to neutralize the highly acidic chyme arriving from the stomach, protecting the duodenal wall."
+          },
+          {
+            "feature": "Peyer's Patches",
+            "description": "Densely packed lymphoid follicles located in the **submucosa of the Ileum**. Part of the GALT; contain specialized follicle-associated **M cells** that sample luminal antigens and present them to immune cells."
+          }
+        ],
+        "diffuseNeuroendocrineSystem": [
+          {
+            "cell": "I Cells (Duodenum/Jejunum)",
+            "action": "Secrete **Cholecystokinin (CCK)** in response to fatty acids and amino acids. CCK contracts the gallbladder, relaxes the Sphincter of Oddi, stimulates pancreatic acinar enzyme secretion, and delays gastric emptying."
+          },
+          {
+            "cell": "S Cells (Duodenum)",
+            "action": "Secrete **Secretin** in response to acidic chyme (pH < 4.5). Secretin stimulates pancreatic ductal cells and biliary epithelium to secrete bicarbonate ($HCO_3^-$), and inhibits parietal cell gastric acid secretion."
+          },
+          {
+            "cell": "K Cells (Duodenum/Jejunum)",
+            "action": "Secrete **Glucose-Dependent Insulinotropic Peptide (GIP)**. Stimulates glucose-dependent insulin release and inhibits gastric acid secretion."
+          },
+          {
+            "cell": "L Cells (Ileum/Colon)",
+            "action": "Secrete **Glucagon-like Peptide-1 (GLP-1)** and **GLP-2**. GLP-1 stimulates glucose-dependent insulin secretion, suppresses glucagon release, and slows gastric transit."
+          },
+          {
+            "cell": "Mo Cells (Duodenum/Jejunum)",
+            "action": "Secrete **Motilin** in fasting states. Motilin initiates the **Migrating Motor Complex (MMC)** (rhythmic peristaltic waves sweeping debris and bacteria through the bowel during fasting)."
+          }
+        ],
+        "entericNervousSystem_ENS": "An independent 'second brain' containing over 100 million neurons, organized into two interconnected gangliated plexuses:",
+        "ensPlexuses": [
+          {
+            "plexus": "Myenteric (Auerbach's) Plexus",
+            "histology": "Located in the muscularis externa, strictly **between the inner circular and outer longitudinal smooth muscle layers**. Controls gastrointestinal motility (peristalsis, contraction frequency, and velocity)."
+          },
+          {
+            "plexus": "Submucosal (Meissner's) Plexus",
+            "histology": "Located in the submucosa layer. Controls local luminal blood flow, glandular secretions, and mucosal transport."
+          }
+        ]
+      },
+      "bloodSupply": {
+        "midgutSystem_SMA": "The **Superior Mesenteric Artery (SMA)** (arising from aorta at L1) supplies all midgut derivatives: 2nd half of duodenum, jejunum, ileum, caecum, appendix, ascending colon, and proximal 2/3 of the transverse colon.",
+        "hindgutSystem_IMA": "The **Inferior Mesenteric Artery (IMA)** (arising from aorta at L3) supplies all hindgut derivatives: distal 1/3 of the transverse colon, descending colon, sigmoid colon, and rectum.",
+        "watershedAnastomosis": "The marginal artery of Drummond runs along the colon margin, anastomosing branches of the SMA (middle colic) and IMA (left colic). Two key clinical watershed zones exist at the borders of this anastomosis."
+      },
+      "innervation": {
+        "autonomicModulation": "The ENS functions autonomously but is modulated by: 1. Parasympathetic (vagus nerve to midgut; pelvic splanchnic nerves S2-S4 to hindgut) which increases motility and secretion; 2. Sympathetic (thoracic/lumbar splanchnic nerves via coeliac, SMA, and IMA ganglia) which inhibits motility and causes vasoconstriction."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Intraoperative Mesenteric Ischemia (Watershed Zones)",
+          "anatomicalBasis": "Two areas of the large intestine are vascular 'watershed zones' situated at the terminal limits of the dual arterial supply: 1. **Griffith's Point (Splenic Flexure):** Junction of the SMA (middle colic) and IMA (left colic); 2. **Sudek's Point (Rectosigmoid Junction):** Junction of the IMA (sigmoid branches) and internal iliac (middle rectal). During periods of severe intraoperative hypotension, systemic shock, or high-dose vasopressor infusion, these hypovascular zones are the first to experience hypoperfusion, leading to ischemic colitis."
+        },
+        {
+          "scenario": "Carcinoid Syndrome & First-Pass Metabolism",
+          "anatomicalBasis": "Carcinoid tumors originate from enterochromaffin (neuroendocrine) cells in the gut mucosa (commonly the ileum or appendix) and secrete vasoactive mediators (serotonin, bradykinin, histamine). Under normal conditions, these mediators are carried via the portal vein directly to the liver, where they undergo complete **first-pass metabolism** (serotonin is converted to inactive 5-HIAA by monoamine oxidase). However, if the tumor metastasizes to the liver or arises outside portal drainage (e.g., ovarian, bronchial), these mediators enter the systemic circulation directly, causing carcinoid syndrome (bronchospasm, cutaneous flushing, profound diarrhea, and right-sided cardiac valvular fibrosis)."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_pancreas_01",
+      "anatomicalName": "Pancreas Exocrine & Endocrine Micro-Architecture",
+      "surfaceLandmarksAndRelations": {
+        "location": "A transverse, retroperitoneal organ crossing the posterior abdominal wall at the L1/L2 level.",
+        "relations": "Head: Nestled in the C-shaped loop of the duodenum. Neck: Lies anterior to the origin of the hepatic portal vein (formed by the confluence of the splenic and superior mesenteric veins). Body: Crosses anterior to the aorta, left kidney, and left renal vessels. Tail: Extends laterally into the splenorenal ligament to make physical contact with the hilum of the spleen."
+      },
+      "macroAnatomy": {
+        "ductalSystem": "1. **Main Pancreatic Duct (of Wirsung):** Runs from the tail to the head, merging with the CBD to form the hepatopancreatic Ampulla of Vater; 2. **Accessory Pancreatic Duct (of Santorini):** Drains the superior portion of the head, opening independently into the duodenum at the minor duodenal papilla."
+      },
+      "microAnatomyAndHistology": {
+        "exocrineComponent": "Constitutes 98\\% of pancreatic mass. Arranged as **compound tubuloacinar glands**: 1. **Acini:** Composed of simple columnar serous cells filled with apical zymogen granules containing digestive enzymes (trypsinogen, lipase, amylase); 2. **Duct system:** Begins with **centroacinar cells** (located inside the acinus lumen) transitioning to intercalated ducts. These cells express carbonic anhydrase and secrete large volumes of water and bicarbonate ($HCO_3^-$) in response to the hormone **secretin** to neutralize gastric acid.",
+        "endocrineComponent": "Islets of Langerhans. Microscopic spherical clusters of endocrine cells scattered throughout the exocrine parenchyma (concentrated in the tail):",
+        "endocrineCells": [
+          {
+            "cell": "Alpha Cells (~20\\%)",
+            "histology": "Located peripherally in the islet. Secrete **glucagon** (stimulates glycogenolysis and gluconeogenesis in hepatocytes)."
+          },
+          {
+            "cell": "Beta Cells (~70\\%)",
+            "histology": "Located centrally in the islet. Secrete **insulin** (promotes glucose uptake, lipogenesis, and protein synthesis) and co-secrete amylin."
+          },
+          {
+            "cell": "Delta Cells (~5-10\\%)",
+            "histology": "Scattered throughout the islet. Secrete **somatostatin** (acts locally to paracrine-inhibit adjacent alpha and beta cells, reducing insulin and glucagon release)."
+          }
+        ]
+      },
+      "bloodSupply": {
+        "arterialOrigin": "Rich anastomotic network: 1. Pancreaticoduodenal Arteries (superior branch from gastroduodenal, inferior branch from SMA) supplying the head; 2. Pancreatic branches of the **Splenic Artery** (supply the neck, body, and tail)."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Pancreatic Cancer Pain & Coeliac Plexus Blockade",
+          "anatomicalBasis": "Pain from pancreatic pathology (especially carcinoma of the head or chronic pancreatitis) is carried by visceral afferent fibers that travel retrogradely with sympathetic nerves through the **Coeliac Plexus** (located at the L1 level anterior to the aorta/crura). This pain is classically described as severe, boring epigastric pain radiating to the back. In patients with intractable pancreatic cancer pain, a neurolytic coeliac plexus block (injecting absolute alcohol or phenol around the coeliac ganglia) can be performed under CT or endoscopic ultrasound guidance, providing dense visceral analgesia and reducing high opioid requirements."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_absorption_digestion_01",
+      "anatomicalName": "Intestinal Absorption, Digestion & Mineral Management",
+      "surfaceLandmarksAndRelations": {
+        "absorptionSites": "Segmental distribution of nutrient and mineral absorption along the length of the GI tract."
+      },
+      "macroAnatomy": {
+        "digestibleAndNonDigestibleFibre": {
+          "digestibleFibre": "Soluble fibers (e.g., pectins, mucilages). Fermented by colonic anaerobic bacteria into **Short-Chain Fatty Acids (SCFAs)** (acetate, propionate, butyrate). SCFAs serve as the primary fuel source for colonocytes, stimulate sodium and water absorption, and regulate local immune cells.",
+          "nonDigestibleFibre": "Insoluble fibers (e.g., cellulose, hemicellulose, lignin). Pass through the tract unchanged, adding bulk to the stool, promoting mechanical stimulation of the colon wall to trigger peristalsis, and decreasing transit time."
+        }
+      },
+      "microAnatomyAndHistology": {
+        "absorptionSitesDirectory": [
+          {
+            "site": "Duodenum",
+            "nutrients": "Primary site for absorption of **Iron** ($Fe^{2+}$), **Calcium** ($Ca^{2+}$), and Folate ($B_9$)."
+          },
+          {
+            "site": "Jejunum",
+            "nutrients": "Primary site for absorption of macronutrients (monosaccharides, amino acids/dipeptides, free fatty acids/monoglycerides), water-soluble vitamins, water, and electrolytes."
+          },
+          {
+            "site": "Terminal Ileum",
+            "nutrients": "Exclusive site for absorption of **Vitamin B12 (cobalamin) - Intrinsic Factor complexes** and **Bile Salts** (re-absorbed into the enterohepatic circulation)."
+          },
+          {
+            "site": "Colon",
+            "nutrients": "Primary site for water and sodium absorption, and absorption of microbially synthesized Vitamin K and short-chain fatty acids (SCFAs)."
+          }
+        ],
+        "brushBorderEnzymesAndB12Metabolism": {
+          "brushBorderEnzymes": "Membrane-bound peptidases and disaccharidases (maltase, sucrase, lactase) present on enterocyte microvilli that perform terminal digestion of oligomers into monomers immediately prior to absorption.",
+          "b12MetabolismSteps": [
+            "1. Gastric Release: Dietary B12 is released from proteins by pepsin in the stomach.",
+            "2. Haptocorrin Binding: B12 binds to haptocorrin (R-binder; secreted in saliva and gastric juice) to protect it from the acidic stomach environment.",
+            "3. Pancreatic Proteolysis: In the duodenum, pancreatic proteases degrade haptocorrin, releasing B12.",
+            "4. Intrinsic Factor Binding: Free B12 binds to **Intrinsic Factor (IF)** (secreted by gastric parietal cells) in the duodenum/jejunum. This IF-B12 complex is highly resistant to enzymatic digestion.",
+            "5. Ileal Absorption: The IF-B12 complex travels to the **terminal ileum**, where it binds to specific **cubam receptors** (cubilin-amnionless complex) on enterocyte microvilli, triggering receptor-mediated endocytosis."
+          ]
+        },
+        "ironManagementMechanisms": {
+          "absorptionProcess": "Occurs primarily in the duodenum and upper jejunum. Ingested ferric iron ($Fe^{3+}$) is reduced to ferrous iron ($Fe^{2+}$) by apical **duodenal cytochrome B (DCYTB)**. Ferrous iron ($Fe^{2+}$) is then transported across the apical membrane via **Divalent Metal Transporter 1 (DMT1)**. Inside the cell, iron is stored as ferritin or exported across the basolateral membrane into the blood via **Ferroportin**.",
+          "stimulatoryFactors": [
+            "Gastric Acid (HCl): Maintains iron in its soluble, monomeric form.",
+            "Vitamin C (Ascorbate): Directly reduces $Fe^{3+}$ to $Fe^{2+}$, facilitating transport via DMT1.",
+            "Systemic Hypoxia & Erythropoietin (EPO): Downregulates hepcidin, enhancing ferroportin-mediated export."
+          ],
+          "inhibitoryFactors": [
+            "Hepcidin: The master iron-regulatory hormone synthesized by hepatocytes. Hepcidin binds to **ferroportin** and triggers its internalization and lysosomal degradation, halting iron export into blood.",
+            "Dietary Inhibitors: Phytates, polyphenols (tannins in tea), phosphates, and calcium form insoluble complexes with iron in the gut lumen, blocking absorption."
+          ]
+        }
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Pernicious Anaemia & Terminal Ileum Resection",
+          "anatomicalBasis": "Because Vitamin B12 absorption requires both gastric-derived Intrinsic Factor and specific cubam receptors located exclusively in the terminal ileum, B12 deficiency can arise from two primary anatomical disruptions: 1. **Pernicious Anaemia:** Autoimmune destruction of gastric parietal cells (or gastrectomy) leading to loss of Intrinsic Factor; 2. **Crohn's Disease / Terminal Ileum Resection:** Direct destruction or surgical loss of the mucosal surface expressing cubam receptors. Both result in macrocytic megaloblastic anaemia and subacute combined degeneration of the spinal cord (SCD)."
+        },
+        {
+          "scenario": "Anaemia of Chronic Disease (ACD) and Hepcidin",
+          "anatomicalBasis": "In chronic inflammatory states (e.g., rheumatoid arthritis, chronic infections, malignancy), systemic inflammatory cytokines (primarily IL-6) stimulate hepatocytes to overproduce **hepcidin**. Elevated hepcidin binds to and degrades **ferroportin** on both duodenal enterocytes (blocking dietary iron absorption) and macrophages (preventing recycling of iron from senescent RBCs). This traps iron inside cells, causing a functional iron deficiency and systemic anaemia despite adequate total body iron stores."
+        }
+      ]
+    }
+  ],
+  "crossReferenceKeys": [
+    "phys_git_acid_secretion",
+    "phys_git_motility_ens",
+    "phys_pancreas_exocrine_secretion",
+    "path_mendelson_syndrome",
+    "path_mesenteric_ischemia",
+    "pharm_nsaids_gastropathy",
+    "pharm_somatostatin_analogues"
+  ]
+}

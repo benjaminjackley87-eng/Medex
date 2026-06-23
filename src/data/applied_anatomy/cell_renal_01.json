@@ -1,0 +1,162 @@
+{
+  "moduleId": "cell_renal_01",
+  "moduleTitle": "Renal Biophysics & Cellular Mechanics Biophysical & Cellular Mechanics",
+  "tags": [
+    "renal biophysics",
+    "glomerular filtration",
+    "tubular transport",
+    "countercurrent multiplier",
+    "acid-base mechanics",
+    "aquaporins",
+    "autoregulation",
+    "raas",
+    "epo",
+    "loop diuretics",
+    "kidney injury"
+  ],
+  "concepts": [
+    {
+      "conceptId": "concept_glomerular_filtration_01",
+      "conceptName": "Biophysics of Glomerular Ultrafiltration",
+      "roteData": {
+        "filtrationEquation": "\\text{GFR} = K_f \\cdot \\left[ (P_{GC} - P_{BS}) - \\sigma \\cdot (\\pi_{GC} - \\pi_{BS}) \\right]",
+        "normalPressures": {
+          "P_GC_glomerular_capillary": "45 to 50 mmHg (unusually high and remains relatively constant along the capillary length due to high-resistance afferent and efferent arterioles).",
+          "P_BS_bowmans_space": "10 to 15 mmHg (opposes filtration).",
+          "pi_GC_afferent_end": "25 mmHg (draws fluid back into capillary).",
+          "pi_GC_efferent_end": "35 mmHg (rises as water is filtered out, leaving proteins behind; reaches filtration equilibrium near the efferent end).",
+          "pi_BS_bowmans_space": "0 mmHg (ideally protein-free filtrate)."
+        },
+        "filtrationFraction": "FF = \\text{GFR} / RPF (typically ~0.20 or 20\\%).",
+        "filtrationBarrierLayers": "1. Fenestrated endothelial cytoplasm (excludes cells); 2. Glomerular basement membrane (negatively charged heparan sulfate proteoglycans); 3. Podocyte slit diaphragms (filtration slits bridged by nephrin and podocin)."
+      },
+      "firstPrinciplesMechanics": {
+        "starlingForcesEquilibrium": "Glomerular filtration is a passive, physical process driven by hydrostatic and oncotic pressure gradients across the glomerular capillary wall. Unlike skeletal muscle capillaries where hydrostatic pressure drops precipitously, the unique arrangement of the glomerular microvasculature—situated between two high-resistance arteriolar beds (afferent and efferent)—maintains a high, flat hydrostatic pressure ($P_{GC} \\approx 45\\text{--}50\\text{ mmHg}$) along the entire capillary length. As fluid is filtered into Bowman's space, plasma proteins are retained. This concentrates the remaining blood, causing the oncotic drawing force ($\\pi_{GC}$) to rise progressively from $25\\text{ mmHg}$ at the afferent end to $35\\text{ mmHg}$ at the efferent end. Once the net hydrostatic pressure gradient ($P_{GC} - P_{BS}$) is exactly equaled by the rising oncotic pressure ($\\pi_{GC}$), net filtration ceases. This state is called **filtration equilibrium**.",
+        "sizeAndChargeSelectivity": "The glomerular filtration barrier acts as a highly selective physical and electrostatic sieve. 1. **Size Selectivity:** Solutes with an effective molecular radius $< 1.8\\text{ nm}$ are freely filtered, whereas those $> 4.0\\text{ nm}$ (such as albumin, radius $\\approx 3.6\\text{ nm}$) are completely excluded; 2. **Charge Selectivity:** The glomerular basement membrane and the podocyte foot processes are coated with negatively charged glycoproteins (sialoproteins and heparan sulfate). This negative charge exerts a powerful electrostatic repulsive force that repels anions (including albumin, which is highly negatively charged at physiological pH of 7.40) while facilitating the passage of neutral molecules and cations of identical size."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Aortic Cross-Clamping & Acute Kidney Injury (AKI)",
+          "anatomicalBasis": "Cross-clamping the thoracic or abdominal aorta during vascular surgery abruptly halts distal arterial flow, causing a precipitous drop in renal plasma flow (RPF). According to first principles, this collapses the glomerular capillary hydrostatic pressure ($P_{GC}$). If $P_{GC}$ drops below the sum of the opposing forces ($P_{BS} + \\pi_{GC} \\approx 40\\text{ mmHg}$), the net ultrafiltration pressure falls to zero, causing an immediate cessation of glomerular filtration (anuria). The resulting severe ischemia destroys the highly metabolically active cells of the proximal convoluted tubule and thick ascending limb, leading to acute tubular necrosis (ATN)."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_tubular_transport_thermodynamics_01",
+      "conceptName": "Thermodynamics of Tubular Transport & Segmental Stoichiometry",
+      "roteData": {
+        "segmentalTransportSummary": {
+          "proximalConvolutedTubule_PCT": "Reabsorbs ~65\\% of filtered water, $Na^+$, $Cl^-$, $K^+$, and $HCO_3^-$; reabsorbs 100\\% of filtered glucose and amino acids. Primary transporters: NHE3 ($1\\text{ Na}^+_{in} : 1\\text{ H}^+_{out}$) and SGLT2/SGLT1.",
+          "thickAscendingLimb_TAL": "Reabsorbs ~25\\% of filtered $Na^+$, $Cl^-$, and $K^+$. Impermeable to water. Primary transporter: NKCC2.",
+          "distalConvolutedTubule_DCT": "Reabsorbs ~5\\% of filtered $Na^+$ and $Cl^-$. Impermeable to water. Primary transporter: NCC (thiazide-sensitive).",
+          "collectingDuct_CD": "Reabsorbs ~2-5\\% of filtered $Na^+$ and water. Regulates final potassium, proton, and water excretion. Primary cells: Principal cells (ENaC, ROMK) and Intercalated cells."
+        },
+        "sgltStoichiometry": {
+          "SGLT2_early_PCT": "Co-transports $1\\text{ Na}^+$ ion with $1\\text{ glucose}$ molecule. Low affinity, high capacity. Reabsorbs ~90\\% of filtered glucose.",
+          "SGLT1_late_PCT": "Co-transports $2\\text{ Na}^+$ ions with $1\\text{ glucose}$ molecule. High affinity, low capacity. Reabsorbs the remaining ~10\\%."
+        }
+      },
+      "firstPrinciplesMechanics": {
+        "sgltThermodynamicStoichiometry": "The early proximal tubule (PCT) faces a high luminal concentration of glucose, allowing SGLT2 to easily couple glucose uptake to the entry of a single $Na^+$ ion down its steep electrochemical gradient ($1:1$ stoichiometry). However, as fluid flows down the nephron, the luminal glucose concentration drops near-zero. To extract this remaining glucose against an immense, steep intracellular concentration gradient, the late PCT must utilize **SGLT1**, which couples glucose to **two** $Na^+$ ions ($2:1$ stoichiometry). Thermodynamically, doubling the $Na^+$ coupling ratio doubles the concentration-focusing power of the transporter: the energy available to transport glucose is proportional to the square of the sodium electrochemical gradient, allowing SGLT1 to successfully scavenge glucose down to micromolar concentrations.",
+        "talElectrogenicsNKCC2": "The thick ascending limb of the loop of Henle (TAL) utilizes the **NKCC2** symporter, which co-transports $1\\text{ Na}^+$, $1\\text{ K}^+$, and $2\\text{ Cl}^-$ from the lumen into the cell. This cotransport is electroneutral. However, because intracellular $K^+$ is highly concentrated, it must be recycled back into the lumen via apical potassium leak channels (**ROMK**). This continuous outward flow of positive $K^+$ ions into a water-impermeable lumen generates a **lumen-positive electrical potential of $+10\\text{ to }+20\\text{ mV}$** relative to the interstitium. This positive potential acts as an electrostatic driving force that repels divalent cations ($Ca^{2+}$ and $Mg^{2+}$) and monovalent cations ($Na^+$), forcing them to diffuse passively out of the lumen into the interstitium via the paracellular pathway (through claudin-16 and claudin-19 tight junction proteins).",
+        "collectingDuctPrincipalCells": "In the principal cells of the late DCT and collecting duct, apical **ENaC** (Epithelial Sodium Channels) allow passive $Na^+$ influx down its electrochemical gradient. This rapid entry of positive charge leaves behind a net negative electrical potential in the lumen (lumen-negative potential). This negative potential acts as an electrostatic pull that draws intracellular $K^+$ out of the cell into the lumen via **ROMK** channels and $H^+$ out of intercalated cells via $H^+$-ATPases, coupling sodium reabsorption directly to potassium and proton excretion. This entire pathway is upregulated by **Aldosterone**, which binds to mineralocorticoid receptors to drive the genomic transcription and insertion of ENaC, ROMK, and basolateral $Na^+/K^+$ ATPase pumps."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Frusemide-Induced Hypokalaemic Hypochloraemic Alkalosis",
+          "anatomicalBasis": "Frusemide (a loop diuretic) selectively binds to and blocks the chloride-binding site of the **NKCC2** cotransporter in the TAL. This directly blocks the active reabsorption of $Na^+$, $K^+$, and $Cl^-$. Biophysically, this blocks $K^+$ recycling through ROMK, collapsing the lumen-positive potential and halting the paracellular reabsorption of $Ca^{2+}$ and $Mg^{2+}$ (causing hypercalciuria). The massive delivery of $Na^+$ and fluid downstream to the collecting duct overwhelms ENaC channels. The increased $Na^+$ reabsorption via ENaC generates an exaggerated lumen-negative potential, which drives excessive potassium ($K^+$) and proton ($H^+$) excretion into the urine, resulting in hypokalaemia, hypochloraemia, and metabolic alkalosis."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_renal_autoregulation_tfg_01",
+      "conceptName": "Renal Autoregulation & Tubuloglomerular Feedback (TGF)",
+      "roteData": {
+        "autoregulatoryRange": "Renal blood flow (RBF) and \\text{GFR} remain relatively constant over a Mean Arterial Pressure (\\text{MAP}) range of 80 to 180 mmHg.",
+        "myogenicMechanism": "Stretch-induced vasoconstriction of the afferent arteriole in response to elevated perfusion pressure.",
+        "tgfSensoryCells": "Macula densa cells located in the early distal tubule, adjacent to the afferent and efferent arterioles."
+      },
+      "firstPrinciplesMechanics": {
+        "myogenicStretchMechanics": "The myogenic response is an intrinsic vascular smooth muscle property of the afferent arteriole. 1. **Stretch Activation:** An increase in arterial pressure stretches the vascular wall, opening stretch-activated non-selective cation channels; 2. **Depolarization & Influx:** The resulting depolarizing current opens voltage-gated L-type calcium channels, driving calcium influx down its electrochemical gradient; 3. **Vasoconstriction:** Elevated intracellular $[Ca^{2+}]_i$ stimulates myosin light chain kinase, triggering constriction. This increases afferent arteriolar resistance, shielding the glomerular capillaries from systemic hypertension and keeping \\text{GFR} stable.",
+        "tgfSignalTransductionCascade": "Tubuloglomerular Feedback is a negative feedback loop that coordinates \\text{GFR} with distal tubular solute delivery: 1. **Sensing Solute Load:** An increase in \\text{GFR} delivers more fluid and $Na^+/Cl^-$ to the distal tubule. The macula densa cells take up these electrolytes via apical **NKCC2** cotransporters; 2. **ATP Depletion & Adenosine Export:** The increased intracellular electrolyte load stimulates basolateral $Na^+/K^+$ ATPase activity, consuming ATP. This produces intracellular AMP, which is metabolized to **Adenosine** and exported basolaterally. Alternatively, ATP itself is directly released through basolateral pannexin-1 channels; 3. **Afferent Vasoconstriction:** Extracellular adenosine binds to $A_1$ adenosine receptors on the adjacent extraglomerular mesangial cells and afferent smooth muscle cells. This $G_i$-coupled cascade inhibits adenylyl cyclase and increases intracellular $[Ca^{2+}]_i$, triggering constriction of the afferent arteriole. This reduces glomerular blood flow and hydrostatic pressure ($P_{GC}$), restoring \\text{GFR} back to normal."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "NSAID-Induced Acute Renal Failure",
+          "anatomicalBasis": "Autoregulation of \\text{GFR} under low perfusion states requires vasodilatory prostaglandins (primarily $PGE_2$ and $PGI_2$) to maintain afferent arteriolar dilation. NSAIDs inhibit cyclooxygenase (COX), blocking prostaglandin synthesis. Under anesthesia-induced hypotension or sympathetic surges, uninhibited sympathetic and Angiotensin II activity causes intense, unopposed vasoconstriction of the afferent arteriole. This collapses $P_{GC}$, dropping \\text{GFR} and driving acute pre-renal kidney injury."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_countercurrent_multiplier_01",
+      "conceptName": "The Countercurrent Multiplier & Exchanger Systems",
+      "roteData": {
+        "osmoticGradient": "Extends from a normal cortical osmolality of 300 mOsm/kg up to a maximum inner medullary tip osmolality of 1200-1400 mOsm/kg.",
+        "gradientContributors": "Approximately 50\\% is generated by active sodium chloride ($NaCl$) transport in the loop of Henle; the remaining 50\\% is generated by urea recycling in the inner medullary collecting duct.",
+        "vasaRectaFlow": "Slow, low-velocity blood flow (~5-10\\% of total renal blood flow) to prevent washing out the medullary gradient."
+      },
+      "firstPrinciplesMechanics": {
+        "countercurrentMultiplierMechanics": "The hypermedullary osmotic gradient is generated by the countercurrent multiplier of the loop of Henle, operating through three physical properties: 1. **The Single Effect:** The water-impermeable thick ascending limb actively pumps $NaCl$ out of the lumen into the interstitium via NKCC2, establishing a maximum concentration gradient of **$200\\text{ mOsm/kg}$** at any given horizontal level; 2. **Passive Equilibration:** The descending limb is highly permeable to water (expressing high densities of **Aquaporin-1** channels) but completely impermeable to solutes. As it descends into the hyperosmolal medullary interstitium, water exits the descending limb passively, concentrating the remaining luminal fluid until it reaches its maximum concentration ($1200\\text{ mOsm/kg}$) at the loop tip; 3. **Flow Multiplication:** Continuous fluid flow down the nephron moves this newly concentrated tip fluid into the ascending limb, where more $NaCl$ is actively pumped out into the interstitium. This multiplies the initial $200\\text{ mOsm/kg}$ 'single effect' vertically, creating the steep corticomedullary osmotic gradient.",
+        "ureaRecycling": "In the inner medullary collecting duct, high concentrations of ADH (Vasopressin) activate **UT-A1** and **UT-A3** urea transporters. This drives passive urea reabsorption out of the collecting duct into the deep medullary interstitium, where it accumulates, contributing up to 50\\% of the hypermedullary osmolality. This urea diffuses back into the thin ascending limb, completing the loop and conserving medullary osmotic power.",
+        "vasaRectaCountercurrentExchange": "The vasa recta are long, U-shaped capillary loops that run parallel to the loops of Henle, serving as **countercurrent exchangers**. They operate purely passively: 1. **As they descend:** They enter regions of increasing interstitial hyperosmolality. Water passively exits the capillaries, while solutes ($NaCl$ and urea) passively enter; 2. **As they ascend:** They return to the lower-osmolality cortex. Water passively re-enters the capillaries down its osmotic gradient, while solutes passively diffuse back out into the interstitium. This configuration ensures that oxygen and nutrients are delivered to the medullary tissues while preventing the highly concentrated interstitial solutes from being washed out into the systemic circulation."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Inhalation Anaesthetic-Induced Nephrogenic Diabetes Insipidus",
+          "anatomicalBasis": "Historically, the metabolism of methoxyflurane (and to a lesser degree, sevoflurane) released inorganic fluoride ($F^-$) ions. Free fluoride acts as a cellular toxin in the collecting duct, destroying the intracellular signaling pathways of **ADH**. Specifically, it inhibits adenylyl cyclase, preventing the cyclic AMP cascade that drives the exocytosis and insertion of **Aquaporin-2** channels into the apical membrane of principal cells. This prevents water reabsorption down the steep medullary osmotic gradient, resulting in polyuria, dehydration, and nephrogenic diabetes insipidus."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_renal_hormones_raas_epo_01",
+      "conceptName": "Renal Hormonal Systems: RAAS, EPO & ADH Signaling",
+      "roteData": {
+        "reninReleaseTriggers": "1. Decreased perfusion pressure in the afferent arteriole (baroreceptor); 2. Increased sympathetic stimulation (beta-1 receptors); 3. Decreased NaCl delivery to the macula densa.",
+        "epoSynthesisSite": "Interstitial fibroblasts (peritubular cells) in the renal cortex and outer medulla.",
+        "adhReceptors": {
+          "V2_receptor": "Located on the basolateral membrane of principal cells in the collecting duct. Gs-protein coupled.",
+          "V1_receptor": "Located on vascular smooth muscle cells. Gq-protein coupled, driving vasoconstriction."
+        }
+      },
+      "firstPrinciplesMechanics": {
+        "raasCascadeInGlomerulus": "The renin-angiotensin-aldosterone system (RAAS) regulates systemic blood pressure and \\text{GFR}. 1. **Renin Secretion:** Triggered by decreased renal perfusion, renin is secreted from juxtaglomerular cells and cleaves systemic angiotensinogen to Angiotensin I; 2. **Angiotensin II Action:** Angiotensin-Converting Enzyme (ACE) cleaves AngI to Angiotensin II (AngII). AngII binds to **$AT_1$ receptors** on vascular smooth muscle. It preferentially constricts the **efferent arteriole** rather than the afferent arteriole. This selectively increases the filtration pressure head ($P_{GC}$) and maintains \\text{GFR} even in the face of severely reduced renal blood flow; 3. **Aldosterone Actions:** AngII stimulates aldosterone release from the adrenal glomerulosa, promoting distal $Na^+$ reabsorption and $K^+/H^+$ excretion.",
+        "epoOxygenSensingBiophysics": "Renal erythropoietin (EPO) synthesis is regulated by a highly sensitive oxygen-sensing mechanism in cortical fibroblasts. Under normoxic conditions, **Prolyl Hydroxylase Domain (PHD)** proteins utilize oxygen to hydroxylate proline residues on **Hypoxia-Inducible Factor-2 alpha (HIF-2\\alpha)**. This marks HIF-2\\alpha$ for rapid degradation via the Von Hippel-Lindau (VHL) ubiquitination pathway. Under hypoxic conditions (low partial pressure of oxygen in renal capillary blood), PHD activity ceases. HIF-2\\alpha$ accumulates, translocates to the nucleus, and heterodimerizes with HIF-1\\beta$, binding to hypoxia response elements to drive transcription and secretion of EPO. EPO then enters the circulation to stimulate erythropoiesis in the bone marrow.",
+        "adhAquaporinMechanics": "Antidiuretic Hormone (ADH/Vasopressin) coordinates final water recovery in the collecting duct: 1. **Receptor Binding:** ADH binds to the basolateral $V_2$ receptor, activating the Gs-protein alpha subunit; 2. **Intracellular Signaling:** This stimulates adenylyl cyclase, raising intracellular cAMP which activates Protein Kinase A (PKA); 3. **Exocytosis of Aquaporins:** Active PKA phosphorylates target proteins on vesicles containing **Aquaporin-2 (AQP2)** water channels, triggering vesicle translocation and fusion with the apical membrane. Water enters the cell passively down the steep osmotic gradient established by the countercurrent multiplier, exiting basolaterally through constitutively active **Aquaporin-3** and **Aquaporin-4** channels."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "ACEi-Induced Acute Renal Failure",
+          "anatomicalBasis": "In patients with bilateral renal artery stenosis or low effective circulating volume (e.g., congestive heart failure), \\text{GFR} is critically dependent on Angiotensin II-mediated vasoconstriction of the efferent arteriole to maintain $P_{GC}$. Administering an ACE inhibitor or Angiotensin Receptor Blocker (ARB) abolishes this compensatory efferent constriction, causing efferent vasodilation. This drops $P_{GC}$ below the threshold required for ultrafiltration, precipitating an acute, post-drug drop in \\text{GFR} (acute renal failure)."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_renal_acid_base_01",
+      "conceptName": "Renal Acid-Base Cellular Mechanics",
+      "roteData": {
+        "bicarbonateReabsorptionPercentage": "PCT reabsorbs ~85\\% of filtered $HCO_3^-$; TAL reabsorbs ~10\\%; the remainder is regulated in the collecting duct.",
+        "titratableAcidBuffers": "Phosphate buffer system ($HPO_4^{2-} + H^+ \\\\rightarrow H_2PO_4^-$; pKa = 6.80; highly effective in tubular fluid).",
+        "ammoniaBufferSystem": "Ammonia ($NH_3 + H^+ \\\\rightarrow $NH_4^+$; pKa = 9.0; synthesized from glutamine in the PCT; can increase up to 10-fold during chronic acidosis)."
+      },
+      "firstPrinciplesMechanics": {
+        "pctBicarbonateReabsorption": "The proximal tubule reabsorbs filtered $HCO_3^-$ indirectly. 1. **Proton Secretion:** The apical **NHE3** exchanger pumps $H^+$ into the lumen in exchange for $Na^+$ entering the cell; 2. **Dehydration:** In the lumen, the secreted $H^+$ combines with filtered $HCO_3^-$ to form carbonic acid ($H_2CO_3$). Apical brush-border **Carbonic Anhydrase IV (CA-IV)** accelerates the dehydration of $H_2CO_3$ into $CO_2$ and $H_2O$: $$H^+ + HCO_3^- \\\\rightleftharpoons H_2CO_3 \\\\xrightarrow{\\\\text{CA-IV}} CO_2 + H_2O$$; 3. **Diffusion:** The lipophilic $CO_2$ diffuses easily across the apical membrane into the cell; 4. **Hydration:** Inside the cell, cytoplasmic **Carbonic Anhydrase II (CA-II)** hydrates $CO_2$ with $H_2O$ back into $H_2CO_3$, which spontaneously dissociates into $H^+$ and $HCO_3^-$; 5. **Basolateral Export:** The generated $H^+$ is recycled back to the apical NHE3, while the new $HCO_3^-$ is transported across the basolateral membrane into the blood via a $3\\text{ HCO}_3^- : 1\\text{ Na}^+$ symporter (NBCe1). This recovers $100\\%$ of the filtered bicarbonate without executing direct bicarbonate ion transport.",
+        "typeAIntercalatedCells": "Located in the collecting duct. Specialized for active acid excretion. They express apical **$H^+\\text{-}ATPase$** and **$H^+/K^+\\text{-}ATPase$** proton pumps that actively force $H^+$ into the lumen against steep concentration gradients (enabling the urine pH to drop to its physical limit of 4.5). Intracellularly, $CO_2$ hydration via CA-II generates $H^+$ and new $HCO_3^-$. The $H^+$ is pumped apically, while the *new* $HCO_3^-$ is exported across the basolateral membrane into the systemic circulation via a $Cl^-/HCO_3^-$ exchanger (**AE1**), directly replacing bicarbonate consumed by systemic buffering.",
+        "typeBIntercalatedCells": "Specialized for base excretion during systemic alkalosis. They are the mirror image of Type A cells: the active $H^+\\text{-}ATPase$ proton pump is located on the **basolateral** membrane, pumping protons back into the blood, while the $Cl^-/HCO_3^-$ exchanger (**Pendrin**) is located on the **apical** membrane, actively secreting $HCO_3^-$ into the lumen in exchange for $Cl^-$."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Acetazolamide-Induced Metabolic Acidosis",
+          "anatomicalBasis": "Acetazolamide is a potent inhibitor of both **Carbonic Anhydrase II** and **Carbonic Anhydrase IV**. By blocking CA-IV on the brush border, it prevents the luminal dehydration of $H_2CO_3$, halting the generation of $CO_2$. Concurrently, blocking CA-II prevents the intracellular hydration reaction. This completely blocks the reabsorption of bicarbonate in the PCT, causing massive urinary bicarbonate wasting (bicarbonaturia) and resulting in a hyperchloraemic metabolic acidosis (normal anion gap)."
+        }
+      ]
+    }
+  ],
+  "crossReferenceKeys": [
+    "cell_neuro_01",
+    "cell_synapse_01",
+    "anat_renal_01",
+    "phys_renal_01",
+    "phys_renal_01",
+    "phys_renal_01"
+  ]
+}

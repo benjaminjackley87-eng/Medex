@@ -1,0 +1,77 @@
+{
+  "moduleId": "phys_musculoskeletal_01",
+  "moduleTitle": "Integrative Muscle & Neuromuscular Junction Physiology",
+  "tags": [
+    "muscle physiology",
+    "sarcomere",
+    "excitation contraction coupling",
+    "dhpr",
+    "ryr1",
+    "cross-bridge cycle",
+    "fiber types",
+    "neuromuscular junction",
+    "ach",
+    "end-plate potential"
+  ],
+  "concepts": [
+    {
+      "conceptId": "concept_muscle_contraction_ecc_01",
+      "conceptName": "Excitation-Contraction Coupling & Sarcomere Biophysics",
+      "roteData": {
+        "sarcomereZones": {
+          "Z_Disk": "Structural boundary of the sarcomere; anchors the thin (actin) filaments.",
+          "I_Band": "Contains thin filaments only; shortens during contraction.",
+          "A_Band": "Contains the entire length of thick (myosin) filaments; constant width during contraction.",
+          "H_Zone": "Contains thick filaments only; located in the center of the A-band; shortens during contraction."
+        },
+        "calciumClearance": "SERCA1 (Sarcoplasmic/Endoplasmic Reticulum Calcium ATPase) actively pumps cytosolic calcium back into the sarcoplasmic reticulum to initiate relaxation."
+      },
+      "firstPrinciplesMechanics": "1. **T-Tubule Action Potential:** The action potential initiated at the NMJ propagates along the sarcolemma and down the transverse tubules (T-tubules), bringing the electrical signal deep into the muscle fiber; 2. **DHPR-RyR1 Mechanical Coupling:** The T-tubule membrane contains voltage-sensing **Dihydropyridine Receptors (DHPR)**, which are L-type calcium channels. Unlike in cardiac muscle, the skeletal DHPR is physically, mechanically coupled to the **Ryanodine Receptor (RyR1)** on the adjacent terminal cisterna of the sarcoplasmic reticulum. Depolarization alters the conformation of DHPR, which physically pulls open the RyR1 channel, releasing calcium into the sarcoplasm without requiring extracellular calcium entry; 3. **Conformational Shift of Tropomyosin:** Released calcium binds to **Troponin C** (on the thin filament). This binding induces a conformational shift in the troponin complex (Troponin I and T), pulling **tropomyosin** out of the myosin-binding groove on the actin filament, exposing the binding sites and allowing cross-bridge formation.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Malignant Hyperthermia Triggered by Volatiles",
+          "anatomicalBasis": "Malignant hyperthermia is caused by an autosomal dominant mutation in the RYR1 gene (or CACNA1S encoding DHPR). Exposure to volatile anaesthetics or suxamethonium triggers uncontrolled, continuous opening of the mutated RyR1 channels. This causes a massive, uninhibited leak of calcium from the SR into the sarcoplasm. SERCA pumps work at maximum capacity to clear this calcium, consuming massive amounts of ATP, generating extreme metabolic acidosis, carbon dioxide production, and life-threatening hyperthermia."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_cross_bridge_fibers_01",
+      "conceptName": "Cross-Bridge Cycling & Muscle Fiber Typing",
+      "roteData": {
+        "fiberTypes": {
+          "Type_I_Slow": "Slow oxidative. High mitochondria, high myoglobin (red), highly fatigue-resistant. Used for posture.",
+          "Type_IIa_Fast": "Fast oxidative-glycolytic. Intermediate properties.",
+          "Type_IIx_Fast": "Fast glycolytic. Low mitochondria, low myoglobin (white), rapid fatigue. High glycogen content, used for burst activity."
+        },
+        "sizePrinciple": "Henneman's Size Principle: Motor units are recruited in order of increasing size (Type I first, then Type IIa, and finally Type IIx/IIb as greater force is required)."
+      },
+      "firstPrinciplesMechanics": "1. **Attached (Rigor) State:** The myosin head is bound tightly to actin at a $45^\\circ$ angle, with no nucleotide bound. This is the rigor state; 2. **Detachment:** An ATP molecule binds to the nucleotide-binding site on the myosin head. This binding induces a conformational change that decreases the affinity of the myosin head for actin, causing it to detach from the thin filament; 3. **Cocking:** The ATPase domain of the myosin head hydrolyzes the bound ATP into ADP and inorganic phosphate ($P_i$), both of which remain bound. The energy released by this hydrolysis swings the myosin head back by $90^\\circ$ into the high-energy 'cocked' position; 4. **Power Stroke:** The cocked myosin binds to a new actin site. This binding triggers the release of the inorganic phosphate ($P_i$), inducing the power stroke. The myosin head swings back by $45^\\circ$, pulling the thin actin filament toward the center of the sarcomere. ADP is subsequently released, leaving the myosin bound in the rigor state.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Rigor Mortis Post-Mortem",
+          "anatomicalBasis": "Following cell death, mitochondrial ATP production ceases. As cellular ATP reserves are depleted, the myosin heads cannot bind ATP to detach from actin. They remain permanently locked in the attached rigor state, causing the rigid muscle stiffness characteristic of rigor mortis."
+        }
+      ]
+    },
+    {
+      "conceptId": "concept_nmj_transmission_01",
+      "conceptName": "Neuromuscular Junction Quantal Transmission & EPP",
+      "roteData": {
+        "quantalRelease": "ACh is stored in vesicles (quanta) containing $\\approx 10,000$ molecules. A single action potential triggers the exocytosis of $\\approx 150\\text{--}200$ vesicles.",
+        "safetyFactor": "The end-plate potential (EPP) generated by normal ACh release is $\\approx 3\\text{ times}$ larger than the threshold required to open Nav1.4 channels, ensuring reliable 1-to-1 transmission."
+      },
+      "firstPrinciplesMechanics": "1. **Presynaptic Depolarization:** An action potential traveling down the alpha motor neuron depolarizes the nerve terminal. This opens P/Q-type voltage-gated calcium channels. Calcium rushes in down its concentration gradient; 2. **SNARE-Mediated Exocytosis:** The calcium binds to **synaptotagmin** on the vesicle membrane. This triggers a conformational shift that forces the vesicular SNARE protein (synaptobrevin) to wind tightly with the terminal membrane SNARE proteins (syntaxin and SNAP-25), fusing the membranes and releasing ACh into the synaptic cleft; 3. **Postsynaptic nAChR Activation:** ACh diffuses across the $50\\text{ nm}$ cleft and binds to the two alpha subunits of the pentameric nicotinic acetylcholine receptors ($nAChR$) on the junctional folds. The channel opens, allowing rapid influx of $Na^+$ and minor efflux of $K^+$. This creates a local, depolarizing **End-Plate Potential (EPP)**. If the EPP exceeds the threshold potential, adjacent Nav1.4 channels open, propagating a muscle action potential. ACh is rapidly cleaved by acetylcholinesterase in the cleft.",
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Myasthenia Gravis & Muscle Relaxants",
+          "anatomicalBasis": "Myasthenia gravis is an autoimmune disease where antibodies destroy postsynaptic $nAChR$ at the NMJ, flattening the junctional folds. This slashes the safety factor of neuromuscular transmission; the EPP frequently fails to reach threshold, causing muscle weakness. These patients are highly sensitive to non-depolarizing neuromuscular blockers (e.g. vecuronium), as even minor receptor blockade completely abolishes the remaining EPP."
+        }
+      ]
+    }
+  ],
+  "crossReferenceKeys": [
+    "anat_musculoskeletal_01",
+    "cell_synapse_01",
+    "cell_cardiac_01"
+  ]
+}

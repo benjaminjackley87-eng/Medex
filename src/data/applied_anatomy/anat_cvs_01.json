@@ -1,0 +1,238 @@
+{
+  "moduleId": "anat_cvs_01",
+  "moduleTitle": "Cardiovascular System Applied Clinical Anatomy & Histology",
+  "tags": [
+    "cardiac anatomy",
+    "pericardium",
+    "coronary circulation",
+    "conduction system",
+    "valves",
+    "great vessels",
+    "relations",
+    "vertebral levels",
+    "histology"
+  ],
+  "structures": [
+    {
+      "structureId": "struc_pericardium_01",
+      "anatomicalName": "Pericardium & Mediastinal Relations",
+      "surfaceLandmarksAndRelations": {
+        "anterior": "Sternum, 3rd to 6th costal cartilages, anterior margins of pleurae and lungs, and sternopericardial ligaments.",
+        "posterior": "Esophagus, descending thoracic aorta, thoracic duct, principal bronchi, and T5 to T8 vertebrae (T6 to T9 when upright).",
+        "lateral": "Mediastinal parietal pleura, phrenic nerves (C3-C5), and pericardiacophrenic vessels.",
+        "superior": "Great vessels (ascending aorta, pulmonary trunk, superior vena cava) at the level of the sternal angle (Angle of Louis, T4/T5 level).",
+        "inferior": "Central tendon of the diaphragm (fused with the fibrous base of the pericardium) and a small portion of the left muscular hemidiaphragm.",
+        "vertebralLevels": "Lies within the middle mediastinum, corresponding to the T5 to T8 vertebral levels in the supine adult."
+      },
+      "macroAnatomy": {
+        "fibrousPericardium": "Tough, inelastic outer conical sac composed of dense connective tissue. Restricts acute cardiac expansion, anchors the heart within the mediastinum, and prevents over-filling.",
+        "serousPericardium": "A closed, double-layered sac lining the fibrous pericardium. Bounded by: 1. Parietal Layer (adherent to the internal surface of the fibrous pericardium); 2. Visceral Layer (epicardium; covers the myocardium and coronary vessels).",
+        "pericardialCavity": "The potential space between the parietal and visceral serous layers. Contains approximately 15-50 mL of clear, serous pericardial fluid that acts as a lubricant to minimize friction during contraction.",
+        "pericardialSinuses": {
+          "transverseSinus": "A horizontal passageway located posterior to the ascending aorta and pulmonary trunk, and anterior to the superior vena cava and superior pulmonary veins. Created by the folding of the serous pericardium around these two groups of vessels.",
+          "obliqueSinus": "A blind-ending, inverted U-shaped recess located posterior to the left atrium, bounded laterally by the left and right pulmonary veins and inferiorly by the inferior vena cava."
+        }
+      },
+      "microAnatomyAndHistology": {
+        "epicardium_visceralSerous": "Lined externally by a single layer of flat to cuboidal mesothelial cells. Supported by a subepicardial layer of loose connective tissue containing adipose tissue, coronary blood vessels, nerves, and lymphatic channels.",
+        "parietalSerousLayer": "Lined by simple squamous mesothelium, backed by a thin, vascular collagenous connective tissue layer."
+      },
+      "bloodSupply": {
+        "arterialOrigin": "1. Pericardiacophrenic Artery (branch of the Internal Thoracic Artery; dominant supply); 2. Musculophrenic Artery (terminal branch of Internal Thoracic); 3. Bronchial, Esophageal, and Superior Phrenic branches of the descending thoracic aorta.",
+        "venousDrainage": "Venous blood drains into the pericardiacophrenic veins, which empty into the internal thoracic or brachiocephalic veins, with minor drainage into the azygos venous system."
+      },
+      "lymphaticDrainage": {
+        "primaryNodes": "Drains to the anterior mediastinal (phrenic) nodes, tracheobronchial nodes, and posterior mediastinal nodes."
+      },
+      "innervation": {
+        "sensory": "Phrenic Nerves (Left and Right, C3-C5). They convey somatic pain sensations from the fibrous pericardium and parietal serous pericardium (referred to the C3-C5 dermatomes/shoulder tip).",
+        "autonomic": "Visceral serous pericardium (epicardium) is supplied by vasomotor sympathetic and parasympathetic fibers from the superficial and deep cardiac plexuses (insensitive to somatic pain)."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Aortic Cross-Clamping on Cardiopulmonary Bypass",
+          "anatomicalBasis": "The transverse pericardial sinus separates the arterial outflow tract (ascending aorta and pulmonary trunk) from the venous inflow tract (superior vena cava and pulmonary veins). During cardiac surgery, a surgeon can pass a finger or a flexible vascular clamp through the transverse sinus posterior to the aorta and pulmonary trunk, allowing them to isolate and cross-clamp these major arteries to initiate cardiopulmonary bypass."
+        },
+        {
+          "scenario": "Cardiac Tamponade & Beck's Triad",
+          "anatomicalBasis": "Because the outer fibrous pericardium is tough and highly inelastic, it has a very low compliance. An acute accumulation of fluid (as little as 100-200 mL of blood or effusion) within the rigid pericardial cavity causes an exponential rise in intrapericardial pressure. This pressure exceeds the low diastolic filling pressures of the right atrium and right ventricle, causing diastolic collapse, preventing venous return, and severely compromising cardiac output. This manifests as Beck's Triad: Hypotension (reduced stroke volume), Jugular Venous Distension (blood pooling behind a compressed right atrium), and Muffled Heart Sounds (fluid dampening sound transmission)."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_heart_chambers_01",
+      "anatomicalName": "Heart Chambers & Internal Structural Architecture",
+      "surfaceLandmarksAndRelations": {
+        "rightAtrium_RA": "Forms the right border of the heart. Receives venous return from the superior vena cava (SVC), inferior vena cava (IVC), and coronary sinus.",
+        "rightVentricle_RV": "Forms the majority of the anterior (sternocostal) surface of the heart. Bounded posteriorly by the septum and inferiorly by the diaphragmatic surface.",
+        "leftAtrium_LA": "Forms the posterior surface (base) of the heart. Positioned directly anterior to the esophagus, separating it from the vertebral column.",
+        "leftVentricle_LV": "Forms the apex (typically located in the left 5th intercostal space in the midclavicular line) and the left border/diaphragmatic surface of the heart.",
+        "vertebralLevels": "In the supine position, the base of the heart (LA) corresponds to the T5-T8 level; the apex projects anterolaterally to the left."
+      },
+      "macroAnatomy": {
+        "rightAtrialFeatures": {
+          "sinusVenarum": "The smooth-walled posterior portion of the RA, derived embryologically from the sinus venosus. Contains the orifices of the SVC, IVC, and coronary sinus.",
+          "atriumProper": "The rough-walled anterior portion of the RA, containing parallel muscular ridges called Pectinate Muscles (musculi pectinati).",
+          "cristaTerminalis": "A smooth, C-shaped muscular ridge separating the sinus venarum from the atrium proper. Corresponds externally to the sulcus terminalis.",
+          "fossaOvalis": "An oval depression on the interatrial septum, representing the closed embryonic foramen ovale. Bounded superiorly by a prominent muscular fold (limbus fossa ovalis).",
+          "valves": "1. Eustachian Valve (valve of the IVC; directs oxygenated placental blood across the foramen ovale in the fetus); 2. Thebesian Valve (valve of the coronary sinus; guards its orifice)."
+        },
+        "rightVentricularFeatures": {
+          "inflow_and_outflow": "The inflow tract is highly trabeculated, containing Trabeculae Carneae (muscular ridges). The outflow tract, leading to the pulmonary valve, is smooth-walled and called the Infundibulum (Conus Arteriosus). Bounded superiorly by the supraventricular crest.",
+          "moderatorBand": "The Septomarginal Trabecula. A prominent muscular band connecting the interventricular septum to the anterior papillary muscle. It carries the Right Bundle Branch of the conduction system, facilitating coordinated contraction of the RV free wall.",
+          "papillaryMuscles": "Three muscles (anterior, posterior, septal) that connect via fibrous Chordae Tendineae to the three cusps (anterior, posterior, septal) of the Tricuspid Valve."
+        },
+        "leftAtrialFeatures": {
+          "smoothWall": "The main cavity is completely smooth-walled, derived from the absorption of embryonic pulmonary veins. Only the small, finger-like Left Auricle (appendage) contains pectinate muscles.",
+          "pulmonaryVeins": "Four pulmonary veins (two superior, two inferior) enter the posterior wall, conveying oxygenated blood."
+        },
+        "leftVentricularFeatures": {
+          "inflow_and_outflow": "The LV wall is approximately 3 times thicker than the RV wall (normal thickness ~8-12 mm vs. ~3-5 mm) to withstand systemic vascular resistance. Contains fine trabeculae carneae.",
+          "papillaryMuscles": "Two massive papillary muscles (Anterolateral and Posteromedial) connect via chordae tendineae to the two leaflets (anterior/aortic and posterior/mural) of the Mitral (Bicuspid) Valve. The posteromedial papillary muscle has a vulnerable, single blood supply (usually from the PDA), whereas the anterolateral has a dual supply (LAD and Circumflex)."
+        }
+      },
+      "microAnatomyAndHistology": {
+        "myocardium": "The dominant muscular layer. Composed of specialized, branching cardiac muscle cells (cardiomyocytes) linked end-to-end by Intercalated Discs. These discs contain: 1. Desmosomes (mechanical anchors preventing cell separation during contraction); 2. Gap Junctions (nexuses providing low-resistance electrical pathways, enabling the myocardium to behave as a functional syncytium).",
+        "endocardium": "The internal lining. Composed of a single layer of simple squamous endothelial cells, continuous with the vascular endothelium, supported by a subendothelial layer of loose elastic connective tissue containing Purkinje fibers."
+      },
+      "bloodSupply": {
+        "coronaryCirculation": "Supplied segmentally by the left and right coronary arteries (see detailed structure below).",
+        "venousDrainage": "Drained via the coronary sinus and anterior cardiac veins directly into the RA."
+      },
+      "lymphaticDrainage": {
+        "primaryNodes": "Lymphatic vessels traverse the subendocardial space to form subepicardial plexuses, which drain along the coronary grooves to the tracheobronchial and brachiocephalic lymph nodes."
+      },
+      "innervation": {
+        "cardiacPlexus": "Superficial and deep plexuses located anterior to the tracheal bifurcation. Sympathetic innervation (T1-T5 spinal levels via cervical and upper thoracic sympathetic chain ganglia) increases rate and force of contraction. Parasympathetic innervation (Vagus Nerve, CN X) decreases rate via cholinergic receptors concentrated at the SA and AV nodes."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Transesophageal Echocardiography (TEE) Retrocardiac Imaging",
+          "anatomicalBasis": "The esophagus lies in the posterior mediastinum, immediately posterior to the left atrium (separated only by the fibrous pericardium). Because of this intimate anatomical relationship, a TEE probe positioned in the mid-esophagus provides a high-fidelity, unobstructed window into the left atrium, mitral valve, and interatrial septum without interference from the lungs or bony thoracic cage."
+        },
+        {
+          "scenario": "Mitral Valve Papillary Muscle Rupture & Acute Pulmonary Edema",
+          "anatomicalBasis": "The posteromedial papillary muscle of the mitral valve is anatomically dependent on a single arterial blood supply, usually the posterior descending coronary artery (PDA). In a posterior myocardial infarction, this single vessel is compromised, leading to ischemic rupture of the posteromedial papillary muscle. This causes acute, massive mitral regurgitation because the leaflets can no longer be held in apposition during ventricular systole. The sudden, high-pressure volume regurgitating into the left atrium is transmitted backward into the pulmonary veins, leading to immediate, life-threatening hydrostatic pulmonary edema."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_coronary_circulation_01",
+      "anatomicalName": "Coronary Arteries & Cardiac Dominance",
+      "surfaceLandmarksAndRelations": {
+        "coronaryOstia": "The left and right coronary arteries arise directly from the aortic sinuses of Valsalva in the proximal ascending aorta, immediately superior to the aortic valve. The Left Coronary Artery arises from the left coronary sinus (posterior-left); the Right Coronary Artery arises from the right coronary sinus (anterior). The posterior aortic sinus is non-coronary.",
+        "leftCoronaryArtery_LCA": "Arises from the left coronary sinus, passes posterior to the pulmonary trunk, and emerges under the left auricle. It immediately bifurcates (and sometimes trifurcates, giving a ramus intermedius) into the LAD and Circumflex.",
+        "rightCoronaryArtery_RCA": "Arises from the right coronary sinus, runs anteriorly in the right atrioventricular groove, and winds around the acute margin of the heart to reach the posterior interventricular sulcus."
+      },
+      "macroAnatomy": {
+        "leftCoronaryArteryBranches": {
+          "leftAnteriorDescending_LAD": "Runs in the anterior interventricular sulcus to the apex. Bounded by the right and left ventricles. Branches: 1. Septal branches (supply the anterior 2/3 of the interventricular septum, including the bundle of His and bundle branches); 2. Diagonal branches (supply the anterolateral wall of the left ventricle).",
+          "circumflexArtery_Cx": "Curves to the left in the coronary sulcus, reaching the posterior surface. Branches: 1. Obtuse Marginal (OM) branches (supply the lateral wall of the left ventricle); 2. Sinoatrial Nodal branch (in 40\\% of patients)."
+        },
+        "rightCoronaryArteryBranches": {
+          "sinoatrialNodalBranch": "Arises near the origin of the RCA (in 60\\% of patients) and ascends to circle the base of the SVC, supplying the SA node.",
+          "rightMarginalBranch": "Runs along the acute lower margin of the RV, supplying the right ventricular free wall.",
+          "atrioventricularNodalBranch": "Arises at the crux of the heart (junction of posterior AV and interventricular grooves) in 90\\% of patients, supplying the AV node.",
+          "posteriorDescendingArtery_PDA": "Runs in the posterior interventricular sulcus to the apex. Supplies the posterior 1/3 of the interventricular septum and the diaphragmatic surface of both ventricles."
+        },
+        "cardiacDominance": {
+          "definition": "Dominance is defined strictly by which coronary artery gives rise to the Posterior Descending Artery (PDA) and the subsequent supply to the posterior-diaphragmatic interventricular septum.",
+          "rightDominance": "Approximately 85\\% of the population. The PDA arises from the Right Coronary Artery (RCA).",
+          "leftDominance": "Approximately 8\\% of the population. The PDA arises from the Circumflex branch of the Left Coronary Artery (LCA).",
+          "codominance": "Approximately 7\\% of the population. The posterior interventricular septum is supplied by branches from both the RCA and the Circumflex."
+        }
+      },
+      "microAnatomyAndHistology": {
+        "structure": "Coronary arteries are medium-sized muscular arteries. They contain three distinct tunics: 1. Tunica Intima (endothelium and subendothelial elastic layer); 2. Tunica Media (thick layer of circularly arranged smooth muscle cells capable of profound vasoconstriction or dilation); 3. Tunica Adventitia (outer connective tissue sheath containing collagen and elastic fibers). They are functionally 'end arteries' with minimal collateral anastomoses in healthy subjects."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Coronary Dominance and SA/AV Nodal Vulnerability",
+          "anatomicalBasis": "In the standard right-dominant patient (85\\%), the RCA supplies both the SA node (60\\%) and the AV node (90\\%). Therefore, an acute occlusion of the proximal RCA (often presenting as an inferior STEMI on ECG) will not only cause ischemia of the RV and inferior LV walls, but will also lead to acute ischemia of the conduction system, resulting in sinus bradycardia, sinoatrial blocks, or high-grade atrioventricular blocks. Conversely, in a left-dominant patient (8\\%), an occlusion of the Left Main or Circumflex artery would lead to both extensive LV ischemia and conduction blocks."
+        },
+        {
+          "scenario": "Angiographic Anatomy & The 'Widowmaker' Lesion",
+          "anatomicalBasis": "The Left Main Coronary Artery (LCA) supplies the vast majority of the left ventricular muscle mass via its LAD and Circumflex branches. An acute proximal occlusion of the Left Main artery is clinically termed the 'widowmaker' because it instantly cuts off blood supply to more than 60-70\\% of the working myocardium, leading to cardiogenic shock, ventricular fibrillation, and sudden cardiac death."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_coronary_venous_01",
+      "anatomicalName": "Coronary Venous Drainage",
+      "surfaceLandmarksAndRelations": {
+        "coronarySinus": "A wide venous channel located in the posterior part of the coronary sulcus, between the left atrium and left ventricle. It is approximately 2-3 cm long and opens directly into the posterior-inferior wall of the right atrium, immediately left of the IVC orifice, guarded by the Thebesian valve.",
+        "greatCardiacVein": "Ascends in the anterior interventricular sulcus alongside the LAD, then curves to the left in the coronary groove alongside the Circumflex artery to enter the left extremity of the coronary sinus.",
+        "middleCardiacVein": "Runs in the posterior interventricular sulcus alongside the PDA, draining directly into the right extremity of the coronary sinus.",
+        "smallCardiacVein": "Runs in the coronary groove along the acute margin alongside the marginal artery, draining into the right extremity of the coronary sinus."
+      },
+      "macroAnatomy": {
+        "coronarySinusTributaries": "Receives the Great Cardiac Vein, Middle Cardiac Vein, Small Cardiac Vein, Posterior Vein of the Left Ventricle, and the Oblique Vein of the Left Atrium (vein of Marshall). Together, these drain approximately 85\\% of the total left ventricular coronary blood flow.",
+        "anteriorCardiacVeins": "Several small veins that arise on the anterior surface of the RV, crossing the coronary sulcus to drain directly into the anterior wall of the RA, bypassing the coronary sinus.",
+        "leastCardiacVeins_ThebesianVeins": "Venae Cordis Minimae. Minute venous channels that arise in the myocardium and open directly into all four chambers of the heart (primarily the RA and RV, but also the LA and LV). Those draining into the left-sided chambers deliver deoxygenated blood directly into the systemic arterial circulation, contributing to the physiological anatomical shunt (~1.3\\%)."
+      },
+      "microAnatomyAndHistology": {
+        "coronarySinusWall": "Unlike standard veins, the wall of the coronary sinus contains a thin sheath of striated atrial cardiac muscle (the myocardial sleeve of the coronary sinus) surrounding its tunica media, which can exhibit independent electrical activity and act as a source for atrial arrhythmias."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Retrograde Cardioplegia in Aortic Valve Surgery",
+          "anatomicalBasis": "In patients with severe aortic stenosis or coronary artery disease undergoing cardiac surgery, the coronary arteries may be heavily stenosed or obstructed, preventing the delivery of anterograde cardioplegia (cold, high-potassium solution to arrest the heart) via the coronary ostia. To overcome this, a cannula is inserted blindly through the right atrium directly into the orifice of the coronary sinus. The cardioplegia solution is pumped backward (retrograde) through the coronary venous system, successfully arresting and protecting the entire myocardium."
+        },
+        {
+          "scenario": "Electrophysiological Mapping & Ablation",
+          "anatomicalBasis": "The coronary sinus sits directly in the posterior AV groove, wrapping around the mitral valve annulus. Because of this, electrophysiologists can insert a multi-electrode catheter into the coronary sinus via the jugular or femoral vein to map electrical activity on the epicardial surface of the left atrium and left ventricle, allowing them to locate and ablate accessory pathways (e.g., in Wolff-Parkinson-White syndrome)."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_conduction_system_01",
+      "anatomicalName": "Cardiac Conduction System & Fibrous Skeleton",
+      "surfaceLandmarksAndRelations": {
+        "saNode": "Located in the posterior wall of the right atrium at the superior end of the crista terminalis, immediately anterolateral to the opening of the superior vena cava, residing in the subepicardial space.",
+        "avNode": "Located in the subendocardial space of the interatrial septum, situated within the Triangle of Koch.",
+        "triangleOfKoch": "A critical anatomical region in the right atrium. Bounded by: 1. Tendon of Todaro (a subendocardial fibrous cord extending from the commissure of the Eustachian and Thebesian valves to the central fibrous body); 2. Septal Leaflet of the Tricuspid Valve; 3. Ostium (orifice) of the Coronary Sinus. The AV node lies at the apex of this triangle.",
+        "bundleOfHis": "Arises from the AV node, penetrates the central fibrous body, and runs along the lower border of the membranous interventricular septum."
+      },
+      "macroAnatomy": {
+        "fibrousSkeleton": "A dense collagenous framework consisting of four fibrous rings (annuli fibrosi) surrounding the valves, two fibrous trigones (right and left) connecting the rings, and the membranous part of the interventricular septum. It has three primary functions: 1. Keeps the valvular orifices patent and prevents distortion; 2. Provides physical insertion points for the myocardial muscle bands; 3. **Electrical Insulator:** Forms a complete barrier between the atria and ventricles, preventing random, uncoordinated electrical transmission. The Bundle of His is the *only* physiological pathway that penetrates this insulator.",
+        "bundleBranches": {
+          "rightBundleBranch_RBB": "A thin, single tract that descends on the right side of the septum to enter the moderator band, reaching the anterior papillary muscle of the RV.",
+          "leftBundleBranch_LBB": "A broad, flat band that penetrates the septum and immediately divides into three fascicles: 1. Anterior Fascicle (supplies the anterior papillary muscle and anterior LV wall); 2. Posterior Fascicle (supplies the posterior papillary muscle and inferior/diaphragmatic LV wall); 3. Septal Fascicle (supplies the mid-interventricular septum)."
+        }
+      },
+      "microAnatomyAndHistology": {
+        "pacemakerCells": "P-cells. Small, pale, ovoid cells containing sparse, disorganized myofibrils and lacking intercalated discs. They are rich in glycogen and connect to each other via primitive gap junctions.",
+        "purkinjeFibers": "Highly specialized, giant modified cardiomyocytes. They are wider than standard myocardial cells, contain abundant glycogen, a central nucleus, and very few myofibrils. They lack T-tubules but contain abundant gap junctions, allowing them to conduct action potentials at extremely high velocities (~4 m/s vs. ~0.5 m/s in standard myocardium), ensuring synchronous ventricular contraction."
+      },
+      "bloodSupply": {
+        "saNode": "Sinoatrial nodal artery, arising from the RCA in 60\\% of people and the Circumflex (LCA) in 40\\% of people.",
+        "avNode": "Atrioventricular nodal artery, arising from the RCA in 90\\% of people (at the crux of the heart) and the Circumflex (LCA) in 10\\% of people.",
+        "hisBundle_and_branches": "Dual supply. Primarily supplied by septal perforating branches of the LAD (LCA), with collateral supply to the bundle branches from the PDA."
+      },
+      "innervation": {
+        "saNode": "Richly innervated by right vagal fibers (parasympathetic, slows rate) and sympathetic fibers from the right cardiac nerves (increases rate).",
+        "avNode": "Richly innervated by left vagal fibers (parasympathetic, slows conduction velocity/prolongs PR interval) and sympathetic fibers from the left cardiac nerves."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Iatrogenic Heart Block during Tricuspid/Aortic Valve Surgery",
+          "anatomicalBasis": "The Bundle of His penetrates the fibrous skeleton immediately adjacent to the commissure between the right and posterior cusps of the aortic valve and the septal leaflet of the tricuspid valve. During surgical replacement of the aortic or tricuspid valve, deep suture placement near these commissures can easily crush or sever the Bundle of His, leading to acute, complete heart block (third-degree AV block) requiring a permanent pacemaker."
+        },
+        {
+          "scenario": "Wolf-Parkinson-White (WPW) Syndrome & Accessory Pathways",
+          "anatomicalBasis": "In WPW syndrome, there is a failure of complete insulation by the fibrous skeleton of the heart during development. This leaves an abnormal, accessory muscular bridge (e.g., the Bundle of Kent) connecting the atrium directly to the ventricle, bypassing the AV node. Because this accessory pathway lacks the physiological conduction delay of the AV node, it leads to pre-excitation of the ventricles (delta wave on ECG) and creates a substrate for re-entrant tachyarrhythmias."
+        }
+      ]
+    }
+  ],
+  "crossReferenceKeys": [
+    "cell_cvs_action_potentials",
+    "cell_cvs_gap_junctions",
+    "phys_cvs_cardiac_cycle",
+    "phys_cvs_valvular_mechanics",
+    "phys_cvs_conduction_delays",
+    "path_valvular_stenosis",
+    "path_myocardial_infarction_inferior",
+    "path_accessory_pathways_wpw"
+  ]
+}

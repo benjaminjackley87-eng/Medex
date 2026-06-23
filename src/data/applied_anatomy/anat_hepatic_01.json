@@ -1,0 +1,197 @@
+{
+  "moduleId": "anat_hepatic_01",
+  "moduleTitle": "Hepatic & Biliary Applied Clinical Anatomy & Histology",
+  "tags": [
+    "hepatic anatomy",
+    "biliary system",
+    "portal circulation",
+    "couinaud segments",
+    "classic lobule",
+    "acinus of rappaport",
+    "space of disse",
+    "stellate cells",
+    "calot triangle",
+    "sphincter of oddi",
+    "anastomoses"
+  ],
+  "structures": [
+    {
+      "structureId": "struc_liver_lobes_segments_01",
+      "anatomicalName": "Liver Lobes & Couinaud Segmental Anatomy",
+      "surfaceLandmarksAndRelations": {
+        "anterior": "Diaphragm, costal margin (7th to 11th ribs on the right), anterior abdominal wall.",
+        "posterior": "Diaphragm, inferior vena cava, esophagus, fundus of stomach, aorta.",
+        "superior": "Diaphragm (convex diaphragmatic surface conforms to the dome of the diaphragm; separated from lungs and heart by it).",
+        "inferior": "Stomach (gastric impression), duodenum, gallbladder, right colic flexure, transverse colon, right kidney and suprarenal gland (renal impression).",
+        "medial": "Falciform ligament (anatomical divider on the diaphragmatic surface).",
+        "vertebralLevels": "Occupies the right hypochondrium, epigastrium, and extends into the left hypochondrium. Upper boundary reaches the 5th intercostal space during expiration; lower boundary sits at the costal margin."
+      },
+      "macroAnatomy": {
+        "anatomicalLobes": "Anatomically divided into four lobes on the surface: 1. **Right Lobe** (largest); 2. **Left Lobe** (separated anteriorly by the falciform ligament and inferiorly by the ligamentum venosum); 3. **Caudate Lobe** (posterior-superior aspect; bounded by IVC and ligamentum venosum); 4. **Quadrate Lobe** (anterior-inferior aspect; bounded by gallbladder fossa and ligamentum teres).",
+        "peritonealLigaments": "1. **Falciform Ligament:** Connects diaphragmatic surface of liver to anterior abdominal wall and diaphragm; contains the **Ligamentum Teres (Round Ligament)** (fibrous remnant of the obliterated left umbilical vein) in its free border; 2. **Coronary Ligaments (Ant/Post):** Reflect from liver to diaphragm, outlining the **Bare Area** of the liver (lacks peritoneum, in direct contact with diaphragm); 3. **Left & Right Triangular Ligaments:** Formed by the convergence of the coronary ligaments at the lateral tips of the lobes.",
+        "couinaudFunctionalSegments": "Divided functionally into **8 segments** based on the distribution of the portal vein branches, hepatic artery proper, and biliary ducts (the portal triad), along with the drainage planes of the three major hepatic veins:",
+        "couinaudDetails": [
+          {
+            "segment": "Segment I (Caudate Lobe)",
+            "anatomicalPosition": "Posterior-superior aspect.",
+            "surgicalImplication": "Physiologically unique. Receives dual arterial and portal venous inflow from both the left and right branches and drains **directly into the IVC** via accessory hepatic veins (sparing it from occlusion of the three main hepatic veins). Highly difficult to resect surgically."
+          },
+          {
+            "segment": "Segment II (Left Lateral Superior)",
+            "anatomicalPosition": "Superior-lateral portion of the left lobe.",
+            "surgicalImplication": "Supplied by the left portal vein/artery; drained by the left hepatic vein."
+          },
+          {
+            "segment": "Segment III (Left Lateral Inferior)",
+            "anatomicalPosition": "Inferior-lateral portion of the left lobe.",
+            "surgicalImplication": "Regularly targeted for left lateral segmentectomy (Segments II and III) in pediatric liver transplant donors."
+          },
+          {
+            "segment": "Segment IV (Left Medial / Quadrate)",
+            "anatomicalPosition": "Medial portion of the left lobe; bounded by falciform ligament. Divided into **IVa** (superior) and **IVb** (inferior).",
+            "surgicalImplication": "Forms the central portion of the liver; resection requires careful preservation of the middle hepatic vein."
+          },
+          {
+            "segment": "Segment V (Right Anteroinferior)",
+            "anatomicalPosition": "Inferior-anterior portion of the right lobe; adjacent to gallbladder fossa.",
+            "surgicalImplication": "Frequently resected along with gallbladder in invasive gallbladder carcinomas."
+          },
+          {
+            "segment": "Segment VI (Right Posteroinferior)",
+            "anatomicalPosition": "Inferior-posterior portion of the right lobe.",
+            "surgicalImplication": "Anatomically related to the right kidney and adrenal gland."
+          },
+          {
+            "segment": "Segment VII (Right Posterosuperior)",
+            "anatomicalPosition": "Superior-posterior portion of the right lobe; borders the bare area.",
+            "surgicalImplication": "Surgically challenging due to its posterior position and proximity to the right hepatic vein and diaphragm."
+          },
+          {
+            "segment": "Segment VIII (Right Anterosuperior)",
+            "anatomicalPosition": "Superior-anterior portion of the right lobe.",
+            "surgicalImplication": "Drained by both middle and right hepatic veins; bounded superiorly by the diaphragm."
+          }
+        ]
+      },
+      "microAnatomyAndHistology": {
+        "histologicalOrganization": "The liver parenchyma is arranged in repeating cellular frameworks:",
+        "frameworkTypes": [
+          {
+            "type": "Classic Hepatic Lobule",
+            "description": "A hexagonal anatomical unit centered on a **Central Vein (terminal hepatic venule)**. Portal Triads reside at each of the six vertices. Blood flows from the peripheral portal triads through hepatic sinusoids to the central vein."
+          },
+          {
+            "type": "Portal Lobule",
+            "description": "A triangular unit centered on a **Portal Triad**, with central veins at the three vertices. Focuses on exocrine biliary drainage (bile flows from vertices toward the center portal triad)."
+          },
+          {
+            "type": "Hepatic Acinus of Rappaport",
+            "description": "An oval functional unit centered on the portal vascular tract running between two adjacent portal triads. Divided into three microvascular zones based on oxygenation and nutrient gradient."
+          }
+        ]
+      },
+      "bloodSupply": {
+        "dualInflowSystem": "1. **Hepatic Portal Vein (~75-80\\% of flow):** Carries oxygen-poor but nutrient-rich blood from the gastrointestinal tract and spleen. Provides ~50\\% of the liver's oxygen supply; 2. **Hepatic Artery Proper (~20-25\\% of flow):** Branch of the common hepatic artery (from the coeliac trunk). Carries oxygen-rich blood, providing the remaining ~50\\% of oxygen.",
+        "portalTriadStructure": "Contains: 1. Branch of Portal Vein; 2. Branch of Hepatic Artery Proper; 3. Bile Ductule. Enclosed in a sheath of connective tissue (Glisson's capsule).",
+        "venousOutflow": "Blood from the sinusoids drains into the Central Veins -> merge into sublobular veins -> form the **Left, Middle, and Right Hepatic Veins**, which drain directly into the **Inferior Vena Cava (IVC)** near the diaphragm."
+      },
+      "lymphaticDrainage": {
+        "primaryNodes": "Hepatic lymph nodes situated in the lesser omentum, draining to coeliac lymph nodes. A superficial lymphatic network drains through the diaphragm to mediastinal nodes."
+      },
+      "innervation": {
+        "hepaticPlexus": "Derived from the coeliac plexus (sympathetic T7-T9 vasomotor) and vagus nerve (CN X; parasympathetic secretomotor/glycogenolysis modulation)."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Surgical Segmentectomy & Resection Boundaries",
+          "anatomicalBasis": "Because each of the 8 Couinaud segments has its own independent vascular inflow (portal vein and hepatic artery branches) and biliary drainage, surgical resection (segmentectomy or hemihepatectomy) is strictly performed along the boundaries defined by these vascular planes. This ensures that the remaining liver segments maintain intact arterial perfusion, venous drainage, and biliary outflow, preventing tissue necrosis and liver failure."
+        },
+        {
+          "scenario": "Portosystemic Anastomoses and Variceal Bleeding",
+          "anatomicalBasis": "When portal blood flow is obstructed (e.g., in liver cirrhosis), portal pressure rises. Blood is diverted through collateral pathways where the portal and systemic venous systems anastomose: 1. **Esophageal:** Left gastric vein (portal) anastomoses with esophageal veins draining into the azygos vein (systemic). Engorgement leads to **esophageal varices**, which are prone to massive, fatal hemorrhage; 2. **Anorectal:** Superior rectal vein (portal) anastomoses with middle/inferior rectal veins (systemic), producing hemorrhoids; 3. **Umbilical:** Paraumbilical veins (portal) anastomose with superficial epigastric veins (systemic) around the umbilicus, causing **caput medusae**."
+        },
+        {
+          "scenario": "Hepatic Arterial Buffer Response (HABR)",
+          "anatomicalBasis": "The liver cannot autoregulate its portal venous blood flow, which is determined entirely by the venous drainage of the gastrointestinal tract. Instead, total hepatic blood flow is regulated via the Hepatic Arterial Buffer Response (HABR): a reduction in portal vein flow triggers a compensatory, local vasodilation of the hepatic artery proper to restore oxygen delivery. This is mediated biochemically by adenosine; under normal portal flow, adenosine in the space of Mall (portal tract) is washed out. When portal flow drops, local adenosine accumulates and binds to A2A adenosine receptors on hepatic arterial smooth muscle, causing relaxation and dilation. General and regional anaesthesia can blunt this compensatory buffer, exacerbating liver ischemia during periods of systemic hypotension."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_sinusoidal_microenvironment_01",
+      "anatomicalName": "Sinusoidal Microenvironment & Rappaport Acinus Zones",
+      "surfaceLandmarksAndRelations": {
+        "spaceOfDisse": "The subendothelial space located between the sinusoidal endothelial cells and the basolateral membrane of the hepatocytes."
+      },
+      "macroAnatomy": {
+        "rappaportAcinusZones": [
+          {
+            "zone": "Zone 1 (Periportal)",
+            "microenvironment": "Closest to the entering portal triad vessels. Receives blood with the highest oxygen tension, nutrients, and hormones.",
+            "cellularMetabolism": "Highly active in oxidative processes: beta-oxidation, gluconeogenesis, glycogen synthesis, and ureagenesis. The last to die in ischemic/hypoxic states, but the first to be exposed to blood-borne toxins."
+          },
+          {
+            "zone": "Zone 2 (Transitional)",
+            "microenvironment": "Intermediate oxygenation and metabolic profile.",
+            "cellularMetabolism": "Serves as a metabolic reserve zone."
+          },
+          {
+            "zone": "Zone 3 (Centrilobular / Perivenular)",
+            "microenvironment": "Closest to the draining central vein. Receives blood with the lowest oxygen tension and nutrient concentration.",
+            "cellularMetabolism": "Highly concentrated in **Cytochrome P450 enzymes** (specifically CYP2E1). Dominant site for glycolysis, lipogenesis, and drug detoxification/biotransformation. The first to suffer ischemic necrosis during shock or congestion."
+          }
+        ]
+      },
+      "microAnatomyAndHistology": {
+        "sinusoidalCapillaries": "Specialized, highly permeable capillaries. The endothelial cells are **highly fenestrated** (pores lack diaphragms) and **lack a continuous basement membrane**, allowing direct contact between plasma proteins and hepatocytes.",
+        "hepatocytes": "Polygonal epithelial cells. The basolateral membrane faces the Space of Disse, featuring abundant microvilli to maximize exchange with plasma. The apical membrane faces adjacent hepatocytes, forming the **bile canaliculi** sealed by tight junctions.",
+        "stellateCells_ItoCells": "Located within the Space of Disse. Under normal conditions, they function as the body's primary storage site for **vitamin A** (retinol). In response to chronic liver injury (inflammation, ethanol), they undergo a phenotypic switch: de-differentiating into highly active **myofibroblasts** that secrete massive quantities of Type I and III collagen, driving hepatic fibrosis and cirrhosis.",
+        "kupfferCells": "Resident macrophages situated on the luminal surface of the sinusoidal endothelium. Phagocytose old red blood cells, cellular debris, and bacteria arriving from the portal circulation."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Zone 3 Centrilobular Necrosis",
+          "anatomicalBasis": "Zone 3 hepatocytes are situated furthest from the portal triad and operate at baseline under low oxygen tension ($pO_2 \\approx 30\\text{ mmHg}$). In states of systemic hypotension, cardiogenic shock, or severe surgical stress (which constricts the hepatic artery), oxygen delivery drops below critical levels, causing selective ischemic necrosis of Zone 3 (centrilobular necrosis / 'shock liver'). Furthermore, because Zone 3 has the highest density of CYP2E1, it is the primary site for the biotransformation of paracetamol into the toxic metabolite **NAPQI**, leading to necrosis localized strictly to Zone 3."
+        },
+        {
+          "scenario": "Halothane Hepatitis",
+          "anatomicalBasis": "Halothane is metabolized by Cytochrome P450 enzymes in the liver. Under hypoxic conditions in Zone 3, halothane undergoes reductive metabolism by CYP2E1, forming a highly reactive free radical intermediate. This intermediate directly binds to hepatocyte proteins, forming trifluoroacetylated (TFA) adducts. In susceptible individuals, these adducts act as neoantigens, triggering a massive, immune-mediated autoimmune destruction of Zone 3 hepatocytes."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_biliary_system_01",
+      "anatomicalName": "Biliary Duct system, Gallbladder & Calot's Triangle",
+      "surfaceLandmarksAndRelations": {
+        "gallbladderLocation": "Fossa on the visceral surface of the right hepatic lobe, anterior to the duodenum and transverse colon.",
+        "triangleOfCalot": "Anatomical space in the porta hepatis. Boundaries: 1. **Inferior-lateral:** Cystic Duct; 2. **Medial:** Common Hepatic Duct; 3. **Superior:** Visceral surface of the liver (inferior border of liver segment V). Contains the **Cystic Artery** and Calot's lymph node (Mascagni's node)."
+      },
+      "macroAnatomy": {
+        "biliaryDuctTree": "1. Bile is secreted into the **bile canaliculi** -> merge into interlobular ductules -> right and left hepatic ducts -> exit hilum and merge to form the **Common Hepatic Duct**; 2. The gallbladder neck gives rise to the **Cystic Duct**, which features spiral mucosal folds (**spiral valves of Heister**; keep the duct open under pressure); 3. Common Hepatic Duct + Cystic Duct = **Common Bile Duct (CBD)**; 4. The CBD descends posterior to the first part of the duodenum and passes through the head of the pancreas; 5. CBD merges with the main pancreatic duct of Wirsung to form the **Ampulla of Vater (hepatopancreatic ampulla)**; 6. The ampulla opens into the second part of the duodenum at the **major duodenal papilla**, guarded by the circular smooth muscle of the **Sphincter of Oddi**."
+      },
+      "microAnatomyAndHistology": {
+        "gallbladderWall": "Lined with a highly folded mucosa of simple columnar epithelium with microvilli (concentrates bile by actively absorbing sodium and water). **Lacks a submucosa** (unlike the rest of the GI tract), allowing the mucosa to sit directly on the fibromuscular layer. Contains smooth muscle fibers that contract vigorously in response to **Cholecystokinin (CCK)**."
+      },
+      "bloodSupply": {
+        "cysticArtery": "Provides arterial supply to the gallbladder. Typically arises from the **Right Hepatic Artery** within the Triangle of Calot (highly variable anatomy, critical during laparoscopic cholecystectomy)."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Opioid-Induced Sphincter of Oddi Spasm",
+          "anatomicalBasis": "The Sphincter of Oddi is a circular smooth muscle valve regulating the entry of bile and pancreatic juices into the duodenum. Administering exogenous opioids (especially morphine, fentanyl, and remifentanil) activates mu-opioid receptors on the smooth muscle cells of the sphincter, causing intense spasm and contraction. This increases intrabiliary pressure, which can mimic or exacerbate biliary colic, and can transiently elevate serum amylase and lipase. The spasm is resolved clinically by administering naloxone, glucagon (which directly relaxes smooth muscle), or anticholinergic drugs like atropine."
+        },
+        {
+          "scenario": "Laparoscopic Cholecystectomy & Calot's Triangle Dissection",
+          "anatomicalBasis": "During cholecystectomy, the surgeon must identify the 'critical view of safety' within the Triangle of Calot (bounded by cystic duct, common hepatic duct, and liver edge). Misidentification of these structures due to anatomical variations or inflammatory adhesions can lead to accidental ligation or transection of the **Common Bile Duct** (causing biliary cirrhosis and stricture) or the **Right Hepatic Artery** (causing focal segment necrosis)."
+        }
+      ]
+    }
+  ],
+  "crossReferenceKeys": [
+    "phys_hepatic_bile_secretion",
+    "phys_hepatic_portal_system",
+    "phys_hepatic_metabolic_zones",
+    "path_portal_hypertension",
+    "path_halothane_hepatitis",
+    "pharm_opioid_sphincter_spasm"
+  ]
+}

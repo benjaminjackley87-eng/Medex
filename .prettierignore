@@ -1,0 +1,10 @@
+node_modules
+dist
+dist-ssr
+*.local
+data/
+public/
+.stryker-tmp
+coverage
+.gemini/
+src-tauri/target/

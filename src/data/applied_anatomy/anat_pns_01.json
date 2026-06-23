@@ -1,0 +1,321 @@
+{
+  "moduleId": "anat_pns_01",
+  "moduleTitle": "Peripheral Nervous System Applied Clinical Anatomy & Histology",
+  "tags": [
+    "pns anatomy",
+    "dermatomes",
+    "myotomes",
+    "osteotomes",
+    "brachial plexus",
+    "lumbosacral plexus",
+    "nerve injury",
+    "seddon",
+    "sunderland",
+    "histology"
+  ],
+  "structures": [
+    {
+      "structureId": "struc_dermatomes_myotomes_01",
+      "anatomicalName": "Somatic Somatotopy (Dermatomes, Myotomes, and Joint Osteotomes)",
+      "surfaceLandmarksAndRelations": {
+        "spatialDistribution": "Somatic innervation is arranged segmentally, reflecting the embryonic dermatomal (cutaneous), myotomal (muscle), and sclerotomal/osteotomal (bone and joint) distribution of the spinal somites."
+      },
+      "macroAnatomy": {
+        "keyClinicalDermatomes": [
+          {
+            "level": "C2",
+            "landmark": "Occipital protuberance (posterior skull base).",
+            "clinicalRelevance": "Blockade here targets the greater occipital nerve; crucial for managing occipital neuralgia."
+          },
+          {
+            "level": "C4",
+            "landmark": "Clavicle and 'cape' of the shoulder.",
+            "clinicalRelevance": "The lowest boundary of the superficial cervical plexus; landmarks the upper limit of sensory loss during a high spinal."
+          },
+          {
+            "level": "C6",
+            "landmark": "Thumb and lateral forearm.",
+            "clinicalRelevance": "Mapped to the C6 spinal root; tested during sensory assessment of brachial plexus blocks."
+          },
+          {
+            "level": "C7",
+            "landmark": "Middle finger.",
+            "clinicalRelevance": "Represents the central terminal domain of the middle trunk of the brachial plexus."
+          },
+          {
+            "level": "C8",
+            "landmark": "Little finger and medial border of the hand.",
+            "clinicalRelevance": "Corresponds to the inferior trunk of the brachial plexus; often spared in superficial interstitial blocks."
+          },
+          {
+            "level": "T4",
+            "landmark": "Nipple line.",
+            "clinicalRelevance": "Standard sensory target level for Caesarean section under spinal anaesthesia to block traction-induced visceral pain."
+          },
+          {
+            "level": "T10",
+            "landmark": "Umbilicus.",
+            "clinicalRelevance": "Anatomical milestone representing block height sufficient for bladder and lower abdominal surgeries."
+          },
+          {
+            "level": "L1",
+            "landmark": "Inguinal ligament / groin crease.",
+            "clinicalRelevance": "Lower limit of transversus abdominis plane (TAP) block coverage."
+          },
+          {
+            "level": "L4",
+            "landmark": "Knee and medial malleolus.",
+            "clinicalRelevance": "Innervated by the saphenous nerve (terminal branch of the femoral nerve)."
+          },
+          {
+            "level": "L5",
+            "landmark": "Dorsum of the foot and great toe.",
+            "clinicalRelevance": "Innervated by the deep peroneal nerve; tested to confirm sciatic/popliteal block efficacy."
+          },
+          {
+            "level": "S1",
+            "landmark": "Lateral border of the foot and sole.",
+            "clinicalRelevance": "Innervated by the sural nerve (tibial division of sciatic)."
+          },
+          {
+            "level": "S2-S4",
+            "landmark": "Perineum ('saddle' distribution).",
+            "clinicalRelevance": "Sensory domain of the pudendal nerve and sacral plexus; blocked during low caudal or saddle blocks."
+          }
+        ],
+        "keyClinicalMyotomes": [
+          {
+            "movement": "Elbow Flexion (Biceps)",
+            "primaryRoots": "C5, C6"
+          },
+          {
+            "movement": "Wrist Extension (Extensor carpi radialis)",
+            "primaryRoots": "C6, C7"
+          },
+          {
+            "movement": "Elbow Extension (Triceps)",
+            "primaryRoots": "C7, C8"
+          },
+          {
+            "movement": "Finger Flexion (Flexor digitorum profundus)",
+            "primaryRoots": "C8"
+          },
+          {
+            "movement": "Finger Abduction (Interossei)",
+            "primaryRoots": "T1"
+          },
+          {
+            "movement": "Hip Flexion (Iliopsoas)",
+            "primaryRoots": "L2, L3"
+          },
+          {
+            "movement": "Knee Extension (Quadriceps)",
+            "primaryRoots": "L3, L4"
+          },
+          {
+            "movement": "Ankle Dorsiflexion (Tibialis anterior)",
+            "primaryRoots": "L4, L5"
+          },
+          {
+            "movement": "Great Toe Extension (Extensor hallucis longus)",
+            "primaryRoots": "L5"
+          },
+          {
+            "movement": "Ankle Plantarflexion (Gastrocnemius/Soleus)",
+            "primaryRoots": "S1"
+          }
+        ],
+        "jointOsteotomes": {
+          "shoulderJoint": "Innervated primarily by the Axillary Nerve (C5-C6) and Suprascapular Nerve (C5-C6), with minor contributions from the lateral pectoral nerve.",
+          "hipJoint": "Highly complex, multi-source sensory innervation: 1. **Anterior Capsule:** Femoral Nerve (L2-L4) and Obturator Nerve (L2-L4); 2. **Posterior Capsule:** Sciatic Nerve (L4-S3) via the nerve to quadratus femoris; 3. **Superior Capsule:** Accessory Obturator Nerve (L3-L4; present in 10-30\\% of patients) and Superior Gluteal Nerve.",
+          "kneeJoint": "Supplied by articular branches from multiple trunks: 1. **Anterior/Medial:** Femoral Nerve (specifically via branches to the vasti and the saphenous nerve); 2. **Lateral/Posterior:** Sciatic Nerve (via common peroneal and tibial divisions); 3. **Medial/Posterior:** Obturator Nerve (posterior division)."
+        }
+      },
+      "microAnatomyAndHistology": {
+        "sensoryReceptors": "Cutaneous and joint somatic afferents are connected to specialized terminal endings: 1. **Meissner's Corpuscles:** Fast-adapting, encapsulated; sense light touch and low-frequency vibration; 2. **Pacinian Corpuscles:** Fast-adapting, deeply situated; sense rapid pressure changes and high-frequency vibration; 3. **Ruffini Endings:** Slow-adapting; sense skin stretch and joint rotation; 4. **Merkel Discs:** Slow-adapting, unencapsulated; sense sustained pressure and texture; 5. **Free Nerve Endings:** Unencapsulated; function as polymodal nociceptors."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Determining Spinal Block Height",
+          "anatomicalBasis": "Anesthetists assess the cephalad spread of a spinal block by testing sensory modalities (cold sensation via ethyl chloride or light touch via a needle prick) along the physical dermatomal zones. Testing at the level of the nipples confirms block height has reached T4. A block height of T4 guarantees that sympathetic preganglionic fibers up to T4 are blocked, which unloads the heart's cardioaccelerator fibers (T1-T4) and can cause profound bradycardia and hypotension."
+        },
+        {
+          "scenario": "PENG (Pericapsular Nerve Group) Block for Hip Fractures",
+          "anatomicalBasis": "The anterior capsule of the hip joint contains the highest concentration of nociceptors and is supplied by the articular branches of the femoral, obturator, and accessory obturator nerves. The PENG block targets the facial plane between the psoas tendon and the iliopubic eminence, deposition of local anaesthetic here blocks these specific articular branches, providing dense analgesia for hip fractures while completely sparing the main motor trunks of the femoral nerve (minimizing quadriceps weakness and preserving mobility)."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_brachial_plexus_01",
+      "anatomicalName": "Brachial Plexus & Regional Access Site Relations",
+      "surfaceLandmarksAndRelations": {
+        "generalCourse": "The brachial plexus provides motor and sensory innervation to the upper extremity. It is formed by the anterior rami of spinal nerves C5, C6, C7, C8, and T1 (with minor contributions from C4 and T2). It emerges from the interscalene triangle and passes over the first rib, posterior to the clavicle, to enter the axilla.",
+        "siteRelations": {
+          "interscaleneSite": "Located in the neck, within the interscalene groove between the **Anterior Scalene** muscle (anteriorly) and **Middle Scalene** muscle (posteriorly). The phrenic nerve (C3-C5) lies directly anterior to the anterior scalene muscle, and the vertebral artery lies deep and medial to the transverse processes.",
+          "supraclavicularSite": "Located in the posterior triangle of the neck, immediately superior and posterior to the **Subclavian Artery** as both cross over the surface of the **First Rib**. Bounded medially by the dome of the pleura (cupula).",
+          "infraclavicularSite": "Located inferior to the clavicle, deep to the pectoralis major and minor muscles. The cords of the plexus are arranged around the **Axillary Artery**.",
+          "axillarySite": "Located in the axilla, at the lower border of the teres major and latissimus dorsi muscles. The terminal nerves are arranged around the **Axillary Artery**, bounded within a common fascial sheath."
+        }
+      },
+      "macroAnatomy": {
+        "structuralDivisions": {
+          "roots": "Anterior rami of C5-T1. Give rise directly to: 1. Long Thoracic Nerve (C5-C7; supplies serratus anterior); 2. Dorsal Scapular Nerve (C5; supplies rhomboids).",
+          "trunks": "Formed in the interscalene triangle: 1. **Superior Trunk** (union of C5-C6); 2. **Middle Trunk** (continuation of C7); 3. **Inferior Trunk** (union of C8-T1). The superior trunk gives rise to the suprascapular nerve and the nerve to subclavius.",
+          "divisions": "Each trunk divides into an **Anterior** and a **Posterior** division posterior to the clavicle (3 anterior, 3 posterior; total of 6). Anterior divisions supply flexor compartments; posterior divisions supply extensor compartments.",
+          "cords": "Formed in the axilla: 1. **Lateral Cord** (union of anterior divisions of superior and middle trunks); 2. **Posterior Cord** (union of all three posterior divisions); 3. **Medial Cord** (continuation of anterior division of inferior trunk). Cords are named strictly according to their anatomical relationship to the second part of the axillary artery.",
+          "branches_terminalNerves": "1. **Musculocutaneous Nerve** (C5-C7; terminal branch of lateral cord); 2. **Axillary Nerve** (C5-C6; branch of posterior cord); 3. **Radial Nerve** (C5-T1; terminal branch of posterior cord); 4. **Median Nerve** (C5-T1; formed by lateral and medial roots from the lateral and medial cords); 5. **Ulnar Nerve** (C8-T1; terminal branch of medial cord)."
+        },
+        "axillarySheathAnatomy": "The terminal nerves at the axillary level are arranged around the axillary artery within a compartment derived from the prevertebral cervical fascia: 1. **Radial Nerve:** Positioned posterior and slightly lateral to the artery; 2. **Ulnar Nerve:** Positioned medial to the artery (between the artery and the axillary vein); 3. **Median Nerve:** Positioned anterolateral to the artery; 4. **Musculocutaneous Nerve:** Located outside the axillary sheath, having branched early from the lateral cord to pierce and run within the coracobrachialis muscle."
+      },
+      "microAnatomyAndHistology": {
+        "nerveTrunkLayers": "The peripheral nerve trunk is protected by three distinct connective tissue sheaths (outer to inner):",
+        "sheathDetails": [
+          {
+            "sheath": "Epineurium",
+            "description": "Outer layer of dense, irregular connective tissue. Cushions the nerve from external compression and houses the vasa nervorum (blood vessels supplying the nerve trunk)."
+          },
+          {
+            "sheath": "Perineurium",
+            "description": "Sleeve of specialized, lamellar bi-layer epithelial-like cells. Possesses high tensile strength and contains tight junctions (zonula occludens), forming a highly effective **blood-nerve barrier** that regulates the internal chemical environment."
+          },
+          {
+            "sheath": "Endoneurium",
+            "description": "Delicate layer of loose connective tissue surrounding individual myelinated or unmyelinated axons and their Schwann cells."
+          }
+        ]
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Interscalene Block & Phrenic Nerve Palsy",
+          "anatomicalBasis": "Because the phrenic nerve (C3-C5) lies directly on the anterior surface of the anterior scalene muscle, it is situated only 1-2 cm medial to the interscalene groove where the roots/trunks of the brachial plexus are targeted. Consequently, performing an interscalene block results in an almost 100\\% incidence of ipsilateral phrenic nerve blockade, causing hemidiaphragmatic paralysis. This is poorly tolerated in patients with marginal respiratory reserve."
+        },
+        {
+          "scenario": "Supraclavicular Block & Pneumothorax Risk",
+          "anatomicalBasis": "At the supraclavicular level, the brachial plexus (divisions) and the subclavian artery sit directly on the superior surface of the first rib. The dome of the pleura (cupula) lies immediately medial to the first rib. If the needle is directed too far medially or slips off the medial border of the first rib, it will directly penetrate the parietal pleura, causing an iatrogenic pneumothorax."
+        },
+        {
+          "scenario": "Axillary Block & Musculocutaneous Sparing",
+          "anatomicalBasis": "The musculocutaneous nerve (C5-C7) leaves the lateral cord of the brachial plexus high in the axilla, exiting the axillary sheath to travel independently within the coracobrachialis muscle. Therefore, a standard perivascular injection of local anaesthetic within the axillary sheath will frequently spare the musculocutaneous nerve. To achieve a complete block of the forearm, the needle must be advanced separately into the coracobrachialis muscle to block the musculocutaneous nerve."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_lumbosacral_plexus_01",
+      "anatomicalName": "Lumbosacral Plexus & Major Lower Extremity Nerves",
+      "surfaceLandmarksAndRelations": {
+        "lumbarPlexusRelations": "Formed within the substance of the **Psoas Major** muscle from the anterior rami of L1, L2, L3, and L4. The nerves emerge from the lateral border (iliopsoas, femoral, lateral femoral cutaneous), medial border (obturator), and anterior surface (genitofemoral) of the psoas muscle.",
+        "sacralPlexusRelations": "Formed on the anterior surface of the **Piriformis** muscle in the posterior pelvis, from the anterior rami of L4, L5, S1, S2, S3, and S4 (via the lumbosacral trunk)."
+      },
+      "macroAnatomy": {
+        "lumbarPlexusBranches": {
+          "iliohypogastric_and_ilioinguinal": "L1. Supply sensory innervation to the groin and suprapubic region; target of transversus abdominis plane or ilioinguinal blocks.",
+          "lateralFemoralCutaneous_LFCN": "L2-L3. Emerges from the lateral border of the psoas, passes under the lateral aspect of the inguinal ligament (medial to the anterior superior iliac spine - ASIS). Supplies sensory innervation to the lateral thigh.",
+          "femoralNerve": "L2-L4. The largest branch of the lumbar plexus. Descends through the psoas, exits under the inguinal ligament, and enters the femoral triangle **lateral to the femoral artery** (outside the femoral sheath). Bends into anterior (sensory/motor to sartorius) and posterior (motor to quadriceps; sensory via the **saphenous nerve** to the medial knee and lower leg) divisions.",
+          "obturatorNerve": "L2-L4. Descends along the medial border of the psoas, traverses the pelvis, and exits through the obturator canal to enter the medial thigh. Divides into anterior and posterior branches around the adductor brevis muscle, supplying the adductor muscles and a variable skin patch on the medial thigh."
+        },
+        "sacralPlexusBranches": {
+          "sciaticNerve": "L4-S3. The largest nerve in the body. Exits the pelvis through the greater sciatic foramen, inferior to the piriformis muscle. Descends in the posterior thigh. Bounded medially by the biceps femoris and laterally by the semitendinosus/semimembranous muscles. Divides in the upper popliteal fossa into: 1. **Tibial Nerve** (mediates plantarflexion and sole sensation); 2. **Common Peroneal (Fibular) Nerve** (winds around the neck of the fibula, mediating dorsiflexion and foot dorsum sensation).",
+          "pudendalNerve": "S2-S4. Exits the pelvis via the greater sciatic foramen, loops around the sacrospinous ligament (near the ischial spine), and re-enters the pelvis via the lesser sciatic foramen to enter Alcock's (pudendal) canal. Supplies the perineum, external genitalia, and external sphincters."
+        }
+      },
+      "microAnatomyAndHistology": {
+        "fasciaIliacaCompartment": "A potential space bounded anteriorly by the fascia iliaca and posteriorly by the iliacus and psoas muscles. Houses the femoral nerve, the lateral femoral cutaneous nerve, and the obturator nerve. Depositing a high volume of local anaesthetic into this space (Fascia Iliaca Block) creates a mechanical spread that blocks all three nerves."
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Femoral Triangle Block vs. Adductor Canal Block",
+          "anatomicalBasis": "The **femoral nerve** lies lateral to the femoral artery in the femoral triangle, superior to the branching of the profunda femoris. A block here causes complete motor blockade of the quadriceps, introducing a high risk of falls. In contrast, the **adductor canal** (Hunter's canal) is an aponeurotic tunnel in the middle third of the thigh, bounded by the sartorius (anteriorly), vastus medialis (anterolaterally), and adductor longus/magnus (posteriorly). It contains only the **saphenous nerve** (a pure sensory branch of the femoral) and the nerve to the vastus medialis. An adductor canal block provides dense sensory analgesia to the medial knee while sparing quadriceps motor function, facilitating early ambulation."
+        },
+        {
+          "scenario": "Pudendal Nerve Block in Obstetrics",
+          "anatomicalBasis": "The pudendal nerve (S2-S4) runs immediately posterior to the ischial spine, close to the sacrospinous ligament. To provide analgesia for forceps delivery or extensive episiotomies, a clinician can perform a transvaginal pudendal nerve block by palpating the ischial spine through the lateral vaginal wall and advancing a needle through the sacrospinous ligament to deposit local anaesthetic around the nerve."
+        },
+        {
+          "scenario": "Sciatic Nerve Compression (Piriformis Syndrome / Foot Drop)",
+          "anatomicalBasis": "Because the sciatic nerve exits the greater sciatic foramen immediately inferior to the piriformis muscle, spasm or hypertrophy of this muscle can compress the nerve, mimicking lumbar radiculopathy. Furthermore, because the common peroneal division wraps tightly around the superficial, bony neck of the fibula, prolonged lateral decubitus positioning during surgery or tight leg straps can easily compress the nerve against the bone, causing neuropraxia and subsequent foot drop."
+        }
+      ]
+    },
+    {
+      "structureId": "struc_nerve_injury_classifications_01",
+      "anatomicalName": "Histopathology of Peripheral Nerve Injury & Regeneration",
+      "surfaceLandmarksAndRelations": {
+        "injuryLocalization": "Nerve injuries are classified based on the integrity of the axon, the myelin sheath, and the supporting connective tissue layers (endoneurium, perineurium, epineurium)."
+      },
+      "macroAnatomy": {
+        "classificationSystems": {
+          "seddonClassification": [
+            {
+              "type": "Neuropraxia",
+              "definition": "The mildest form of nerve injury. Characterized by a temporary, localized physiological conduction block due to focal demyelination or ischemia, without any axonal disruption.",
+              "prognosis": "Excellent. Complete recovery occurs within days to weeks as the myelin sheath is repaired; no Wallerian degeneration occurs distal to the injury."
+            },
+            {
+              "type": "Axonotmesis",
+              "definition": "Axon is physically disrupted, but the supporting connective tissue frameworks (endoneurium, perineurium, and epineurium) remain completely intact.",
+              "prognosis": "Good but slow. Wallerian degeneration occurs distal to the injury. Regeneration occurs along the preserved endoneurial tubes at a rate of 1-2 mm/day."
+            },
+            {
+              "type": "Neurotmesis",
+              "definition": "The most severe form. Complete structural transection of the axon and all supporting connective tissue layers. The nerve trunk is physically severed.",
+              "prognosis": "Extremely poor without surgical intervention. Axonal regrowth is disorganized, leading to traumatic neuroma formation."
+            }
+          ],
+          "sunderlandClassification": [
+            {
+              "degree": "First-Degree",
+              "correlate": "Equivalent to Seddon's Neuropraxia. Focal conduction block due to demyelination or ischemia; connective tissue intact."
+            },
+            {
+              "degree": "Second-Degree",
+              "correlate": "Equivalent to Seddon's Axonotmesis. Axon disrupted, but endoneurium, perineurium, and epineurium remain completely intact."
+            },
+            {
+              "degree": "Third-Degree",
+              "correlate": "Axon and the endoneurium are disrupted. The perineurium and epineurium remain intact.",
+              "prognosis": "Guarded. Axons can escape their original endoneurial tubes during regeneration, leading to misdirected axonal regrowth and incomplete recovery."
+            },
+            {
+              "degree": "Fourth-Degree",
+              "correlate": "Axon, endoneurium, and perineurium are disrupted. Only the outer epineurium remains intact.",
+              "prognosis": "Very poor. Requires surgical excision of the scar tissue and nerve grafting."
+            },
+            {
+              "degree": "Fifth-Degree",
+              "correlate": "Equivalent to Seddon's Neurotmesis. Complete transection of the entire nerve trunk (axon and all connective tissue layers)."
+            }
+          ]
+        }
+      },
+      "microAnatomyAndHistology": {
+        "wallerianDegeneration": {
+          "definition": "The predictable sequence of active physical and biochemical events that occurs distal to a site of axonal disruption (within 24-48 hours of injury):",
+          "steps": [
+            "1. Axonal Disintegration: The axoplasm distal to the cut begins to swell and break down into granular debris due to calcium-activated calpains and proteases.",
+            "2. Myelin Sheath Fragmentation: The insulating myelin sheath collapses and breaks up into lipid droplets.",
+            "3. Macrophage Recruitment: Schwann cells and resident macrophages secrete cytokines and chemokines (e.g., TNF-alpha, IL-1beta) to recruit systemic macrophages across the blood-nerve barrier. These cells phagocytose the axonal and myelin debris (clearing the pathway).",
+            "4. Schwann Cell Proliferation: Under the influence of axonal mitogens (like Neuregulin-1), Schwann cells distal to the injury de-differentiate, align longitudinally, and proliferate. They form solid cellular columns called the **Bands of Büngner** within the intact endoneurial tubes.",
+            "5. Axonal Regeneration: The proximal axonal stump develops multiple growth cones (sproutings) that express integrins. These growth cones are guided biochemically by neurotrophic factors (NGF, BDNF) secreted by the Schwann cells in the bands of Büngner, growing at a rate of ~1-2 mm/day until they re-innervate the target organ."
+          ]
+        }
+      },
+      "clinicalAndAnaestheticCorrelations": [
+        {
+          "scenario": "Tourniquet Palsy",
+          "anatomicalBasis": "Inflating a pneumatic surgical tourniquet on a limb (e.g., pressure > 250 mmHg for > 2 hours) compresses the underlying peripheral nerves and occludes the vasa nervorum. This leads to focal ischemia and mechanical deformation of the myelin sheath under the edges of the tourniquet, resulting in a first-degree/neuropraxic injury. Recovery is typically complete within a few weeks as the Schwann cells repair the damaged myelin."
+        },
+        {
+          "scenario": "Intraneural Needle Insertion & Neuropathy",
+          "anatomicalBasis": "During regional anesthesia, if the block needle penetrates the **perineurium** (an intraneural, intrafascicular injection), the high injection pressure inside the tight fascicle exceeds the capillary perfusion pressure. This causes focal ischemia, inflammatory cell infiltration, and physical disruption of the endoneurial tubes (Sunderland third-degree injury), leading to persistent, painful postoperative neurological deficits and potentially permanent neuroma formation."
+        }
+      ]
+    }
+  ],
+  "crossReferenceKeys": [
+    "cell_neuro_membrane_potentials",
+    "phys_pain_nociception",
+    "phys_neuro_autonomic_outflow",
+    "path_neuropraxia_spinal_roots",
+    "path_tourniquet_ischemia"
+  ]
+}
