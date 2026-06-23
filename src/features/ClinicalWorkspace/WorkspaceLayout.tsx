@@ -147,7 +147,7 @@ export const WorkspaceLayout: React.FC<WorkspaceLayoutProps> = (props) => {
   );
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-slate-950 font-sans text-slate-100 relative">
+    <div className="flex h-screen w-full overflow-hidden bg-slate-950 font-sans text-slate-100 relative">
       {/* 1. FAR LEFT: Icon-Only Organ Switcher Dock (64px wide) */}
       <aside className="w-16 border-r border-white/5 bg-slate-900 flex flex-col items-center py-4 justify-between shrink-0 z-30">
         <div className="flex flex-col items-center gap-6 w-full">
