@@ -29,6 +29,12 @@ import { useClinicalHistory, HistoryItem } from '../hooks/useClinicalHistory';
 import { ExamStepsTab } from '../features/ExamView/ExamStepsTab';
 import { ExamVisualsTab } from '../features/ExamView/ExamVisualsTab';
 import { ExamOnePagerTab } from '../features/ExamView/ExamOnePagerTab';
+import { PathoSignDetail } from '../features/ExamView/PathoSignDetail';
+import { StepsDetail } from '../features/ExamView/StepsDetail';
+import { PhysiologyDetail } from '../features/ExamView/PhysiologyDetail';
+import { ClinicalDetail } from '../features/ExamView/ClinicalDetail';
+import { MainPhysiologyTabContent } from '../features/ExamView/MainPhysiologyTabContent';
+import { MainClinicalTabContent } from '../features/ExamView/MainClinicalTabContent';
 
 interface ExamViewProps {
   exam?: Examination;
@@ -302,238 +308,41 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
     // If clinical correlation sign is selected
     if (selectedPathoSign) {
       return (
-        <div className="space-y-6">
-          <div className="flex items-center justify-between border-b border-white/5 pb-4">
-            <h3 className="text-sm font-black text-rose-400 uppercase tracking-widest">
-              {selectedPathoSign}
-            </h3>
-            <button
-              onClick={() => setSelectedPathoSign(null)}
-              className="p-1 hover:bg-slate-950/40/5 rounded-lg text-slate-400 hover:text-white"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
-
-          {loadingPathoData ? (
-            <div className="py-20 flex flex-col items-center justify-center gap-3">
-              <div className="w-6 h-6 border-2 border-rose-500/20 border-t-rose-500 rounded-full animate-spin" />
-              <span className="text-[9px] font-black uppercase text-slate-400">
-                Querying Diagnostics...
-              </span>
-            </div>
-          ) : pathoSignData ? (
-            <div className="space-y-6 text-slate-300">
-              <div className="bg-rose-950/20 border border-rose-500/20 rounded-2xl p-5">
-                <span className="text-[9px] font-black uppercase tracking-wider text-rose-400 block mb-2">
-                  Pathophysiology
-                </span>
-                <p className="text-xs font-bold leading-relaxed">{pathoSignData.pathophysiology}</p>
-              </div>
-
-              <div className="space-y-3">
-                <span className="text-[9px] font-black uppercase tracking-wider text-slate-400 block">
-                  Common Causes
-                </span>
-                <ul className="space-y-2">
-                  {pathoSignData.causes.map((cause, i) => (
-                    <li
-                      key={i}
-                      className="bg-slate-950/40/5 border border-white/5 rounded-xl px-4 py-3 text-xs font-bold flex items-center gap-2"
-                    >
-                      <div className="w-1.5 h-1.5 rounded-full bg-rose-950/200" />
-                      {cause}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="bg-slate-950/40/5 border border-white/5 rounded-2xl p-5">
-                <span className="text-[9px] font-black uppercase tracking-wider text-slate-400 block mb-2">
-                  Clinical Significance
-                </span>
-                <p className="text-xs font-semibold leading-relaxed">
-                  {pathoSignData.clinicalSignificance}
-                </p>
-              </div>
-
-              {pathoSignData.affectedAnatomy && (
-                <div className="bg-indigo-950/20 border border-indigo-500/10 rounded-2xl p-5">
-                  <span className="text-[9px] font-black uppercase tracking-wider text-indigo-400 block mb-2">
-                    Anatomical Focus
-                  </span>
-                  <p className="text-xs font-bold leading-relaxed">
-                    {pathoSignData.affectedAnatomy}
-                  </p>
-                </div>
-              )}
-            </div>
-          ) : (
-            <p className="text-xs text-slate-400 italic">
-              Failed to retrieve clinical correlation.
-            </p>
-          )}
-        </div>
+        <PathoSignDetail
+          selectedPathoSign={selectedPathoSign}
+          setSelectedPathoSign={setSelectedPathoSign}
+          loadingPathoData={loadingPathoData}
+          pathoSignData={pathoSignData}
+        />
       );
     }
 
     if (activeTab === 'steps') {
       return (
-        <div className="space-y-6">
-          <div className="border-b border-white/5 pb-4">
-            <span className="text-[9px] font-black text-indigo-400 uppercase tracking-widest block mb-1">
-              Dossier Highlights
-            </span>
-            <h3 className="text-sm font-black text-white uppercase tracking-wider">{exam.name}</h3>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3">
-            <div className="bg-slate-950/40 border border-white/5 rounded-2xl p-4 flex flex-col justify-center">
-              <span className="text-[8px] font-black text-slate-400 uppercase tracking-wider mb-1">
-                Estimated Time
-              </span>
-              <div className="flex items-center gap-1.5 text-xs font-black text-slate-200">
-                <Clock className="w-3.5 h-3.5 text-slate-450" />
-                <span>12-15 Min</span>
-              </div>
-            </div>
-            {exam.referenceStandard && (
-              <div className="bg-slate-950/40 border border-white/5 rounded-2xl p-4 flex flex-col justify-center">
-                <span className="text-[8px] font-black text-slate-400 uppercase tracking-wider mb-1">
-                  Reference Level
-                </span>
-                <span
-                  className="text-xs font-black text-indigo-400 truncate"
-                  title={exam.referenceStandard}
-                >
-                  {exam.referenceStandard}
-                </span>
-              </div>
-            )}
-          </div>
-
-          <div className="bg-slate-950/40 border border-white/5 rounded-2xl p-5 space-y-4">
-            <div className="flex items-center justify-between">
-              <span className="text-[9px] font-black text-slate-400 uppercase tracking-wider">
-                OSCE Progress
-              </span>
-              <span className="text-xs font-black text-emerald-450">{progress}%</span>
-            </div>
-            <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-linear-to-r from-indigo-500 to-emerald-500 transition-all duration-1000"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-            <div className="flex justify-between text-[8px] font-black text-slate-550 uppercase tracking-widest">
-              <span>{checkedSteps.size} Checked</span>
-              <span>{exam.steps.length - checkedSteps.size} Left</span>
-            </div>
-          </div>
-
-          <div className="bg-slate-950/50 rounded-2xl p-5 border border-white/5 space-y-4">
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-indigo-400 animate-pulse" />
-              <span className="text-[10px] font-black uppercase tracking-wider text-slate-300">
-                AI Protocol Refinement
-              </span>
-            </div>
-            <p className="text-[9px] font-medium text-slate-400 leading-relaxed">
-              Ask AI to add details, pathophysiology, or specific stigmata findings to this
-              protocol.
-            </p>
-            <textarea
-              value={refinementPrompt}
-              onChange={(e) => setRefinementPrompt(e.target.value)}
-              placeholder="e.g. Add details for auscultatory zones..."
-              className="w-full bg-slate-900 border border-white/5 rounded-xl p-3 text-xs outline-none focus:border-indigo-500 min-h-[90px] resize-none text-slate-350 placeholder:text-slate-400"
-              disabled={isRefining}
-            />
-            <button
-              onClick={handleRefine}
-              disabled={isRefining || !refinementPrompt.trim()}
-              className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg shadow-indigo-900/40 transition-all"
-            >
-              {isRefining ? (
-                <RefreshCw className="w-3.5 h-3.5 animate-spin" />
-              ) : (
-                <Send className="w-3.5 h-3.5" />
-              )}
-              Refine Protocol
-            </button>
-            {showUndo && (
-              <button
-                onClick={handleUndoRefine}
-                className="w-full py-2 bg-amber-950/40 border border-amber-500/20 text-amber-400 hover:text-white rounded-xl text-[9px] font-black uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-amber-900/40 transition-all"
-              >
-                <RotateCcw className="w-3 h-3" />
-                Undo Refinement
-              </button>
-            )}
-          </div>
-        </div>
+        <StepsDetail
+          exam={exam}
+          progress={progress}
+          checkedSteps={checkedSteps}
+          refinementPrompt={refinementPrompt}
+          setRefinementPrompt={setRefinementPrompt}
+          isRefining={isRefining}
+          handleRefine={handleRefine}
+          showUndo={showUndo}
+          handleUndoRefine={handleUndoRefine}
+        />
       );
     }
 
     if (activeTab === 'physiology') {
       const bucketIndex = selectedPhysiologyBucket ?? 0;
       const bucket = exam.physiologyBuckets?.[bucketIndex];
-      if (!bucket) return null;
-
-      return (
-        <div className="space-y-6">
-          <div className="border-b border-white/5 pb-4">
-            <span className="text-[9px] font-black text-emerald-400 uppercase tracking-widest block mb-1">
-              Physiological Sub-Matrix
-            </span>
-            <h3 className="text-sm font-black text-white uppercase tracking-wider">
-              {bucket.title}
-            </h3>
-          </div>
-
-          <div className="space-y-4">
-            {bucket.content.map((item, i) => (
-              <div
-                key={i}
-                className="bg-slate-950/40/5 border border-white/5 rounded-2xl p-5 hover:border-emerald-500/20 transition-all"
-              >
-                <span className="text-[10px] font-black text-emerald-400 block mb-2 uppercase tracking-wide">
-                  {item.label}
-                </span>
-                <p className="text-xs font-medium text-slate-300 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      );
+      return <PhysiologyDetail bucket={bucket} />;
     }
 
     if (activeTab === 'clinical') {
       const diffIndex = selectedDifferentialIndex ?? 0;
       const diff = exam.differentialDiagnoses?.[diffIndex];
-      if (!diff) return null;
-
-      return (
-        <div className="space-y-6">
-          <div className="border-b border-white/5 pb-4">
-            <span className="text-[9px] font-black text-rose-400 uppercase tracking-widest block mb-1">
-              Diagnostic Detail
-            </span>
-            <h3 className="text-sm font-black text-white uppercase tracking-wider">
-              {diff.condition}
-            </h3>
-          </div>
-
-          <div className="bg-slate-950/40/5 border border-white/5 rounded-2xl p-5 leading-relaxed">
-            <span className="text-[9px] font-black text-rose-400 uppercase tracking-wider block mb-2">
-              Clinical Explanation
-            </span>
-            <p className="text-xs font-semibold text-slate-300">{diff.explanation}</p>
-          </div>
-        </div>
-      );
+      return <ClinicalDetail diff={diff} />;
     }
 
     return (
@@ -671,91 +480,20 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
         )}
 
         {activeTab === 'physiology' && (
-          <div className="space-y-6">
-            <div className="bg-slate-900/50 border border-white/5 rounded-3xl p-6">
-              <h3 className="text-sm font-black text-white uppercase tracking-widest mb-2 flex items-center gap-2">
-                <Activity className="w-4 h-4 text-emerald-400" /> Physiological Mechanics
-              </h3>
-              <p className="text-xs font-semibold text-slate-400 leading-relaxed">
-                Click any of the sub-systems below to open the deep-dive mechanical simulator,
-                pressure-volume loop, or clinical values in the detail panel.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {exam.physiologyBuckets?.map((bucket, idx) => (
-                <div
-                  key={idx}
-                  onClick={() => {
-                    setSelectedPhysiologyBucket(idx);
-                    addToHistory('physiology', bucket.title);
-                  }}
-                  className={`p-5 rounded-2xl border cursor-pointer transition-all duration-300 ${
-                    selectedPhysiologyBucket === idx
-                      ? 'bg-emerald-950/10 border-emerald-500/40 shadow-lg shadow-emerald-950/40'
-                      : 'bg-slate-900/60 border-white/5 hover:border-white/10'
-                  }`}
-                >
-                  <span className="text-[9px] font-black uppercase text-slate-400 tracking-wider">
-                    Sub-Matrix {idx + 1}
-                  </span>
-                  <h4 className="text-xs font-black text-white uppercase tracking-tight mt-1 mb-2">
-                    {bucket.title}
-                  </h4>
-                  <p className="text-[10px] font-bold text-slate-400 truncate">
-                    {bucket.content.map((c) => c.label).join(' • ')}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <MainPhysiologyTabContent
+            exam={exam}
+            selectedPhysiologyBucket={selectedPhysiologyBucket}
+            setSelectedPhysiologyBucket={setSelectedPhysiologyBucket}
+            addToHistory={addToHistory}
+          />
         )}
 
         {activeTab === 'clinical' && (
-          <div className="space-y-6">
-            <div className="bg-rose-950/15 border border-rose-500/20 rounded-3xl p-6">
-              <h3 className="text-sm font-black text-rose-400 uppercase tracking-widest mb-2 flex items-center gap-2">
-                <AlertCircle className="w-4 h-4" /> Critical Red Flags
-              </h3>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4">
-                {exam.redFlags?.map((flag, idx) => (
-                  <li
-                    key={idx}
-                    className="bg-slate-900/40 border border-white/5 rounded-xl px-4 py-3 text-xs font-semibold flex items-center gap-2.5"
-                  >
-                    <div className="w-2 h-2 rounded-full bg-rose-950/200 shrink-0" />
-                    <span>{flag}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="space-y-4">
-              <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block">
-                Differential Diagnoses
-              </span>
-              <div className="grid grid-cols-1 gap-3">
-                {exam.differentialDiagnoses?.map((dd, idx) => (
-                  <div
-                    key={idx}
-                    onClick={() => setSelectedDifferentialIndex(idx)}
-                    className={`p-5 rounded-2xl border cursor-pointer transition-all duration-300 ${
-                      selectedDifferentialIndex === idx
-                        ? 'bg-rose-950/10 border-rose-500/40 shadow-lg shadow-rose-900/20'
-                        : 'bg-slate-900/60 border-white/5 hover:border-white/10'
-                    }`}
-                  >
-                    <h4 className="text-xs font-black text-white uppercase tracking-wider mb-1">
-                      {dd.condition}
-                    </h4>
-                    <p className="text-[10px] font-semibold text-slate-400 leading-relaxed line-clamp-2">
-                      {dd.explanation}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <MainClinicalTabContent
+            exam={exam}
+            selectedDifferentialIndex={selectedDifferentialIndex}
+            setSelectedDifferentialIndex={setSelectedDifferentialIndex}
+          />
         )}
 
         {activeTab === 'visuals' && (
