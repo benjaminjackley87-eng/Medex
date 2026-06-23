@@ -5,7 +5,7 @@ import { AppliedAnatomyModuleSchema } from '../src/types/appliedAnatomySchema';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const DATA_DIR = path.resolve(__dirname, '../data/applied_anatomy');
+const DATA_DIR = path.resolve(__dirname, '../src/data/applied_anatomy');
 
 // 1. JSON Auto-Repair
 export function attemptJSONRepair(rawText: string): any {

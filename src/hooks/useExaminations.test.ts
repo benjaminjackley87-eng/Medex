@@ -3,6 +3,7 @@ import { renderHook, act } from '@testing-library/react';
 import { useExaminations } from './useExaminations';
 import { useAppStore } from '../store/useAppStore';
 import { storage } from '../services/storageService';
+import { ExamSystem } from '../types';
 
 vi.mock('../services/storageService', () => ({
   storage: {
@@ -26,7 +27,7 @@ describe('useExaminations', () => {
   it('groups examinations by system by default', () => {
     const { result } = renderHook(() => useExaminations());
     expect(result.current.displayGroups).toHaveProperty('Cardiovascular');
-    expect(result.current.displayGroups).toHaveProperty('Respiratory');
+    expect(result.current.displayGroups).toHaveProperty(ExamSystem.RESPIRATORY);
     expect(result.current.examinations.length).toBeGreaterThan(0);
   });
 
@@ -78,9 +79,9 @@ describe('useExaminations', () => {
   });
 
   it('filters displayGroups by selectedSystem if one is set', () => {
-    useAppStore.setState({ selectedSystem: 'Respiratory' });
+    useAppStore.setState({ selectedSystem: ExamSystem.RESPIRATORY });
     const { result } = renderHook(() => useExaminations());
     
-    expect(Object.keys(result.current.displayGroups)).toEqual(['Respiratory']);
+    expect(Object.keys(result.current.displayGroups)).toEqual([ExamSystem.RESPIRATORY]);
   });
 });

@@ -1,4 +1,4 @@
-import graphData from '../../data/graph_index';
+import GRAPH_DATA from '../data/graph_index.json';
 
 export interface GraphNode {
   id: string;
@@ -20,7 +20,7 @@ export interface GraphIndex {
 }
 
 // Cast imported JSON data to structural type
-const graph = graphData as unknown as GraphIndex;
+const graph = GRAPH_DATA as unknown as GraphIndex;
 
 export const graphQueryEngine = {
   /**

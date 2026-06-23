@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { LucideIcon } from 'lucide-react';
 
 import MedImage from '../common/MedImage';
-import ImageModal from '../ImageModal';
+import ImageModal from '../common/ImageModal';
 
 interface DetailSection {
   label: string;

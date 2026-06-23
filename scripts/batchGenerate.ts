@@ -5,7 +5,7 @@ import { execSync } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const DATA_DIR = path.resolve(__dirname, '../data/applied_anatomy');
+const DATA_DIR = path.resolve(__dirname, '../src/data/applied_anatomy');
 const OBJECTIVES_PATH = path.resolve(__dirname, '../unique_learning_objectives.md');
 
 function loadObjectives(): { code: string; text: string }[] {

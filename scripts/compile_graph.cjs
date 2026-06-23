@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 function compileGraph(inputDir, outPath) {
-  const jsonDir = inputDir || path.join(__dirname, '..', 'data', 'applied_anatomy');
-  const outputPath = outPath || path.join(__dirname, '..', 'data', 'graph_index.json');
+  const jsonDir = inputDir || path.join(__dirname, '..', 'src', 'data', 'applied_anatomy');
+  const outputPath = outPath || path.join(__dirname, '..', 'src', 'data', 'graph_index.json');
 
   console.log('Compiling Knowledge Graph Index from:', jsonDir);
 

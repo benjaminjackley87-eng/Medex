@@ -6,7 +6,7 @@ import { ConceptSchema } from '../src/types/appliedAnatomySchema';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const DATA_DIR = path.resolve(__dirname, '../data/applied_anatomy');
+const DATA_DIR = path.resolve(__dirname, '../src/data/applied_anatomy');
 const OBJECTIVES_PATH = path.resolve(__dirname, '../unique_learning_objectives.md');
 
 // 1. Environment Variable Loader
@@ -284,7 +284,7 @@ async function runPipeline() {
     process.exit(1);
   }
 
-  const draftObj = validationResult.data;
+  draftObj = validationResult.data;
 
   // --- STEP 2: CRITIC REVIEW & REFLECTION LOOP ---
   let finalDraftObj = draftObj;

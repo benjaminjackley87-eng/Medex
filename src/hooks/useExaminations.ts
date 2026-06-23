@@ -28,17 +28,19 @@ export function useExaminations() {
       const q = searchQuery.toLowerCase();
       filtered = filtered.filter(
         (e) =>
-          e.name.toLowerCase().includes(q) ||
-          e.shortDescription.toLowerCase().includes(q) ||
-          e.system.toLowerCase().includes(q) ||
-          e.keywords.some((k) => k.toLowerCase().includes(q)) ||
+          e.name?.toLowerCase().includes(q) ||
+          e.shortDescription?.toLowerCase().includes(q) ||
+          e.system?.toLowerCase().includes(q) ||
+          e.keywords?.some((k) => k.toLowerCase().includes(q)) ||
           (e.differentialDiagnoses || []).some((dd) => dd.condition.toLowerCase().includes(q))
       );
 
       if (filtered.length === 0 && searchQuery.trim().length > 2) {
         const allCandidates: string[] = [];
         EXAMINATIONS.forEach((e) => {
-          allCandidates.push(e.name, e.system, ...e.keywords);
+          if (e.name) allCandidates.push(e.name);
+          if (e.system) allCandidates.push(e.system);
+          if (e.keywords) allCandidates.push(...e.keywords);
           e.differentialDiagnoses?.forEach((dd) => allCandidates.push(dd.condition));
         });
         newDidYouMean = getClosestMatch(searchQuery.trim(), Array.from(new Set(allCandidates)));
@@ -98,8 +100,8 @@ export function useExaminations() {
     return downloadedExams.filter(
       (e) =>
         !searchQuery ||
-        e.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        e.system.toLowerCase().includes(searchQuery.toLowerCase())
+        e.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        e.system?.toLowerCase().includes(searchQuery.toLowerCase())
     );
   }, [downloadedExams, searchQuery]);
 

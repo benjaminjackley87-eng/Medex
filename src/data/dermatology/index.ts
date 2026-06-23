@@ -3,7 +3,7 @@ import { ExamSystem, Examination } from '../../types';
 export const dermatologyExaminations: Examination[] = [
   {
     id: 'derm-general',
-    system: ExamSystem.DERMATOLOGY,
+    system: ExamSystem.SPECIALTY,
     name: 'General Dermatological Examination',
     shortDescription: 'Systematic approach to skin, hair, and nail assessment, following DermNet NZ standards.',
     keywords: ['skin', 'hair', 'nails', 'morphology', 'dermnet', 'dermatology'],
@@ -100,7 +100,7 @@ export const dermatologyExaminations: Examination[] = [
   },
   {
     id: 'derm-lesion',
-    system: ExamSystem.DERMATOLOGY,
+    system: ExamSystem.SPECIALTY,
     name: 'Skin Lesion Assessment (SCALPEL)',
     shortDescription: 'A structured approach to describing any skin lesion, optimized for DermNet NZ terminology.',
     keywords: ['scalpel', 'abcde', 'melanoma', 'bcc', 'scc', 'lesion'],
