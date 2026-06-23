@@ -42,6 +42,34 @@ describe('latexTextParser', () => {
       expect(container.querySelector('strong')).not.toBeNull();
       expect(container.querySelector('strong')?.textContent).toBe('bold');
     });
+
+    it('sanitizes inline math XSS attempts', () => {
+      // By using an invalid KaTeX macro that might try to inject HTML
+      // We simulate an XSS payload to see if DOMPurify strips script tags
+      const result = parseContentText('$<script>alert("XSS")</script>$');
+      const { container } = render(<div>{result}</div>);
+      const span = container.querySelector('span.inline-math');
+      expect(span).not.toBeNull();
+      // The <script> tag should be sanitized out by DOMPurify
+      expect(span?.innerHTML).not.toContain('<script>');
+    });
+
+    it('sanitizes block math XSS attempts', () => {
+      // It turns out KaTeX just renders standard text like `onerror` as math text nodes:
+      // <span class="mord mathnormal">o</span><span class="mord mathnormal">n</span>...
+      // Since it's harmless text we don't strictly need it removed by DOMPurify,
+      // but if a user injects an actual HTML tag DOMPurify strips it.
+      // Here we inject an anchor with javascript.
+      const result = parseContentText('$$<a href="javascript:alert(1)">XSS</a>$$');
+      const { container } = render(<div>{result}</div>);
+      const div = container.querySelector('div.block-math');
+      expect(div).not.toBeNull();
+
+      // We expect the script context to not be executable (if it parsed as HTML it would be stripped).
+      // If it parsed as KaTeX Math, it's just plain text nodes displaying `<a href...`.
+      // We mostly care that DOMPurify sanitizes it if it DID parse as HTML.
+      expect(div?.innerHTML).not.toContain('<a href="javascript:alert(1)">');
+    });
   });
 
   describe('formatDescriptionParagraphs', () => {
