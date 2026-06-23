@@ -1,5 +1,6 @@
 import React from 'react';
 import katex from 'katex';
+import DOMPurify from 'isomorphic-dompurify';
 import 'katex/dist/katex.min.css';
 
 // Helper to format camelCase, snake_case keys into Title Case words
@@ -30,7 +31,8 @@ export const renderInlineMath = (
 ) => {
   try {
     const html = katex.renderToString(math, { displayMode: false, throwOnError: false });
-    return <span dangerouslySetInnerHTML={{ __html: html }} className={className} />;
+    const cleanHtml = DOMPurify.sanitize(html);
+    return <span dangerouslySetInnerHTML={{ __html: cleanHtml }} className={className} />;
   } catch (e) {
     return <span className="text-amber-600 font-mono">${math}$</span>;
   }
@@ -43,7 +45,8 @@ export const renderBlockMath = (
 ) => {
   try {
     const html = katex.renderToString(math, { displayMode: true, throwOnError: false });
-    return <div dangerouslySetInnerHTML={{ __html: html }} className={className} />;
+    const cleanHtml = DOMPurify.sanitize(html);
+    return <div dangerouslySetInnerHTML={{ __html: cleanHtml }} className={className} />;
   } catch (e) {
     return <div className="text-amber-500 font-mono text-center my-3">$${math}$$</div>;
   }
