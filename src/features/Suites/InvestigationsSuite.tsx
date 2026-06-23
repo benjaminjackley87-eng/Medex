@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Microscope, Activity, Layers, Calculator, AlertCircle } from 'lucide-react';
 import SuiteLayout, { SuiteTab } from '../../components/ui/SuiteLayout';
 import InvestigationHub from '../../components/common/InvestigationHub';
@@ -10,7 +11,7 @@ import GlowContainer from '../../components/ui/GlowContainer';
 interface InvestigationsSuiteProps {
   initialSearchQuery?: string;
   onSearchHandled?: () => void;
-  onBack: () => void;
+  onBack?: () => void;
 }
 
 /**
@@ -23,6 +24,8 @@ export const InvestigationsSuite: React.FC<InvestigationsSuiteProps> = ({
   onSearchHandled,
   onBack
 }) => {
+  const navigate = useNavigate();
+  const handleBack = onBack || (() => navigate('/'));
   const [activeTab, setActiveTab] = useState<string>('labs');
   const [activeDetail, setActiveDetail] = useState<React.ReactNode | null>(null);
 
@@ -157,7 +160,7 @@ export const InvestigationsSuite: React.FC<InvestigationsSuiteProps> = ({
         activeTab={activeTab}
         tabs={tabs}
         onSelectTab={setActiveTab}
-        onBack={onBack}
+        onBack={handleBack}
         themeClass="from-emerald-600 to-teal-800"
         sidebarTitle="Diagnostics List"
         sidebarIcon={Microscope}

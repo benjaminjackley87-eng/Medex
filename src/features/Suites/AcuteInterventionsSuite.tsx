@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ShieldAlert, Wrench, Syringe, Layers, AlertCircle } from 'lucide-react';
 import SuiteLayout, { SuiteTab } from '../../components/ui/SuiteLayout';
 import { AcuteCareView } from '../../pages/AcuteCareView';
@@ -9,7 +10,7 @@ import GlowContainer from '../../components/ui/GlowContainer';
 
 interface AcuteInterventionsSuiteProps {
   isEditMode?: boolean;
-  onBack: () => void;
+  onBack?: () => void;
 }
 
 /**
@@ -21,6 +22,8 @@ export const AcuteInterventionsSuite: React.FC<AcuteInterventionsSuiteProps> = (
   isEditMode = false,
   onBack
 }) => {
+  const navigate = useNavigate();
+  const handleBack = onBack || (() => navigate('/'));
   const [activeTab, setActiveTab] = useState<string>('acuteCare');
   const [activeDetail, setActiveDetail] = useState<React.ReactNode | null>(null);
 
@@ -152,7 +155,7 @@ export const AcuteInterventionsSuite: React.FC<AcuteInterventionsSuiteProps> = (
         activeTab={activeTab}
         tabs={tabs}
         onSelectTab={setActiveTab}
-        onBack={onBack}
+        onBack={handleBack}
         themeClass="from-red-600 to-rose-900"
         sidebarTitle="Interventions"
         sidebarIcon={ShieldAlert}

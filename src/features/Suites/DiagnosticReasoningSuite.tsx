@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Activity, Search, GitBranch, Sparkles, AlertCircle } from 'lucide-react';
 import SuiteLayout, { SuiteTab } from '../../components/ui/SuiteLayout';
 import SymptomChecker from '../../pages/SymptomChecker';
@@ -9,10 +10,10 @@ import GlowContainer from '../../components/ui/GlowContainer';
 import { Examination } from '../../types';
 
 interface DiagnosticReasoningSuiteProps {
-  onSelectExam: (exam: Examination) => void;
-  onNavigateToInvestigations: (query: string) => void;
-  onNavigateToGlossary: (term: string | undefined) => void;
-  onBack: () => void;
+  onSelectExam?: (exam: Examination) => void;
+  onNavigateToInvestigations?: (query: string) => void;
+  onNavigateToGlossary?: (term: string | undefined) => void;
+  onBack?: () => void;
 }
 
 /**
@@ -26,6 +27,11 @@ export const DiagnosticReasoningSuite: React.FC<DiagnosticReasoningSuiteProps> =
   onNavigateToGlossary,
   onBack
 }) => {
+  const navigate = useNavigate();
+  const handleSelectExam = onSelectExam || ((exam: Examination) => navigate(`/exam/${exam.id}`));
+  const handleNavigateToInvestigations = onNavigateToInvestigations || (() => navigate('/investigations-hub'));
+  const handleNavigateToGlossary = onNavigateToGlossary || (() => navigate('/foundations'));
+  const handleBack = onBack || (() => navigate('/'));
   const [activeTab, setActiveTab] = useState<string>('symptomChecker');
   const [activeDetail, setActiveDetail] = useState<React.ReactNode | null>(null);
 
@@ -104,28 +110,28 @@ export const DiagnosticReasoningSuite: React.FC<DiagnosticReasoningSuiteProps> =
       case 'symptomChecker':
         return (
           <div className="bg-slate-900/40 backdrop-blur-xl border border-white/5 rounded-[32px] p-2">
-            <SymptomChecker onSelectExam={onSelectExam} />
+            <SymptomChecker onSelectExam={handleSelectExam} />
           </div>
         );
       case 'finder':
         return (
           <div className="bg-slate-900/40 backdrop-blur-xl border border-white/5 rounded-[32px] p-2">
-            <ClinicalFinder onNavigateToGlossary={onNavigateToGlossary} />
+            <ClinicalFinder onNavigateToGlossary={handleNavigateToGlossary} />
           </div>
         );
       case 'correlation':
         return (
           <div className="bg-slate-900/40 backdrop-blur-xl border border-white/5 rounded-[32px] p-2">
             <ClinicalCorrelationView
-              onNavigateToInvestigations={onNavigateToInvestigations}
-              onNavigateToGlossary={onNavigateToGlossary}
+              onNavigateToInvestigations={handleNavigateToInvestigations}
+              onNavigateToGlossary={handleNavigateToGlossary}
             />
           </div>
         );
       case 'dermRevisor':
         return (
           <div className="bg-slate-900/40 backdrop-blur-xl border border-white/5 rounded-[32px] p-2">
-            <DermatologyRevisor onBack={onBack} />
+            <DermatologyRevisor onBack={handleBack} />
           </div>
         );
       default:
@@ -167,7 +173,7 @@ export const DiagnosticReasoningSuite: React.FC<DiagnosticReasoningSuiteProps> =
         activeTab={activeTab}
         tabs={tabs}
         onSelectTab={setActiveTab}
-        onBack={onBack}
+        onBack={handleBack}
         themeClass="from-indigo-600 to-violet-900"
         sidebarTitle="Diagnostic Scope"
         sidebarIcon={GitBranch}

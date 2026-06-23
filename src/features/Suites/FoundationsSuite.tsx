@@ -1,4 +1,5 @@
 import React, { useState, Suspense, lazy } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Atom, BookOpen, Pill, Brain, Zap, Loader2, FlaskConical } from 'lucide-react';
 import SuiteLayout, { SuiteTab } from '../../components/ui/SuiteLayout';
 import GlowContainer from '../../components/ui/GlowContainer';
@@ -11,7 +12,7 @@ const NeuropraxiaView = lazy(() => import('../../pages/NeuropraxiaView'));
 const GlossaryView = lazy(() => import('../../pages/GlossaryView'));
 
 interface FoundationsSuiteProps {
-  onBack: () => void;
+  onBack?: () => void;
 }
 
 /** Loading fallback used inside each tab */
@@ -41,6 +42,8 @@ const TabLoader = () => (
  *   Col 3 (Detail)   — Quick reference / concept flashcard
  */
 export const FoundationsSuite: React.FC<FoundationsSuiteProps> = ({ onBack }) => {
+  const navigate = useNavigate();
+  const handleBack = onBack || (() => navigate('/'));
   const [activeTab, setActiveTab] = useState<string>('sciences');
 
   const tabs: SuiteTab[] = [
@@ -176,7 +179,7 @@ export const FoundationsSuite: React.FC<FoundationsSuiteProps> = ({ onBack }) =>
       case 'sciences':
         return (
           <Suspense fallback={<TabLoader />}>
-            <SciencesExplorer onBack={onBack} />
+            <SciencesExplorer onBack={handleBack} />
           </Suspense>
         );
       case 'pharmacology':
@@ -200,7 +203,7 @@ export const FoundationsSuite: React.FC<FoundationsSuiteProps> = ({ onBack }) =>
       case 'glossary':
         return (
           <Suspense fallback={<TabLoader />}>
-            <GlossaryView onBack={onBack} />
+            <GlossaryView onBack={handleBack} />
           </Suspense>
         );
       default:
@@ -260,7 +263,7 @@ export const FoundationsSuite: React.FC<FoundationsSuiteProps> = ({ onBack }) =>
         activeTab={activeTab}
         tabs={tabs}
         onSelectTab={setActiveTab}
-        onBack={onBack}
+        onBack={handleBack}
         themeClass="from-cyan-500 to-blue-900"
         sidebarTitle="Module Guide"
         sidebarIcon={Atom}

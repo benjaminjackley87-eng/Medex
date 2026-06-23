@@ -25,7 +25,14 @@ import KnowledgeGraphExplorer from './pages/KnowledgeGraphExplorer';
 import AnaestheticsCCView from './pages/AnaestheticsCCView';
 import WorkspaceLayout from './features/ClinicalWorkspace/WorkspaceLayout';
 import DevAssistant from './pages/DevAssistant';
-import { InvestigationHub } from './features/InvestigationHub';
+import DiagnosticReasoningSuite from './features/Suites/DiagnosticReasoningSuite';
+import InvestigationsSuite from './features/Suites/InvestigationsSuite';
+import TherapeuticsSuite from './features/Suites/TherapeuticsSuite';
+import AcuteInterventionsSuite from './features/Suites/AcuteInterventionsSuite';
+import FoundationsSuite from './features/Suites/FoundationsSuite';
+import StudyHubView from './pages/StudyHubView';
+import DownloadManager from './components/common/DownloadManager';
+
 
 function AppLayout() {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
@@ -63,46 +70,46 @@ export default function App() {
           <Route path="/exam/:id" element={<ExamView />} />
 
           {/* Sidebar: Diagnostic Reasoning suite */}
-          <Route path="/diagnostic-reasoning" element={<SymptomChecker />} />
+          <Route path="/diagnostic-reasoning" element={<DiagnosticReasoningSuite />} />
           <Route path="/symptom-checker" element={<SymptomChecker />} />
           <Route path="/finder" element={<ClinicalFinder />} />
           <Route path="/search" element={<ClinicalFinder />} />
 
           {/* Sidebar: Investigations Hub suite */}
-          <Route path="/investigations-hub" element={<InvestigationHub />} />
-          <Route path="/investigations" element={<InvestigationHub />} />
+          <Route path="/investigations-hub" element={<InvestigationsSuite />} />
+          <Route path="/investigations" element={<InvestigationsSuite />} />
           <Route path="/ecg" element={<ECGView />} />
           <Route path="/radiology" element={<RadiologyView />} />
           <Route path="/clinical-calculators" element={<ClinicalCalculatorsView />} />
           <Route path="/calculators" element={<ClinicalCalculatorsView />} />
 
           {/* Sidebar: Therapeutics & Tox suite */}
-          <Route path="/therapeutics-tox" element={<TherapeuticNavigator />} />
+          <Route path="/therapeutics-tox" element={<TherapeuticsSuite />} />
           <Route path="/therapeutic-navigator" element={<TherapeuticNavigator />} />
-          <Route path="/therapeutics" element={<TherapeuticNavigator />} />
+          <Route path="/therapeutics" element={<TherapeuticsSuite />} />
           <Route path="/pharmacology" element={<PharmacologyView />} />
           <Route path="/generic-pharmacology" element={<GenericPharmacologyView />} />
           <Route path="/pharmacology-tox" element={<PharmacologyToxView />} />
           <Route path="/immunisation" element={<ImmunisationView />} />
 
           {/* Sidebar: Acute Interventions suite */}
-          <Route path="/acute-interventions" element={<AcuteCareView />} />
-          <Route path="/acute" element={<AcuteCareView />} />
+          <Route path="/acute-interventions" element={<AcuteInterventionsSuite />} />
+          <Route path="/acute" element={<AcuteInterventionsSuite />} />
           <Route path="/procedures" element={<ProceduresView />} />
           <Route path="/anaesthetics-cc" element={<AnaestheticsCCView />} />
           <Route path="/anaesthetics" element={<AnaestheticsCCView />} />
           <Route path="/neuropraxia" element={<NeuropraxiaView />} />
 
           {/* Sidebar: Foundations suite */}
-          <Route path="/foundations" element={<SciencesExplorer />} />
+          <Route path="/foundations" element={<FoundationsSuite />} />
           <Route path="/sciences-explorer" element={<SciencesExplorer />} />
-          <Route path="/sciences" element={<SciencesExplorer />} />
+          <Route path="/sciences" element={<FoundationsSuite />} />
           <Route path="/glossary" element={<GlossaryView />} />
 
           {/* Resources & System */}
-          <Route path="/study-hub" element={<DashboardView />} />
+          <Route path="/study-hub" element={<StudyHubView />} />
           <Route path="/knowledge-graph" element={<KnowledgeGraphExplorer />} />
-          <Route path="/downloads" element={<DashboardView />} />
+          <Route path="/downloads" element={<DownloadManager />} />
           <Route path="/tutorial" element={<TutorialView />} />
           <Route path="/settings" element={<SettingsView />} />
 
