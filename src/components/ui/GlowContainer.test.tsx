@@ -19,7 +19,7 @@ describe('GlowContainer', () => {
         <div>Test Content</div>
       </GlowContainer>
     );
-    
+
     // We expect the emerald theme to have specific tailwind classes for the gradient
     const gradientRings = container.querySelectorAll('.bg-gradient-radial');
     expect(gradientRings.length).toBe(2);
@@ -34,7 +34,7 @@ describe('GlowContainer', () => {
         <div>Test Content</div>
       </GlowContainer>
     );
-    
+
     const gradientRings = container.querySelectorAll('.bg-gradient-radial');
     expect(gradientRings[0].className).toContain('from-slate-500/5');
   });
@@ -45,7 +45,7 @@ describe('GlowContainer', () => {
         <div>Test Content</div>
       </GlowContainer>
     );
-    
+
     const wrapper = container.querySelector('.custom-wrapper-class');
     expect(wrapper).toBeInTheDocument();
   });

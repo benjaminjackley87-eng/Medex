@@ -69,7 +69,7 @@ export const DevAssistant: React.FC<DevAssistantProps> = (props) => {
 
     const userMessage = activeMsg.trim();
     if (!messageText) setInput('');
-    
+
     setMessages((prev) => [...prev, { role: 'user', content: userMessage }]);
     setIsProcessing(true);
 

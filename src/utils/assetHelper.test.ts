@@ -13,7 +13,7 @@ describe('assetHelper', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     clearAssetCache(); // ensure cache is empty
-    
+
     // Mock URL.revokeObjectURL which is not available in node/jsdom environments by default sometimes
     if (typeof URL.revokeObjectURL === 'undefined') {
       URL.revokeObjectURL = vi.fn();
@@ -50,9 +50,9 @@ describe('assetHelper', () => {
       vi.mocked(storage.getAssetUrl).mockResolvedValueOnce(mockUrl);
 
       await getLocalAssetUrl('asset-2');
-      
+
       clearAssetCache();
-      
+
       expect(URL.revokeObjectURL).toHaveBeenCalledWith(mockUrl);
 
       // Next call should fetch again

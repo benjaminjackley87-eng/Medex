@@ -83,7 +83,9 @@ const LibraryView: React.FC = () => {
                   </p>
                 </div>
                 <div className="space-y-1">
-                  <span className="text-2xl font-black text-blue-400">{downloadedExams.length}</span>
+                  <span className="text-2xl font-black text-blue-400">
+                    {downloadedExams.length}
+                  </span>
                   <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">
                     Downloaded
                   </p>

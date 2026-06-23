@@ -30,7 +30,9 @@ describe('ClinicalCard', () => {
   });
 
   it('renders image if imageUrl is provided', () => {
-    const { container } = render(<ClinicalCard {...defaultProps} imageUrl="http://example.com/test.jpg" />);
+    const { container } = render(
+      <ClinicalCard {...defaultProps} imageUrl="http://example.com/test.jpg" />
+    );
     // MedImage returns an img element or a fallback. Assuming img here.
     const img = container.querySelector('img');
     expect(img).toBeInTheDocument();
@@ -38,13 +40,15 @@ describe('ClinicalCard', () => {
   });
 
   it('opens an image modal when the image is clicked', () => {
-    const { container, getAllByAltText } = render(<ClinicalCard {...defaultProps} imageUrl="http://example.com/test.jpg" />);
+    const { container, getAllByAltText } = render(
+      <ClinicalCard {...defaultProps} imageUrl="http://example.com/test.jpg" />
+    );
     const img = container.querySelector('img');
-    
+
     // Not explicitly testing the Modal contents deeply, just that clicking it opens something
     expect(img).not.toBeNull();
     fireEvent.click(img!);
-    
+
     // A modal image should now appear in the document (so there are 2 total images with the alt text)
     const modalImages = getAllByAltText('Test Card');
     expect(modalImages.length).toBe(2);

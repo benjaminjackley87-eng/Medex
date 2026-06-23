@@ -1,4 +1,3 @@
-
 export enum ExamSystem {
   GENERAL = 'General Principles',
   CARDIOVASCULAR = 'Cardiovascular',
@@ -10,7 +9,7 @@ export enum ExamSystem {
   ENDOCRINE = 'Endocrine',
   NEUROLOGICAL = 'Nervous System',
   PAEDIATRIC = 'Paediatric & Neonatal',
-  WOMENS_HEALTH = 'Women\'s Health',
+  WOMENS_HEALTH = "Women's Health",
   SPECIALTY = 'Specialty Systems',
   MENTAL_HEALTH = 'Mental Health',
   ACUTE_CARE = 'Acute Care'
@@ -34,7 +33,7 @@ export interface ExamStep {
   id: string;
   title: string;
   description: string;
-  category: string; 
+  category: string;
   imageUrl?: string;
   localImageUrl?: string;
   positiveFindings?: ClinicalFinding[];
@@ -43,7 +42,7 @@ export interface ExamStep {
   imageConfig?: ImageConfig;
   pathophysiology?: string;
   clinicalPearls?: string[];
-    maneuverType?: ManeuverType;
+  maneuverType?: ManeuverType;
 }
 
 export interface DifferentialDiagnosis {
@@ -72,8 +71,15 @@ export interface GroundingSource {
   uri: string;
 }
 
-
-export interface ClinicalCorrelation { needsCirculationDiagram?: boolean; circulationSide?: string; circulationImageUrl?: string; needsPVLoopDiagram?: boolean; pvLoopImageUrl?: string; needsAnatomyDiagram?: boolean; affectedAnatomy?: string; anatomyImageUrl?: string;
+export interface ClinicalCorrelation {
+  needsCirculationDiagram?: boolean;
+  circulationSide?: string;
+  circulationImageUrl?: string;
+  needsPVLoopDiagram?: boolean;
+  pvLoopImageUrl?: string;
+  needsAnatomyDiagram?: boolean;
+  affectedAnatomy?: string;
+  anatomyImageUrl?: string;
   sign: string;
   pathophysiology: string;
   causes: string[];
@@ -81,7 +87,7 @@ export interface ClinicalCorrelation { needsCirculationDiagram?: boolean; circul
   sources?: GroundingSource[];
   imageUrl?: string;
   imagePrompt?: string;
-    retrievedAt?: number;
+  retrievedAt?: number;
 }
 
 export interface PhysiologyBucketItem {
@@ -112,7 +118,8 @@ export interface PatternRecognitionItem {
   color?: string;
 }
 
-export interface Examination { referenceStandard?: string;
+export interface Examination {
+  referenceStandard?: string;
   id: string;
   system: ExamSystem | string;
   name: string;
@@ -125,7 +132,7 @@ export interface Examination { referenceStandard?: string;
   headerImageConfig?: ImageConfig;
   keywords: string[];
   audioSimulations?: AudioSimulation[];
-  isDraft?: boolean; 
+  isDraft?: boolean;
   sources?: GroundingSource[];
   isDownloaded?: boolean;
   lastUpdated?: number;
@@ -299,7 +306,11 @@ export interface DrugMapping {
   note?: string;
 }
 
-export enum LearningStatus { LEARNED = 'learned', IN_PROGRESS = 'in_progress', TO_REVIEW = 'to_review' }
+export enum LearningStatus {
+  LEARNED = 'learned',
+  IN_PROGRESS = 'in_progress',
+  TO_REVIEW = 'to_review'
+}
 
 export type DownloadTaskStatus = 'pending' | 'downloading' | 'completed' | 'failed' | 'paused';
 
@@ -436,4 +447,3 @@ export interface VisualAid {
 export type DifferentialItemType = DifferentialItem;
 
 export type ManeuverType = string;
-

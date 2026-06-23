@@ -6,7 +6,7 @@ const project = new Project({
   tsConfigFilePath: 'tsconfig.json'
 });
 
-['src/pages', 'src/features', 'src/components/common', 'src/components/ui'].forEach(dir => {
+['src/pages', 'src/features', 'src/components/common', 'src/components/ui'].forEach((dir) => {
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
   }
@@ -18,7 +18,7 @@ console.log('Refactoring to Industry Standard FSD...');
 const viewsDir = project.getDirectory('src/views');
 if (viewsDir) {
   const sourceFiles = viewsDir.getSourceFiles();
-  
+
   for (const file of sourceFiles) {
     const baseName = file.getBaseName();
     console.log(`Moving ${baseName} to pages/`);
@@ -31,9 +31,9 @@ if (viewsDir) {
     const baseName = dir.getBaseName();
     console.log(`Moving feature directory ${baseName} to features/`);
     try {
-        dir.move(path.resolve(process.cwd(), 'src/features', baseName));
-    } catch(e:any) {
-        console.error(`Error moving ${baseName}:`, e.message);
+      dir.move(path.resolve(process.cwd(), 'src/features', baseName));
+    } catch (e: any) {
+      console.error(`Error moving ${baseName}:`, e.message);
     }
   }
 }
@@ -48,7 +48,7 @@ if (componentsDir) {
       console.log(`Moving component feature ${feature} to features/`);
       try {
         dir.move(path.resolve(process.cwd(), 'src/features', feature));
-      } catch(e:any) {
+      } catch (e: any) {
         console.error(`Error moving ${feature}:`, e.message);
       }
     }

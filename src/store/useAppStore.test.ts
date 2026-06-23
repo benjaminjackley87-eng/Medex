@@ -48,7 +48,13 @@ describe('useAppStore', () => {
 
   it('should correctly store study progress', () => {
     const mockProgress: StudyProgress[] = [
-      { topic: 'exam-1', questionsAttempted: 10, correctAnswers: 8, lastStudiedAt: Date.now(), masteryLevel: 80 }
+      {
+        topic: 'exam-1',
+        questionsAttempted: 10,
+        correctAnswers: 8,
+        lastStudiedAt: Date.now(),
+        masteryLevel: 80
+      }
     ];
 
     useAppStore.getState().setStudyProgress(mockProgress);

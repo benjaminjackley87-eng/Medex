@@ -76,7 +76,8 @@ export const WorkspaceLayout: React.FC<WorkspaceLayoutProps> = (props) => {
   const store = useAppStore();
 
   const activeSystem = props.activeSystem ?? store.selectedSystem ?? ExamSystem.CARDIOVASCULAR;
-  const onSelectSystem = props.onSelectSystem ?? ((sys: ExamSystem) => store.setSelectedSystem(sys));
+  const onSelectSystem =
+    props.onSelectSystem ?? ((sys: ExamSystem) => store.setSelectedSystem(sys));
   const activeExamName = props.activeExamName ?? store.selectedExam?.name ?? '';
   const activeTab = props.activeTab ?? '';
   const onSelectTab = props.onSelectTab ?? (() => {});

@@ -13,24 +13,32 @@ describe('TherapeuticNavigator', () => {
 
   it('renders the initial state', () => {
     const { getByText, getByPlaceholderText } = render(<TherapeuticNavigator />);
-    expect(getByText('Real-time therapeutic guidance grounded in local Queensland and Australian protocols.')).toBeInTheDocument();
+    expect(
+      getByText(
+        'Real-time therapeutic guidance grounded in local Queensland and Australian protocols.'
+      )
+    ).toBeInTheDocument();
     expect(getByPlaceholderText(/Search condition/i)).toBeInTheDocument();
     expect(getByText('Ready to Navigate')).toBeInTheDocument();
   });
 
   it('shows error if search fails', async () => {
-    vi.mocked(GeminiService.prototype.getTherapeuticGuidance).mockRejectedValueOnce(new Error('API Error'));
+    vi.mocked(GeminiService.prototype.getTherapeuticGuidance).mockRejectedValueOnce(
+      new Error('API Error')
+    );
 
     const { getByPlaceholderText, getByRole, getByText } = render(<TherapeuticNavigator />);
-    
+
     const input = getByPlaceholderText(/Search condition/i);
     fireEvent.change(input, { target: { value: 'Sepsis' } });
-    
+
     const searchBtn = getByRole('button', { name: /Search/i });
     fireEvent.click(searchBtn);
 
     await waitFor(() => {
-      expect(getByText('Failed to fetch therapeutic guidelines. Please try again.')).toBeInTheDocument();
+      expect(
+        getByText('Failed to fetch therapeutic guidelines. Please try again.')
+      ).toBeInTheDocument();
     });
   });
 
@@ -45,14 +53,14 @@ describe('TherapeuticNavigator', () => {
       sources: [{ title: 'eTG', uri: 'http://example.com' }],
       retrievedAt: Date.now()
     };
-    
+
     vi.mocked(GeminiService.prototype.getTherapeuticGuidance).mockResolvedValueOnce(mockGuidance);
 
     const { getByPlaceholderText, getByRole, getByText } = render(<TherapeuticNavigator />);
-    
+
     const input = getByPlaceholderText(/Search condition/i);
     fireEvent.change(input, { target: { value: 'Sepsis' } });
-    
+
     const searchBtn = getByRole('button', { name: /Search/i });
     fireEvent.click(searchBtn);
 
@@ -67,18 +75,17 @@ describe('TherapeuticNavigator', () => {
 
   it('toggles the reference URL input field', () => {
     const { getByText, queryByPlaceholderText } = render(<TherapeuticNavigator />);
-    
+
     expect(queryByPlaceholderText(/https:\/\/www.health.qld.gov.au/i)).not.toBeInTheDocument();
-    
+
     const toggleBtn = getByText('Attach Reference Pathway (URL)');
     fireEvent.click(toggleBtn);
-    
+
     expect(queryByPlaceholderText(/https:\/\/www.health.qld.gov.au/i)).toBeInTheDocument();
-    
+
     fireEvent.click(getByText('Hide Reference URL'));
-    
+
     // Note: Framer motion uses AnimatePresence, so it might not unmount immediately.
     // Testing the UI logic works: the button text changes.
   });
 });
-

@@ -33,7 +33,11 @@ import {
   Scale
 } from 'lucide-react';
 import { useClinicalSearch } from '../hooks/useClinicalSearch';
-import { INDUCTION_AGENTS, MUSCLE_RELAXANTS, EMERGENCY_DRUGS } from '../data/collections/anaesthesia';
+import {
+  INDUCTION_AGENTS,
+  MUSCLE_RELAXANTS,
+  EMERGENCY_DRUGS
+} from '../data/collections/anaesthesia';
 import { AnaesthesiaDrug } from '../types';
 import { geminiService } from '../services/geminiService';
 import { storage } from '../services/storageService';
@@ -71,8 +75,6 @@ const AnaestheticsCCView: React.FC = () => {
       active = false;
     };
   }, []);
-
-
 
   const allDrugs = [
     ...INDUCTION_AGENTS.map((d) => ({ ...d, category: 'induction' })),

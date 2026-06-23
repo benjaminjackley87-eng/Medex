@@ -1,9 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import {
-  formatKeyToTitle,
-  parseContentText,
-  formatDescriptionParagraphs
-} from './latexTextParser';
+import { formatKeyToTitle, parseContentText, formatDescriptionParagraphs } from './latexTextParser';
 import React from 'react';
 import { render } from '@testing-library/react';
 
@@ -50,7 +46,7 @@ describe('latexTextParser', () => {
 2. **Second Point** Body of second point`;
       const result = formatDescriptionParagraphs(input, 'test-key');
       const { container } = render(<div>{result}</div>);
-      
+
       expect(container.textContent).toContain('First Point');
       expect(container.textContent).toContain('Body of first point');
       // Numbered lists in formatDescriptionParagraphs get rendered as specific UI components
@@ -62,7 +58,7 @@ describe('latexTextParser', () => {
       const input = `This is a standard paragraph without lists.`;
       const result = formatDescriptionParagraphs(input, 'test-key');
       const { container } = render(<div>{result}</div>);
-      
+
       expect(container.textContent).toContain('This is a standard paragraph');
     });
   });

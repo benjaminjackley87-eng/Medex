@@ -14,7 +14,11 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { AppView, Examination, ExamSystem } from '../../types';
-import { localSearchService, SearchDocument, SearchResult } from '../../services/localSearchService';
+import {
+  localSearchService,
+  SearchDocument,
+  SearchResult
+} from '../../services/localSearchService';
 import FoundationalDetailModal from './FoundationalDetailModal';
 
 interface CommandPaletteProps {
@@ -110,27 +114,28 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
     }
   }
 
-  const filteredViews = useMemo(() =>
-    views.filter((v) => v.label.toLowerCase().includes(query.toLowerCase())),
+  const filteredViews = useMemo(
+    () => views.filter((v) => v.label.toLowerCase().includes(query.toLowerCase())),
     [query]
   );
 
-  const filteredExams = useMemo(() =>
-    exams
-      .filter((e) => e.name.toLowerCase().includes(query.toLowerCase()))
-      .slice(0, 5),
+  const filteredExams = useMemo(
+    () => exams.filter((e) => e.name.toLowerCase().includes(query.toLowerCase())).slice(0, 5),
     [exams, query]
   );
 
-  const standardResults = useMemo(() =>
-    [...filteredViews, ...filteredExams.map((e) => ({ ...e, isExam: true }))],
+  const standardResults = useMemo(
+    () => [...filteredViews, ...filteredExams.map((e) => ({ ...e, isExam: true }))],
     [filteredViews, filteredExams]
   );
 
-  const results = useMemo(() => [
-    ...standardResults,
-    ...foundationalResults.map((r) => ({ ...r.document, isFoundational: true }))
-  ], [standardResults, foundationalResults]);
+  const results = useMemo(
+    () => [
+      ...standardResults,
+      ...foundationalResults.map((r) => ({ ...r.document, isFoundational: true }))
+    ],
+    [standardResults, foundationalResults]
+  );
 
   const handleQueryChange = (newQuery: string) => {
     setQuery(newQuery);
