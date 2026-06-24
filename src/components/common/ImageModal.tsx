@@ -26,6 +26,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ src, alt, onClose }) => {
         <div className="absolute top-0 right-0 p-4 pointer-events-auto">
           <button
             onClick={onClose}
+            aria-label="Close image"
             className="p-4 bg-slate-950/40/10 hover:bg-slate-950/40/20 border border-white/10 backdrop-blur-md rounded-2xl text-white transition-all hover:scale-110 active:scale-95 group shadow-2xl"
           >
             <X className="w-6 h-6" />
