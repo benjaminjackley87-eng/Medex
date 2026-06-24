@@ -105,7 +105,7 @@ _Note: This script runs automatically before the app starts._
 2. Add your Gemini API Key. Create a `.env.local` file in the root directory:
 
    ```bash
-   GEMINI_API_KEY=your_key_here
+   VITE_GEMINI_API_KEY=your_key_here
    ```
 
    _(Note: There is a fallback API key embedded in `vite.config.ts` for local offline use. **Do not deploy this application to a public server without removing it first.**)_

@@ -70,14 +70,7 @@ import {
 
 export class GeminiService {
   private getAI(): GoogleGenAI {
-    let apiKey = process.env.GEMINI_API_KEY;
-    if (apiKey && !apiKey.startsWith('AIzaSy')) {
-      try {
-        apiKey = atob(apiKey);
-      } catch (e) {
-        // Fallback if not base64 or failed to decode
-      }
-    }
+    const apiKey = import.meta.env.GEMINI_API_KEY || import.meta.env.VITE_GEMINI_API_KEY;
     if (!apiKey) {
       console.warn('GEMINI_API_KEY not found in environment. Gemini features may be limited.');
     }
