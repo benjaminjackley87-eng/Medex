@@ -14,9 +14,7 @@ export const PhysiologyDetail: React.FC<PhysiologyDetailProps> = ({ bucket }) =>
         <span className="text-[9px] font-black text-emerald-400 uppercase tracking-widest block mb-1">
           Physiological Sub-Matrix
         </span>
-        <h3 className="text-sm font-black text-white uppercase tracking-wider">
-          {bucket.title}
-        </h3>
+        <h3 className="text-sm font-black text-white uppercase tracking-wider">{bucket.title}</h3>
       </div>
 
       <div className="space-y-4">
@@ -28,9 +26,7 @@ export const PhysiologyDetail: React.FC<PhysiologyDetailProps> = ({ bucket }) =>
             <span className="text-[10px] font-black text-emerald-400 block mb-2 uppercase tracking-wide">
               {item.label}
             </span>
-            <p className="text-xs font-medium text-slate-300 leading-relaxed">
-              {item.description}
-            </p>
+            <p className="text-xs font-medium text-slate-300 leading-relaxed">{item.description}</p>
           </div>
         ))}
       </div>

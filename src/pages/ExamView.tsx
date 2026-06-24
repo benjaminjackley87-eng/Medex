@@ -415,7 +415,9 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
       onSelectSystem={onSelectSystem || (() => {})}
       activeExamName={exam.name}
       activeTab={activeTab}
-      onSelectTab={(tab) => setActiveTab(tab as 'clinical' | 'physiology' | 'steps' | 'onepager' | 'visuals')}
+      onSelectTab={(tab) =>
+        setActiveTab(tab as 'clinical' | 'physiology' | 'steps' | 'onepager' | 'visuals')
+      }
       tabs={workspaceTabs}
       history={history}
       onClearHistory={clearHistory}
@@ -492,8 +494,8 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
           </div>
         )}
 
-        {activeTab === 'physiology' && (
-          isEditMode ? (
+        {activeTab === 'physiology' &&
+          (isEditMode ? (
             <ExamPhysiologyTab
               exam={exam}
               isEditMode={isEditMode}
@@ -506,11 +508,10 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
               setSelectedPhysiologyBucket={setSelectedPhysiologyBucket}
               addToHistory={addToHistory}
             />
-          )
-        )}
+          ))}
 
-        {activeTab === 'clinical' && (
-          isEditMode ? (
+        {activeTab === 'clinical' &&
+          (isEditMode ? (
             <ExamClinicalTab
               exam={exam}
               isEditMode={isEditMode}
@@ -522,8 +523,7 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
               selectedDifferentialIndex={selectedDifferentialIndex}
               setSelectedDifferentialIndex={setSelectedDifferentialIndex}
             />
-          )
-        )}
+          ))}
 
         {activeTab === 'visuals' && (
           <ExamVisualsTab

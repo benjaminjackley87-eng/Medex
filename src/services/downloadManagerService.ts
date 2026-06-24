@@ -278,7 +278,12 @@ export class DownloadManagerService {
       console.error('Download pipeline failure', err);
       task.status = 'failed';
       const errorMessage = err instanceof Error ? err.message : String(err);
-      const isQuotaError = errorMessage.includes('429') || (typeof err === 'object' && err !== null && 'status' in err && (err as { status?: number }).status === 429);
+      const isQuotaError =
+        errorMessage.includes('429') ||
+        (typeof err === 'object' &&
+          err !== null &&
+          'status' in err &&
+          (err as { status?: number }).status === 429);
       if (isQuotaError) {
         this.isPaused = true;
         task.error = 'Quota Exceeded - Sync Paused';

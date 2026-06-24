@@ -96,9 +96,7 @@ const DownloadManager: React.FC = () => {
                 </p>
               </div>
             ) : (
-              tasks.map((task, idx) => (
-                <DownloadTaskCard key={task.id} task={task} idx={idx} />
-              ))
+              tasks.map((task, idx) => <DownloadTaskCard key={task.id} task={task} idx={idx} />)
             )}
           </div>
         </div>

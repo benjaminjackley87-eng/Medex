@@ -12,9 +12,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { geminiService } from '../services/geminiService';
 import { AntibioticInfo, PathogenInfo } from '../types';
-import {
-  ANTIBIOTIC_CATEGORIES
-} from '../data/collections/antibiotics';
+import { ANTIBIOTIC_CATEGORIES } from '../data/collections/antibiotics';
 import { AntibiogramTable } from './pharmacology/AntibiogramTable';
 import { InteractionChecker } from './pharmacology/InteractionChecker';
 import { AntibioticDetail } from './pharmacology/AntibioticDetail';

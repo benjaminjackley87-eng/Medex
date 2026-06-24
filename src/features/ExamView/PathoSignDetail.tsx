@@ -76,16 +76,12 @@ export const PathoSignDetail: React.FC<PathoSignDetailProps> = ({
               <span className="text-[9px] font-black uppercase tracking-wider text-indigo-400 block mb-2">
                 Anatomical Focus
               </span>
-              <p className="text-xs font-bold leading-relaxed">
-                {pathoSignData.affectedAnatomy}
-              </p>
+              <p className="text-xs font-bold leading-relaxed">{pathoSignData.affectedAnatomy}</p>
             </div>
           )}
         </div>
       ) : (
-        <p className="text-xs text-slate-400 italic">
-          Failed to retrieve clinical correlation.
-        </p>
+        <p className="text-xs text-slate-400 italic">Failed to retrieve clinical correlation.</p>
       )}
     </div>
   );

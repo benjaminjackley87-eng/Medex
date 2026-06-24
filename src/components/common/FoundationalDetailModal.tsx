@@ -1,7 +1,12 @@
 import React from 'react';
 import { X, BookOpen, Layers, Activity, Zap, ShieldAlert } from 'lucide-react';
 import { SearchDocument } from '../../services/localSearchService';
-import { loadAllAppliedAnatomyModules, AppliedAnatomyModule, SpecialTest, Formula } from '../../data/collections/appliedAnatomyLoader';
+import {
+  loadAllAppliedAnatomyModules,
+  AppliedAnatomyModule,
+  SpecialTest,
+  Formula
+} from '../../data/collections/appliedAnatomyLoader';
 import { renderFullContent, renderBlockMath, parseContentText } from '../../utils/latexTextParser';
 
 interface FoundationalDetailModalProps {
@@ -214,7 +219,9 @@ const FoundationalDetailModal: React.FC<FoundationalDetailModalProps> = ({ docum
                           }`}
                         >
                           <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest block">
-                            {isFormula ? (value as unknown as Formula).formulaName : key.replace(/_/g, ' ')}
+                            {isFormula
+                              ? (value as unknown as Formula).formulaName
+                              : key.replace(/_/g, ' ')}
                           </span>
                           <div className="mt-1">{renderRoteOrRelationValue(value, key)}</div>
                         </div>

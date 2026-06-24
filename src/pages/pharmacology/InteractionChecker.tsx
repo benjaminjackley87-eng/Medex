@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
-import { Stethoscope, Plus, X, Loader2, Info, ShieldCheck, ShieldAlert, AlertCircle, Pill } from 'lucide-react';
+import {
+  Stethoscope,
+  Plus,
+  X,
+  Loader2,
+  Info,
+  ShieldCheck,
+  ShieldAlert,
+  AlertCircle,
+  Pill
+} from 'lucide-react';
 import { motion } from 'motion/react';
 import { InteractionResult } from '../../types';
 import { geminiService } from '../../services/geminiService';
@@ -55,9 +65,7 @@ export const InteractionChecker: React.FC<InteractionCheckerProps> = ({ setError
       className="space-y-8"
     >
       <div className="bg-slate-900 p-8 rounded-[40px] border border-white/5 shadow-sm">
-        <h2 className="text-2xl font-black text-white mb-2 tracking-tight">
-          Interaction Checker
-        </h2>
+        <h2 className="text-2xl font-black text-white mb-2 tracking-tight">Interaction Checker</h2>
         <p className="text-slate-450 font-medium mb-8">
           Add medications to check for interactions, synergisms, and contraindications.
         </p>
@@ -136,8 +144,8 @@ export const InteractionChecker: React.FC<InteractionCheckerProps> = ({ setError
                   No Major Interactions Detected
                 </h3>
                 <p className="text-slate-400 font-medium text-sm">
-                  No significant interactions, synergisms, or contraindications were found for
-                  this combination. However, always exercise clinical judgment.
+                  No significant interactions, synergisms, or contraindications were found for this
+                  combination. However, always exercise clinical judgment.
                 </p>
               </div>
             )}

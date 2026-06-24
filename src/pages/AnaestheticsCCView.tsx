@@ -1,15 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import {
-  Activity,
-  Pill,
-  Wind,
-  FileText,
-  Lightbulb,
-  Zap,
-  Ruler,
-  Box,
-} from 'lucide-react';
+import { Activity, Pill, Wind, FileText, Lightbulb, Zap, Ruler, Box } from 'lucide-react';
 import { PharmacologyTab } from '../components/anaesthetics/PharmacologyTab';
 import { PhysiologyTab } from '../components/anaesthetics/PhysiologyTab';
 import { CurriculumTab } from '../components/anaesthetics/CurriculumTab';

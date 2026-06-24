@@ -86,8 +86,7 @@ export const StepsDetail: React.FC<StepsDetailProps> = ({
           </span>
         </div>
         <p className="text-[9px] font-medium text-slate-400 leading-relaxed">
-          Ask AI to add details, pathophysiology, or specific stigmata findings to this
-          protocol.
+          Ask AI to add details, pathophysiology, or specific stigmata findings to this protocol.
         </p>
         <textarea
           value={refinementPrompt}

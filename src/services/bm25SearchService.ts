@@ -86,7 +86,8 @@ function buildBM25Index<T>(docs: BM25Doc<T>[]) {
       if (freq === 0) continue;
       const dfVal = df.get(term) ?? 0;
       const idf = Math.log((N - dfVal + 0.5) / (dfVal + 0.5) + 1);
-      const tfNorm = (freq * (BM25_K1 + 1)) / (freq + BM25_K1 * (1 - BM25_B + BM25_B * (dl / avgdl)));
+      const tfNorm =
+        (freq * (BM25_K1 + 1)) / (freq + BM25_K1 * (1 - BM25_B + BM25_B * (dl / avgdl)));
       total += idf * tfNorm;
     }
     return total;
@@ -135,7 +136,11 @@ export function searchExaminationAsCondition(query: string): ClinicalCondition |
 
   // Map ExamSteps → ClinicalCondition findings
   const findings: ClinicalCondition['findings'] = exam.steps.flatMap((step) => {
-    const base = { category: step.category || 'General', sign: step.title, significance: step.description };
+    const base = {
+      category: step.category || 'General',
+      sign: step.title,
+      significance: step.description
+    };
     const positive = (step.positiveFindings ?? []).map((pf) => ({
       category: step.category || 'Positive Findings',
       sign: pf.description,
@@ -161,7 +166,13 @@ export async function searchECGPattern(query: string): Promise<ECGPattern | null
 
     const docs: BM25Doc<ECGPattern>[] = patterns.map((p) => ({
       id: p.id ?? p.name,
-      corpus: [p.name, p.category, p.description, ...(p.criteria ?? []), p.clinicalSignificance].join(' '),
+      corpus: [
+        p.name,
+        p.category,
+        p.description,
+        ...(p.criteria ?? []),
+        p.clinicalSignificance
+      ].join(' '),
       payload: p
     }));
 
@@ -183,7 +194,14 @@ export async function searchRadiologyFinding(query: string): Promise<RadiologyFi
 
     const docs: BM25Doc<RadiologyFinding>[] = findings.map((f) => ({
       id: f.id,
-      corpus: [f.name, f.modality, f.category, f.description ?? '', ...(f.keySigns ?? []), f.clinicalSignificance].join(' '),
+      corpus: [
+        f.name,
+        f.modality,
+        f.category,
+        f.description ?? '',
+        ...(f.keySigns ?? []),
+        f.clinicalSignificance
+      ].join(' '),
       payload: f
     }));
 
@@ -198,7 +216,9 @@ export async function searchRadiologyFinding(query: string): Promise<RadiologyFi
 /**
  * Search cached Therapeutic Guidance protocols in IndexedDB.
  */
-export async function searchTherapeuticGuidance(query: string): Promise<TherapeuticGuidance | null> {
+export async function searchTherapeuticGuidance(
+  query: string
+): Promise<TherapeuticGuidance | null> {
   try {
     // getProtocol uses exact key; we need to scan all protocols
     // We reuse getAllRadiologyFindings-style pattern via direct IDB scan.
@@ -221,7 +241,9 @@ export async function searchTherapeuticGuidance(query: string): Promise<Therapeu
 /**
  * Search cached Clinical Correlations in IndexedDB.
  */
-export async function searchClinicalCorrelation(query: string): Promise<ClinicalCorrelation | null> {
+export async function searchClinicalCorrelation(
+  query: string
+): Promise<ClinicalCorrelation | null> {
   try {
     const direct = await storage.getCorrelation(query);
     if (direct) return direct;
@@ -285,7 +307,9 @@ export async function searchAnaesthesiaDrug(query: string): Promise<AnaesthesiaD
 
     const docs: BM25Doc<AnaesthesiaDrug>[] = drugs.map((d) => ({
       id: d.name,
-      corpus: [d.name, d.class, ...(d.indications ?? []), d.mechanism, ...(d.pearls ?? [])].join(' '),
+      corpus: [d.name, d.class, ...(d.indications ?? []), d.mechanism, ...(d.pearls ?? [])].join(
+        ' '
+      ),
       payload: d
     }));
 
