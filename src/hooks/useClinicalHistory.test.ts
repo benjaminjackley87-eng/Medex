@@ -20,6 +20,21 @@ describe('useClinicalHistory', () => {
     expect(result.current.history).toEqual(mockHistory);
   });
 
+  it('handles invalid JSON in sessionStorage gracefully', () => {
+    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    sessionStorage.setItem('medex_clinical_history', 'invalid-json');
+
+    const { result } = renderHook(() => useClinicalHistory());
+
+    expect(result.current.history).toEqual([]);
+    expect(consoleErrorSpy).toHaveBeenCalledWith(
+      'Failed to load clinical history',
+      expect.any(Error)
+    );
+
+    consoleErrorSpy.mockRestore();
+  });
+
   it('adds an item to history', () => {
     const { result } = renderHook(() => useClinicalHistory());
 
