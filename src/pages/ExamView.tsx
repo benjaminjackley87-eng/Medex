@@ -36,6 +36,9 @@ import { PhysiologyDetail } from '../features/ExamView/PhysiologyDetail';
 import { ClinicalDetail } from '../features/ExamView/ClinicalDetail';
 import { MainPhysiologyTabContent } from '../features/ExamView/MainPhysiologyTabContent';
 import { MainClinicalTabContent } from '../features/ExamView/MainClinicalTabContent';
+import { ExamHeader } from '../features/ExamView/components/ExamHeader';
+import { ExamNotFound } from '../features/ExamView/components/ExamNotFound';
+import { ExamResearching } from '../features/ExamView/components/ExamResearching';
 
 interface ExamViewProps {
   exam?: Examination;
@@ -379,35 +382,12 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
   ]);
 
   if (!resolvedExam) {
-    return (
-      <div className="h-full flex flex-col items-center justify-center gap-4 text-center p-8">
-        <p className="text-slate-400 font-black uppercase tracking-widest text-sm">
-          Exam Not Found
-        </p>
-        <button
-          onClick={() => navigate('/library')}
-          className="px-6 py-3 bg-blue-600 text-white rounded-xl text-xs font-black uppercase tracking-wider"
-        >
-          Back to Library
-        </button>
-      </div>
-    );
+    return <ExamNotFound />;
   }
 
-  if (isResearching)
-    return (
-      <div className="h-full flex flex-col items-center justify-center p-20 bg-slate-950 text-slate-100">
-        <div className="relative mb-8">
-          <div className="w-20 h-20 border-4 border-white/10 rounded-full"></div>
-          <div className="w-20 h-20 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin absolute top-0"></div>
-          <Activity className="w-8 h-8 text-indigo-500 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-        </div>
-        <p className="text-micro text-slate-400 tracking-[0.3em] mb-2">Synthesizing Protocol</p>
-        <p className="text-[11px] font-bold text-slate-400 italic">
-          Consulting evidence-based medical literature...
-        </p>
-      </div>
-    );
+  if (isResearching) {
+    return <ExamResearching />;
+  }
 
   return (
     <WorkspaceLayout
@@ -429,31 +409,7 @@ const ExamView: React.FC<ExamViewProps> = (props) => {
       <div className="space-y-8">
         {activeTab === 'steps' && (
           <div className="space-y-6">
-            <div className="bg-slate-900/50 border border-white/5 rounded-3xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-950/200/5 rounded-full blur-3xl pointer-events-none" />
-              <div>
-                <h2 className="text-lg font-black text-white uppercase tracking-wider mb-1">
-                  {exam.name}
-                </h2>
-                <p className="text-xs font-bold text-slate-400 leading-relaxed italic">
-                  "{exam.shortDescription}"
-                </p>
-              </div>
-              <div className="shrink-0 flex items-center gap-3">
-                <div className="bg-slate-950/80 px-4 py-2.5 rounded-xl border border-white/5 flex flex-col items-center">
-                  <span className="text-xs font-black text-indigo-400">{exam.steps.length}</span>
-                  <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest mt-0.5">
-                    Steps
-                  </span>
-                </div>
-                <div className="bg-slate-950/80 px-4 py-2.5 rounded-xl border border-white/5 flex flex-col items-center">
-                  <span className="text-xs font-black text-emerald-400">{progress}%</span>
-                  <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest mt-0.5">
-                    Mastery
-                  </span>
-                </div>
-              </div>
-            </div>
+            <ExamHeader exam={exam} progress={progress} />
 
             <ExamStepsTab
               exam={exam}
