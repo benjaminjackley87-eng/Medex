@@ -18,6 +18,8 @@ import SuiteLayout, { SuiteTab } from '../components/ui/SuiteLayout';
 import DashboardView from './StudyHub/components/DashboardView';
 import SessionView from './StudyHub/components/SessionView';
 import ResultsView from './StudyHub/components/ResultsView';
+import StudySidebar from './StudyHub/components/StudySidebar';
+import StudyDetail from './StudyHub/components/StudyDetail';
 import GlowContainer from '../components/ui/GlowContainer';
 
 const RGA_TOPICS = [
@@ -209,77 +211,6 @@ const StudyHubView: React.FC = () => {
     setView('results');
   };
 
-  const renderSidebar = () => {
-    return (
-      <div className="space-y-6">
-        <div className="space-y-3">
-          <h3 className="font-bold text-slate-200 uppercase tracking-widest text-[9px]">
-            Select Focus Topic
-          </h3>
-          <div className="space-y-1">
-            {RGA_TOPICS.map((topic) => {
-              const topicProgress = progress.find((p) => p.topic === topic.name);
-              return (
-                <button
-                  key={topic.id}
-                  onClick={() => {
-                    if (view === 'dashboard') {
-                      startSession(topic.name, 'practice');
-                    }
-                  }}
-                  className={`w-full text-left px-3 py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-wider flex items-center justify-between transition-all cursor-pointer ${
-                    selectedTopic === topic.name
-                      ? 'text-indigo-400 bg-indigo-950/200/10'
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-950/40/[0.02]'
-                  }`}
-                >
-                  <span className="truncate">{topic.name}</span>
-                  <span className="text-[9px] text-slate-400 font-medium shrink-0 ml-2">
-                    {topicProgress?.masteryLevel || 0}%
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const renderDetail = () => {
-    return (
-      <div className="space-y-6 text-slate-400 text-xs font-medium leading-relaxed">
-        <div className="p-4 bg-indigo-950/20 border border-indigo-500/10 rounded-2xl">
-          <h4 className="font-black text-slate-200 uppercase tracking-widest text-[9px] mb-1.5 flex items-center gap-1.5">
-            <Trophy className="w-3.5 h-3.5 text-indigo-400" /> Study Stats
-          </h4>
-          <div className="space-y-3 mt-3">
-            <div className="flex justify-between">
-              <span className="text-slate-400">Total Score:</span>
-              <span className="font-black text-white">
-                {progress.reduce((acc, p) => acc + p.correctAnswers, 0)}
-              </span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-slate-400">Attempted:</span>
-              <span className="font-black text-white">
-                {progress.reduce((acc, p) => acc + p.questionsAttempted, 0)}
-              </span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-slate-400">Average Accuracy:</span>
-              <span className="font-black text-white">
-                {progress.reduce((acc, p) => acc + p.questionsAttempted, 0) > 0
-                  ? `${Math.round((progress.reduce((acc, p) => acc + p.correctAnswers, 0) / progress.reduce((acc, p) => acc + p.questionsAttempted, 0)) * 100)}%`
-                  : '0%'}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
   const suiteTabs: SuiteTab[] = [{ id: 'dashboard', label: 'Study Console', icon: GraduationCap }];
 
   return (
@@ -294,10 +225,18 @@ const StudyHubView: React.FC = () => {
         themeClass="from-indigo-600 to-purple-850"
         sidebarTitle="Topics Catalogs"
         sidebarIcon={BookOpen}
-        sidebarContent={renderSidebar()}
+        sidebarContent={
+          <StudySidebar
+            rgaTopics={RGA_TOPICS}
+            progress={progress}
+            selectedTopic={selectedTopic}
+            view={view}
+            startSession={startSession}
+          />
+        }
         detailTitle="Study Dashboard"
         detailIcon={Trophy}
-        detailContent={renderDetail()}
+        detailContent={<StudyDetail progress={progress} />}
       >
         {loading ? (
           <div className="flex flex-col items-center justify-center py-20 gap-4">
