@@ -103,4 +103,19 @@ describe('useClinicalHistory', () => {
     const saved = JSON.parse(sessionStorage.getItem('medex_clinical_history') || '[]');
     expect(saved.length).toBe(0);
   });
+
+  it('handles invalid JSON in sessionStorage gracefully', () => {
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    sessionStorage.setItem('medex_clinical_history', 'invalid-json');
+
+    const { result } = renderHook(() => useClinicalHistory());
+
+    expect(result.current.history).toEqual([]);
+    expect(consoleSpy).toHaveBeenCalledWith(
+      'Failed to load clinical history',
+      expect.any(SyntaxError)
+    );
+
+    consoleSpy.mockRestore();
+  });
 });
