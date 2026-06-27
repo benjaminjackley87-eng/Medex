@@ -1,18 +1,4 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import {
-  Search,
-  BookOpen,
-  GraduationCap,
-  FolderArchive,
-  Terminal,
-  Zap,
-  Microscope,
-  Activity,
-  Pill,
-  Layers,
-  Command,
-  ChevronRight
-} from 'lucide-react';
 import { AppView, Examination, ExamSystem } from '../../types';
 import {
   localSearchService,
@@ -23,6 +9,10 @@ import FoundationalDetailModal from './FoundationalDetailModal';
 import ViewResult from './CommandPalette/ViewResult';
 import ProtocolResult from './CommandPalette/ProtocolResult';
 import FoundationalResult from './CommandPalette/FoundationalResult';
+import { COMMAND_VIEWS } from './CommandPalette/constants';
+import CommandPaletteInput from './CommandPalette/CommandPaletteInput';
+import CommandPaletteEmpty from './CommandPalette/CommandPaletteEmpty';
+import CommandPaletteFooter from './CommandPalette/CommandPaletteFooter';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -48,69 +38,6 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
   const [selectedDoc, setSelectedDoc] = useState<SearchDocument | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const views = [
-    {
-      id: 'library',
-      label: 'Repository',
-      icon: <BookOpen className="w-4 h-4" />,
-      view: 'library' as AppView
-    },
-    {
-      id: 'dashboard',
-      label: 'Dashboard',
-      icon: <GraduationCap className="w-4 h-4" />,
-      view: 'dashboard' as AppView
-    },
-    {
-      id: 'vault',
-      label: 'Knowledge Vault',
-      icon: <FolderArchive className="w-4 h-4" />,
-      view: 'vault' as AppView
-    },
-    {
-      id: 'glossary',
-      label: 'Glossary',
-      icon: <Terminal className="w-4 h-4" />,
-      view: 'glossary' as AppView
-    },
-    {
-      id: 'correlation',
-      label: 'Correlation',
-      icon: <Zap className="w-4 h-4" />,
-      view: 'correlation' as AppView
-    },
-    {
-      id: 'finder',
-      label: 'Clinical Finder',
-      icon: <Microscope className="w-4 h-4" />,
-      view: 'finder' as AppView
-    },
-    {
-      id: 'investigations',
-      label: 'Investigation Hub',
-      icon: <Activity className="w-4 h-4" />,
-      view: 'investigations' as AppView
-    },
-    {
-      id: 'therapeuticNavigator',
-      label: 'Therapeutics',
-      icon: <Zap className="w-4 h-4" />,
-      view: 'therapeuticNavigator' as AppView
-    },
-    {
-      id: 'pharmacology',
-      label: 'Pharmacology',
-      icon: <Pill className="w-4 h-4" />,
-      view: 'pharmacology' as AppView
-    },
-    {
-      id: 'dermRevisor',
-      label: 'Derm Revisor',
-      icon: <Layers className="w-4 h-4" />,
-      view: 'dermRevisor' as AppView
-    }
-  ];
-
   const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
   if (isOpen !== prevIsOpen) {
     setPrevIsOpen(isOpen);
@@ -123,7 +50,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
   }
 
   const filteredViews = useMemo(
-    () => views.filter((v) => v.label.toLowerCase().includes(query.toLowerCase())),
+    () => COMMAND_VIEWS.filter((v) => v.label.toLowerCase().includes(query.toLowerCase())),
     [query]
   );
 
@@ -222,21 +149,11 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
         />
 
         <div className="relative w-full max-w-2xl bg-slate-900 border border-slate-800 rounded-[32px] shadow-2xl shadow-black overflow-hidden animate-in zoom-in-95 slide-in-from-top-8 duration-300 flex flex-col max-h-[75vh]">
-          {/* Input Header */}
-          <div className="p-6 border-b border-slate-800 flex items-center gap-4 bg-slate-950/50">
-            <Search className="w-5 h-5 text-slate-400" />
-            <input
-              ref={inputRef}
-              type="text"
-              value={query}
-              onChange={(e) => handleQueryChange(e.target.value)}
-              placeholder="Search pages, protocols, or foundational sciences (e.g. AcetylCoa)..."
-              className="flex-1 bg-transparent border-none outline-none text-lg font-medium text-slate-100 placeholder:text-slate-400"
-            />
-            <div className="flex items-center gap-1 px-2 py-1 bg-slate-800 rounded-lg border border-slate-700">
-              <span className="text-[10px] font-black text-slate-400 uppercase">ESC</span>
-            </div>
-          </div>
+          <CommandPaletteInput
+            inputRef={inputRef}
+            query={query}
+            onQueryChange={handleQueryChange}
+          />
 
           {/* Results Container */}
           <div className="flex-1 overflow-y-auto p-4 custom-scrollbar bg-slate-900">
@@ -338,39 +255,11 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
                 )}
               </div>
             ) : (
-              <div className="py-12 text-center">
-                <div className="w-16 h-16 bg-slate-800 border border-slate-700/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Search className="w-8 h-8 text-slate-400" />
-                </div>
-                <p className="text-slate-400 font-bold text-sm">No results found for "{query}"</p>
-              </div>
+              <CommandPaletteEmpty query={query} />
             )}
           </div>
 
-          {/* Footer controls */}
-          <div className="p-4 bg-slate-950 border-t border-slate-800 flex items-center justify-between">
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2">
-                <div className="flex items-center gap-1 px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700 shadow-sm">
-                  <span className="text-[9px] font-black text-slate-400">↑↓</span>
-                </div>
-                <span className="text-[10px] font-bold text-slate-400 uppercase">Navigate</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="flex items-center gap-1 px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700 shadow-sm">
-                  <span className="text-[9px] font-black text-slate-400">↵</span>
-                </div>
-                <span className="text-[10px] font-bold text-slate-400 uppercase">
-                  Select / Open
-                </span>
-              </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                MedEx Nexus v4
-              </span>
-            </div>
-          </div>
+          <CommandPaletteFooter />
         </div>
       </div>
 
