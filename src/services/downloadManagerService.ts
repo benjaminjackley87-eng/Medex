@@ -241,20 +241,18 @@ export class DownloadManagerService {
         }
 
         if (step.positiveFindings) {
-          const processedFindings = [];
-          for (let pfIdx = 0; pfIdx < step.positiveFindings.length; pfIdx++) {
-            const pf = step.positiveFindings[pfIdx];
-            if (pf.imageUrl) {
-              const pfAssetId = await this.fetchAndStoreAsset(
-                pf.imageUrl,
-                `finding_${step.id}_${pfIdx}`
-              );
-              processedFindings.push({ ...pf, localImageUrl: pfAssetId });
-            } else {
-              processedFindings.push(pf);
-            }
-          }
-          processedStep.positiveFindings = processedFindings;
+          processedStep.positiveFindings = await Promise.all(
+            step.positiveFindings.map(async (pf, pfIdx) => {
+              if (pf.imageUrl) {
+                const pfAssetId = await this.fetchAndStoreAsset(
+                  pf.imageUrl,
+                  `finding_${step.id}_${pfIdx}`
+                );
+                return { ...pf, localImageUrl: pfAssetId };
+              }
+              return pf;
+            })
+          );
         }
         processedSteps.push(processedStep);
       }
